@@ -1,0 +1,77 @@
+\chapter{Detailed API and Service Responsibilities}
+
+This appendix summarizes the expected responsibilities of the backend API and internal services. It should be updated if route names change in the final code.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Backend API responsibilities}\\
+\toprule
+API group & Responsibility \\
+\midrule
+\endfirsthead
+\toprule
+API group & Responsibility \\
+\midrule
+\endhead
+Users/Farms/Plots/Crops/Soil profiles & CRUD endpoints for master data management. \\
+Zones & Returns zone list, latest state, history, and selected zone details. \\
+Sensors & Registers sensors, maps devices to sensor types, and exposes sensor readings. \\
+Weather & Stores and retrieves weather records and forecast data. \\
+Digital Twins & Returns twin state, synchronization status, and current virtual representation. \\
+Predictions & Stores and exposes ML prediction results. \\
+Simulations & Runs what-if scenarios and returns simulated moisture projections. \\
+Recommendations & Generates, lists, validates, or updates irrigation recommendations. \\
+Schedules/Irrigation events & Creates and manages planned irrigation events. \\
+Device control & Publishes WeMos commands such as ON\_D5 and OFF\_D5. \\
+Dashboard & Aggregates overview information for frontend cards. \\
+Forecast & Generates weather-aware irrigation outlooks. \\
+System/status/debug & Supports testing, health checks, and implementation verification. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{J.1 Internal services}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Internal backend service responsibilities}\\
+\toprule
+Service & Responsibility \\
+\midrule
+\endfirsthead
+\toprule
+Service & Responsibility \\
+\midrule
+\endhead
+MQTT parser & Converts incoming JSON payloads into normalized internal sensor/weather fields. \\
+MQTT consumer & Handles the received topic and payload, stores records, and triggers the real-time pipeline. \\
+Mapping service & Resolves device identifiers, zones, and sensor types. \\
+Realtime pipeline & Coordinates sensor health, state update, ML prediction, history, and recommendations. \\
+Digital Twin service & Builds and retrieves current virtual zone states. \\
+Simulator & Computes what-if moisture projections. \\
+ML service client & Sends feature payloads to the Random Forest inference service. \\
+Recommendation engine & Transforms prediction/twin state into recommendations. \\
+Forecast service & Calls weather forecast APIs and generates irrigation outlooks. \\
+Device control service & Publishes MQTT commands to WeMos. \\
+Irrigation scheduler & Executes scheduled irrigation events at the planned time. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{J.2 API evidence to collect}
+
+\begin{itemize}
+
+\item FastAPI /docs screenshot showing API groups and routes.
+
+\item GET /api/v1/dashboard/overview or equivalent response showing dashboard aggregation.
+
+\item GET /api/v1/zones/\{id\}/twin-state or equivalent showing virtual zone state.
+
+\item POST simulation endpoint response showing projected moisture and recommendation.
+
+\item POST device command endpoint response after ON\_D5/OFF\_D5 command.
+
+\end{itemize}

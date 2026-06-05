@@ -1,0 +1,153 @@
+\chapter{Results, Validation, and Discussion}
+
+\section{11.1 Introduction}
+
+Validation in this thesis focuses on technical correctness of the prototype workflow. The objective is to demonstrate that data can move from physical sensors to MQTT, database, Digital Twin state, ML prediction, dashboard, simulation, recommendation, and pump command.
+
+\section{11.2 Prototype validation context}
+
+The system was tested on a controlled experimental prototype, not on a commercial farm. Therefore, validation proves functional integration and workflow feasibility. Agronomic water-saving claims require future field experiments.
+
+\section{11.3 Sensor data acquisition}
+
+The HiveMQ screenshot shows sensor data published on sensors/data and WeMos status published on smart\_irrigation/wemos1/status. This proves that the communication layer receives physical and actuator information.
+
+\section{11.4 Database persistence}
+
+The database screenshot shows stored sensor readings with id, zone\_id, sensor\_type, value, quality\_flag, source, and timestamp. This proves that MQTT-originated measurements are persisted in PostgreSQL.
+
+\section{11.5 Dashboard synchronization}
+
+The dashboard shows the latest moisture, zone state, sensor health, twin status, environment snapshot, and recommendation. This proves that backend data is exposed to the user interface.
+
+\section{11.6 ML prediction validation}
+
+The ML service should be validated through /health, /metadata, and /predict screenshots. These show that models are loaded, metadata is available, and prediction output contains irrigation need, suggested hour, confidence, and recommended action.
+
+\section{11.7 Simulation validation}
+
+The Digital Twin simulation result compares no-irrigation, with-irrigation, and ML-selected paths. This proves that the platform can run what-if analysis rather than only display current values.
+
+\section{11.8 Pump control validation}
+
+Pump control is validated through MQTT command evidence and WeMos status feedback. The key expected sequence is ON\_D5 command, D5 ON status, OFF\_D5 command, and D5 OFF status.
+
+\section{11.9 Discussion of results}
+
+The results demonstrate end-to-end integration. The project succeeds in implementing the core Digital Twin loop in a controlled environment. The main limitation is that the loop has not yet been validated across seasons, crops, and real field variability.
+
+\section{11.10 Comparison with literature}
+
+Compared with MQTT smart irrigation systems, Agrio adds Digital Twin state and simulation. Compared with ML-only irrigation systems, Agrio integrates prediction into a deployed backend and dashboard. Compared with field-validated DT systems, Agrio is less agronomically validated but more transparent as a student engineering prototype.
+
+\section{11.11 Limitations}
+
+Limitations include controlled prototype scale, limited long-term data, dataset adaptation constraints, lack of satellite/UAV integration, limited security hardening, and the need for sensor calibration. These are normal for a final-year prototype but must be addressed before real deployment.
+
+\section{11.12 Future work}
+
+Future work includes field deployment, multiple zones, crop-specific calibration, satellite/UAV data assimilation, improved evapotranspiration modeling, model retraining, reinforcement learning optimization, emergency stop mechanisms, cybersecurity, and farmer usability studies.
+
+\section{11.13 Conclusion}
+
+This chapter validated the main technical workflow and discussed limitations. The system demonstrates a strong proof of concept for a Digital Twin-based intelligent irrigation platform.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
+\caption{Test scenario summary}\\
+\toprule
+Test ID & Objective & Expected result & Evidence figure & Status \\
+\midrule
+\endfirsthead
+\toprule
+Test ID & Objective & Expected result & Evidence figure & Status \\
+\midrule
+\endhead
+T1 & MQTT sensor payload reception & sensors/data message received & Figure 11.1 & To capture/insert \\
+T2 & Database persistence & sensor\_readings rows created & Figure 11.2 & Captured/insert \\
+T3 & Dashboard live update & dashboard reflects latest state & Figure 11.3 & Captured/insert \\
+T4 & ML prediction request & predict response returns decision and confidence & Figure 11.4 & To capture/insert \\
+T5 & Digital Twin synchronization & zone\_state updated & Figure 11.3 / 11.5 & Captured/insert \\
+T6 & What-if simulation & scenario output and chart generated & Figure 11.5 & Captured/insert \\
+T7 & Recommendation generation & recommendation pending/validated & Figure 9.3 / 9.9 & To capture/insert \\
+T8 & Manual pump ON command & ON\_D5 published and D5 ON status & Figures 11.6-11.7 & To capture/insert \\
+T9 & Manual pump OFF command & OFF\_D5 published and D5 OFF status & Figure 11.8 & To capture/insert \\
+T10 & Scheduled irrigation event & scheduler records execution feedback & Figure 11.9 & To capture/insert \\
+T11 & Forecast generation & forecast decision visible & Figure 9.5 & To capture/insert \\
+T12 & API documentation & FastAPI /docs accessible & Figure 7.3 & Captured/insert \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-1_sensor-mqtt-message-received-on-the-sensors-d.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.1 here: Sensor MQTT message received on the sensors/data topic.}}
+    \caption{Sensor MQTT message received on the sensors/data topic. Source: Authors.}
+    \label{fig:11-1-sensor-mqtt-message-received-on-the-sensors-data-topic}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-2_database-persistence-proof-showing-stored-sen.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.2 here: Database persistence proof showing stored sensor readings from MQTT-originated data.}}
+    \caption{Database persistence proof showing stored sensor readings from MQTT-originated data. Source: Authors.}
+    \label{fig:11-2-database-persistence-proof-showing-stored-sensor-readings-from-mq}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-3_dashboard-update-reflecting-the-latest-stored.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.3 here: Dashboard update reflecting the latest stored sensor and Digital Twin data.}}
+    \caption{Dashboard update reflecting the latest stored sensor and Digital Twin data. Source: Authors.}
+    \label{fig:11-3-dashboard-update-reflecting-the-latest-stored-sensor-and-digital-}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-4_ml-prediction-result-showing-irrigation-need-.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.4 here: ML prediction result showing irrigation need, suggested hour, confidence, and action.}}
+    \caption{ML prediction result showing irrigation need, suggested hour, confidence, and action. Source: Authors.}
+    \label{fig:11-4-ml-prediction-result-showing-irrigation-need-suggested-hour-confi}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-5_digital-twin-simulation-result-comparing-proj.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.5 here: Digital Twin simulation result comparing projected moisture and recommended action.}}
+    \caption{Digital Twin simulation result comparing projected moisture and recommended action. Source: Authors.}
+    \label{fig:11-5-digital-twin-simulation-result-comparing-projected-moisture-and-r}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-6_pump-on-command-sent-to-the-wemos-actuator-th.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.6 here: Pump ON command sent to the WeMos actuator through MQTT.}}
+    \caption{Pump ON command sent to the WeMos actuator through MQTT. Source: Authors.}
+    \label{fig:11-6-pump-on-command-sent-to-the-wemos-actuator-through-mqtt}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-7_wemos-status-feedback-after-pump-activation.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.7 here: WeMos status feedback after pump activation.}}
+    \caption{WeMos status feedback after pump activation. Source: Authors.}
+    \label{fig:11-7-wemos-status-feedback-after-pump-activation}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-8_pump-off-command-sent-to-the-wemos-actuator-t.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.8 here: Pump OFF command sent to the WeMos actuator through MQTT.}}
+    \caption{Pump OFF command sent to the WeMos actuator through MQTT. Source: Authors.}
+    \label{fig:11-8-pump-off-command-sent-to-the-wemos-actuator-through-mqtt}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_11/fig_11-9_execution-feedback-or-irrigation-event-status.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 11.9 here: Execution feedback or irrigation event status recorded after pump command execution.}}
+    \caption{Execution feedback or irrigation event status recorded after pump command execution. Source: Authors.}
+    \label{fig:11-9-execution-feedback-or-irrigation-event-status-recorded-after-pump}
+\end{figure}

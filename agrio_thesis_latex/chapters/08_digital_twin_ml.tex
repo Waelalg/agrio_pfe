@@ -1,0 +1,189 @@
+\chapter{Digital Twin and Machine Learning Layer}
+
+\section{8.1 Introduction}
+
+This chapter presents the Digital Twin and machine learning layer of Agrio. It explains how sensor readings become a virtual zone state, how Random Forest models predict irrigation need, how the system simulates future moisture evolution, and how recommendations are generated.
+
+\section{8.2 Virtual zone state}
+
+The zone state is the central representation of the Digital Twin. It stores current moisture, soil temperature, water balance, stress level, irrigation need, recommended action, pump status, synchronization information, prediction confidence, and timestamps. This state is updated whenever new sensor data arrives or when prediction/simulation processes run.
+
+\section{8.3 Dataset adaptation}
+
+The dataset adaptation script prepares raw data for model training and inference. It normalizes soil moisture, parses light intensity, converts wind direction, extracts date/time features, adds cyclic features, creates missing-value indicators, and derives helper labels such as irrigation need and favorable irrigation conditions.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-2_dataset-adaptation-and-feature-engineering-wo.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.2 here: Dataset adaptation and feature engineering workflow used before model training.}}
+    \caption{Dataset adaptation and feature engineering workflow used before model training. Source: Authors.}
+    \label{fig:8-2-dataset-adaptation-and-feature-engineering-workflow-used-before-mo}
+\end{figure}
+
+\section{8.4 Feature engineering}
+
+Features include temporal variables, environmental variables, soil variables, rainfall indicators, wind information, missing-value flags, cyclic hour/month encodings, and wind direction encodings. These features are suitable for Random Forest because the model can handle nonlinear interactions among tabular variables.
+
+\section{8.5 Random Forest models}
+
+Two Random Forest models are used. The first predicts whether irrigation is needed. The second suggests an irrigation hour. The model metadata reports high evaluation performance for irrigation need and lower but usable performance for suggested hour. These metrics are treated as dataset-level evaluation results, not as field-validated agronomic performance.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-1_machine-learning-pipeline-from-dataset-adapta.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.1 here: Machine learning pipeline from dataset adaptation to Random Forest inference.}}
+    \caption{Machine learning pipeline from dataset adaptation to Random Forest inference. Source: Authors.}
+    \label{fig:8-1-machine-learning-pipeline-from-dataset-adaptation-to-random-forest}
+\end{figure}
+
+\section{8.6 ML inference service}
+
+The ML service exposes endpoints such as /health, /metadata, and /predict. The backend prepares a feature payload and sends it to the ML service. The response includes irrigation need, confidence, suggested hour, suggested-hour confidence, recommended action, and features used.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-3_ml-service-health-endpoint-showing-model-load.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.3 here: ML service health endpoint showing model loading status.}}
+    \caption{ML service health endpoint showing model loading status. Source: Authors.}
+    \label{fig:8-3-ml-service-health-endpoint-showing-model-loading-status}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-4_ml-prediction-response-for-irrigation-need-an.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.4 here: ML prediction response for irrigation need and suggested irrigation hour.}}
+    \caption{ML prediction response for irrigation need and suggested irrigation hour. Source: Authors.}
+    \label{fig:8-4-ml-prediction-response-for-irrigation-need-and-suggested-irrigatio}
+\end{figure}
+
+\section{8.7 Digital Twin state update}
+
+After ML inference, the backend stores prediction results and updates the zone state with AI fields. The state history table records previous states, enabling temporal analysis and validation. This creates continuity between measurements, predictions, and dashboard display.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-5_digital-twin-state-update-flow-from-sensor-re.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.5 here: Digital Twin state update flow from sensor readings to synchronized zone state.}}
+    \caption{Digital Twin state update flow from sensor readings to synchronized zone state. Source: Authors.}
+    \label{fig:8-5-digital-twin-state-update-flow-from-sensor-readings-to-synchronize}
+\end{figure}
+
+\section{8.8 What-if simulation}
+
+The what-if simulation compares future moisture evolution under different scenarios. Inputs include zone, irrigation duration, projection horizon, and optional flow-rate override. Outputs include simulated moisture, water balance, 24-hour and 48-hour projection, recommended action, and explanation.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-6_what-if-simulation-logic-comparing-no-irrigat.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.6 here: What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths.}}
+    \caption{What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths. Source: Authors.}
+    \label{fig:8-6-what-if-simulation-logic-comparing-no-irrigation-with-irrigation-a}
+\end{figure}
+
+\section{8.9 Recommendation generation}
+
+The recommendation engine combines Digital Twin state, ML prediction, simulation result, forecast information, and rule-based constraints. Recommendations can indicate keep off, irrigate now, schedule irrigation, or monitor. They include priority, duration, reason, confidence, and status.
+
+\section{8.10 Explainability}
+
+Agrio improves explainability through dashboard text, confidence values, comparison charts, and scenario explanations. This is important because farmers and jury members must understand why the system recommends or rejects irrigation.
+
+\section{8.11 Limitations}
+
+The ML layer is limited by the dataset used, the controlled prototype context, and the absence of long-term multi-crop field validation. Model results must therefore be interpreted cautiously. Future work should include retraining using real field data and comparing Random Forest with gradient boosting, LSTM, and reinforcement learning.
+
+\section{8.12 Conclusion}
+
+This chapter described the intelligent layer of Agrio. The Digital Twin state, Random Forest models, simulation, recommendation engine, and explanation mechanisms together transform raw sensor data into actionable irrigation support.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Features used by the need\_irrigation model}\\
+\toprule
+Feature group & Examples & Purpose \\
+\midrule
+\endfirsthead
+\toprule
+Feature group & Examples & Purpose \\
+\midrule
+\endhead
+Temporal & year, month, day, hour, cyclic hour/month & Capture seasonality and time-of-day effects \\
+Weather & temperature, humidity, rainfall, wind speed, wind direction & Represent atmospheric demand and rain conditions \\
+Soil & soil\_moisture\_percent, soil\_moisture\_fraction, soil\_temperature & Represent water availability and soil state \\
+Missing flags & soil\_temperature\_missing, light\_missing, pressure\_missing & Inform the model about absent measurements \\
+Derived & irrigation history, favorable condition indicators & Encode operational context \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Features used by the suggested\_hour model}\\
+\toprule
+Feature group & Examples & Purpose \\
+\midrule
+\endfirsthead
+\toprule
+Feature group & Examples & Purpose \\
+\midrule
+\endhead
+Base features & same temporal, weather, and soil features & Represent current environment \\
+Decision features & need\_irrigation, is\_favorable & Use the irrigation decision context \\
+Cyclic features & sin/cos hour and month & Preserve circular time behavior \\
+Wind encoding & direction degrees, sin/cos direction & Represent wind direction numerically \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}@{}}
+\caption{Model performance metrics from project metadata}\\
+\toprule
+Model & Main task & Reported metric & Interpretation \\
+\midrule
+\endfirsthead
+\toprule
+Model & Main task & Reported metric & Interpretation \\
+\midrule
+\endhead
+Random Forest need\_irrigation & Binary irrigation need prediction & High accuracy reported in metadata & Good dataset-level performance; field validation still required \\
+Random Forest suggested\_hour & Suggested irrigation hour prediction & Moderate-to-high accuracy reported in metadata & Useful for planning support, should be validated with real schedules \\
+Rule-based fallback & Fallback decision when ML is unavailable & Not an ML metric & Improves system continuity and safety \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-7a_feature-importance-of-the-random-forest-need-.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.7a here: Feature importance of the Random Forest need\_irrigation model.}}
+    \caption{Feature importance of the Random Forest need\_irrigation model. Source: Authors.}
+    \label{fig:8-7a-feature-importance-of-the-random-forest-need-irrigation-model}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-7b_feature-importance-of-the-random-forest-sugge.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.7b here: Feature importance of the Random Forest suggested\_hour model.}}
+    \caption{Feature importance of the Random Forest suggested\_hour model. Source: Authors.}
+    \label{fig:8-7b-feature-importance-of-the-random-forest-suggested-hour-model}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-8a_confusion-matrix-of-the-need-irrigation-rando.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.8a here: Confusion matrix of the need\_irrigation Random Forest model.}}
+    \caption{Confusion matrix of the need\_irrigation Random Forest model. Source: Authors.}
+    \label{fig:8-8a-confusion-matrix-of-the-need-irrigation-random-forest-model}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-8b_confusion-matrix-of-the-suggested-hour-random.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.8b here: Confusion matrix of the suggested\_hour Random Forest model.}}
+    \caption{Confusion matrix of the suggested\_hour Random Forest model. Source: Authors.}
+    \label{fig:8-8b-confusion-matrix-of-the-suggested-hour-random-forest-model}
+\end{figure}

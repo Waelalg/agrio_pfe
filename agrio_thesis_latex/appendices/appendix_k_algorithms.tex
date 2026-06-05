@@ -1,0 +1,123 @@
+\chapter{Detailed Algorithms and Pseudocode}
+
+This appendix provides implementation-independent pseudocode for the main workflows. These algorithms can be used in Chapter 7 and Chapter 8 if the supervisor prefers a more formal presentation.
+
+\section{Algorithm K.1 - MQTT sensor ingestion}
+
+\begin{enumerate}
+
+\item Receive MQTT message with topic and payload.
+
+\item If topic is not sensors/data, route to device-status handler or ignore.
+
+\item Parse payload as JSON.
+
+\item Validate required fields such as device\_id and timestamp.
+
+\item Normalize measurement names and units.
+
+\item Resolve management zone from payload or device mapping.
+
+\item Create missing sensor mappings if allowed.
+
+\item Insert weather record when environmental fields exist.
+
+\item Insert one sensor\_readings row per normalized measurement.
+
+\item Update runtime MQTT status.
+
+\item Trigger real-time Digital Twin update pipeline.
+
+\end{enumerate}
+
+\section{Algorithm K.2 - Real-time Digital Twin update}
+
+\begin{enumerate}
+
+\item Load latest readings and weather records for the zone.
+
+\item Evaluate sensor freshness and health.
+
+\item Compute current moisture, soil temperature, water balance, and stress status.
+
+\item Build ML feature payload.
+
+\item Call ML service /predict.
+
+\item If ML succeeds, store prediction result and update AI fields.
+
+\item If ML fails, compute fallback rule-based decision.
+
+\item Upsert zone\_states.
+
+\item Append zone\_state\_history.
+
+\item Generate or update recommendation.
+
+\item Expose updated state to dashboard.
+
+\end{enumerate}
+
+\section{Algorithm K.3 - What-if simulation}
+
+\begin{enumerate}
+
+\item Receive zone\_id, irrigation duration, projection horizon, and optional flow rate.
+
+\item Load latest zone state and environment snapshot.
+
+\item Create no-irrigation scenario by applying moisture decrease over horizon.
+
+\item Create with-irrigation scenario by adding irrigation gain then applying evaporation/decay.
+
+\item Select ML path according to recommended action.
+
+\item Compute difference from live state, 24-hour projection, and 48-hour projection.
+
+\item Store simulation scenario and result.
+
+\item Return explanation and curves to frontend.
+
+\end{enumerate}
+
+\section{Algorithm K.4 - Recommendation validation}
+
+\begin{enumerate}
+
+\item User opens recommendation preview.
+
+\item User validates recommendation.
+
+\item Backend updates recommendation status to validated.
+
+\item Backend creates control command and execution feedback placeholder if applicable.
+
+\item Backend creates irrigation event for scheduled execution.
+
+\item No direct MQTT command is sent unless user explicitly starts pump or event becomes due.
+
+\end{enumerate}
+
+\section{Algorithm K.5 - Scheduled irrigation execution}
+
+\begin{enumerate}
+
+\item Scheduler periodically queries irrigation\_events with due start time.
+
+\item For each due event, publish ON\_D5 command to WeMos topic.
+
+\item Mark event as running.
+
+\item When end time is reached, publish OFF\_D5 command.
+
+\item Mark event as executed.
+
+\item Create execution\_feedback record.
+
+\item Update dashboard state.
+
+\end{enumerate}
+
+\section{K.6 Formula notes for simple moisture projection}
+
+The current simulation can be described qualitatively rather than as a final agronomic model. A simple projection combines current moisture, evaporation loss, irrigation gain, and safety bounds. In a future agronomic implementation, this should be replaced or calibrated using a soil water balance model including evapotranspiration, rainfall, infiltration, drainage, field capacity, wilting point, rooting depth, and crop coefficients.

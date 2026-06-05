@@ -1,0 +1,95 @@
+\chapter{Digital Twins, IoT, and Artificial Intelligence}
+
+\section{2.1 Introduction}
+
+Digital Twin technology has become a key concept in Industry 4.0 and is increasingly studied in agriculture. The term refers to a virtual counterpart of a physical asset, process, or system. Unlike a static digital model, a Digital Twin is connected to the physical system through data flows and can be updated according to the real state of the asset. In advanced cases, the Digital Twin can also influence the physical system through recommendations or actuation.
+
+Agriculture is a challenging domain for Digital Twins because it includes living organisms, heterogeneous soils, uncertain weather, spatial variability, and economic constraints. Nevertheless, recent reviews agree that Digital Twins can improve monitoring, prediction, decision-making, resource optimization, and sustainability in smart farming [1]-[6]. This thesis focuses specifically on Digital Twins for intelligent irrigation.
+
+\section{2.2 Digital Model, Digital Shadow, and Digital Twin}
+
+A useful distinction in the literature is the separation between Digital Model, Digital Shadow, and Digital Twin. A Digital Model is a static or offline representation of a physical system. It may simulate crop growth or water balance using historical or manually entered data, but it is not automatically updated by the physical system. A Digital Shadow introduces a one-way data flow from the physical system to the virtual system. Sensor data can update the digital representation, but the virtual system does not directly influence the physical system. A Digital Twin adds bidirectional interaction: the physical system updates the virtual model, and the virtual model can support or trigger decisions that affect the physical system.
+
+This distinction is important for positioning Agrio. The system is more than a Digital Model because it receives real MQTT data from the physical prototype. It is also more advanced than a simple Digital Shadow because it supports recommendation, validation, scheduling, and pump control. However, because full autonomous control is intentionally restricted for safety, Agrio can be described as a human-supervised operational Digital Twin prototype rather than a fully autonomous industrial Digital Twin.
+
+Figure 2.1 should show the three maturity levels. It can be adapted conceptually from the literature, but it is preferable to redraw it in an original style for the thesis to avoid copyright issues.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_02/fig_2-1_digital-model-digital-shadow-and-digital-twin.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 2.1 here: Digital Model, Digital Shadow, and Digital Twin maturity levels.}}
+    \caption{Digital Model, Digital Shadow, and Digital Twin maturity levels. Source: Authors.}
+    \label{fig:2-1-digital-model-digital-shadow-and-digital-twin-maturity-levels}
+\end{figure}
+
+\section{2.3 Digital Twin architecture layers}
+
+Most Digital Twin architectures include a physical layer, sensing layer, communication layer, data management layer, modeling and simulation layer, analytics or intelligence layer, application layer, and feedback/control layer. In agriculture, the physical layer may include crops, soil, irrigation equipment, greenhouse systems, livestock, or machinery. The sensing layer collects data from sensors, cameras, satellites, drones, or weather stations. The communication layer transfers the data using wireless or wired protocols. The data layer stores and organizes the information. The modeling layer builds the virtual representation. The intelligence layer predicts, optimizes, or recommends. The application layer exposes the information to users. The feedback layer sends instructions to actuators or human operators.
+
+Agrio implements these layers through concrete technologies. The physical layer is the controlled plant prototype with irrigation pipes and pump. The sensing layer is the Libelium Smart Agriculture kit. The communication layer includes XBee, Raspberry Pi gateway processing, and HiveMQ/MQTT. The data layer uses PostgreSQL. The backend and Digital Twin services create zone states and histories. The ML service predicts irrigation need and suggested hour. The dashboard and mobile application present information to the user. The WeMos and pump represent the actuator layer.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_02/fig_2-2_layered-architecture-of-an-agricultural-digit.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 2.2 here: Layered architecture of an agricultural Digital Twin.}}
+    \caption{Layered architecture of an agricultural Digital Twin. Source: Authors.}
+    \label{fig:2-2-layered-architecture-of-an-agricultural-digital-twin}
+\end{figure}
+
+\section{2.4 IoT as the physical-to-digital bridge}
+
+IoT technologies are essential to Digital Twins because they provide the connection between physical assets and virtual models. Without live or near-real-time data, a Digital Twin remains a simulation or a static model. In smart irrigation, IoT devices collect soil and environmental data, transmit them to cloud or edge services, and support remote control of pumps or valves.
+
+MQTT is commonly used in IoT systems because it follows a publish/subscribe communication pattern. Devices publish messages to topics, and subscribers receive messages from those topics. This decoupling is useful in Agrio because the gateway, backend, dashboard, and WeMos actuator do not need to communicate through direct synchronous calls. Instead, they exchange information through topics such as sensors/data, smart\_irrigation/wemos1/status, and smart\_irrigation/wemos1/cmd.
+
+\section{2.5 Artificial intelligence and machine learning in irrigation}
+
+Machine learning supports irrigation decision-making by learning patterns from historical and real-time data. Models can estimate soil moisture, predict evapotranspiration, classify irrigation need, suggest irrigation timing, or optimize water amount. Del-Coco et al. [9] describe smart irrigation as a combination of sensors, IoT technologies, algorithms, datasets, and decision layers. They also emphasize that ML-based smart irrigation requires reliable datasets and careful evaluation.
+
+Common algorithms include Decision Trees, Random Forests, Support Vector Machines, Gradient Boosting, Artificial Neural Networks, LSTM networks, and hybrid models. Random Forest is attractive for engineering prototypes because it is robust, handles nonlinear relationships, can work with mixed feature sets, and is less difficult to train than deep learning models. In Agrio, Random Forest models are used for two tasks: predicting whether irrigation is needed and suggesting an irrigation hour.
+
+The thesis must be careful when presenting ML results. The metadata of the trained models can report high accuracy, but these results are training/evaluation metrics on the available dataset, not guaranteed field performance. Real agronomic validation would require long-term field experiments under different crops, soils, and weather conditions.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}@{}}
+\caption{Machine learning algorithms used in smart irrigation literature}\\
+\toprule
+Algorithm & Typical role & Advantages & Limitations \\
+\midrule
+\endfirsthead
+\toprule
+Algorithm & Typical role & Advantages & Limitations \\
+\midrule
+\endhead
+Decision Tree & Irrigation/no-irrigation rules and duration decisions & Interpretable, low computation cost & Can overfit simple datasets \\
+Random Forest & Classification of irrigation need and robust tabular prediction & Robust, nonlinear, suitable for mixed variables & Less transparent than a single tree \\
+SVM & Classification/regression for irrigation status & Effective in smaller datasets & Requires tuning and scaling \\
+Gradient Boosting & Soil moisture and evapotranspiration prediction & High predictive performance & More complex tuning \\
+ANN/LSTM & Time-series and nonlinear water demand prediction & Can model temporal dynamics & Requires larger datasets and careful validation \\
+Reinforcement Learning & Optimization of irrigation policy over time & Can learn sequential decisions & Needs simulation environment and safety constraints \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{2.6 Simulation and what-if analysis}
+
+Simulation is a core capability of Digital Twins. In irrigation, what-if simulation can compare moisture evolution if irrigation is applied versus if it is skipped. This enables the user to evaluate a decision before applying it physically. Simulation can also help explain AI decisions because the user can see the expected trajectory rather than only a binary recommendation.
+
+Agrio implements a Digital Twin simulation workspace. The user selects a zone, reads the live state, sets scenario inputs such as irrigation duration and projection horizon, runs the simulation, and compares outputs. The system displays predicted moisture, water balance, 24-hour and 48-hour projections, and a textual explanation. The simulation does not activate the pump; it only supports decision-making.
+
+\section{2.7 Human-in-the-loop Digital Twins}
+
+Human-in-the-loop design is important in agricultural Digital Twins. Farmers and agronomists possess domain knowledge that cannot be fully replaced by algorithms, especially in early prototypes. Human validation also improves safety when actuators are involved. In Agrio, recommendations can be validated by the user before becoming scheduled irrigation events. Manual pump control remains possible through the dashboard.
+
+This design supports trust. Instead of hiding the logic behind automation, the platform shows recommendation status, confidence, duration, suggested time, and explanations. The user can then decide whether to accept the system output. In future versions, the system could learn from user feedback and execution results.
+
+\section{2.8 Digital Twin challenges in agriculture}
+
+Digital Twin adoption in agriculture faces major barriers: data heterogeneity, sensor calibration, limited connectivity, lack of standard architectures, high implementation cost, privacy and security concerns, limited interoperability, and difficulty of modeling biological systems. Recent reviews also note that many agricultural systems use the term Digital Twin loosely, even when they are closer to decision support tools or monitoring dashboards [5].
+
+Agrio addresses some of these challenges by defining a complete technical architecture and by separating sensing, communication, backend processing, ML, simulation, user validation, and actuation. However, the project does not solve all challenges. It still requires long-term field validation, improved security, stronger agronomic calibration, and extension to multiple crops and zones.
+
+\section{2.9 Conclusion}
+
+This chapter presented the theoretical foundations of Digital Twins, IoT, and AI for smart irrigation. It clarified the difference between digital models, digital shadows, and Digital Twins, introduced the layered architecture required for cyber-physical synchronization, and explained the role of ML and what-if simulation in decision support. These concepts are used in the next chapters to analyze the state of the art and position the Agrio project.

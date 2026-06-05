@@ -1,0 +1,195 @@
+\xpg@aux {}{english}
+\contentsline {chapter}{Dedication}{i}{chapter*.1}%
+\contentsline {chapter}{Acknowledgements}{ii}{chapter*.2}%
+\contentsline {chapter}{Abstract}{iii}{chapter*.3}%
+\contentsline {chapter}{Résumé}{v}{chapter*.4}%
+\contentsline {chapter}{\textarabic {ملخص}}{vi}{chapter*.5}%
+\xpg@aux {}{arabic}
+\xpg@aux {}{english}
+\xpg@aux {}{arabic}
+\xpg@aux {}{english}
+\contentsline {chapter}{List of Abbreviations}{vii}{chapter*.6}%
+\contentsline {chapter}{General Introduction}{1}{chapter*.7}%
+\contentsline {part}{I\hspace {1em}Theoretical Background}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}Precision Agriculture and Smart Irrigation}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}1.1 Introduction}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}1.2 Water scarcity and irrigation management}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}1.3 From conventional irrigation to smart irrigation}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}1.4 Main variables in smart irrigation}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}1.5 Communication technologies in smart irrigation}{10}{section.1.5}%
+\contentsline {section}{\numberline {1.6}1.6 Actuators and irrigation control}{10}{section.1.6}%
+\contentsline {section}{\numberline {1.7}1.7 Challenges of smart irrigation systems}{11}{section.1.7}%
+\contentsline {section}{\numberline {1.8}1.8 Conclusion}{11}{section.1.8}%
+\contentsline {chapter}{\numberline {2}Digital Twins, IoT, and Artificial Intelligence}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}2.1 Introduction}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}2.2 Digital Model, Digital Shadow, and Digital Twin}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}2.3 Digital Twin architecture layers}{14}{section.2.3}%
+\contentsline {section}{\numberline {2.4}2.4 IoT as the physical-to-digital bridge}{15}{section.2.4}%
+\contentsline {section}{\numberline {2.5}2.5 Artificial intelligence and machine learning in irrigation}{15}{section.2.5}%
+\contentsline {section}{\numberline {2.6}2.6 Simulation and what-if analysis}{16}{section.2.6}%
+\contentsline {section}{\numberline {2.7}2.7 Human-in-the-loop Digital Twins}{17}{section.2.7}%
+\contentsline {section}{\numberline {2.8}2.8 Digital Twin challenges in agriculture}{17}{section.2.8}%
+\contentsline {section}{\numberline {2.9}2.9 Conclusion}{17}{section.2.9}%
+\contentsline {part}{II\hspace {1em}State of the Art and Scientific Positioning}{18}{part.2}%
+\contentsline {chapter}{\numberline {3}Digital Twins in Agriculture and Irrigation: State of the Art}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}3.1 Review methodology}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}3.2 General agricultural Digital Twin reviews}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}3.3 AI-enabled Digital Twins in agriculture}{20}{section.3.3}%
+\contentsline {section}{\numberline {3.4}3.4 Digital Twins for agricultural water management}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}3.5 IoT-based smart irrigation reviews}{21}{section.3.5}%
+\contentsline {section}{\numberline {3.6}3.6 Machine learning for smart irrigation}{22}{section.3.6}%
+\contentsline {section}{\numberline {3.7}3.7 Directly related Digital Twin irrigation studies}{22}{section.3.7}%
+\contentsline {section}{\numberline {3.8}3.8 Research gaps identified in the literature}{24}{section.3.8}%
+\contentsline {section}{\numberline {3.9}3.9 Conclusion}{24}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Comparative Analysis and Scientific Positioning}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}4.1 Comparison criteria}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}4.2 Comparative matrix}{26}{section.4.2}%
+\contentsline {section}{\numberline {4.3}4.3 Positioning of Agrio by Digital Twin maturity}{27}{section.4.3}%
+\contentsline {section}{\numberline {4.4}4.4 Novelty of the proposed project}{28}{section.4.4}%
+\contentsline {section}{\numberline {4.5}4.5 Weaknesses and limitations identified from the comparison}{29}{section.4.5}%
+\contentsline {section}{\numberline {4.6}4.6 Conclusion}{29}{section.4.6}%
+\contentsline {part}{III\hspace {1em}Requirements and Architecture}{31}{part.3}%
+\contentsline {chapter}{\numberline {5}Requirements Specification and Design}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}5.1 Introduction}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}5.2 System objectives}{32}{section.5.2}%
+\contentsline {section}{\numberline {5.3}5.3 Actors}{32}{section.5.3}%
+\contentsline {section}{\numberline {5.4}5.4 Functional requirements}{33}{section.5.4}%
+\contentsline {section}{\numberline {5.5}5.5 Non-functional requirements}{33}{section.5.5}%
+\contentsline {section}{\numberline {5.6}5.6 Constraints}{33}{section.5.6}%
+\contentsline {section}{\numberline {5.7}5.7 Use-case model}{35}{section.5.7}%
+\contentsline {section}{\numberline {5.8}5.8 Activity workflow}{35}{section.5.8}%
+\contentsline {section}{\numberline {5.9}5.9 Domain class diagrams}{36}{section.5.9}%
+\contentsline {section}{\numberline {5.10}5.10 Conclusion}{36}{section.5.10}%
+\contentsline {chapter}{\numberline {6}Global Architecture of the Proposed Digital Twin}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}6.1 Introduction}{37}{section.6.1}%
+\contentsline {section}{\numberline {6.2}6.2 Architectural overview}{37}{section.6.2}%
+\contentsline {section}{\numberline {6.3}6.3 Physical prototype layer}{38}{section.6.3}%
+\contentsline {section}{\numberline {6.4}6.4 Sensing layer}{38}{section.6.4}%
+\contentsline {section}{\numberline {6.5}6.5 Radio-frequency and gateway layer}{38}{section.6.5}%
+\contentsline {section}{\numberline {6.6}6.6 MQTT communication layer}{38}{section.6.6}%
+\contentsline {section}{\numberline {6.7}6.7 Backend layer}{39}{section.6.7}%
+\contentsline {section}{\numberline {6.8}6.8 Database layer}{39}{section.6.8}%
+\contentsline {section}{\numberline {6.9}6.9 Digital Twin layer}{39}{section.6.9}%
+\contentsline {section}{\numberline {6.10}6.10 Machine learning layer}{40}{section.6.10}%
+\contentsline {section}{\numberline {6.11}6.11 Recommendation and validation layer}{40}{section.6.11}%
+\contentsline {section}{\numberline {6.12}6.12 Actuator and feedback layer}{40}{section.6.12}%
+\contentsline {section}{\numberline {6.13}6.13 Deployment architecture}{40}{section.6.13}%
+\contentsline {section}{\numberline {6.14}6.14 Discussion}{41}{section.6.14}%
+\contentsline {section}{\numberline {6.15}6.15 Conclusion}{41}{section.6.15}%
+\contentsline {part}{IV\hspace {1em}Implementation}{42}{part.4}%
+\contentsline {chapter}{\numberline {7}Backend, Database, and IoT Data Ingestion}{43}{chapter.7}%
+\contentsline {section}{\numberline {7.1}7.1 Introduction}{43}{section.7.1}%
+\contentsline {section}{\numberline {7.2}7.2 FastAPI backend organization}{43}{section.7.2}%
+\contentsline {section}{\numberline {7.3}7.3 API modules}{43}{section.7.3}%
+\contentsline {section}{\numberline {7.4}7.4 MQTT payload structure}{44}{section.7.4}%
+\contentsline {section}{\numberline {7.5}7.5 Parser and normalization}{44}{section.7.5}%
+\contentsline {section}{\numberline {7.6}7.6 Device mapping and persistence}{44}{section.7.6}%
+\contentsline {section}{\numberline {7.7}7.7 Real-time pipeline}{44}{section.7.7}%
+\contentsline {section}{\numberline {7.8}7.8 PostgreSQL schema}{44}{section.7.8}%
+\contentsline {section}{\numberline {7.9}7.9 Runtime sequence}{45}{section.7.9}%
+\contentsline {section}{\numberline {7.10}7.10 Error handling and fallback}{45}{section.7.10}%
+\contentsline {section}{\numberline {7.11}7.11 Conclusion}{46}{section.7.11}%
+\contentsline {chapter}{\numberline {8}Digital Twin and Machine Learning Layer}{48}{chapter.8}%
+\contentsline {section}{\numberline {8.1}8.1 Introduction}{48}{section.8.1}%
+\contentsline {section}{\numberline {8.2}8.2 Virtual zone state}{48}{section.8.2}%
+\contentsline {section}{\numberline {8.3}8.3 Dataset adaptation}{48}{section.8.3}%
+\contentsline {section}{\numberline {8.4}8.4 Feature engineering}{49}{section.8.4}%
+\contentsline {section}{\numberline {8.5}8.5 Random Forest models}{49}{section.8.5}%
+\contentsline {section}{\numberline {8.6}8.6 ML inference service}{49}{section.8.6}%
+\contentsline {section}{\numberline {8.7}8.7 Digital Twin state update}{50}{section.8.7}%
+\contentsline {section}{\numberline {8.8}8.8 What-if simulation}{50}{section.8.8}%
+\contentsline {section}{\numberline {8.9}8.9 Recommendation generation}{50}{section.8.9}%
+\contentsline {section}{\numberline {8.10}8.10 Explainability}{51}{section.8.10}%
+\contentsline {section}{\numberline {8.11}8.11 Limitations}{51}{section.8.11}%
+\contentsline {section}{\numberline {8.12}8.12 Conclusion}{51}{section.8.12}%
+\contentsline {chapter}{\numberline {9}User Interfaces and Irrigation Control}{54}{chapter.9}%
+\contentsline {section}{\numberline {9.1}9.1 Introduction}{54}{section.9.1}%
+\contentsline {section}{\numberline {9.2}9.2 Frontend architecture}{54}{section.9.2}%
+\contentsline {section}{\numberline {9.3}9.3 Operations dashboard}{54}{section.9.3}%
+\contentsline {section}{\numberline {9.4}9.4 Zone monitoring}{54}{section.9.4}%
+\contentsline {section}{\numberline {9.5}9.5 AI recommendation preview}{55}{section.9.5}%
+\contentsline {section}{\numberline {9.6}9.6 Pump and actuator control}{55}{section.9.6}%
+\contentsline {section}{\numberline {9.7}9.7 Forecast workspace}{55}{section.9.7}%
+\contentsline {section}{\numberline {9.8}9.8 Digital Twin simulation workspace}{55}{section.9.8}%
+\contentsline {section}{\numberline {9.9}9.9 Schedules page}{55}{section.9.9}%
+\contentsline {section}{\numberline {9.10}9.10 Validated decisions page}{55}{section.9.10}%
+\contentsline {section}{\numberline {9.11}9.11 Mobile application}{56}{section.9.11}%
+\contentsline {section}{\numberline {9.12}9.12 Conclusion}{56}{section.9.12}%
+\contentsline {part}{V\hspace {1em}Deployment, Validation, and Discussion}{58}{part.5}%
+\contentsline {chapter}{\numberline {10}Deployment Environment}{59}{chapter.10}%
+\contentsline {section}{\numberline {10.1}10.1 Introduction}{59}{section.10.1}%
+\contentsline {section}{\numberline {10.2}10.2 Docker Compose stack}{59}{section.10.2}%
+\contentsline {section}{\numberline {10.3}10.3 PostgreSQL service}{59}{section.10.3}%
+\contentsline {section}{\numberline {10.4}10.4 ML service}{59}{section.10.4}%
+\contentsline {section}{\numberline {10.5}10.5 Backend service}{60}{section.10.5}%
+\contentsline {section}{\numberline {10.6}10.6 Frontend service}{60}{section.10.6}%
+\contentsline {section}{\numberline {10.7}10.7 Scheduler worker}{60}{section.10.7}%
+\contentsline {section}{\numberline {10.8}10.8 Ngrok and mobile access}{60}{section.10.8}%
+\contentsline {section}{\numberline {10.9}10.9 Deployment limitations}{60}{section.10.9}%
+\contentsline {section}{\numberline {10.10}10.10 Conclusion}{60}{section.10.10}%
+\contentsline {chapter}{\numberline {11}Results, Validation, and Discussion}{62}{chapter.11}%
+\contentsline {section}{\numberline {11.1}11.1 Introduction}{62}{section.11.1}%
+\contentsline {section}{\numberline {11.2}11.2 Prototype validation context}{62}{section.11.2}%
+\contentsline {section}{\numberline {11.3}11.3 Sensor data acquisition}{62}{section.11.3}%
+\contentsline {section}{\numberline {11.4}11.4 Database persistence}{62}{section.11.4}%
+\contentsline {section}{\numberline {11.5}11.5 Dashboard synchronization}{63}{section.11.5}%
+\contentsline {section}{\numberline {11.6}11.6 ML prediction validation}{63}{section.11.6}%
+\contentsline {section}{\numberline {11.7}11.7 Simulation validation}{63}{section.11.7}%
+\contentsline {section}{\numberline {11.8}11.8 Pump control validation}{63}{section.11.8}%
+\contentsline {section}{\numberline {11.9}11.9 Discussion of results}{63}{section.11.9}%
+\contentsline {section}{\numberline {11.10}11.10 Comparison with literature}{63}{section.11.10}%
+\contentsline {section}{\numberline {11.11}11.11 Limitations}{64}{section.11.11}%
+\contentsline {section}{\numberline {11.12}11.12 Future work}{64}{section.11.12}%
+\contentsline {section}{\numberline {11.13}11.13 Conclusion}{64}{section.11.13}%
+\contentsline {chapter}{General Conclusion}{67}{chapter*.73}%
+\contentsline {chapter}{\numberline {A}Figure Placement Checklist}{71}{chapter.A}%
+\contentsline {chapter}{\numberline {B}Full Class Diagram}{76}{chapter.B}%
+\contentsline {chapter}{\numberline {C}Full Detailed Architecture}{77}{chapter.C}%
+\contentsline {chapter}{\numberline {D}Complete Database ERD}{78}{chapter.D}%
+\contentsline {chapter}{\numberline {E}Example MQTT Payloads}{79}{chapter.E}%
+\contentsline {chapter}{\numberline {F}Missing Visual Capture Guide}{80}{chapter.F}%
+\contentsline {chapter}{\numberline {G}Thesis Expansion Notes for Final Editing}{81}{chapter.G}%
+\contentsline {chapter}{\numberline {H}Detailed Paper-by-Paper Literature Matrix}{82}{chapter.H}%
+\contentsline {section}{\numberline {H.1}Subeesh and Chauhan, 2026 [1]}{82}{section.H.1}%
+\contentsline {section}{\numberline {H.2}Zhang et al., 2025 [2]}{82}{section.H.2}%
+\contentsline {section}{\numberline {H.3}Gund et al., 2025 [3]}{83}{section.H.3}%
+\contentsline {section}{\numberline {H.4}Awais et al., 2025 [4]}{83}{section.H.4}%
+\contentsline {section}{\numberline {H.5}Tsaousidis et al., 2026 [5]}{84}{section.H.5}%
+\contentsline {section}{\numberline {H.6}Ahsen et al., 2025 [6]}{84}{section.H.6}%
+\contentsline {section}{\numberline {H.7}García et al., 2020 [7]}{84}{section.H.7}%
+\contentsline {section}{\numberline {H.8}Obaideen et al., 2022 [8]}{85}{section.H.8}%
+\contentsline {section}{\numberline {H.9}Del-Coco et al., 2024 [9]}{85}{section.H.9}%
+\contentsline {section}{\numberline {H.10}Morchid et al., 2026 [10]}{85}{section.H.10}%
+\contentsline {section}{\numberline {H.11}Kodali and Sarjerao, 2017 [11]}{85}{section.H.11}%
+\contentsline {section}{\numberline {H.12}Balaceanu et al., 2019 [12]}{86}{section.H.12}%
+\contentsline {section}{\numberline {H.13}Millán et al., 2025 [13]}{86}{section.H.13}%
+\contentsline {section}{\numberline {H.14}Bellvert et al., 2023 [14]}{86}{section.H.14}%
+\contentsline {section}{\numberline {H.15}Manocha et al., 2024 [15]}{87}{section.H.15}%
+\contentsline {section}{\numberline {H.16}Tancredi et al., 2025 [16]}{87}{section.H.16}%
+\contentsline {section}{\numberline {H.17}Qin et al., 2025 [17]}{87}{section.H.17}%
+\contentsline {section}{\numberline {H.18}Liu et al., 2025 [18]}{88}{section.H.18}%
+\contentsline {section}{\numberline {H.19}El Hachimi et al., 2025 [19]}{88}{section.H.19}%
+\contentsline {chapter}{\numberline {I}Detailed Database Table Descriptions}{89}{chapter.I}%
+\contentsline {section}{\numberline {I.1}I.1 Why this database supports a Digital Twin}{92}{section.I.1}%
+\contentsline {chapter}{\numberline {J}Detailed API and Service Responsibilities}{93}{chapter.J}%
+\contentsline {section}{\numberline {J.1}J.1 Internal services}{94}{section.J.1}%
+\contentsline {section}{\numberline {J.2}J.2 API evidence to collect}{95}{section.J.2}%
+\contentsline {chapter}{\numberline {K}Detailed Algorithms and Pseudocode}{96}{chapter.K}%
+\contentsline {section}{\numberline {K.1}Algorithm K.1 - MQTT sensor ingestion}{96}{section.K.1}%
+\contentsline {section}{\numberline {K.2}Algorithm K.2 - Real-time Digital Twin update}{97}{section.K.2}%
+\contentsline {section}{\numberline {K.3}Algorithm K.3 - What-if simulation}{97}{section.K.3}%
+\contentsline {section}{\numberline {K.4}Algorithm K.4 - Recommendation validation}{98}{section.K.4}%
+\contentsline {section}{\numberline {K.5}Algorithm K.5 - Scheduled irrigation execution}{98}{section.K.5}%
+\contentsline {section}{\numberline {K.6}K.6 Formula notes for simple moisture projection}{98}{section.K.6}%
+\contentsline {chapter}{\numberline {L}Expanded Chapter Text Blocks for Final Integration}{99}{chapter.L}%
+\contentsline {section}{\numberline {L.1}L - Precision agriculture as a systems problem}{99}{section.L.1}%
+\contentsline {section}{\numberline {L.2}L - Why MQTT is appropriate for Agrio}{99}{section.L.2}%
+\contentsline {section}{\numberline {L.3}L - Why a relational database is useful}{100}{section.L.3}%
+\contentsline {section}{\numberline {L.4}L - Why Random Forest is a pragmatic first model}{100}{section.L.4}%
+\contentsline {section}{\numberline {L.5}L - Why human validation matters}{100}{section.L.5}%
+\contentsline {section}{\numberline {L.6}L - Why the prototype is still valuable without field-scale validation}{101}{section.L.6}%
+\contentsline {chapter}{\numberline {M}Defense-Oriented Scientific Positioning}{102}{chapter.M}%
+\contentsline {section}{\numberline {M.1}M.1 If the jury asks: Why is this a Digital Twin?}{102}{section.M.1}%
+\contentsline {section}{\numberline {M.2}M.2 If the jury asks: What is the novelty?}{102}{section.M.2}%
+\contentsline {section}{\numberline {M.3}M.3 If the jury asks: What are the weaknesses?}{103}{section.M.3}%
+\contentsline {section}{\numberline {M.4}M.4 If the jury asks: Why combine Master 2 and Engineering?}{103}{section.M.4}%

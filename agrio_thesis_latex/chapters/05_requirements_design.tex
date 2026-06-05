@@ -1,0 +1,143 @@
+\part{Requirements and Architecture}
+
+\chapter{Requirements Specification and Design}
+
+\section{5.1 Introduction}
+
+This chapter specifies the functional and non-functional requirements of the Agrio platform. Requirements are derived from the project objectives, literature gaps, and real implementation artifacts such as the backend routes, database schema, MQTT payload catalog, dashboard pages, and actuator workflow. The chapter also defines the actors and the main use cases of the system.
+
+\section{5.2 System objectives}
+
+The main objective of Agrio is to support intelligent irrigation decisions through a Digital Twin of a monitored agricultural zone. The system must receive sensor data from the physical prototype, store it, update the virtual state, predict irrigation need, simulate scenarios, generate recommendations, display results to the user, and control the pump when a decision is validated or manually triggered.
+
+The system must also be demonstrable and maintainable. This means that it should expose clear API endpoints, store data in a structured schema, separate the ML service from the backend, provide a dashboard for testing and operation, and support deployment through Docker Compose.
+
+\section{5.3 Actors}
+
+The main human actors are the farmer/operator and the administrator/agronomist. The farmer monitors the dashboard, checks zone conditions, reviews recommendations, validates decisions, schedules irrigation, and manually controls the pump if needed. The administrator or agronomist manages farms, plots, zones, sensors, soil profiles, crops, and system configuration. External technical actors include the MQTT sensor station, WeMos actuator, ML service, Open-Meteo API, and PostgreSQL database.
+
+\section{5.4 Functional requirements}
+
+Functional requirements describe what the system must do. Agrio must ingest MQTT sensor payloads, normalize fields, map devices to zones, store readings, maintain weather records, evaluate sensor health, update Digital Twin zone states, call the ML service, store prediction results, run what-if simulations, generate recommendations, validate decisions, create schedules, publish actuator commands, receive WeMos status, and expose dashboard data through APIs.
+
+\section{5.5 Non-functional requirements}
+
+Non-functional requirements describe quality constraints. The system must be modular, maintainable, reproducible, and observable. It must support near-real-time dashboard updates, reliable message parsing, safe actuation, clear separation of simulation and physical control, and extensibility toward more zones and crops. The prototype also requires usability because the dashboard is central to decision support.
+
+\section{5.6 Constraints}
+
+The current system is constrained by the laboratory prototype, limited long-term field data, and available hardware. It is designed for controlled demonstration rather than immediate production deployment. The platform currently prioritizes functionality, integration, and traceability over advanced cybersecurity and large-scale distributed deployment. These constraints are documented to maintain academic transparency.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Functional requirements}\\
+\toprule
+ID & Requirement & Description \\
+\midrule
+\endfirsthead
+\toprule
+ID & Requirement & Description \\
+\midrule
+\endhead
+FR1 & Ingest sensor payloads & Receive JSON messages from sensors/data through MQTT. \\
+FR2 & Normalize measurements & Parse aliases, timestamps, moisture fractions, light suffixes, and wind direction values. \\
+FR3 & Persist readings & Store sensor\_readings and weather\_records in PostgreSQL. \\
+FR4 & Update Digital Twin & Build and update zone\_states and zone\_state\_history. \\
+FR5 & Predict irrigation need & Call ML service and store prediction\_results. \\
+FR6 & Run what-if simulation & Compare no-irrigation and with-irrigation scenarios. \\
+FR7 & Generate recommendation & Create pending or validated recommendations. \\
+FR8 & Schedule irrigation & Create irrigation\_events with start time and duration. \\
+FR9 & Control actuator & Send ON\_D5/OFF\_D5 commands to WeMos through MQTT. \\
+FR10 & Display dashboard & Provide live monitoring, prediction, simulation, forecast, schedules, and decisions. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Non-functional requirements}\\
+\toprule
+ID & Requirement & Design implication \\
+\midrule
+\endfirsthead
+\toprule
+ID & Requirement & Design implication \\
+\midrule
+\endhead
+NFR1 & Modularity & Separate backend, ML service, frontend, scheduler, and database. \\
+NFR2 & Traceability & Persist raw readings, states, predictions, recommendations, commands, and feedback. \\
+NFR3 & Safety & Separate simulation from physical actuation and require validation. \\
+NFR4 & Usability & Provide readable dashboard cards, charts, explanations, and manual controls. \\
+NFR5 & Reproducibility & Use Docker Compose and environment variables. \\
+NFR6 & Extensibility & Use farms, plots, zones, sensors, and device mapping for future scale. \\
+NFR7 & Observability & Expose API docs, status endpoints, logs, and database records. \\
+NFR8 & Performance & Support near-real-time polling and fast ML inference for prototype operation. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{5.7 Use-case model}
+
+The use-case diagram represents the interaction between the farmer, administrator, IoT sensor station, WeMos actuator, ML service, and Open-Meteo API. It includes monitoring, simulation, recommendation validation, manual command, forecast generation, data ingestion, sensor health evaluation, and ML prediction.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_05/fig_5-1_use-case-diagram-of-the-proposed-digital-twin.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 5.1 here: Use-case diagram of the proposed Digital Twin smart irrigation system.}}
+    \caption{Use-case diagram of the proposed Digital Twin smart irrigation system. Source: Authors.}
+    \label{fig:5-1-use-case-diagram-of-the-proposed-digital-twin-smart-irrigation-sys}
+\end{figure}
+
+\section{5.8 Activity workflow}
+
+The activity workflow begins when the backend receives an MQTT sensor payload. The system validates and normalizes the payload, resolves the zone, creates missing sensor mappings if needed, inserts weather records and sensor readings, evaluates sensor health, updates the zone state, calls the ML service, stores predictions, appends state history, and exposes the updated state to the dashboard. If irrigation is required, the system waits for user confirmation. Validation can create a recommendation record and irrigation event, while manual device commands publish MQTT commands to the WeMos actuator.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_05/fig_5-2_activity-diagram-of-sensor-ingestion-digital-.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 5.2 here: Activity diagram of sensor ingestion, Digital Twin update, AI decision-making, and pump control.}}
+    \caption{Activity diagram of sensor ingestion, Digital Twin update, AI decision-making, and pump control. Source: Authors.}
+    \label{fig:5-2-activity-diagram-of-sensor-ingestion-digital-twin-update-ai-decisi}
+\end{figure}
+
+\section{5.9 Domain class diagrams}
+
+The full domain model is too large to be readable as one figure. Therefore, it is split into four diagrams: agricultural domain, sensor/weather/forecast domain, Digital Twin/prediction/simulation domain, and decision/control domain. The complete class diagram is kept in the appendix.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_05/fig_5-3_agricultural-domain-class-diagram-representin.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 5.3 here: Agricultural domain class diagram representing farms, plots, zones, soil profiles, crops, and irrigation networks.}}
+    \caption{Agricultural domain class diagram representing farms, plots, zones, soil profiles, crops, and irrigation networks. Source: Authors.}
+    \label{fig:5-3-agricultural-domain-class-diagram-representing-farms-plots-zones-s}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_05/fig_5-4_sensor-weather-and-forecasting-data-model-use.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 5.4 here: Sensor, weather, and forecasting data model used by the smart irrigation platform.}}
+    \caption{Sensor, weather, and forecasting data model used by the smart irrigation platform. Source: Authors.}
+    \label{fig:5-4-sensor-weather-and-forecasting-data-model-used-by-the-smart-irriga}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_05/fig_5-5_digital-twin-prediction-and-simulation-data-m.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 5.5 here: Digital Twin, prediction, and simulation data model.}}
+    \caption{Digital Twin, prediction, and simulation data model. Source: Authors.}
+    \label{fig:5-5-digital-twin-prediction-and-simulation-data-model}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_05/fig_5-6_decision-recommendation-scheduling-command-an.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 5.6 here: Decision, recommendation, scheduling, command, and feedback data model.}}
+    \caption{Decision, recommendation, scheduling, command, and feedback data model. Source: Authors.}
+    \label{fig:5-6-decision-recommendation-scheduling-command-and-feedback-data-model}
+\end{figure}
+
+\section{5.10 Conclusion}
+
+This chapter defined the requirements and design foundations of Agrio. It described the actors, functional requirements, non-functional requirements, constraints, use cases, workflow, and domain class diagrams. The next chapter presents the global architecture that satisfies these requirements.

@@ -1,0 +1,98 @@
+\part{Deployment, Validation, and Discussion}
+
+\chapter{Deployment Environment}
+
+\section{10.1 Introduction}
+
+Deployment is a critical engineering part of the project. Agrio is composed of several services that must run together: database, backend, ML service, frontend, scheduler, MQTT configuration, and mobile access support. Docker Compose is used to coordinate these services.
+
+\section{10.2 Docker Compose stack}
+
+The Docker Compose stack includes PostgreSQL, the ML service, FastAPI backend, frontend, irrigation scheduler, ngrok, and optional worker profiles. Each service has a clear responsibility and communicates through internal network links and environment variables.
+
+\section{10.3 PostgreSQL service}
+
+The database service initializes the smart\_irrigation schema and persists structured data. It is the backbone of traceability because it records physical measurements, virtual states, predictions, simulations, recommendations, commands, and feedback.
+
+\section{10.4 ML service}
+
+The ML service loads trained model files and exposes health, metadata, and prediction endpoints. This separated deployment makes it possible to update or retrain models independently from the backend.
+
+\section{10.5 Backend service}
+
+The backend service exposes the API, subscribes to MQTT when configured, calls the ML service, interacts with PostgreSQL, and provides data to the frontend and mobile application.
+
+\section{10.6 Frontend service}
+
+The frontend is exposed on port 3000 and communicates with the backend. It provides the web dashboard, forecast, simulation, schedules, and validated decisions.
+
+\section{10.7 Scheduler worker}
+
+The irrigation scheduler runs independently from HTTP request handling. It checks due irrigation events, sends pump ON/OFF commands, updates event status, and records feedback.
+
+\section{10.8 Ngrok and mobile access}
+
+Ngrok can expose local services for mobile testing. This is useful when the Flutter application must access the backend from a mobile device during demonstrations.
+
+\section{10.9 Deployment limitations}
+
+The deployment is suitable for prototype demonstration but not yet for production. A production environment would require HTTPS, secure credentials, role-based access control, backups, monitoring, and hardened MQTT authentication.
+
+\section{10.10 Conclusion}
+
+The deployment chapter shows that Agrio is implemented as a reproducible multi-service platform rather than a single script or static dashboard.
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_10/fig_10-1_docker-compose-service-organization-of-the-de.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 10.1 here: Docker Compose service organization of the deployed Agrio platform.}}
+    \caption{Docker Compose service organization of the deployed Agrio platform. Source: Authors.}
+    \label{fig:10-1-docker-compose-service-organization-of-the-deployed-agrio-platfor}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_10/fig_10-2_running-docker-containers-of-the-deployed-dig.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 10.2 here: Running Docker containers of the deployed Digital Twin smart irrigation platform.}}
+    \caption{Running Docker containers of the deployed Digital Twin smart irrigation platform. Source: Authors.}
+    \label{fig:10-2-running-docker-containers-of-the-deployed-digital-twin-smart-irri}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_10/fig_10-3_deployment-communication-flow-between-fronten.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 10.3 here: Deployment communication flow between frontend, backend, database, ML service, MQTT broker, and external APIs.}}
+    \caption{Deployment communication flow between frontend, backend, database, ML service, MQTT broker, and external APIs. Source: Authors.}
+    \label{fig:10-3-deployment-communication-flow-between-frontend-backend-database-m}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{figures/chapter_10/fig_10-4_ngrok-tunnel-used-to-expose-local-services-fo.png}
+    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 10.4 here: Ngrok tunnel used to expose local services for mobile access during prototype testing.}}
+    \caption{Ngrok tunnel used to expose local services for mobile access during prototype testing. Source: Authors.}
+    \label{fig:10-4-ngrok-tunnel-used-to-expose-local-services-for-mobile-access-duri}
+\end{figure}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Deployment services and roles}\\
+\toprule
+Service & Role & Evidence to include \\
+\midrule
+\endfirsthead
+\toprule
+Service & Role & Evidence to include \\
+\midrule
+\endhead
+postgres & Stores smart\_irrigation schema & Docker container and database screenshot \\
+ml-service & Loads Random Forest models and predicts irrigation outputs & /health, /metadata, /predict screenshots \\
+backend & API, MQTT ingestion, twin update, recommendations, commands & FastAPI /docs and logs \\
+frontend & Web dashboard and user workspaces & Dashboard screenshots \\
+irrigation-scheduler & Executes scheduled pump events & Scheduler logs or event status \\
+ngrok & Mobile access tunnel & Ngrok forwarding screenshot \\
+mqtt-worker/simulator & Optional profiles for ingestion/simulation & Docker profile or logs \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}

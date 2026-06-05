@@ -1,0 +1,193 @@
+\chapter{Detailed Paper-by-Paper Literature Matrix}
+
+This appendix provides an expanded paper-by-paper analysis used to support Chapters 3 and 4. It is included so that the main body remains readable while the scientific basis of the positioning remains explicit. Each study is analyzed according to its objective, architecture, data sources, intelligence layer, Digital Twin maturity, relevance to Agrio, and limitation.
+
+\section{Subeesh and Chauhan, 2026 [1]}
+
+Focus: Agricultural Digital Twin review
+
+Main contribution: The paper reviews Agricultural Digital Twins as virtual representations of farms and processes supported by IoT, AI, AR/XR, edge computing, and related technologies. It emphasizes that DTs enable real-time monitoring, simulation, optimization, and decision support, but also that agriculture remains an emerging and complex DT domain.
+
+Use in this thesis: This source supports the broad theoretical framing of Agrio. It justifies presenting the system as an agricultural DT prototype and highlights why IoT and AI are necessary enablers.
+
+Relation to Agrio: Agrio aligns with this review by combining physical sensing, virtual states, AI prediction, simulation, and dashboard decision support. However, Agrio remains narrower because it targets irrigation only.
+
+\section{Zhang et al., 2025 [2]}
+
+Focus: Comprehensive DT review in agriculture
+
+Main contribution: The study clarifies Digital Model, Digital Shadow, and Digital Twin as maturity levels. It also presents perception, network, and application layers. It emphasizes IoT, cloud/edge computing, data acquisition, simulation, modeling, and agricultural decision support.
+
+Use in this thesis: This source is central for defining the maturity of Agrio. The thesis uses it to distinguish monitoring dashboards from operational Digital Twins.
+
+Relation to Agrio: Agrio is placed between a Digital Shadow and an operational human-supervised Digital Twin because it has sensor synchronization and pump-control capability but not full autonomous production validation.
+
+\section{Gund et al., 2025 [3]}
+
+Focus: Bibliometric review of smart agricultural DTs
+
+Main contribution: The paper maps the growth of Digital Twin publications in agriculture and identifies clusters around precision farming, IoT, AI, cyber-physical systems, controlled environments, sustainability, and food systems.
+
+Use in this thesis: This source supports the claim that Agrio belongs to an active research trend and that Digital Twins in agriculture are becoming system-level rather than task-specific.
+
+Relation to Agrio: Agrio is a practical implementation inside the IoT-AI-precision farming cluster. Its limitation is that it is an academic prototype rather than a large bibliometric trend outcome.
+
+\section{Awais et al., 2025 [4]}
+
+Focus: Precision agriculture through DTs and smart farming
+
+Main contribution: This review studies 167 works from 2018-2025 and stresses the need for an integrated framework connecting IoT, UAVs, ML, remote sensing, and DT ecosystems. It notes that many works remain isolated around specific applications.
+
+Use in this thesis: This source directly supports the integrative ambition of Agrio: instead of a single ML model or dashboard, the project connects multiple layers in one prototype.
+
+Relation to Agrio: Agrio does not yet include UAV or satellite remote sensing, but it provides a clear foundation to integrate them later.
+
+\section{Tsaousidis et al., 2026 [5]}
+
+Focus: AI-enabled DTs in agriculture
+
+Main contribution: The paper states that many agricultural works use the term Digital Twin loosely and sometimes refer to decision support tools rather than synchronized virtual-physical systems. It highlights data integration as a major bottleneck.
+
+Use in this thesis: This source is used to make the thesis scientifically careful. Agrio must demonstrate exactly why it is a DT: live sensor input, virtual state, prediction, simulation, recommendation, and actuation feedback.
+
+Relation to Agrio: Agrio addresses local sensor and ML integration but not yet multi-source satellite/UAV integration or long-term economic evaluation.
+
+\section{Ahsen et al., 2025 [6]}
+
+Focus: Digital Twins for sustainable agricultural water management
+
+Main contribution: This systematic review focuses on water management. It distinguishes monitoring DTs and predictive DTs and highlights applications in irrigation, hydroponics, aquaponics, and vertical farming. It identifies scalability, cost, and data integration barriers.
+
+Use in this thesis: This source directly supports the irrigation-water focus of Agrio and the claim that predictive DTs can support proactive irrigation decisions.
+
+Relation to Agrio: Agrio includes both monitoring and predictive/simulation elements, but field-scale water savings remain future validation.
+
+\section{García et al., 2020 [7]}
+
+Focus: IoT-based smart irrigation systems overview
+
+Main contribution: The review analyzes sensors, actuators, nodes, wireless technologies, monitored variables, and IoT systems used for irrigation in precision agriculture. It highlights cost and implementation challenges.
+
+Use in this thesis: This paper justifies the hardware and communication chapter: smart irrigation needs soil, weather, water, communication, and actuation components.
+
+Relation to Agrio: Agrio uses a more professional sensing kit and MQTT backend pipeline, whereas many reviewed systems are low-cost prototypes with simple thresholds.
+
+\section{Obaideen et al., 2022 [8]}
+
+Focus: Overview of smart irrigation using IoT
+
+Main contribution: The paper links smart irrigation to water-use efficiency and sustainable development. It describes data acquisition, irrigation control, wireless communication, processing, and fault detection as core components.
+
+Use in this thesis: This work supports Chapter 1 and the sustainability motivation of the thesis.
+
+Relation to Agrio: Agrio implements the listed components and adds Digital Twin state, ML prediction, scenario simulation, and human validation.
+
+\section{Del-Coco et al., 2024 [9]}
+
+Focus: Machine learning for smart irrigation
+
+Main contribution: The review defines a smart irrigation architecture with physical, processing, dataset/data-source, and decision layers. It discusses ML algorithms and highlights dataset and long-term data limitations.
+
+Use in this thesis: This is a key source for the ML chapter. It supports the Random Forest choice and the need to present metrics cautiously.
+
+Relation to Agrio: Agrio follows this architecture but adds concrete deployment and Digital Twin synchronization. It still shares the dataset limitation identified by the review.
+
+\section{Morchid et al., 2026 [10]}
+
+Focus: IoT and ML for sustainable irrigation
+
+Main contribution: This systematic review analyzes IoT and ML in irrigation and stresses real-time environmental data, ML decisions, cloud platforms, water conservation, and adoption barriers.
+
+Use in this thesis: This paper supports the project’s use of IoT + ML and the discussion of implementation complexity.
+
+Relation to Agrio: Agrio integrates IoT and ML with a Digital Twin workflow; however, farmer adoption and field economics remain untested.
+
+\section{Kodali and Sarjerao, 2017 [11]}
+
+Focus: Low-cost MQTT smart irrigation
+
+Main contribution: The work uses soil moisture sensing, ESP8266/NodeMCU, MQTT, pump control, and web/mobile visualization. It is simple but highly relevant to actuator control through MQTT.
+
+Use in this thesis: This is a direct implementation reference for the MQTT/WeMos part of Agrio.
+
+Relation to Agrio: Agrio extends this concept by adding gateway processing, PostgreSQL, ML service, Digital Twin simulation, validated recommendations, and scheduling.
+
+\section{Balaceanu et al., 2019 [12]}
+
+Focus: Libelium-based precision agriculture monitoring
+
+Main contribution: The paper uses Libelium to monitor temperature, soil humidity, relative humidity, atmospheric pressure, and solar radiation. It shows that Libelium-based platforms can support precision agriculture monitoring.
+
+Use in this thesis: This supports the choice of Libelium Smart Agriculture hardware.
+
+Relation to Agrio: Agrio uses Libelium not only for monitoring but as the physical data source of a Digital Twin irrigation platform.
+
+\section{Millán et al., 2025 [13]}
+
+Focus: Processing tomato commercial farm Digital Twin
+
+Main contribution: The paper evaluates Irri\_DesK in a 15 ha commercial processing tomato plot over two seasons. It integrates soil moisture sensors, climate data, simulation models, and daily irrigation scheduling.
+
+Use in this thesis: This is one of the strongest field-validation references. It shows what a mature irrigation DT can achieve in commercial conditions.
+
+Relation to Agrio: Agrio should be compared honestly: Agrio is more of an end-to-end software/hardware prototype, while this study has stronger agronomic validation.
+
+\section{Bellvert et al., 2023 [14]}
+
+Focus: Sentinel-2 assimilation into vineyard DT
+
+Main contribution: The paper assimilates Sentinel-2 fAPAR into a Digital Twin for automated vineyard irrigation scheduling. It combines remote sensing, soil water balance, sensors, and automated irrigation prescriptions.
+
+Use in this thesis: This supports the future work direction of integrating satellite imagery into Agrio.
+
+Relation to Agrio: Agrio currently lacks remote sensing; adding Sentinel-2 or UAV data would strengthen the Digital Twin maturity.
+
+\section{Manocha et al., 2024 [15]}
+
+Focus: IoT-DT smart irrigation
+
+Main contribution: The paper links sensors and actuators to virtual counterparts, estimates irrigation requirements, and simulates system behavior. It is one of the closest conceptual references to Agrio.
+
+Use in this thesis: This work is a direct comparison point for the proposed architecture.
+
+Relation to Agrio: Agrio’s distinct value is the implemented stack: MQTT topics, FastAPI, PostgreSQL, ML service, dashboard, scheduling, and WeMos control.
+
+\section{Tancredi et al., 2025 [16]}
+
+Focus: Digital Twin enhanced with ML for irrigation
+
+Main contribution: The work uses sensor data and machine learning to classify irrigation ON/OFF decisions and evaluates the model through metrics such as accuracy, precision, recall, F1, and confusion matrix.
+
+Use in this thesis: This is a direct comparison for the ML decision layer.
+
+Relation to Agrio: Agrio should include confusion matrices and feature importance figures to reach the same level of ML reporting.
+
+\section{Qin et al., 2025 [17]}
+
+Focus: DT irrigation-drainage for water-salt management
+
+Main contribution: The study addresses irrigation-drainage and water-salt dynamics using IoT, prediction, and DT-assisted management. It is more agronomically specialized than Agrio.
+
+Use in this thesis: This helps discuss advanced irrigation DTs beyond simple moisture thresholds.
+
+Relation to Agrio: Agrio does not handle salinity or drainage; these are future work for water-stressed or saline environments.
+
+\section{Liu et al., 2025 [18]}
+
+Focus: Cotton canopy DT under water stress
+
+Main contribution: This work focuses on plant/canopy modeling under water stress and provides an example of crop-specific DT modeling.
+
+Use in this thesis: This supports the future direction of crop growth and stress modeling.
+
+Relation to Agrio: Agrio currently models zone moisture and decision state rather than detailed crop physiology.
+
+\section{El Hachimi et al., 2025 [19]}
+
+Focus: Digital Twins and reinforcement learning for irrigation distribution
+
+Main contribution: The paper uses DRL and Digital Twins to optimize collective irrigation water distribution. It represents an advanced control direction.
+
+Use in this thesis: This is useful for the future work chapter.
+
+Relation to Agrio: Agrio currently uses Random Forest and rule-based/human-supervised decisions; reinforcement learning would be a future optimization layer.

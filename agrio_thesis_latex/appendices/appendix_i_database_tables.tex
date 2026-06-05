@@ -1,0 +1,54 @@
+\chapter{Detailed Database Table Descriptions}
+
+This appendix describes the role of the main PostgreSQL tables used by the Agrio platform. The final ERD should be inserted in Chapter 7 and the complete ERD in Appendix A. The descriptions below are useful for defending the database design during the engineering discussion.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Detailed description of database tables}\\
+\toprule
+Table & Role in the platform \\
+\midrule
+\endfirsthead
+\toprule
+Table & Role in the platform \\
+\midrule
+\endhead
+users & Stores platform users or operators. It supports ownership and traceability of farms, decisions, and administrative actions. \\
+farms & Represents farm-level entities. A farm is the top agricultural unit and can contain several plots. \\
+plots & Represents physical plots within a farm. In the current prototype, the main plot corresponds to the controlled experimental environment. \\
+management\_zones & Represents the basic irrigation decision unit. A zone has its own sensor readings, Digital Twin state, predictions, and recommendations. \\
+soil\_profiles & Stores soil properties used to interpret moisture and water balance. Future versions can include texture, field capacity, wilting point, and hydraulic parameters. \\
+crops & Stores crop information used for future crop-specific irrigation decisions. \\
+irrigation\_networks & Represents irrigation equipment and flow configuration. It can be extended for valves, pumps, sectors, and pipe characteristics. \\
+sensors & Stores sensor metadata, type, associated zone, and source device. \\
+sensor\_readings & Stores timestamped sensor values. This table is the main persistence target for MQTT-originated measurements. \\
+weather\_records & Stores environmental records such as air temperature, humidity, rainfall, wind, pressure, and light intensity. \\
+device\_health\_logs & Stores sensor/device health status and can support freshness and reliability checks. \\
+forecast\_locations & Stores location information used for weather forecast requests. \\
+weather\_forecasts & Stores forecast data retrieved from external APIs. \\
+irrigation\_forecasts & Stores weather-aware irrigation decisions generated from forecast data. \\
+digital\_twins & Represents virtual twins associated with plots or systems. \\
+zone\_states & Stores the current synchronized virtual state of each management zone. \\
+zone\_state\_history & Stores historical virtual states for temporal analysis and validation. \\
+prediction\_results & Stores ML inference outputs, including irrigation need, suggested hour, confidence, action, and input features. \\
+twin\_predictions & Stores future moisture projections or time-horizon outputs associated with the Digital Twin. \\
+simulation\_scenarios & Stores user-defined scenario inputs such as duration, horizon, and flow-rate override. \\
+simulation\_results & Stores outputs of no-irrigation and with-irrigation simulations. \\
+recommendations & Stores generated irrigation recommendations, status, reason, priority, duration, and dose. \\
+decision\_rules & Stores rule-based decision parameters or fallback logic configuration. \\
+alerts & Stores warning or critical messages related to sensor health, moisture thresholds, or system state. \\
+irrigation\_events & Stores scheduled or executed irrigation events. \\
+control\_commands & Stores commands sent or prepared for actuator execution. \\
+execution\_feedback & Stores feedback after pump execution, including status and duration. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{I.1 Why this database supports a Digital Twin}
+
+A simple IoT dashboard could store only sensors and readings. Agrio stores much more: virtual states, history, predictions, simulations, recommendations, schedules, commands, and feedback. This structure is a database-level proof that the project was designed as a Digital Twin platform rather than a simple monitoring tool.
+
+The strongest tables for defending the Digital Twin nature of the project are digital\_twins, zone\_states, zone\_state\_history, prediction\_results, twin\_predictions, simulation\_scenarios, simulation\_results, recommendations, control\_commands, irrigation\_events, and execution\_feedback. Together, these tables connect physical measurement to virtual representation and operational action.
+
+In the defense, the students can explain the database as a chain: sensor\_readings and weather\_records represent the physical data; zone\_states represent the synchronized virtual state; prediction\_results and simulation\_results represent intelligence and scenario analysis; recommendations and irrigation\_events represent decisions; control\_commands and execution\_feedback represent the link back to the physical actuator.
