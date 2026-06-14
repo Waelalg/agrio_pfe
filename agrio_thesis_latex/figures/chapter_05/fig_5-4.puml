@@ -1,0 +1,40 @@
+@startuml
+left to right direction
+class Sensor {
+  +sensor_id
+  +type
+  +metadata
+}
+class SensorReading {
+  +reading_id
+  +timestamp
+  +value
+}
+class WeatherRecord {
+  +record_id
+  +timestamp
+  +metrics
+}
+class DeviceHealthLog {
+  +log_id
+  +status
+}
+class ForecastLocation {
+  +location_id
+  +coordinates
+}
+class WeatherForecast {
+  +forecast_id
+  +data
+}
+class IrrigationForecast {
+  +irrigation_forecast_id
+  +decision
+}
+
+Sensor "1" -- "0..*" SensorReading
+Sensor "1" -- "0..*" DeviceHealthLog
+SensorReading "1" -- "1" WeatherRecord
+ForecastLocation "1" -- "0..*" WeatherForecast
+WeatherForecast "1" -- "0..*" IrrigationForecast
+@enduml

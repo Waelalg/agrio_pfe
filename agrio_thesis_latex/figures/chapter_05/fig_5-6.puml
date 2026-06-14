@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+class Recommendation {
+  +recommendation_id
+  +status
+  +priority
+}
+class DecisionRule {
+  +rule_id
+  +parameters
+}
+class Alert {
+  +alert_id
+  +warning_level
+}
+class IrrigationEvent {
+  +event_id
+  +schedule
+}
+class ControlCommand {
+  +command_id
+  +payload
+}
+class ExecutionFeedback {
+  +feedback_id
+  +status
+}
+
+DecisionRule "1" -- "0..*" Recommendation
+Recommendation "1" -- "1" IrrigationEvent
+IrrigationEvent "1" -- "1" ControlCommand
+ControlCommand "1" -- "1" ExecutionFeedback
+Alert "0..*" -- "1" Recommendation
+@enduml

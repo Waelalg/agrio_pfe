@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+class Farm {
+  +farm_id
+  +name
+  +location
+}
+class Plot {
+  +plot_id
+  +name
+  +area
+}
+class ManagementZone {
+  +zone_id
+  +name
+}
+class SoilProfile {
+  +soil_id
+  +properties
+}
+class Crop {
+  +crop_id
+  +name
+}
+class IrrigationNetwork {
+  +network_id
+  +valves
+  +pumps
+}
+
+Farm "1" *-- "1..*" Plot
+Plot "1" *-- "1..*" ManagementZone
+ManagementZone "1" -- "1" SoilProfile
+ManagementZone "1" -- "1" Crop
+ManagementZone "1" -- "1" IrrigationNetwork
+@enduml

@@ -1,0 +1,62 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Farmer" as F
+actor "Admin / Agronomist" as A
+actor "MQTT Sensor\nStation" as M
+actor "WeMos Actuator" as W
+actor "ML Service" as ML
+actor "Open-Meteo API" as O
+
+rectangle "Smart Irrigation System" {
+  usecase "Run simulation" as UC1
+  usecase "Validate recommendation\n(virtual execution)" as UC2
+  usecase "Send manual WeMos command" as UC3
+  usecase "View zone history" as UC4
+  usecase "View AI twin state" as UC5
+  usecase "View dashboard overview" as UC6
+  usecase "Manage master data\n(users/farms/plots/zones/sensors/...)" as UC7
+  usecase "Generate weather-aware forecast" as UC8
+  usecase "Update digital twin state" as UC9
+  usecase "Generate rule-based recommendation" as UC10
+  usecase "Persist sensor and weather data" as UC11
+  usecase "Evaluate sensor health" as UC12
+  usecase "Ingest sensor payload" as UC13
+  usecase "Receive WeMos status" as UC14
+  usecase "Request ML irrigation prediction" as UC15
+  usecase "Preview weather" as UC16
+  usecase "Search forecast location" as UC17
+}
+
+F --> UC1
+F --> UC2
+F --> UC3
+F --> UC4
+F --> UC5
+F --> UC6
+F --> UC8
+
+A --> UC6
+A --> UC7
+A --> UC8
+
+M --> UC13
+
+W --> UC14
+
+ML --> UC15
+
+O --> UC16
+O --> UC17
+
+UC13 .> UC12 : <<include>>
+UC13 .> UC11 : <<include>>
+UC13 .> UC10 : <<include>>
+UC13 .> UC9 : <<include>>
+UC13 .> UC8 : <<include>>
+
+UC14 .> UC9 : <<include>>
+UC14 .> UC8 : <<include>>
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+class DigitalTwin {
+  +twin_id
+}
+class ZoneState {
+  +state_id
+  +current_status
+}
+class ZoneStateHistory {
+  +history_id
+  +timestamp
+}
+class PredictionResult {
+  +prediction_id
+  +irrigation_need
+  +confidence
+}
+class TwinPrediction {
+  +twin_pred_id
+  +horizon
+}
+class SimulationScenario {
+  +scenario_id
+  +duration
+}
+class SimulationResult {
+  +sim_result_id
+  +outputs
+}
+
+DigitalTwin "1" -- "1" ZoneState
+ZoneState "1" *-- "0..*" ZoneStateHistory
+DigitalTwin "1" -- "0..*" PredictionResult
+DigitalTwin "1" -- "0..*" TwinPrediction
+DigitalTwin "1" -- "0..*" SimulationScenario
+SimulationScenario "1" -- "1..*" SimulationResult
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+start
+:Receive MQTT Sensor Payload;
+:Validate and Normalize Payload;
+:Resolve Zone;
+if (Missing Sensor Mapping?) then (Yes)
+  :Create Mapping;
+else (No)
+endif
+:Insert Weather & Sensor Readings;
+:Evaluate Sensor Health;
+:Update Zone State (Digital Twin);
+:Call ML Service;
+:Store Predictions;
+:Append State History;
+:Expose Updated State to Dashboard;
+if (Irrigation Required?) then (Yes)
+  :Wait for User Confirmation;
+  :Validate Recommendation;
+  :Create Recommendation Record & Irrigation Event;
+  :Publish MQTT Command to WeMos Actuator;
+else (No)
+endif
+stop
+@enduml

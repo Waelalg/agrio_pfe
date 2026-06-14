@@ -1,34 +1,32 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Abbreviations used in the thesis}}{vii}{table.0.1}%
-\contentsline {table}{\numberline {2}{\ignorespaces Summary of thesis objectives and contributions}}{4}{table.0.2}%
+\contentsline {table}{\numberline {1}{\ignorespaces Abbreviations used in the thesis}}{vi}{table.0.1}%
+\contentsline {table}{\numberline {2}{\ignorespaces Summary of thesis objectives and contributions}}{3}{table.0.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Evolution from conventional irrigation to Digital Twin irrigation}}{8}{table.1.1}%
-\contentsline {table}{\numberline {1.2}{\ignorespaces Measured variables and their role in Agrio}}{9}{table.1.2}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Evolution from conventional irrigation to Digital Twin irrigation}}{7}{table.1.1}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Measured variables and their role in Agrio}}{8}{table.1.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Machine learning algorithms used in smart irrigation literature}}{18}{table.2.1}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Machine learning algorithms used in smart irrigation literature}}{15}{table.2.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Key literature themes used in this thesis}}{28}{table.3.1}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Key literature themes used in this thesis}}{23}{table.3.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison criteria for Digital Twin irrigation systems}}{30}{table.4.1}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Scientific comparison of selected works with Agrio}}{31}{table.4.2}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Novelty and contribution of Agrio}}{33}{table.4.3}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison criteria for Digital Twin irrigation systems}}{24}{table.4.1}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Scientific comparison of selected works with Agrio}}{25}{table.4.2}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Novelty and contribution of Agrio}}{26}{table.4.3}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Functional requirements}}{38}{table.5.1}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Non-functional requirements}}{39}{table.5.2}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Functional requirements}}{30}{table.5.1}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Non-functional requirements}}{31}{table.5.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Architecture layers and implementation choices}}{46}{table.6.1}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Architecture layers and implementation choices}}{40}{table.6.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Main database groups}}{51}{table.7.1}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Main database groups}}{45}{table.7.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces Features used by the need\_irrigation model}}{56}{table.8.1}%
-\contentsline {table}{\numberline {8.2}{\ignorespaces Features used by the suggested\_hour model}}{56}{table.8.2}%
-\contentsline {table}{\numberline {8.3}{\ignorespaces Model performance metrics from project metadata}}{57}{table.8.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {10.1}{\ignorespaces Deployment services and roles}}{66}{table.10.1}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {11.1}{\ignorespaces Test scenario summary}}{69}{table.11.1}%
+\contentsline {table}{\numberline {8.1}{\ignorespaces Features used by the need\_irrigation model}}{48}{table.8.1}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Features used by the suggested\_hour model}}{49}{table.8.2}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Model performance metrics from project metadata}}{49}{table.8.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {10.1}{\ignorespaces Deployment services and roles}}{57}{table.10.1}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {11.1}{\ignorespaces Test scenario summary}}{60}{table.11.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -36,10 +34,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {I.1}{\ignorespaces Detailed description of database tables}}{94}{table.I.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {J.1}{\ignorespaces Backend API responsibilities}}{98}{table.J.1}%
-\contentsline {table}{\numberline {J.2}{\ignorespaces Internal backend service responsibilities}}{99}{table.J.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {I.1}{\ignorespaces Detailed description of database tables}}{81}{table.I.1}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {J.1}{\ignorespaces Backend API responsibilities}}{84}{table.J.1}%
+\contentsline {table}{\numberline {J.2}{\ignorespaces Internal backend service responsibilities}}{85}{table.J.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
