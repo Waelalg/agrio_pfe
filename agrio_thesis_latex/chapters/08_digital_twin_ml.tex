@@ -14,8 +14,7 @@ The dataset adaptation script prepares raw data for model training and inference
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-2_dataset-adaptation-and-feature-engineering-wo.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.2 here: Dataset adaptation and feature engineering workflow used before model training.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/Figure 8.1 — Dataset adaptation and feature engineering workflow used before model training.png}
     \caption{Dataset adaptation and feature engineering workflow used before model training. Source: Authors.}
     \label{fig:8-2-dataset-adaptation-and-feature-engineering-workflow-used-before-mo}
 \end{figure}
@@ -30,8 +29,7 @@ Two Random Forest models are used. The first predicts whether irrigation is need
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-1_machine-learning-pipeline-from-dataset-adapta.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.1 here: Machine learning pipeline from dataset adaptation to Random Forest inference.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/Figure 8.2 — Machine learning pipeline from dataset adaptation to Random Forest inference.png}
     \caption{Machine learning pipeline from dataset adaptation to Random Forest inference. Source: Authors.}
     \label{fig:8-1-machine-learning-pipeline-from-dataset-adaptation-to-random-forest}
 \end{figure}
@@ -42,16 +40,14 @@ The ML service exposes endpoints such as /health, /metadata, and /predict. The b
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-3_ml-service-health-endpoint-showing-model-load.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.3 here: ML service health endpoint showing model loading status.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/Figure 8.3 — ML service health endpoint showing model loading status.png}
     \caption{ML service health endpoint showing model loading status. Source: Authors.}
     \label{fig:8-3-ml-service-health-endpoint-showing-model-loading-status}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-4_ml-prediction-response-for-irrigation-need-an.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.4 here: ML prediction response for irrigation need and suggested irrigation hour.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/fig_8_4_ml_prediction_response.png}
     \caption{ML prediction response for irrigation need and suggested irrigation hour. Source: Authors.}
     \label{fig:8-4-ml-prediction-response-for-irrigation-need-and-suggested-irrigatio}
 \end{figure}
@@ -62,8 +58,7 @@ After ML inference, the backend stores prediction results and updates the zone s
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-5_digital-twin-state-update-flow-from-sensor-re.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.5 here: Digital Twin state update flow from sensor readings to synchronized zone state.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/Figure 8.5 — Digital Twin state update flow from sensor readings to synchronized zone state.png}
     \caption{Digital Twin state update flow from sensor readings to synchronized zone state. Source: Authors.}
     \label{fig:8-5-digital-twin-state-update-flow-from-sensor-readings-to-synchronize}
 \end{figure}
@@ -74,8 +69,7 @@ The what-if simulation compares future moisture evolution under different scenar
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-6_what-if-simulation-logic-comparing-no-irrigat.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.6 here: What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/Figure 8.6 — What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths.png}
     \caption{What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths. Source: Authors.}
     \label{fig:8-6-what-if-simulation-logic-comparing-no-irrigation-with-irrigation-a}
 \end{figure}
@@ -158,32 +152,28 @@ Rule-based fallback & Fallback decision when ML is unavailable & Not an ML metri
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-7a_feature-importance-of-the-random-forest-need-.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.7a here: Feature importance of the Random Forest need\_irrigation model.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/fig_8_7_need_irrigation_feature_importance.png}
     \caption{Feature importance of the Random Forest need\_irrigation model. Source: Authors.}
     \label{fig:8-7a-feature-importance-of-the-random-forest-need-irrigation-model}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-7b_feature-importance-of-the-random-forest-sugge.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.7b here: Feature importance of the Random Forest suggested\_hour model.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/fig_8_8_suggested_hour_feature_importance.png}
     \caption{Feature importance of the Random Forest suggested\_hour model. Source: Authors.}
     \label{fig:8-7b-feature-importance-of-the-random-forest-suggested-hour-model}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-8a_confusion-matrix-of-the-need-irrigation-rando.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.8a here: Confusion matrix of the need\_irrigation Random Forest model.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/fig_8_9_need_irrigation_confusion_matrix.png}
     \caption{Confusion matrix of the need\_irrigation Random Forest model. Source: Authors.}
     \label{fig:8-8a-confusion-matrix-of-the-need-irrigation-random-forest-model}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=0.9\textwidth]{figures/chapter_08/fig_8-8b_confusion-matrix-of-the-suggested-hour-random.png}
-    \fbox{\parbox{0.85\textwidth}{\centering Insert Figure 8.8b here: Confusion matrix of the suggested\_hour Random Forest model.}}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/fig_8_10_suggested_hour_confusion_matrix_grouped.png}
     \caption{Confusion matrix of the suggested\_hour Random Forest model. Source: Authors.}
     \label{fig:8-8b-confusion-matrix-of-the-suggested-hour-random-forest-model}
 \end{figure}

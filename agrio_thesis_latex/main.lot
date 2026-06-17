@@ -15,20 +15,18 @@
 \contentsline {table}{\numberline {5.1}{\ignorespaces Functional requirements}}{38}{table.5.1}%
 \contentsline {table}{\numberline {5.2}{\ignorespaces Non-functional requirements}}{39}{table.5.2}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Architecture layers and implementation choices}}{52}{table.6.1}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Architecture layers and implementation choices}}{51}{table.6.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Main database groups}}{57}{table.7.1}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Main database groups}}{60}{table.7.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {8.1}{\ignorespaces Features used by the need\_irrigation model}}{62}{table.8.1}%
-\contentsline {table}{\numberline {8.2}{\ignorespaces Features used by the suggested\_hour model}}{62}{table.8.2}%
-\contentsline {table}{\numberline {8.3}{\ignorespaces Model performance metrics from project metadata}}{63}{table.8.3}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {10.1}{\ignorespaces Deployment services and roles}}{72}{table.10.1}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {11.1}{\ignorespaces Test scenario summary}}{75}{table.11.1}%
+\contentsline {table}{\numberline {8.1}{\ignorespaces Features used by the need\_irrigation model}}{66}{table.8.1}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Features used by the suggested\_hour model}}{67}{table.8.2}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Model performance metrics from project metadata}}{67}{table.8.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {10.1}{\ignorespaces Deployment services and roles}}{85}{table.10.1}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {11.1}{\ignorespaces Test scenario summary}}{88}{table.11.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -36,10 +34,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {I.1}{\ignorespaces Detailed description of database tables}}{100}{table.I.1}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {J.1}{\ignorespaces Backend API responsibilities}}{104}{table.J.1}%
-\contentsline {table}{\numberline {J.2}{\ignorespaces Internal backend service responsibilities}}{105}{table.J.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {I.1}{\ignorespaces Detailed description of database tables}}{113}{table.I.1}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {J.1}{\ignorespaces Backend API responsibilities}}{117}{table.J.1}%
+\contentsline {table}{\numberline {J.2}{\ignorespaces Internal backend service responsibilities}}{118}{table.J.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
