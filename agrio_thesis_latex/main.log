@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.6.5)  8 JUN 2026 20:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.6.5)  15 JUN 2026 00:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (C:\Users\orani\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\orani\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(C:\Users\orani\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count271
 \c@chapter=\count272
@@ -829,12 +829,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 41.
 ef
 File: float-xetex-bidi.def 2013/04/04 v0.2 bidi adaptations for float package f
 or XeTeX engine
-)
-
-LaTeX Warning: Unused global option(s):
-    [pt].
-
-(main.aux)
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -877,12 +872,12 @@ LaTeX Font Info:    ... okay on input line 4.
 * \topmargin=-38.1381pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -971,50 +966,85 @@ File: figures/logo-esi-sba.png Graphic file (type bmp)
 <figures/logo-esi-sba.png>
  [1
 
-] [1
+] [2] [1
 
 
 ] [2
 
 ] [3
 
-] [4
-
 ]
+[4]
+Underfull \hbox (badness 1968) in paragraph at lines 68--69
+[]\TU/LatinModernRoman(0)/m/n/12 numériques en agriculture et leur positionneme
+nt par rapport aux systèmes[]
+ []
+
 [5
 
 ] [6
 
-] (main.toc [7
+] [7
 
-] [8] [9] [10])
+] [8] (main.toc [9
+
+] [10] [11] [12] [13])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [11] (main.lof [12
+ [14] (main.lof
+Underfull \hbox (badness 2229) in paragraph at lines 5--5
+ [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Pump control concept using WeMos
+, relay, and MQTT com-[][] 
+ []
 
-] [13])
+
+Underfull \hbox (badness 3954) in paragraph at lines 12--12
+ [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Generic smart irrigation system 
+architecture from ML litera-[][] 
+ []
+
+[15
+
+] [16]
+Underfull \hbox (badness 1189) in paragraph at lines 49--49
+ [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Confusion matrix of the need_irr
+igation Random Forest model.[][] 
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 50--50
+ [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Confusion matrix of the suggeste
+d_hour Random Forest model.[][] 
+ []
+
+[17]
+Underfull \hbox (badness 1205) in paragraph at lines 69--69
+ [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Database persistence proof showi
+ng stored sensor readings from[][] 
+ []
+
+)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [14] (main.lot)
+ [18] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
-
-[15
+ [19
 
 ]) (chapters/00_general_introduction.tex [1
 
 
 
-]
+] [2]
 File: figures/cover/Figure 0.1 — Global view of the thesis methodology from lit
 erature review to prototype validation.png Graphic file (type bmp)
 <figures/cover/Figure 0.1 — Global view of the thesis methodology from literatu
 re review to prototype validation.png>
- [2])
-(chapters/01_precision_agriculture.tex [3] [4
+ [3])
+(chapters/01_precision_agriculture.tex [4] [5
 
 ]
 Chapter 1.
@@ -1022,32 +1052,38 @@ File: figures/chapter_01/Figure 1.1 — Conceptual scope of precision agricultur
  and smart irrigation.png Graphic file (type bmp)
 <figures/chapter_01/Figure 1.1 — Conceptual scope of precision agriculture and 
 smart irrigation.png>
-[5
+[6
 
-] [6] [7]
+] [7] [8] [9] [10]
 File: figures/chapter_01/Figure 1.2 — Generic communication chain for IoT-based
  smart irrigation.png Graphic file (type bmp)
 <figures/chapter_01/Figure 1.2 — Generic communication chain for IoT-based smar
 t irrigation.png>
- [8]
+ [11]
 File: figures/chapter_01/Figure 1.3 — Pump control concept using WeMos, relay, 
 and MQTT commandstatus topics.png Graphic file (type bmp)
 <figures/chapter_01/Figure 1.3 — Pump control concept using WeMos, relay, and M
 QTT commandstatus topics.png>
- [9]) (chapters/02_digital_twins_iot_ai.tex [10] [11]
+ [12]) (chapters/02_digital_twins_iot_ai.tex [13]
 Chapter 2.
+[14
+
+]
 File: figures/chapter_02/Figure 2.1 — Digital Model, Digital Shadow, and Digita
 l Twin maturity levels.png Graphic file (type bmp)
 <figures/chapter_02/Figure 2.1 — Digital Model, Digital Shadow, and Digital Twi
 n maturity levels.png>
-[12
-
-]
+ [15]
 File: figures/chapter_02/Figure 2.2 — Layered architecture of an agricultural D
 igital Twin.png Graphic file (type bmp)
 <figures/chapter_02/Figure 2.2 — Layered architecture of an agricultural Digita
 l Twin.png>
- [13] [14] [15]) (chapters/03_state_of_the_art.tex [16] [17
+ [16] [17]
+Overfull \hbox (14.40836pt too wide) in paragraph at lines 65--65
+[][]|\TU/LatinModernRoman(0)/m/n/10 Classification/regression[] 
+ []
+
+[18] [19]) (chapters/03_state_of_the_art.tex [20] [21
 
 ]
 Chapter 3.
@@ -1055,157 +1091,181 @@ File: figures/chapter_03/Figure 3.1 — Literature review methodology and themat
 c classification.png Graphic file (type bmp)
 <figures/chapter_03/Figure 3.1 — Literature review methodology and thematic cla
 ssification.png>
-[18
+[22
 
-]
+] [23]
 File: figures/chapter_03/Figure 3.2 — Example of agricultural Digital Twin over
 view from literature.png Graphic file (type bmp)
 <figures/chapter_03/Figure 3.2 — Example of agricultural Digital Twin overview 
 from literature.png>
- [19] [20]
+ [24]
 File: figures/chapter_03/Figure 3.3 — Generic smart irrigation system architect
 ure from ML literature.png Graphic file (type bmp)
 <figures/chapter_03/Figure 3.3 — Generic smart irrigation system architecture f
 rom ML literature.png>
- [21] [22]) (chapters/04_comparative_analysis.tex [23]
+ [25] [26] [27] [28]) (chapters/04_comparative_analysis.tex
+[29]
 Chapter 4.
+[30
 
-Overfull \hbox (15.97917pt too wide) in paragraph at lines 56--57
-[]\TU/LatinModernRoman(0)/m/n/8 board/scheduler/control|[] 
+]
+Overfull \hbox (31.98517pt too wide) in paragraph at lines 56--57
+[]\TU/LatinModernRoman(0)/m/n/10 board/scheduler/control|[] 
  []
 
-[24
-
-] [25]
+[31] [32]
 File: figures/chapter_04/Figure 4.1 — Positioning of Agrio between Digital Mode
 l, Digital Shadow, and operational Digital Twin.png Graphic file (type bmp)
 <figures/chapter_04/Figure 4.1 — Positioning of Agrio between Digital Model, Di
 gital Shadow, and operational Digital Twin.png>
- [26]) (chapters/05_requirements_design.tex [27] [28
+ [33] [34]) (chapters/05_requirements_design.tex [35] [36
 
 ]
 Chapter 5.
-[29
+[37
 
-] [30]
+] [38] [39]
 File: figures/chapter_05/fig_5-1.png Graphic file (type bmp)
 <figures/chapter_05/fig_5-1.png>
- [31]
-Overfull \vbox (412.12965pt too high) has occurred while \output is active []
+ [40]
+Overfull \vbox (429.12964pt too high) has occurred while \output is active []
 
 
-[32]
+[41]
 File: figures/chapter_05/fig_5-2.png Graphic file (type bmp)
 <figures/chapter_05/fig_5-2.png>
- [33] [34]
+ [42] [43]
 File: figures/chapter_05/fig_5-3.png Graphic file (type bmp)
 <figures/chapter_05/fig_5-3.png>
 File: figures/chapter_05/fig_5-4.png Graphic file (type bmp)
 <figures/chapter_05/fig_5-4.png>
+ [44]
 File: figures/chapter_05/fig_5-5.png Graphic file (type bmp)
 <figures/chapter_05/fig_5-5.png>
- [35]
+ [45]
 File: figures/chapter_05/fig_5-6.png Graphic file (type bmp)
 <figures/chapter_05/fig_5-6.png>
-) (chapters/06_global_architecture.tex [36]
+) (chapters/06_global_architecture.tex [46] [47]
 Chapter 6.
-[37
 
-] [38] [39]) (chapters/07_backend_database_iot.tex [40] [41
+Underfull \hbox (badness 1062) in paragraph at lines 9--10
+[]\TU/LatinModernRoman(0)/m/n/12 communication, Raspberry Pi gateway processing
+, HiveMQ/MQTT messaging,[]
+ []
+
+[48
+
+] [49] [50] [51]) (chapters/07_backend_database_iot.tex [52] [53
 
 ]
 Chapter 7.
+[54
 
-Underfull \hbox (badness 1460) in paragraph at lines 19--20
-[]\TU/LatinModernRoman(0)/m/n/10 timestamp, soil_moisture, soil_temperature, te
-mperature, humidity, pressure, leaf_wetness,[]
- []
-
-[42
-
-] [43] [44]) (chapters/08_digital_twin_ml.tex [45]
+] [55] [56] [57]) (chapters/08_digital_twin_ml.tex [58]
 Chapter 8.
-[46
+[59
 
-] [47] [48]) (chapters/09_interfaces_control.tex [49]
+] [60] [61] [62]) (chapters/09_interfaces_control.tex [63] [64]
 Chapter 9.
-[50
+[65
 
-] [51]) (chapters/10_deployment.tex [52] [53] [54
+] [66] [67]) (chapters/10_deployment.tex [68] [69
 
 ]
 Chapter 10.
-[55
+[70
 
-] [56]) (chapters/11_results_validation.tex [57]
+] [71]) (chapters/11_results_validation.tex [72]
 Chapter 11.
-[58
+[73
 
-] [59] [60]) (chapters/12_general_conclusion.tex [61]) [62
+] [74]
+Overfull \hbox (1.68517pt too wide) in paragraph at lines 73--73
+[][]|\TU/LatinModernRoman(0)/m/n/10 Recommendation[] 
+ []
 
-] (main.bbl
-[63
+[75] [76]) (chapters/12_general_conclusion.tex [77] [78
+
+]) [79] (main.bbl
+[80
 
 
-]) (appendices/appendix_a_figures_checklist.tex [64]
+]) (appendices/appendix_a_figures_checklist.tex [81]
 Appendix A.
-[65
+[82
 
-] [66] [67]) (appendices/appendix_b_class_diagram.tex [68]
+] [83] [84] [85]) (appendices/appendix_b_class_diagram.tex [86]
 Appendix B.
-) (appendices/appendix_c_architecture.tex [69
+) (appendices/appendix_c_architecture.tex [87
 
 ]
 Appendix C.
-) (appendices/appendix_d_erd.tex [70
+) (appendices/appendix_d_erd.tex [88
 
 ]
 Appendix D.
-) (appendices/appendix_e_payloads.tex [71
+) (appendices/appendix_e_payloads.tex [89
 
 ]
 Appendix E.
-) (appendices/appendix_f_capture_guide.tex [72
+) (appendices/appendix_f_capture_guide.tex [90
 
 ]
 Appendix F.
-) (appendices/appendix_g_expansion_notes.tex [73
+) (appendices/appendix_g_expansion_notes.tex [91
 
 ]
 Appendix G.
-) (appendices/appendix_h_literature_matrix.tex [74
+) (appendices/appendix_h_literature_matrix.tex [92
 
 ]
 Appendix H.
-[75
+[93
 
-] [76] [77] [78] [79]) (appendices/appendix_i_database_tables.tex [80]
+] [94] [95] [96]
+Underfull \hbox (badness 1320) in paragraph at lines 111--112
+[][]\TU/LatinModernRoman(0)/m/n/12 Use in this thesis: This is a direct impleme
+ntation reference for the[]
+ []
+
+[97] [98]) (appendices/appendix_i_database_tables.tex [99]
 Appendix I.
-[81
+[100
 
-] [82]) (appendices/appendix_j_api_services.tex [83]
+] [101] [102]
+Overfull \hbox (3.59998pt too wide) in paragraph at lines 52--53
+[]\TU/LatinModernRoman(0)/m/n/12 digital_twins, zone_states, zone_state_history
+, prediction_results, twin_predictions,[]
+ []
+
+) (appendices/appendix_j_api_services.tex [103]
 Appendix J.
-[84
 
-]) (appendices/appendix_k_algorithms.tex [85]
+Overfull \hbox (12.9189pt too wide) in paragraph at lines 17--17
+[][]|\TU/LatinModernRoman(0)/m/n/10 Users/Farms/Plots/Crops/Soil[] 
+ []
+
+[104
+
+] [105]) (appendices/appendix_k_algorithms.tex [106]
 Appendix K.
-[86
+[107
 
-] [87]) (appendices/appendix_l_extra_text_blocks.tex [88]
+] [108]) (appendices/appendix_l_extra_text_blocks.tex [109]
 Appendix L.
-[89
+[110
 
-]) (appendices/appendix_m_defense_positioning.tex [90]
+]) (appendices/appendix_m_defense_positioning.tex [111] [112]
 Appendix M.
 
-Overfull \hbox (47.54276pt too wide) in paragraph at lines 25--26
-[][]\TU/LatinModernRoman(0)/m/n/10 The novelty is the integration of Libelium/X
+Overfull \hbox (132.52875pt too wide) in paragraph at lines 25--26
+[][]\TU/LatinModernRoman(0)/m/n/12 The novelty is the integration of Libelium/X
 Bee/Raspberry Pi/MQTT/FastAPI/PostgreSQL/ML/Digital[]
  []
 
-[91
+[113
 
-]) [92] (main.aux)
+]) [114] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -1218,12 +1278,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C9220FA9906471B288949E7EA295B166;39909.
  ) 
 Here is how much of TeX's memory you used:
- 21322 strings out of 402807
- 456459 string characters out of 5445136
- 1201056 words of memory out of 5000000
- 49793 multiletter control sequences out of 15000+600000
- 632281 words of font info for 97 fonts, out of 8000000 for 9000
+ 21319 strings out of 402807
+ 456303 string characters out of 5445136
+ 1201083 words of memory out of 5000000
+ 49792 multiletter control sequences out of 15000+600000
+ 633175 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,10n,96p,1206b,972s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (108 pages).
+Output written on main.pdf (135 pages).
