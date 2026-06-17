@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.30)  13 JUN 2026 15:02
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.30)  17 JUN 2026 13:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1087,34 +1087,24 @@ Chapter 5.
 [37
 
 ] [38] [39]
-File: figures/chapter_05/Figure 5.1 — Use-case diagram of the proposed Digital 
-Twin smart irrigation system.png Graphic file (type bmp)
-<figures/chapter_05/Figure 5.1 — Use-case diagram of the proposed Digital Twin 
-smart irrigation system.png>
- [40]
-File: figures/chapter_05/Figure 5.2 — Activity diagram of sensor ingestion, Dig
-ital Twin update, AI decision-making, and pump control.png Graphic file (type b
-mp)
-<figures/chapter_05/Figure 5.2 — Activity diagram of sensor ingestion, Digital 
-Twin update, AI decision-making, and pump control.png>
-File: figures/chapter_05/Figure 5.3 — Agricultural domain class diagram.png Gra
-phic file (type bmp)
-<figures/chapter_05/Figure 5.3 — Agricultural domain class diagram.png>
- [41]
-File: figures/chapter_05/Figure 5.4 — Sensor, weather, and forecasting data mod
-el.png Graphic file (type bmp)
-<figures/chapter_05/Figure 5.4 — Sensor, weather, and forecasting data model.pn
-g>
-File: figures/chapter_05/Figure 5.5 — Digital Twin, prediction, and simulation 
-data model.png Graphic file (type bmp)
-<figures/chapter_05/Figure 5.5 — Digital Twin, prediction, and simulation data 
-model.png>
- [42]
-File: figures/chapter_05/Figure 5.6 — Decision, recommendation, scheduling, com
-mand, and feedback data model.png Graphic file (type bmp)
-<figures/chapter_05/Figure 5.6 — Decision, recommendation, scheduling, command,
- and feedback data model.png>
-) (./chapters/06_global_architecture.tex [43]
+File: figures/chapter_05/fig_5-1.png Graphic file (type bmp)
+<figures/chapter_05/fig_5-1.png>
+ [40] [41]
+File: figures/chapter_05/fig_5-2.png Graphic file (type bmp)
+<figures/chapter_05/fig_5-2.png>
+ [42] [43]
+File: figures/chapter_05/fig_5-3.png Graphic file (type bmp)
+<figures/chapter_05/fig_5-3.png>
+File: figures/chapter_05/fig_5-4.png Graphic file (type bmp)
+<figures/chapter_05/fig_5-4.png>
+ [44]
+File: figures/chapter_05/fig_5-5.png Graphic file (type bmp)
+<figures/chapter_05/fig_5-5.png>
+ [45]
+File: figures/chapter_05/fig_5-6.png Graphic file (type bmp)
+<figures/chapter_05/fig_5-6.png>
+)
+(./chapters/06_global_architecture.tex [46] [47]
 Chapter 6.
 
 Underfull \hbox (badness 1062) in paragraph at lines 9--10
@@ -1126,29 +1116,29 @@ File: figures/chapter_06/Figure 6.1 — Global overview of the Agrio Digital Twi
  smart irrigation architecture.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.1 — Global overview of the Agrio Digital Twin smar
 t irrigation architecture.png>
-[44
+[48
 
 ]
 File: figures/chapter_06/Figure 6.2 — Physical and communication architecture o
 f the controlled smart irrigation prototype.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.2 — Physical and communication architecture of the
  controlled smart irrigation prototype.png>
- [45]
+ [49]
 File: figures/chapter_06/Figure 6.3 — MQTT topic architecture for sensor ingest
 ion, actuator commands, and WeMos status feedback.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.3 — MQTT topic architecture for sensor ingestion, 
 actuator commands, and WeMos status feedback.png>
- [46]
+ [50]
 File: figures/chapter_06/Figure 6.4 — Internal backend architecture of the Fast
 API-based Digital Twin platform.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.4 — Internal backend architecture of the FastAPI-b
 ased Digital Twin platform.png>
- [47]
+ [51]
 File: figures/chapter_06/Figure 6.5 — Digital Twin processing architecture from
  live sensor data to simulation and recommendation.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.5 — Digital Twin processing architecture from live
  sensor data to simulation and recommendation.png>
- [48] [49]
+ [52] [53]
 File: figures/chapter_06/Figure 6.6 — Docker Compose deployment architecture of
  the Agrio platform.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.6 — Docker Compose deployment architecture of the 
@@ -1157,12 +1147,12 @@ File: figures/chapter_06/Figure 6.7 — Detailed technical architecture of the i
 plemented Digital Twin smart irrigation platform.png Graphic file (type bmp)
 <figures/chapter_06/Figure 6.7 — Detailed technical architecture of the impleme
 nted Digital Twin smart irrigation platform.png>
- [50] [51])
-(./chapters/07_backend_database_iot.tex [52] [53
+ [54] [55])
+(./chapters/07_backend_database_iot.tex [56] [57
 
 ]
 Chapter 7.
-[54
+[58
 
 ]
 File: figures/chapter_07/Figure 7.1 — Example MQTT payloads used for sensor ing
@@ -1170,7 +1160,7 @@ estion, WeMos status feedback, and actuator commands.png Graphic file (type bmp
 )
 <figures/chapter_07/Figure 7.1 — Example MQTT payloads used for sensor ingestio
 n, WeMos status feedback, and actuator commands.png>
- [55]
+ [59]
 File: figures/chapter_07/Figure 7.2 — ERD of the agricultural structure tables.
 png Graphic file (type bmp)
 <figures/chapter_07/Figure 7.2 — ERD of the agricultural structure tables.png>
@@ -1178,7 +1168,7 @@ File: figures/chapter_07/Figure 7.3 — ERD of the sensor, weather, and forecast
 ng tables.png Graphic file (type bmp)
 <figures/chapter_07/Figure 7.3 — ERD of the sensor, weather, and forecasting ta
 bles.png>
- [56]
+ [60]
 File: figures/chapter_07/Figure 7.4 — ERD of the Digital Twin, prediction, and 
 simulation tables.png Graphic file (type bmp)
 <figures/chapter_07/Figure 7.4 — ERD of the Digital Twin, prediction, and simul
@@ -1187,31 +1177,31 @@ File: figures/chapter_07/Figure 7.5 — ERD of the recommendation, scheduling, c
 mmand, and feedback tables.png Graphic file (type bmp)
 <figures/chapter_07/Figure 7.5 — ERD of the recommendation, scheduling, command
 , and feedback tables.png>
- [57]
+ [61]
 File: figures/chapter_07/Figure 7.6 — Runtime sequence of MQTT data ingestion, 
 ML prediction, dashboard polling, and WeMos actuator command.png Graphic file (
 type bmp)
 <figures/chapter_07/Figure 7.6 — Runtime sequence of MQTT data ingestion, ML pr
 ediction, dashboard polling, and WeMos actuator command.png>
- [58]
+ [62]
 File: figures/chapter_07/Figure 7.7 — Live MQTT payloads received through HiveM
 Q for sensor data and WeMos status.png Graphic file (type bmp)
 <figures/chapter_07/Figure 7.7 — Live MQTT payloads received through HiveMQ for
  sensor data and WeMos status.png>
- [59]) (./chapters/08_digital_twin_ml.tex [60]
+ [63]) (./chapters/08_digital_twin_ml.tex [64]
 Chapter 8.
 File: figures/chapter_08/Figure 8.1 — Dataset adaptation and feature engineerin
 g workflow used before model training.png Graphic file (type bmp)
 <figures/chapter_08/Figure 8.1 — Dataset adaptation and feature engineering wor
 kflow used before model training.png>
-[61
+[65
 
 ]
 File: figures/chapter_08/Figure 8.2 — Machine learning pipeline from dataset ad
 aptation to Random Forest inference.png Graphic file (type bmp)
 <figures/chapter_08/Figure 8.2 — Machine learning pipeline from dataset adaptat
 ion to Random Forest inference.png>
- [62]
+ [66]
 File: figures/chapter_08/Figure 8.3 — ML service health endpoint showing model 
 loading status.png Graphic file (type bmp)
 <figures/chapter_08/Figure 8.3 — ML service health endpoint showing model loadi
@@ -1219,37 +1209,37 @@ ng status.png>
 File: figures/chapter_08/fig_8_4_ml_prediction_response.png Graphic file (type 
 bmp)
 <figures/chapter_08/fig_8_4_ml_prediction_response.png>
- [63]
+ [67]
 File: figures/chapter_08/Figure 8.5 — Digital Twin state update flow from senso
 r readings to synchronized zone state.png Graphic file (type bmp)
 <figures/chapter_08/Figure 8.5 — Digital Twin state update flow from sensor rea
 dings to synchronized zone state.png>
- [64]
+ [68]
 File: figures/chapter_08/Figure 8.6 — What-if simulation logic comparing no-irr
 igation, with-irrigation, and ML-selected paths.png Graphic file (type bmp)
 <figures/chapter_08/Figure 8.6 — What-if simulation logic comparing no-irrigati
 on, with-irrigation, and ML-selected paths.png>
- [65] [66]
+ [69] [70]
 File: figures/chapter_08/fig_8_7_need_irrigation_feature_importance.png Graphic
  file (type bmp)
 <figures/chapter_08/fig_8_7_need_irrigation_feature_importance.png>
- [67]
+ [71]
 File: figures/chapter_08/fig_8_8_suggested_hour_feature_importance.png Graphic 
 file (type bmp)
 <figures/chapter_08/fig_8_8_suggested_hour_feature_importance.png>
 File: figures/chapter_08/fig_8_9_need_irrigation_confusion_matrix.png Graphic f
 ile (type bmp)
 <figures/chapter_08/fig_8_9_need_irrigation_confusion_matrix.png>
- [68]
+ [72]
 File: figures/chapter_08/fig_8_10_suggested_hour_confusion_matrix_grouped.png G
 raphic file (type bmp)
 <figures/chapter_08/fig_8_10_suggested_hour_confusion_matrix_grouped.png>
 ) (./chapters/09_interfaces_control.tex
-[69] [70]
+[73] [74]
 Chapter 9.
-[71
+[75
 
-] [72]
+] [76]
 File: figures/chapter_09/Figure 9.1 — Agrio operations dashboard showing MQTT c
 onnection, active zone coverage, moisture snapshot, sensor health, and Digital 
 Twin status.png Graphic file (type bmp)
@@ -1265,7 +1255,7 @@ File: figures/chapter_09/Figure 9.3 — Current field status and AI recommendati
 n preview for the monitored irrigation zone.png Graphic file (type bmp)
 <figures/chapter_09/Figure 9.3 — Current field status and AI recommendation pre
 view for the monitored irrigation zone.png>
- [73]
+ [77]
 File: figures/chapter_09/Figure 9.4 — Pump and actuator control interface with 
 WeMos status and weather station summary.png Graphic file (type bmp)
 <figures/chapter_09/Figure 9.4 — Pump and actuator control interface with WeMos
@@ -1274,18 +1264,18 @@ File: figures/chapter_09/Figure 9.5 — Forecast workspace used to generate weat
 er-aware irrigation planning decisions.png Graphic file (type bmp)
 <figures/chapter_09/Figure 9.5 — Forecast workspace used to generate weather-aw
 are irrigation planning decisions.png>
- [74]
+ [78]
 File: figures/chapter_09/Figure 9.6 — Digital Twin simulation workspace for run
 ning what-if irrigation scenarios.png Graphic file (type bmp)
 <figures/chapter_09/Figure 9.6 — Digital Twin simulation workspace for running 
 what-if irrigation scenarios.png>
- [75]
+ [79]
 File: figures/chapter_09/Figure 9.7 — Moisture projection chart comparing no-ir
 rigation, with-irrigation, and ML-selected trajectories.png Graphic file (type 
 bmp)
 <figures/chapter_09/Figure 9.7 — Moisture projection chart comparing no-irrigat
 ion, with-irrigation, and ML-selected trajectories.png>
- [76]
+ [80]
 File: figures/chapter_09/Figure 9.8 — Irrigation schedules page for planning an
 d managing pump execution events.png Graphic file (type bmp)
 <figures/chapter_09/Figure 9.8 — Irrigation schedules page for planning and man
@@ -1294,25 +1284,25 @@ File: figures/chapter_09/Figure 9.9 — Validated decisions interface for tracki
 g approved irrigation recommendations.png Graphic file (type bmp)
 <figures/chapter_09/Figure 9.9 — Validated decisions interface for tracking app
 roved irrigation recommendations.png>
- [77]
+ [81]
 File: figures/chapter_09/Figure 9.10 — Mobile application screens providing acc
 ess to monitoring and irrigation decision functions.jpg Graphic file (type bmp)
 
 <figures/chapter_09/Figure 9.10 — Mobile application screens providing access t
 o monitoring and irrigation decision functions.jpg>
-) (./chapters/10_deployment.tex [78] [79]
-[80
+) (./chapters/10_deployment.tex [82] [83]
+[84
 
 ]
 Chapter 10.
-[81
+[85
 
 ]
 File: figures/chapter_10/Figure 10.1 — Docker Compose service organization of t
 he deployed Agrio platform.png Graphic file (type bmp)
 <figures/chapter_10/Figure 10.1 — Docker Compose service organization of the de
 ployed Agrio platform.png>
- [82]
+ [86]
 File: figures/chapter_10/Figure 10.2 — Running Docker containers of the deploye
 d Digital Twin smart irrigation platform.png Graphic file (type bmp)
 <figures/chapter_10/Figure 10.2 — Running Docker containers of the deployed Dig
@@ -1322,21 +1312,21 @@ ontend, backend, database, ML service, MQTT broker, and external APIs.png Graph
 ic file (type bmp)
 <figures/chapter_10/Figure 10.3 — Deployment communication flow between fronten
 d, backend, database, ML service, MQTT broker, and external APIs.png>
- [83]
+ [87]
 File: figures/chapter_10/Figure 10.4 — Ngrok tunnel used to expose local servic
 es for mobile access during prototype testing.png Graphic file (type bmp)
 <figures/chapter_10/Figure 10.4 — Ngrok tunnel used to expose local services fo
 r mobile access during prototype testing.png>
- [84]) (./chapters/11_results_validation.tex [85]
+ [88]) (./chapters/11_results_validation.tex [89]
 Chapter 11.
-[86
+[90
 
-] [87]
+] [91]
 Overfull \hbox (1.68517pt too wide) in paragraph at lines 73--73
 [][]|\TU/LatinModernRoman(0)/m/n/10 Recommendation[] 
  []
 
-[88]
+[92]
 File: figures/chapter_11/Figure 11.1 — Sensor MQTT message received on the sens
 orsdata topic.png Graphic file (type bmp)
 <figures/chapter_11/Figure 11.1 — Sensor MQTT message received on the sensorsda
@@ -1349,84 +1339,84 @@ File: figures/chapter_11/Figure 11.3 — Dashboard update reflecting the latest 
 tored sensor and Digital Twin data.png Graphic file (type bmp)
 <figures/chapter_11/Figure 11.3 — Dashboard update reflecting the latest stored
  sensor and Digital Twin data.png>
- [89]) (./chapters/12_general_conclusion.tex [90] [91
+ [93]) (./chapters/12_general_conclusion.tex [94] [95
 
-]) [92] (./main.bbl
-[93
+]) [96] (./main.bbl
+[97
 
 
-]) (./appendices/appendix_a_figures_checklist.tex [94]
+]) (./appendices/appendix_a_figures_checklist.tex [98]
 Appendix A.
-[95
+[99
 
-] [96] [97] [98]) (./appendices/appendix_b_class_diagram.tex [99]
+] [100] [101] [102]) (./appendices/appendix_b_class_diagram.tex [103]
 Appendix B.
 File: figures/appendix/class_diagram.png Graphic file (type bmp)
 <figures/appendix/class_diagram.png>
-) (./appendices/appendix_c_architecture.tex [100
+) (./appendices/appendix_c_architecture.tex [104
 
 ]
 Appendix C.
 File: figures/appendix/architecture.png Graphic file (type bmp)
 <figures/appendix/architecture.png>
-) (./appendices/appendix_d_erd.tex [101
+) (./appendices/appendix_d_erd.tex [105
 
 ]
 Appendix D.
 File: figures/appendix/complete_database_erd.png Graphic file (type bmp)
 <figures/appendix/complete_database_erd.png>
-) (./appendices/appendix_e_payloads.tex [102
+) (./appendices/appendix_e_payloads.tex [106
 
 ]
 Appendix E.
-) (./appendices/appendix_f_capture_guide.tex [103
+) (./appendices/appendix_f_capture_guide.tex [107
 
 ]
 Appendix F.
-) (./appendices/appendix_g_expansion_notes.tex [104
+) (./appendices/appendix_g_expansion_notes.tex [108
 
 ]
 Appendix G.
-) (./appendices/appendix_h_literature_matrix.tex [105
+) (./appendices/appendix_h_literature_matrix.tex [109
 
 ]
 Appendix H.
-[106
+[110
 
-] [107] [108] [109]
+] [111] [112] [113]
 Underfull \hbox (badness 1320) in paragraph at lines 111--112
 [][]\TU/LatinModernRoman(0)/m/n/12 Use in this thesis: This is a direct impleme
 ntation reference for the[]
  []
 
-[110] [111]) (./appendices/appendix_i_database_tables.tex [112]
+[114] [115]) (./appendices/appendix_i_database_tables.tex [116]
 Appendix I.
-[113
+[117
 
-] [114] [115]
+] [118] [119]
 Overfull \hbox (3.59998pt too wide) in paragraph at lines 52--53
 []\TU/LatinModernRoman(0)/m/n/12 digital_twins, zone_states, zone_state_history
 , prediction_results, twin_predictions,[]
  []
 
-) (./appendices/appendix_j_api_services.tex [116]
+) (./appendices/appendix_j_api_services.tex [120]
 Appendix J.
 
 Overfull \hbox (12.9189pt too wide) in paragraph at lines 17--17
 [][]|\TU/LatinModernRoman(0)/m/n/10 Users/Farms/Plots/Crops/Soil[] 
  []
 
-[117
+[121
 
-] [118]) (./appendices/appendix_k_algorithms.tex [119]
+] [122]) (./appendices/appendix_k_algorithms.tex [123]
 Appendix K.
-[120
+[124
 
-] [121]) (./appendices/appendix_l_extra_text_blocks.tex [122]
+] [125]) (./appendices/appendix_l_extra_text_blocks.tex [126]
 Appendix L.
-[123
+[127
 
-]) (./appendices/appendix_m_defense_positioning.tex [124] [125]
+]) (./appendices/appendix_m_defense_positioning.tex [128] [129]
 Appendix M.
 
 Overfull \hbox (132.52875pt too wide) in paragraph at lines 25--26
@@ -1434,9 +1424,9 @@ Overfull \hbox (132.52875pt too wide) in paragraph at lines 25--26
 Bee/Raspberry Pi/MQTT/FastAPI/PostgreSQL/ML/Digital[]
  []
 
-[126
+[130
 
-]) [127] (./main.aux)
+]) [131] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-05-26>
@@ -1446,11 +1436,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  21791 strings out of 467980
- 508866 string characters out of 5432829
+ 505293 string characters out of 5432829
  1201625 words of memory out of 5000000
  50205 multiletter control sequences out of 15000+600000
  633183 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,10n,96p,1204b,1017s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (148 pages).
+Output written on main.pdf (152 pages).
