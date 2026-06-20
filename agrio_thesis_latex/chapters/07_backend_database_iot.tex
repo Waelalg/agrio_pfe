@@ -1,20 +1,20 @@
-\part{Implementation}
+﻿\part{Implementation}
 
 \chapter{Backend, Database, and IoT Data Ingestion}
 
-\section{7.1 Introduction}
+\section{Introduction}
 
 This chapter describes the implementation of the backend, database, and IoT ingestion pipeline. It explains how MQTT messages become database records, Digital Twin states, ML predictions, and dashboard updates.
 
-\section{7.2 FastAPI backend organization}
+\section{FastAPI backend organization}
 
 The backend is implemented with FastAPI. It exposes REST endpoints under the /api/v1 prefix, provides automatic OpenAPI documentation, configures CORS for frontend/mobile access, initializes services, and starts the MQTT subscriber when the system is configured for MQTT data source mode.
 
-\section{7.3 API modules}
+\section{API modules}
 
 The API is organized around users, farms, plots, soil profiles, crops, zones, sensors, weather records, irrigation events, Digital Twins, predictions, recommendations, control commands, simulations, dashboard aggregation, device control, ML proxy, forecasting, system status, and debugging. This organization reflects the functional separation of the platform.
 
-\section{7.4 MQTT payload structure}
+\section{MQTT payload structure}
 
 Sensor messages are published on sensors/data as JSON. A typical message contains device\_id, timestamp, soil\_moisture, soil\_temperature, temperature, humidity, pressure, leaf\_wetness, light\_intensity, rainfall\_current, rainfall\_hour, rainfall\_day, wind\_direction, and wind\_speed. WeMos status messages contain device\_id and digital pin states such as D5 and D3.
 
@@ -25,19 +25,19 @@ Sensor messages are published on sensors/data as JSON. A typical message contain
     \label{fig:7-6-example-mqtt-payloads-used-for-sensor-ingestion-wemos-status-feedb}
 \end{figure}
 
-\section{7.5 Parser and normalization}
+\section{Parser and normalization}
 
 The parser validates JSON, accepts aliases, converts soil moisture fractions into percentages, parses timestamps, normalizes numeric values, handles light-intensity suffixes, and normalizes wind direction. This step is essential because IoT messages can be inconsistent and sensor formats may differ.
 
-\section{7.6 Device mapping and persistence}
+\section{Device mapping and persistence}
 
 After parsing, the backend resolves the device and management zone. It creates sensor mappings if required, stores sensor\_readings, stores weather\_records when environment fields exist, and updates the runtime MQTT status store. The source field preserves the origin of the record, for example mqtt:device\_id.
 
-\section{7.7 Real-time pipeline}
+\section{Real-time pipeline}
 
 The real-time pipeline evaluates sensor health, updates zone state, calls the ML service, stores prediction results, appends zone\_state\_history, and generates recommendations. This pipeline converts raw measurements into actionable Digital Twin data.
 
-\section{7.8 PostgreSQL schema}
+\section{PostgreSQL schema}
 
 The PostgreSQL schema contains tables for users, farms, plots, zones, soil profiles, crops, irrigation networks, sensors, readings, weather records, device health, forecasts, digital twins, zone states, predictions, simulations, recommendations, alerts, commands, events, and feedback. This structure supports traceability from sensor data to action.
 
@@ -69,7 +69,7 @@ The PostgreSQL schema contains tables for users, farms, plots, zones, soil profi
     \label{fig:7-5d-erd-of-the-recommendation-scheduling-command-and-feedback-tables}
 \end{figure}
 
-\section{7.9 Runtime sequence}
+\section{Runtime sequence}
 
 The runtime sequence demonstrates how a sensor message travels from the sensor station to the MQTT broker, backend subscriber, parser, database, real-time pipeline, ML service, dashboard, device-control service, WeMos, and status feedback.
 
@@ -80,11 +80,11 @@ The runtime sequence demonstrates how a sensor message travels from the sensor s
     \label{fig:7-1-runtime-sequence-of-mqtt-data-ingestion-ml-prediction-dashboard-po}
 \end{figure}
 
-\section{7.10 Error handling and fallback}
+\section{Error handling and fallback}
 
 If payload validation fails, the ingestion is marked as ignored or error. If the ML service is unavailable, the system can build a fallback rule-based prediction and store a fallback twin state. This prevents complete workflow failure when the ML service is temporarily unavailable.
 
-\section{7.11 Conclusion}
+\section{Conclusion}
 
 The backend and data ingestion implementation prove that Agrio is not only a frontend demonstration. It contains a real data pipeline from MQTT ingestion to database persistence, Digital Twin synchronization, prediction, recommendation, and control.
 

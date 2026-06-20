@@ -1,14 +1,14 @@
-\chapter{Digital Twin and Machine Learning Layer}
+﻿\chapter{Digital Twin and Machine Learning Layer}
 
-\section{8.1 Introduction}
+\section{Introduction}
 
 This chapter presents the Digital Twin and machine learning layer of Agrio. It explains how sensor readings become a virtual zone state, how Random Forest models predict irrigation need, how the system simulates future moisture evolution, and how recommendations are generated.
 
-\section{8.2 Virtual zone state}
+\section{Virtual zone state}
 
 The zone state is the central representation of the Digital Twin. It stores current moisture, soil temperature, water balance, stress level, irrigation need, recommended action, pump status, synchronization information, prediction confidence, and timestamps. This state is updated whenever new sensor data arrives or when prediction/simulation processes run.
 
-\section{8.3 Dataset adaptation}
+\section{Dataset adaptation}
 
 The dataset adaptation script prepares raw data for model training and inference. It normalizes soil moisture, parses light intensity, converts wind direction, extracts date/time features, adds cyclic features, creates missing-value indicators, and derives helper labels such as irrigation need and favorable irrigation conditions.
 
@@ -19,11 +19,11 @@ The dataset adaptation script prepares raw data for model training and inference
     \label{fig:8-2-dataset-adaptation-and-feature-engineering-workflow-used-before-mo}
 \end{figure}
 
-\section{8.4 Feature engineering}
+\section{Feature engineering}
 
 Features include temporal variables, environmental variables, soil variables, rainfall indicators, wind information, missing-value flags, cyclic hour/month encodings, and wind direction encodings. These features are suitable for Random Forest because the model can handle nonlinear interactions among tabular variables.
 
-\section{8.5 Random Forest models}
+\section{Random Forest models}
 
 Two Random Forest models are used. The first predicts whether irrigation is needed. The second suggests an irrigation hour. The model metadata reports high evaluation performance for irrigation need and lower but usable performance for suggested hour. These metrics are treated as dataset-level evaluation results, not as field-validated agronomic performance.
 
@@ -34,7 +34,7 @@ Two Random Forest models are used. The first predicts whether irrigation is need
     \label{fig:8-1-machine-learning-pipeline-from-dataset-adaptation-to-random-forest}
 \end{figure}
 
-\section{8.6 ML inference service}
+\section{ML inference service}
 
 The ML service exposes endpoints such as /health, /metadata, and /predict. The backend prepares a feature payload and sends it to the ML service. The response includes irrigation need, confidence, suggested hour, suggested-hour confidence, recommended action, and features used.
 
@@ -52,7 +52,7 @@ The ML service exposes endpoints such as /health, /metadata, and /predict. The b
     \label{fig:8-4-ml-prediction-response-for-irrigation-need-and-suggested-irrigatio}
 \end{figure}
 
-\section{8.7 Digital Twin state update}
+\section{Digital Twin state update}
 
 After ML inference, the backend stores prediction results and updates the zone state with AI fields. The state history table records previous states, enabling temporal analysis and validation. This creates continuity between measurements, predictions, and dashboard display.
 
@@ -63,7 +63,7 @@ After ML inference, the backend stores prediction results and updates the zone s
     \label{fig:8-5-digital-twin-state-update-flow-from-sensor-readings-to-synchronize}
 \end{figure}
 
-\section{8.8 What-if simulation}
+\section{What-if simulation}
 
 The what-if simulation compares future moisture evolution under different scenarios. Inputs include zone, irrigation duration, projection horizon, and optional flow-rate override. Outputs include simulated moisture, water balance, 24-hour and 48-hour projection, recommended action, and explanation.
 
@@ -74,19 +74,19 @@ The what-if simulation compares future moisture evolution under different scenar
     \label{fig:8-6-what-if-simulation-logic-comparing-no-irrigation-with-irrigation-a}
 \end{figure}
 
-\section{8.9 Recommendation generation}
+\section{Recommendation generation}
 
 The recommendation engine combines Digital Twin state, ML prediction, simulation result, forecast information, and rule-based constraints. Recommendations can indicate keep off, irrigate now, schedule irrigation, or monitor. They include priority, duration, reason, confidence, and status.
 
-\section{8.10 Explainability}
+\section{Explainability}
 
 Agrio improves explainability through dashboard text, confidence values, comparison charts, and scenario explanations. This is important because farmers and jury members must understand why the system recommends or rejects irrigation.
 
-\section{8.11 Limitations}
+\section{Limitations}
 
 The ML layer is limited by the dataset used, the controlled prototype context, and the absence of long-term multi-crop field validation. Model results must therefore be interpreted cautiously. Future work should include retraining using real field data and comparing Random Forest with gradient boosting, LSTM, and reinforcement learning.
 
-\section{8.12 Conclusion}
+\section{Conclusion}
 
 This chapter described the intelligent layer of Agrio. The Digital Twin state, Random Forest models, simulation, recommendation engine, and explanation mechanisms together transform raw sensor data into actionable irrigation support.
 

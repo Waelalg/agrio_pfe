@@ -1,4 +1,4 @@
-# Agrio Thesis LaTeX Project
+# Agrio Engineering Thesis LaTeX Project
 
 Compile from this directory with:
 
@@ -9,7 +9,20 @@ xelatex main.tex
 xelatex main.tex
 ```
 
+This project is the Engineering Diploma version of the Agrio work. It keeps the shared background and state of the art, then focuses on the engineering contribution: requirements, conception, architecture, implementation, AI/Digital Twin pipeline, deployment, validation, and future perspectives.
+
 The project uses XeLaTeX because the thesis contains English, French, and Arabic text. It uses classic BibTeX with `IEEEtran.bst` because `biber`/`biblatex-ieee` was not available in the local environment. If `biblatex-ieee` is installed later, the bibliography setup can be migrated to `biblatex`.
+
+## Structure
+
+- Front matter: dedication, acknowledgements, abstract, résumé, Arabic summary, abbreviations, lists.
+- General Introduction: context and problem statement, objectives, and thesis outline for the Engineering Diploma.
+- Background and state of the art: chapters 1 to 4.
+- Contribution: conception and design: chapters 5 and 6.
+- Implementation: chapters 7 to 9.
+- Deployment, validation, and discussion: chapters 10 and 11.
+- General Conclusion and Future Perspectives.
+- Bibliography and appendices.
 
 ## Figures
 

@@ -1,44 +1,44 @@
-\part{Deployment, Validation, and Discussion}
+﻿\part{Deployment, Validation, and Discussion}
 
 \chapter{Deployment Environment}
 
-\section{10.1 Introduction}
+\section{Introduction}
 
 Deployment is a critical engineering part of the project. Agrio is composed of several services that must run together: database, backend, ML service, frontend, scheduler, MQTT configuration, and mobile access support. Docker Compose is used to coordinate these services.
 
-\section{10.2 Docker Compose stack}
+\section{Docker Compose stack}
 
 The Docker Compose stack includes PostgreSQL, the ML service, FastAPI backend, frontend, irrigation scheduler, ngrok, and optional worker profiles. Each service has a clear responsibility and communicates through internal network links and environment variables.
 
-\section{10.3 PostgreSQL service}
+\section{PostgreSQL service}
 
 The database service initializes the smart\_irrigation schema and persists structured data. It is the backbone of traceability because it records physical measurements, virtual states, predictions, simulations, recommendations, commands, and feedback.
 
-\section{10.4 ML service}
+\section{ML service}
 
 The ML service loads trained model files and exposes health, metadata, and prediction endpoints. This separated deployment makes it possible to update or retrain models independently from the backend.
 
-\section{10.5 Backend service}
+\section{Backend service}
 
 The backend service exposes the API, subscribes to MQTT when configured, calls the ML service, interacts with PostgreSQL, and provides data to the frontend and mobile application.
 
-\section{10.6 Frontend service}
+\section{Frontend service}
 
 The frontend is exposed on port 3000 and communicates with the backend. It provides the web dashboard, forecast, simulation, schedules, and validated decisions.
 
-\section{10.7 Scheduler worker}
+\section{Scheduler worker}
 
 The irrigation scheduler runs independently from HTTP request handling. It checks due irrigation events, sends pump ON/OFF commands, updates event status, and records feedback.
 
-\section{10.8 Ngrok and mobile access}
+\section{Ngrok and mobile access}
 
 Ngrok can expose local services for mobile testing. This is useful when the Flutter application must access the backend from a mobile device during demonstrations.
 
-\section{10.9 Deployment limitations}
+\section{Deployment limitations}
 
 The deployment is suitable for prototype demonstration but not yet for production. A production environment would require HTTPS, secure credentials, role-based access control, backups, monitoring, and hardened MQTT authentication.
 
-\section{10.10 Conclusion}
+\section{Conclusion}
 
 The deployment chapter shows that Agrio is implemented as a reproducible multi-service platform rather than a single script or static dashboard.
 

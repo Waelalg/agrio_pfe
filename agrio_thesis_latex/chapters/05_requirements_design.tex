@@ -1,30 +1,30 @@
-\part{Requirements and Architecture}
+﻿\part{Contribution: Conception and Design}
 
 \chapter{Requirements Specification and Design}
 
-\section{5.1 Introduction}
+\section{Introduction}
 
 This chapter specifies the functional and non-functional requirements of the Agrio platform. Requirements are derived from the project objectives, literature gaps, and real implementation artifacts such as the backend routes, database schema, MQTT payload catalog, dashboard pages, and actuator workflow. The chapter also defines the actors and the main use cases of the system.
 
-\section{5.2 System objectives}
+\section{System objectives}
 
 The main objective of Agrio is to support intelligent irrigation decisions through a Digital Twin of a monitored agricultural zone. The system must receive sensor data from the physical prototype, store it, update the virtual state, predict irrigation need, simulate scenarios, generate recommendations, display results to the user, and control the pump when a decision is validated or manually triggered.
 
 The system must also be demonstrable and maintainable. This means that it should expose clear API endpoints, store data in a structured schema, separate the ML service from the backend, provide a dashboard for testing and operation, and support deployment through Docker Compose.
 
-\section{5.3 Actors}
+\section{Actors}
 
 The main human actors are the farmer/operator and the administrator/agronomist. The farmer monitors the dashboard, checks zone conditions, reviews recommendations, validates decisions, schedules irrigation, and manually controls the pump if needed. The administrator or agronomist manages farms, plots, zones, sensors, soil profiles, crops, and system configuration. External technical actors include the MQTT sensor station, WeMos actuator, ML service, Open-Meteo API, and PostgreSQL database.
 
-\section{5.4 Functional requirements}
+\section{Functional requirements}
 
 Functional requirements describe what the system must do. Agrio must ingest MQTT sensor payloads, normalize fields, map devices to zones, store readings, maintain weather records, evaluate sensor health, update Digital Twin zone states, call the ML service, store prediction results, run what-if simulations, generate recommendations, validate decisions, create schedules, publish actuator commands, receive WeMos status, and expose dashboard data through APIs.
 
-\section{5.5 Non-functional requirements}
+\section{Non-functional requirements}
 
 Non-functional requirements describe quality constraints. The system must be modular, maintainable, reproducible, and observable. It must support near-real-time dashboard updates, reliable message parsing, safe actuation, clear separation of simulation and physical control, and extensibility toward more zones and crops. The prototype also requires usability because the dashboard is central to decision support.
 
-\section{5.6 Constraints}
+\section{Constraints}
 
 The current system is constrained by the laboratory prototype, limited long-term field data, and available hardware. It is designed for controlled demonstration rather than immediate production deployment. The platform currently prioritizes functionality, integration, and traceability over advanced cybersecurity and large-scale distributed deployment. These constraints are documented to maintain academic transparency.
 
@@ -78,7 +78,7 @@ NFR8 & Performance & Support near-real-time polling and fast ML inference for pr
 \end{longtable}
 \end{footnotesize}
 
-\section{5.7 Use-case model}
+\section{Use-case model}
 
 The use-case diagram represents the interaction between the farmer, administrator, IoT sensor station, WeMos actuator, ML service, and Open-Meteo API. It includes monitoring, simulation, recommendation validation, manual command, forecast generation, data ingestion, sensor health evaluation, and ML prediction.
 
@@ -89,7 +89,7 @@ The use-case diagram represents the interaction between the farmer, administrato
     \label{fig:5-1-use-case-diagram-of-the-proposed-digital-twin-smart-irrigation-sys}
 \end{figure}
 
-\section{5.8 Activity workflow}
+\section{Activity workflow}
 
 The activity workflow begins when the backend receives an MQTT sensor payload. The system validates and normalizes the payload, resolves the zone, creates missing sensor mappings if needed, inserts weather records and sensor readings, evaluates sensor health, updates the zone state, calls the ML service, stores predictions, appends state history, and exposes the updated state to the dashboard. If irrigation is required, the system waits for user confirmation. Validation can create a recommendation record and irrigation event, while manual device commands publish MQTT commands to the WeMos actuator.
 
@@ -100,7 +100,7 @@ The activity workflow begins when the backend receives an MQTT sensor payload. T
     \label{fig:5-2-activity-diagram-of-sensor-ingestion-digital-twin-update-ai-decisi}
 \end{figure}
 
-\section{5.9 Domain class diagrams}
+\section{Domain class diagrams}
 
 The full domain model is too large to be readable as one figure. Therefore, it is split into four diagrams: agricultural domain, sensor/weather/forecast domain, Digital Twin/prediction/simulation domain, and decision/control domain. The complete class diagram is kept in the appendix.
 
@@ -132,6 +132,6 @@ The full domain model is too large to be readable as one figure. Therefore, it i
     \label{fig:5-6-decision-recommendation-scheduling-command-and-feedback-data-model}
 \end{figure}
 
-\section{5.10 Conclusion}
+\section{Conclusion}
 
 This chapter defined the requirements and design foundations of Agrio. It described the actors, functional requirements, non-functional requirements, constraints, use cases, workflow, and domain class diagrams. The next chapter presents the global architecture that satisfies these requirements.

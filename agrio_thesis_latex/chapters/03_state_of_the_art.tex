@@ -1,8 +1,8 @@
-\part{State of the Art and Scientific Positioning}
+﻿\part{State of the Art and Scientific Positioning}
 
 \chapter{Digital Twins in Agriculture and Irrigation: State of the Art}
 
-\section{3.1 Review methodology}
+\section{Review methodology}
 
 The state-of-the-art study was built from peer-reviewed papers and technical sources related to agricultural Digital Twins, smart irrigation, IoT-based monitoring, machine learning for irrigation, and Digital Twin water management. The reviewed papers include general reviews, systematic reviews, bibliometric reviews, and application papers. The objective was not only to summarize publications, but to identify patterns, limitations, and opportunities relevant to the proposed Agrio platform.
 
@@ -15,7 +15,7 @@ The review was organized around five questions: (1) How are Digital Twins define
     \label{fig:3-1-literature-review-methodology-and-thematic-classification}
 \end{figure}
 
-\section{3.2 General agricultural Digital Twin reviews}
+\section{General agricultural Digital Twin reviews}
 
 Subeesh and Chauhan [1] provide a broad review of Agricultural Digital Twins. They describe ADTs as virtual representations that support decision-making, monitoring, simulation, and optimization in smart farming. Their review emphasizes enabling technologies such as IoT, AI, AR/XR, edge computing, federated learning, and sensors. A key point is that agriculture is still at an early stage of Digital Twin adoption, and that practical implementation is complicated by the stochastic nature of weather, soil, and biological processes.
 
@@ -32,19 +32,19 @@ Awais et al. [4] focus on precision agriculture through Digital Twins and smart 
     \label{fig:3-2-example-of-agricultural-digital-twin-overview-from-literature-inse}
 \end{figure}
 
-\section{3.3 AI-enabled Digital Twins in agriculture}
+\section{AI-enabled Digital Twins in agriculture}
 
 Tsaousidis et al. [5] provide a recent review focused on AI-enabled Digital Twins in agriculture. They emphasize that many works use the term Digital Twin loosely and sometimes describe systems that are closer to decision support tools than fully synchronized Digital Twins. This warning is important for the scientific rigor of this thesis. The proposed system must therefore explicitly demonstrate its Digital Twin properties: synchronization from sensor data, virtual state, prediction, simulation, recommendation, and feedback/control capability.
 
 The same review highlights data integration as a major bottleneck, especially when combining satellite data, local sensor data, and simulation outputs. Agrio currently integrates local sensor data, weather/forecast data, and ML outputs, but it does not yet integrate satellite or UAV data. This limitation becomes a clear future direction.
 
-\section{3.4 Digital Twins for agricultural water management}
+\section{Digital Twins for agricultural water management}
 
 Ahsen et al. [6] specifically review Digital Twins for sustainable agricultural water management. Their review identifies monitoring Digital Twins and predictive Digital Twins. Monitoring Digital Twins focus on real-time response and environmental control, while predictive Digital Twins support proactive management through forecasting and simulation. Agrio combines both aspects: it monitors current zone state and also simulates future moisture evolution.
 
 Digital Twin water management research often focuses on irrigation, hydroponics, aquaponics, and vertical farming. The main benefits include precise resource allocation, scenario planning, predictive maintenance, and optimized water usage. The main barriers include scalability, cost, data integration, and the difficulty of field deployment. These findings align with the scope and limitations of Agrio.
 
-\section{3.5 IoT-based smart irrigation reviews}
+\section{IoT-based smart irrigation reviews}
 
 García et al. [7] review IoT-based smart irrigation systems and analyze sensors, actuators, nodes, wireless technologies, and monitored parameters. They show that smart irrigation systems rely heavily on soil and weather monitoring. Soil moisture is a central variable, but weather parameters such as temperature, humidity, rainfall, wind, and radiation are also important. Their review supports the variable selection used in Agrio.
 
@@ -59,7 +59,7 @@ Morchid et al. [10] systematically review IoT and ML applications in sustainable
     \label{fig:3-3-generic-smart-irrigation-system-architecture-from-ml-literature-in}
 \end{figure}
 
-\section{3.6 Machine learning for smart irrigation}
+\section{Machine learning for smart irrigation}
 
 Del-Coco et al. [9] focus on machine learning for smart irrigation. They define a generic smart irrigation system as a combination of sensors, IoT technologies, algorithms, datasets, and decision services. They discuss existing ML strategies and note open issues such as long-term data processing and the lack of annotated datasets. This is important for Agrio because the Random Forest models must be presented as part of a prototype and not as universally validated agronomic models.
 
@@ -67,7 +67,7 @@ The reviewed ML literature includes decision trees, Random Forests, SVM, gradien
 
 One challenge in ML irrigation is interpretability. Farmers may not trust a black-box output if it simply says irrigate or do not irrigate. Agrio addresses this partially by showing confidence, recommended action, suggested time, duration, and explanation in the dashboard. The Digital Twin simulation also provides visual and numerical evidence of expected moisture evolution.
 
-\section{3.7 Directly related Digital Twin irrigation studies}
+\section{Directly related Digital Twin irrigation studies}
 
 Manocha et al. [15]: IoT-Digital Twin-inspired smart irrigation for optimal water utilization. Uses IoT sensors, virtual counterparts, irrigation requirement calculation, and simulation. Very close to Agrio conceptually; useful for comparing Digital Twin maturity and architecture.
 
@@ -104,12 +104,12 @@ Advanced future directions & [14], [18], [19] & Remote sensing, water-stress mod
 \end{longtable}
 \end{footnotesize}
 
-\section{3.8 Research gaps identified in the literature}
+\section{Research gaps identified in the literature}
 
 The reviewed literature reveals several gaps. First, many agricultural Digital Twin works remain conceptual or focused on monitoring rather than full decision and actuation loops. Second, many smart irrigation systems use threshold rules or simple dashboards without simulation. Third, ML irrigation papers often focus on model accuracy but do not integrate the model into a complete deployed system. Fourth, systems with strong agronomic validation may not provide full software architecture details. Fifth, very few academic prototypes clearly combine physical sensors, MQTT ingestion, database persistence, ML inference, Digital Twin simulation, human validation, web/mobile interfaces, scheduling, and actuator feedback in one coherent workflow.
 
 Agrio addresses part of this gap by implementing an integrated platform. It does not claim to solve every agronomic challenge, but it demonstrates how a Digital Twin irrigation system can be architected and deployed from the physical prototype to the dashboard and pump. Its novelty is therefore mainly architectural and integrative: combining multiple layers that are often studied separately.
 
-\section{3.9 Conclusion}
+\section{Conclusion}
 
 This chapter reviewed the state of the art of Digital Twins in agriculture, IoT-based smart irrigation, ML irrigation decision-making, and direct Digital Twin irrigation applications. The literature shows strong interest in DTs but also highlights fragmentation, limited field validation, and integration challenges. The next chapter compares existing works more systematically and positions Agrio with respect to scientific and engineering criteria.

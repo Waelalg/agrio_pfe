@@ -1,0 +1,135 @@
+\pagenumbering{roman}
+
+\begin{titlepage}
+\centering
+\vspace*{0.5cm}
+{\large People's Democratic Republic of Algeria\par}
+{\large Ministry of Higher Education and Scientific Research\par}
+\vspace{0.4cm}
+{\Large \textbf{École Supérieure en Informatique}\par}
+{\large -08 Mai 1945- Sidi Bel Abbès\par}
+\vspace{0.8cm}
+\includegraphics[width=0.22\textwidth]{figures/logo-esi-sba.png}
+\vspace{0.9cm}
+
+{\Large \textbf{Final Year Thesis}\par}
+\vspace{0.2cm}
+{\large Master Diploma\par}
+\vspace{0.9cm}
+
+{\large\textbf{French Title}\par}
+\vspace{0.2cm}
+{\Large Conception et Déploiement d'un Jumeau Numérique pour l'Optimisation d'un Système d'Irrigation Intelligent en Agriculture de Précision\par}
+\vspace{0.7cm}
+
+{\large\textbf{English Title}\par}
+\vspace{0.2cm}
+{\Large Design and Deployment of a Digital Twin for the Optimization of an Intelligent Irrigation System in Precision Agriculture\par}
+\vfill
+
+\begin{flushleft}
+\textbf{Presented by:}\\
+Lebaili Mohamed Ouail -- Computer Systems Engineering (CIS)\\
+Senhadji Mohamed Said -- Artificial Intelligence and Data Science (AIDS)\\[0.4cm]
+\textbf{Supervised by:} [Insert supervisor names]\\[0.4cm]
+\textbf{Academic year:} 2025--2026
+\end{flushleft}
+\end{titlepage}
+\cleardoublepage
+
+\chapter*{Dedication}
+\addcontentsline{toc}{chapter}{Dedication}
+
+To our families, teachers, and everyone who supported us throughout this final-year project. This work is dedicated to those who believe that engineering can serve sustainability, agriculture, and society.
+
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+We would like to express our sincere gratitude to our supervisors, teachers, and the staff of École Supérieure en Informatique -08 Mai 1945- Sidi Bel Abbès for their guidance, scientific advice, and support during the realization of this project. We also thank the laboratory team who made the smart farming prototype, Libelium Smart Agriculture kit, XBee communication infrastructure, Raspberry Pi gateway, and experimental environment available for the implementation and validation of this work.
+
+This thesis also benefited from recent research on Digital Twins, smart irrigation, precision agriculture, Internet of Things, machine learning, and sustainable agricultural water management. These works allowed us to position the proposed platform not only as a software prototype, but also as a research-driven engineering contribution.
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Agriculture is increasingly affected by water scarcity, climate variability, soil degradation, and the growing demand for food production. Irrigation management is one of the most critical factors in this context, because traditional irrigation practices are often based on fixed schedules, manual observation, or empirical experience. Such approaches can lead to water waste, plant stress, and reduced productivity. In response, this thesis presents the design and deployment of Agrio, a Digital Twin-based intelligent irrigation platform for precision agriculture.
+
+The proposed system integrates a physical smart farming prototype, Libelium Smart Agriculture sensing equipment, XBee radio-frequency communication, a Raspberry Pi gateway, HiveMQ/MQTT messaging, a FastAPI backend, a PostgreSQL database, a Random Forest-based machine learning service, a Digital Twin state and simulation layer, a Next.js web dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. The platform receives real sensor data from a controlled prototype environment, normalizes and stores the measurements, updates the virtual state of the irrigation zone, predicts irrigation need, simulates future moisture evolution, generates recommendations, supports human validation, schedules irrigation actions, and controls the physical pump through MQTT commands.
+
+The Master 2 contribution of this work is the scientific study of Digital Twins in agriculture, with a focus on their maturity levels, enabling technologies, irrigation applications, and limitations. The engineering contribution is the implementation of an end-to-end cyber-physical prototype that connects sensing, communication, backend processing, artificial intelligence, simulation, user interfaces, deployment, and actuation. The results show that the system goes beyond a classical IoT monitoring dashboard by providing synchronization, prediction, what-if simulation, recommendation, scheduling, and physical control. The current implementation remains a prototype tested in a controlled environment, and future work should extend it to long-term field validation, stronger agronomic calibration, cybersecurity, and advanced optimization techniques.
+
+Keywords: Digital Twin, precision agriculture, smart irrigation, IoT, MQTT, XBee, Raspberry Pi, FastAPI, PostgreSQL, machine learning, Random Forest, water management, WeMos, smart farming.
+
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+
+L’agriculture moderne fait face à des défis importants liés à la rareté de l’eau, aux variations climatiques et à la nécessité d’optimiser la production agricole. Dans ce contexte, l’irrigation intelligente constitue une application centrale de l’agriculture de précision. Ce mémoire présente la conception et le déploiement d’Agrio, une plateforme d’irrigation intelligente basée sur le concept de jumeau numérique. Le système proposé combine un prototype physique, un kit Libelium Smart Agriculture, une communication radiofréquence XBee, une passerelle Raspberry Pi, la messagerie MQTT/HiveMQ, un backend FastAPI, une base de données PostgreSQL, un service d’apprentissage automatique basé sur Random Forest, une couche de simulation du jumeau numérique, un tableau de bord web, une application mobile Flutter, un actionneur WeMos et une pompe d’eau.
+
+La contribution scientifique porte sur l’étude de l’état de l’art des jumeaux numériques en agriculture et leur positionnement par rapport aux systèmes d’irrigation intelligents existants. La contribution d’ingénierie réside dans la mise en œuvre d’une chaîne complète reliant les capteurs, la communication IoT, le traitement backend, la prédiction, la simulation, la recommandation, la validation humaine et le contrôle physique de l’irrigation. Les résultats montrent que le système dépasse la simple visualisation IoT en intégrant la synchronisation, la prédiction, la simulation et l’action.
+
+Mots-clés : jumeau numérique, agriculture de précision, irrigation intelligente, IoT, MQTT, apprentissage automatique, FastAPI, PostgreSQL.
+
+\chapter*{\texorpdfstring{\textarabic{ملخص}}{Arabic summary}}
+\addcontentsline{toc}{chapter}{\texorpdfstring{\textarabic{ملخص}}{Arabic summary}}
+
+\begin{Arabic}
+تواجه الزراعة الحديثة تحديات كبيرة مرتبطة بندرة المياه والتغيرات المناخية والحاجة إلى تحسين الإنتاجية. في هذا السياق، تمثل أنظمة الري الذكي أحد أهم تطبيقات الزراعة الدقيقة. يقدم هذا العمل منصة Agrio، وهي منصة ري ذكية تعتمد على مفهوم التوأم الرقمي، حيث تجمع بين نموذج فيزيائي حقيقي، حساسات زراعية، اتصال لاسلكي، بوابة Raspberry Pi، بروتوكول MQTT، خادم خلفي FastAPI، قاعدة بيانات PostgreSQL، خدمة تعلم آلي، محاكاة رقمية، واجهة ويب، تطبيق هاتف، ومتحكم WeMos للتحكم في مضخة الماء.
+\end{Arabic}
+
+\begin{Arabic}
+تتمثل المساهمة العلمية في دراسة حالة الفن للتوائم الرقمية في الزراعة ومقارنة الأعمال الحالية، بينما تتمثل المساهمة الهندسية في بناء سلسلة كاملة من جمع البيانات إلى التنبؤ والمحاكاة والتوصية والتحكم الفعلي في المضخة. يبين العمل أن النظام لا يقتصر على مراقبة البيانات، بل يوفر تمثيلاً رقمياً متزامناً ودعماً ذكياً لاتخاذ القرار.
+\end{Arabic}
+
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Abbreviations used in the thesis}\\
+\toprule
+Abbreviation & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Abbreviation & Meaning \\
+\midrule
+\endhead
+AI & Artificial Intelligence \\
+ADT & Agricultural Digital Twin \\
+API & Application Programming Interface \\
+CIS & Computer Systems Engineering \\
+AIDS & Artificial Intelligence and Data Science \\
+CPS & Cyber-Physical System \\
+DB & Database \\
+DSS & Decision Support System \\
+DT & Digital Twin \\
+ET & Evapotranspiration \\
+ETo & Reference Evapotranspiration \\
+FAO & Food and Agriculture Organization \\
+FMIS & Farm Management Information System \\
+IoT & Internet of Things \\
+JSON & JavaScript Object Notation \\
+ML & Machine Learning \\
+MQTT & Message Queuing Telemetry Transport \\
+REST & Representational State Transfer \\
+RF & Radio Frequency \\
+RDI & Regulated Deficit Irrigation \\
+RFID & Radio-Frequency Identification \\
+SBA & Sidi Bel Abbès \\
+SQL & Structured Query Language \\
+SWB & Soil Water Balance \\
+UAV & Unmanned Aerial Vehicle \\
+UI & User Interface \\
+WSN & Wireless Sensor Network \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+\cleardoublepage

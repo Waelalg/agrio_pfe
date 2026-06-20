@@ -1,50 +1,50 @@
-\chapter{User Interfaces and Irrigation Control}
+﻿\chapter{User Interfaces and Irrigation Control}
 
-\section{9.1 Introduction}
+\section{Introduction}
 
 The user interface is the operational face of the Digital Twin. It transforms sensor data, ML outputs, simulation results, recommendations, schedules, and actuator status into understandable information. Agrio includes a Next.js web dashboard and a Flutter mobile application.
 
-\section{9.2 Frontend architecture}
+\section{Frontend architecture}
 
 The frontend is organized into pages for dashboard, forecast, Digital Twin simulation, schedules, validated decisions, and zone details. It communicates with the backend through REST APIs using a configured API base URL and periodically refreshes dashboard data.
 
-\section{9.3 Operations dashboard}
+\section{Operations dashboard}
 
 The operations dashboard shows MQTT connection, active zone coverage, moisture snapshot, sensor health, twin status, plot name, last update, and quick actions. It gives the user a high-level overview of the system state.
 
-\section{9.4 Zone monitoring}
+\section{Zone monitoring}
 
 The zone selection panel allows the user to inspect the Digital Twin state of a specific management zone. The current prototype has one experimental zone. The card shows moisture, health, and last update.
 
-\section{9.5 AI recommendation preview}
+\section{AI recommendation preview}
 
 The recommendation preview presents the current decision, confidence, suggested time, duration, and explanation. The user can validate the decision or manually start the pump. This supports human-in-the-loop decision-making.
 
-\section{9.6 Pump and actuator control}
+\section{Pump and actuator control}
 
 The pump control card displays WeMos device ID, pump D5 status, lamp D3 status, last command, and manual control buttons. Commands are sent to the backend, which publishes MQTT commands to the WeMos.
 
-\section{9.7 Forecast workspace}
+\section{Forecast workspace}
 
 The forecast page generates weather-aware irrigation planning. It uses weather data and zone context to indicate irrigation days, monitoring days, skipped days, risk level, and recommended durations. This extends decision support beyond the current sensor state.
 
-\section{9.8 Digital Twin simulation workspace}
+\section{Digital Twin simulation workspace}
 
 The simulation page guides the user through selecting a zone, reading live state, setting scenario inputs, running simulation, comparing results, and acting on outputs. It displays a pseudo-3D field view and moisture projection chart.
 
-\section{9.9 Schedules page}
+\section{Schedules page}
 
 The schedules page allows creation and management of irrigation events. Scheduled events are stored in the database and later executed by the scheduler worker through MQTT commands.
 
-\section{9.10 Validated decisions page}
+\section{Validated decisions page}
 
 The validated decisions page records approved recommendations and decision history. It improves traceability by showing what was validated, why, and with what operational parameters.
 
-\section{9.11 Mobile application}
+\section{Mobile application}
 
 The Flutter mobile application gives access to monitoring and selected decision functions from a phone. It is especially important because irrigation systems are often managed outside the desktop environment.
 
-\section{9.12 Conclusion}
+\section{Conclusion}
 
 The interface layer makes the Digital Twin usable. It connects monitoring, recommendation, simulation, forecasting, scheduling, validation, and manual control in a single workflow.
 

@@ -1,0 +1,48 @@
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,inner=3.2cm,outer=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{french}
+\setotherlanguage{arabic}
+\setmainfont{Latin Modern Roman}
+% Arabic font fallback: install Amiri or Noto Naskh Arabic if this fallback does not render correctly.
+\IfFontExistsTF{Amiri}{\newfontfamily\arabicfont[Script=Arabic]{Amiri}}{%
+  \IfFontExistsTF{Noto Naskh Arabic}{\newfontfamily\arabicfont[Script=Arabic]{Noto Naskh Arabic}}{%
+    \newfontfamily\arabicfont[Script=Arabic]{Arial}}}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\onehalfspacing
+\justifying
+\emergencystretch=2em
+\setlength{\parindent}{1.2cm}
+\setlength{\parskip}{0.2em}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+  pdftitle={Agrio Master Thesis Template},
+  pdfauthor={Lebaili Mohamed Ouail and Senhadji Mohamed Said}
+}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible,
+  showstringspaces=false
+}

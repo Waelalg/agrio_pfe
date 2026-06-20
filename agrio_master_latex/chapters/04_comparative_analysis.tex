@@ -1,0 +1,114 @@
+﻿\part{Synthesis}
+
+\chapter{Comparative Analysis and Scientific Positioning}
+
+\section{Comparison criteria}
+
+To position Agrio scientifically, existing works are compared according to criteria that reflect Digital Twin maturity and smart irrigation functionality. The criteria include application domain, sensing layer, communication layer, data storage, machine learning, simulation, recommendation, user validation, actuation, deployment, and validation context. These criteria allow a fair comparison between research papers that may focus on different aspects of the problem.
+
+The purpose of this comparison is not to claim that Agrio is superior to field-validated agricultural systems. Instead, it identifies what the project contributes as an integrated engineering prototype and where it remains limited compared with advanced research systems.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Comparison criteria for Digital Twin irrigation systems}\\
+\toprule
+Criterion & Question evaluated \\
+\midrule
+\endfirsthead
+\toprule
+Criterion & Question evaluated \\
+\midrule
+\endhead
+Physical sensing & Does the system receive real sensor data? \\
+Communication & Which technology transmits data? \\
+Data management & Is data stored and structured? \\
+Virtual state & Is there a synchronized virtual representation? \\
+ML/AI & Is prediction or optimization used? \\
+Simulation & Are what-if or future scenarios simulated? \\
+Recommendation & Does the system generate decisions? \\
+Human validation & Can the user validate/override decisions? \\
+Actuation & Can the system control pump/valves? \\
+Deployment & Is there a reproducible implementation? \\
+Validation & Is it tested in lab, prototype, or real farm? \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{Comparative matrix}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
+\caption{Scientific comparison of selected works with Agrio}\\
+\toprule
+Study & Focus & Main components & DT maturity & Position relative to Agrio \\
+\midrule
+\endfirsthead
+\toprule
+Study & Focus & Main components & DT maturity & Position relative to Agrio \\
+\midrule
+\endhead
+García et al. [7] & IoT smart irrigation review & Sensors, nodes, WSN/IoT, actuators & No specific DT; broad review & Supports Agrio sensing and communication background \\
+Obaideen et al. [8] & IoT smart irrigation overview & Soil/weather monitoring, control, SDG link & No specific DT implementation & Supports sustainability and smart irrigation motivation \\
+Del-Coco et al. [9] & ML smart irrigation review & Physical, processing, dataset, decision layers & No specific prototype & Supports Agrio ML and layered architecture \\
+Kodali \& Sarjerao [11] & Low-cost MQTT irrigation & Soil moisture, ESP8266, MQTT, pump status & IoT control, no DT simulation & Similar MQTT/pump logic but simpler than Agrio \\
+Balaceanu et al. [12] & Libelium precision agriculture monitoring & Libelium station, temperature, soil humidity, pressure, radiation & Monitoring platform & Supports Agrio hardware choice \\
+Manocha et al. [15] & IoT-DT smart irrigation & IoT sensors, simulation, irrigation suggestions & Integrated DT framework & Close to Agrio; useful benchmark \\
+Tancredi et al. [16] & DT + ML irrigation & Sensor data, ML classification & DT enhanced with ML & Close ML comparison; Agrio adds full dashboard/scheduler/control \\
+Qin et al. [17] & DT irrigation-drainage & IoT, LSTM, water-salt management & Advanced irrigation DT & Agronomically stronger; Agrio is broader software prototype \\
+Millán et al. [13] & Tomato farm DT & Soil moisture, climate, simulation, daily scheduling & Commercial field DT & Field validation stronger than Agrio; future target \\
+Bellvert et al. [14] & Vineyard DT with Sentinel-2 & Remote sensing, fAPAR, SWB simulation, scheduling & Commercial vineyard DT & Shows future remote sensing integration \\
+Agrio & This thesis & Libelium sensors, XBee, Raspberry Pi, MQTT, FastAPI, PostgreSQL, RF ML, simulation, dashboard, WeMos pump & Human-supervised operational prototype DT & Integrative architecture: sensing-to-actuation pipeline tested in controlled prototype \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{Positioning of Agrio by Digital Twin maturity}
+
+Agrio can be positioned between a Digital Shadow and a fully autonomous Digital Twin. It has a real sensing layer and updates the virtual zone state using live MQTT data, which goes beyond an offline Digital Model. It also generates decisions and can control the pump through MQTT commands, which goes beyond a one-way Digital Shadow. However, because autonomous actuation is intentionally limited and the prototype is not yet validated in a real farm over a full growing season, the system should be described as a human-supervised operational Digital Twin prototype.
+
+This positioning is academically honest and defensible. It acknowledges that field-validated systems such as Irri\_DesK applied to commercial tomato or vineyard plots have stronger agronomic validation. At the same time, it highlights Agrio’s engineering completeness: backend architecture, database model, ML service, simulation interface, web/mobile dashboard, scheduling, and actuator feedback.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/chapter_04/Figure 4.1 — Positioning of Agrio between Digital Model, Digital Shadow, and operational Digital Twin.png}
+    \caption{Positioning of Agrio between Digital Model, Digital Shadow, and operational Digital Twin. Source: Authors.}
+    \label{fig:4-1-positioning-of-agrio-between-digital-model-digital-shadow-and-oper}
+\end{figure}
+
+\section{Novelty of the proposed project}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Novelty and contribution of Agrio}\\
+\toprule
+Contribution & Explanation \\
+\midrule
+\endfirsthead
+\toprule
+Contribution & Explanation \\
+\midrule
+\endhead
+End-to-end integration & Many works focus on one layer; Agrio connects field sensing, RF communication, gateway, MQTT, backend, database, ML, simulation, dashboard, scheduling, and pump control. \\
+Physical prototype & The system is not only conceptual; it uses a controlled prototype with Libelium kit, XBee, Raspberry Pi, WeMos, and water pump. \\
+Human-supervised Digital Twin & Recommendations are not blindly executed. The user can validate, schedule, or manually control the pump. \\
+What-if simulation & The platform compares no-irrigation, with-irrigation, and ML-selected paths before physical action. \\
+Deployment-oriented engineering & Docker Compose and separated services make the prototype reproducible and easier to demonstrate. \\
+Traceable database model & The schema stores measurements, states, history, predictions, simulations, recommendations, commands, events, and feedback. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{Weaknesses and limitations identified from the comparison}
+
+The comparison also reveals weaknesses. Agrio is currently validated in a controlled prototype environment, not in a full commercial farm. The ML models rely on adapted datasets and project data, but not on multi-season field datasets. Agronomic calibration of crop coefficients, soil hydraulic parameters, and water balance models is still limited. The system does not yet include remote sensing, UAV imagery, salinity management, reinforcement learning, or optimization of multi-zone water distribution.
+
+Another limitation is security. A production irrigation platform would require robust authentication, authorization, encrypted device provisioning, secure MQTT credentials, audit logs, and protection against unauthorized pump commands. The current project prioritizes functional integration for academic validation, while production security remains future work.
+
+These limitations do not reduce the value of the prototype; rather, they define a realistic boundary. The thesis should present Agrio as a strong final-year engineering prototype and research-informed Digital Twin platform, not as a commercially validated agricultural product.
+
+\section{Conclusion}
+
+This chapter positioned Agrio among existing smart irrigation and Digital Twin systems. The contribution lies in integrating multiple layers into an operational prototype and demonstrating the Digital Twin loop from sensing to simulation and control. The comparison also clarified the limitations of the project, especially the need for real field validation, stronger agronomic calibration, and production-level security. The next part presents the requirements and architecture of the proposed system.
