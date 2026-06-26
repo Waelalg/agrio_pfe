@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.6.5)  20 JUN 2026 17:53
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.6.5)  26 JUN 2026 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -823,7 +823,7 @@ LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `listings' support loaded on input line 3131.
 )
 ==> First Aid for cleveref.sty applied!
-Package hyperref Info: Option `colorlinks' set `true' on input line 41.
+Package hyperref Info: Option `colorlinks' set `true' on input line 38.
 )
 (C:\Users\orani\AppData\Local\Programs\MiKTeX\tex/latex/bidi\float-xetex-bidi.d
 ef
@@ -988,141 +988,178 @@ nt par rapport aux systèmes[]
 
 ] [8] (main.toc [9
 
-])
+] [10])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [10] (main.lof
-Underfull \hbox (badness 2229) in paragraph at lines 5--5
- [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Pump control concept using WeMos
-, relay, and MQTT com-[][] 
- []
-
-
-Underfull \hbox (badness 3954) in paragraph at lines 12--12
- [][][] [][][][]\TU/LatinModernRoman(0)/m/n/12 Generic smart irrigation system 
-architecture from ML litera-[][] 
- []
-
-)
+ [11] (main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [11
+ [12
 
 ] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [12
+ [13
 
-]) (chapters/00_general_introduction.tex [1
+])
+(chapters/00_general_introduction.tex [1
 
 
 
-]
+] [2]
 File: figures/cover/Figure 0.1 — Global view of the thesis methodology from lit
 erature review to prototype validation.png Graphic file (type bmp)
 <figures/cover/Figure 0.1 — Global view of the thesis methodology from literatu
 re review to prototype validation.png>
- [2])
-(chapters/01_precision_agriculture.tex [3] [4
+ [3])
+(chapters/01_precision_agriculture.tex [4] [5
 
 ]
 Chapter 1.
-File: figures/chapter_01/Figure 1.1 — Conceptual scope of precision agriculture
- and smart irrigation.png Graphic file (type bmp)
-<figures/chapter_01/Figure 1.1 — Conceptual scope of precision agriculture and 
-smart irrigation.png>
-[5
+File: figures/chapter_01/pa_ioxs.png Graphic file (type bmp)
+<figures/chapter_01/pa_ioxs.png>
+[6
 
-] [6] [7] [8] [9]
-File: figures/chapter_01/Figure 1.2 — Generic communication chain for IoT-based
- smart irrigation.png Graphic file (type bmp)
-<figures/chapter_01/Figure 1.2 — Generic communication chain for IoT-based smar
-t irrigation.png>
+] [7] [8]
+File: figures/chapter_01/si_arch.png Graphic file (type bmp)
+<figures/chapter_01/si_arch.png>
+ [9]
+File: figures/chapter_01/si_vars.png Graphic file (type bmp)
+<figures/chapter_01/si_vars.png>
  [10]
-File: figures/chapter_01/Figure 1.3 — Pump control concept using WeMos, relay, 
-and MQTT commandstatus topics.png Graphic file (type bmp)
-<figures/chapter_01/Figure 1.3 — Pump control concept using WeMos, relay, and M
-QTT commandstatus topics.png>
- [11]) (chapters/02_digital_twins_iot_ai.tex [12]
-Chapter 2.
-[13
-
-]
-File: figures/chapter_02/Figure 2.1 — Digital Model, Digital Shadow, and Digita
-l Twin maturity levels.png Graphic file (type bmp)
-<figures/chapter_02/Figure 2.1 — Digital Model, Digital Shadow, and Digital Twi
-n maturity levels.png>
- [14]
-File: figures/chapter_02/Figure 2.2 — Layered architecture of an agricultural D
-igital Twin.png Graphic file (type bmp)
-<figures/chapter_02/Figure 2.2 — Layered architecture of an agricultural Digita
-l Twin.png>
- [15] [16]
-Overfull \hbox (14.40836pt too wide) in paragraph at lines 65--65
-[][]|\TU/LatinModernRoman(0)/m/n/10 Classification/regression[] 
+Overfull \hbox (3.79588pt too wide) in paragraph at lines 163--163
+[][]|\TU/LatinModernRoman(0)/m/n/10 GSM/GPRS/4G/5G|[] 
  []
 
-[17] [18]) (chapters/03_state_of_the_art.tex [19] [20
+File: figures/chapter_01/network_stack_diagram.png Graphic file (type bmp)
+<figures/chapter_01/network_stack_diagram.png>
+[11]
+File: figures/chapter_01/si_pump.png Graphic file (type bmp)
+<figures/chapter_01/si_pump.png>
+ [12]) (chapters/02_digital_twins_iot_ai.tex [13]
+Chapter 2.
+[14
+
+] [15]
+File: figures/chapter_02/dm_ds_dt.png Graphic file (type bmp)
+<figures/chapter_02/dm_ds_dt.png>
+File: figures/chapter_02/dt_framework.png Graphic file (type bmp)
+<figures/chapter_02/dt_framework.png>
+ [16] [17] [18]
+File: figures/chapter_02/dl_backprop.jpg Graphic file (type bmp)
+<figures/chapter_02/dl_backprop.jpg>
+ [19]
+File: figures/chapter_02/transformer.png Graphic file (type bmp)
+<figures/chapter_02/transformer.png>
+ [20] [21]) (chapters/03_state_of_the_art.tex
+[22] [23] [24
 
 ]
 Chapter 3.
-File: figures/chapter_03/Figure 3.1 — Literature review methodology and themati
-c classification.png Graphic file (type bmp)
-<figures/chapter_03/Figure 3.1 — Literature review methodology and thematic cla
-ssification.png>
-[21
+[25
 
-] [22]
-File: figures/chapter_03/Figure 3.2 — Example of agricultural Digital Twin over
-view from literature.png Graphic file (type bmp)
-<figures/chapter_03/Figure 3.2 — Example of agricultural Digital Twin overview 
-from literature.png>
- [23]
-File: figures/chapter_03/Figure 3.3 — Generic smart irrigation system architect
-ure from ML literature.png Graphic file (type bmp)
-<figures/chapter_03/Figure 3.3 — Generic smart irrigation system architecture f
-rom ML literature.png>
- [24] [25] [26]) (chapters/04_comparative_analysis.tex [27]
-[28] [29
-
-]
-Chapter 4.
-[30
-
-]
-Overfull \hbox (31.98517pt too wide) in paragraph at lines 58--59
-[]\TU/LatinModernRoman(0)/m/n/10 board/scheduler/control|[] 
+] [26] [27] [28]
+Overfull \hbox (0.94731pt too wide) in alignment at lines 101--106
+ [] [] [] [] [] [] [] [] 
  []
 
-[31] [32]
-File: figures/chapter_04/Figure 4.1 — Positioning of Agrio between Digital Mode
-l, Digital Shadow, and operational Digital Twin.png Graphic file (type bmp)
-<figures/chapter_04/Figure 4.1 — Positioning of Agrio between Digital Model, Di
-gital Shadow, and operational Digital Twin.png>
- [33]) (chapters/12_general_conclusion.tex [34] [35]) [36
 
-] (main.bbl
+Overfull \hbox (0.94731pt too wide) in alignment at lines 106--110
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (10.63374pt too wide) in paragraph at lines 114--114
+[][]|\TU/LatinModernRoman(0)/m/n/8 Implementation[] 
+ []
+
+
+Overfull \hbox (0.94731pt too wide) in alignment at lines 110--116
+ [] [] [] [] [] [] [] [] 
+ []
+
+[29]) (chapters/04_comparative_analysis.tex [30]
+Chapter 4.
+[31
+
+] [32] [33] [34]
+Overfull \hbox (6.52286pt too wide) in paragraph at lines 100--100
+[][]|\TU/LatinModernRoman(0)/m/n/8 Communication|[] 
+ []
+
+
+Overfull \hbox (9.63577pt too wide) in alignment at lines 97--102
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (6.52286pt too wide) in paragraph at lines 104--104
+[][]|\TU/LatinModernRoman(0)/m/n/8 Communication|[] 
+ []
+
+
+Overfull \hbox (9.63577pt too wide) in alignment at lines 102--106
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (10.63374pt too wide) in paragraph at lines 110--110
+[][]|\TU/LatinModernRoman(0)/m/n/8 Implementation|[] 
+ []
+
+
+Overfull \hbox (9.63577pt too wide) in alignment at lines 106--112
+ [] [] [] [] [] [] [] [] 
+ []
+
+) (chapters/05_requirements_design.tex [35] [36]
+Chapter 5.
 [37
 
+] [38] [39] [40] [41] [42]
+Overfull \hbox (5.29153pt too wide) in alignment at lines 133--138
+ [] [] [] [] [] [] [] [] 
+ []
 
-]) [38] (main.aux)
+
+Overfull \hbox (5.29153pt too wide) in alignment at lines 138--142
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (3.33087pt too wide) in paragraph at lines 147--147
+[][]|\TU/LatinModernRoman(0)/m/n/8 Agroecosystem[] 
+ []
+
+
+Overfull \hbox (5.29153pt too wide) in alignment at lines 142--150
+ [] [] [] [] [] [] [] [] 
+ []
+
+[43]) (chapters/12_general_conclusion.tex [44] [45]) [46
+
+] (main.bbl [47
+
+
+]
+[48] [49] [50]) [51] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C4AC4B646FB82837A7E57CEC54FC187;9945.
+(rerunfilecheck)             Checksum: B0F185EDD3185284E80C761722B50915;18626.
  ) 
 Here is how much of TeX's memory you used:
- 20941 strings out of 402807
- 438646 string characters out of 5445136
- 1193083 words of memory out of 5000000
- 49486 multiletter control sequences out of 15000+600000
- 633159 words of font info for 96 fonts, out of 8000000 for 9000
+ 20988 strings out of 402807
+ 433805 string characters out of 5445136
+ 1195083 words of memory out of 5000000
+ 49531 multiletter control sequences out of 15000+600000
+ 633167 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,10n,96p,1206b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,10n,96p,1206b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (52 pages).
+Output written on main.pdf (66 pages).

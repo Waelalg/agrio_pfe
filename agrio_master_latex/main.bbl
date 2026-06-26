@@ -21,6 +21,217 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{ispa2024precisiondefinition}
+\BIBentryALTinterwordspacing
+{International Society of Precision Agriculture}, ``Precision agriculture
+  definition,'' 2024. [Online]. Available:
+  \url{https://www.ispag.org/resources/definition}
+\BIBentrySTDinterwordspacing
+
+\bibitem{garcia2020iotirrigation}
+L.~Garcia, L.~Parra, J.~M. Jimenez, J.~Lloret, and P.~Lorenz, ``Iot-based smart
+  irrigation systems: An overview on the recent trends on sensors and iot
+  systems for irrigation in precision agriculture,'' \emph{Sensors}, 2020.
+
+\bibitem{obaideen2022iotirrigation}
+K.~Obaideen \emph{et~al.}, ``An overview of smart irrigation systems using
+  iot,'' \emph{Energy Nexus}, 2022.
+
+\bibitem{fuller2020digitaltwin}
+\BIBentryALTinterwordspacing
+A.~Fuller, Z.~Fan, C.~Day, and C.~Barlow, ``Digital twin: Enabling
+  technologies, challenges and open research,'' \emph{IEEE Access}, vol.~8, pp.
+  108\,952--108\,971, 2020. [Online]. Available:
+  \url{https://doi.org/10.1109/ACCESS.2020.2998358}
+\BIBentrySTDinterwordspacing
+
+\bibitem{kritzinger2018digitaltwin}
+\BIBentryALTinterwordspacing
+W.~Kritzinger, M.~Karner, G.~Traar, J.~Henjes, and W.~Sihn, ``Digital twin in
+  manufacturing: A categorical literature review and classification,''
+  \emph{IFAC-PapersOnLine}, vol.~51, no.~11, pp. 1016--1022, 2018. [Online].
+  Available: \url{https://doi.org/10.1016/j.ifacol.2018.08.474}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gubbi2013iot}
+\BIBentryALTinterwordspacing
+J.~Gubbi, R.~Buyya, S.~Marusic, and M.~Palaniswami, ``Internet of things (iot):
+  A vision, architectural elements, and future directions,'' \emph{Future
+  Generation Computer Systems}, vol.~29, no.~7, pp. 1645--1660, 2013. [Online].
+  Available: \url{https://arxiv.org/abs/1207.0203}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mccarthy1955dartmouth}
+\BIBentryALTinterwordspacing
+J.~McCarthy, M.~L. Minsky, N.~Rochester, and C.~E. Shannon, ``A proposal for
+  the dartmouth summer research project on artificial intelligence,'' 1955.
+  [Online]. Available:
+  \url{https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{breiman2001randomforest}
+L.~Breiman, ``Random forests,'' \emph{Machine Learning}, 2001.
+
+\bibitem{lecun2015deeplearning}
+\BIBentryALTinterwordspacing
+Y.~LeCun, Y.~Bengio, and G.~Hinton, ``Deep learning,'' \emph{Nature}, vol. 521,
+  pp. 436--444, 2015. [Online]. Available:
+  \url{https://www.nature.com/articles/nature14539}
+\BIBentrySTDinterwordspacing
+
+\bibitem{bommasani2021foundationmodels}
+\BIBentryALTinterwordspacing
+R.~Bommasani, D.~A. Hudson, E.~Adeli, R.~Altman, S.~Arora, S.~von Arx, M.~S.
+  Bernstein, J.~Bohg, A.~Bosselut, E.~Brunskill \emph{et~al.}, ``On the
+  opportunities and risks of foundation models,'' 2021. [Online]. Available:
+  \url{https://arxiv.org/abs/2108.07258}
+\BIBentrySTDinterwordspacing
+
+\bibitem{vaswani2017attention}
+\BIBentryALTinterwordspacing
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  L.~Kaiser, and I.~Polosukhin, ``Attention is all you need,'' 2017. [Online].
+  Available: \url{https://arxiv.org/abs/1706.03762}
+\BIBentrySTDinterwordspacing
+
+\bibitem{brown2020languagemodels}
+\BIBentryALTinterwordspacing
+T.~B. Brown, B.~Mann, N.~Ryder, M.~Subbiah, J.~Kaplan, P.~Dhariwal,
+  A.~Neelakantan, P.~Shyam, G.~Sastry, A.~Askell, S.~Agarwal, A.~Herbert-Voss,
+  G.~Krueger, T.~Henighan, R.~Child, A.~Ramesh, D.~M. Ziegler, J.~Wu,
+  C.~Winter, C.~Hesse, M.~Chen, E.~Sigler, M.~Litwin, S.~Gray, B.~Chess,
+  J.~Clark, C.~Berner, S.~McCandlish, A.~Radford, I.~Sutskever, and D.~Amodei,
+  ``Language models are few-shot learners,'' in \emph{Advances in Neural
+  Information Processing Systems}, vol.~33, 2020, pp. 1877--1901. [Online].
+  Available: \url{https://arxiv.org/abs/2005.14165}
+\BIBentrySTDinterwordspacing
+
+\bibitem{wooldridge1995intelligentagents}
+M.~Wooldridge and N.~R. Jennings, ``Intelligent agents: Theory and practice,''
+  \emph{The Knowledge Engineering Review}, vol.~10, no.~2, pp. 115--152, 1995.
+
+\bibitem{uhlemann2017digitalTwinCPPS}
+\BIBentryALTinterwordspacing
+T.~H.-J. Uhlemann, C.~Lehmann, and R.~Steinhilper, ``The digital twin:
+  Realizing the cyber-physical production system for industry 4.0,'' in
+  \emph{Procedia CIRP}, vol.~61, 2017, pp. 335--340. [Online]. Available:
+  \url{https://doi.org/10.1016/j.procir.2016.11.152}
+\BIBentrySTDinterwordspacing
+
+\bibitem{schroeder2016visualisingDigitalTwin}
+\BIBentryALTinterwordspacing
+G.~Schroeder, C.~Steinmetz, C.~E. Pereira, I.~Muller, N.~Garcia, D.~Espindola,
+  and R.~Rodrigues, ``Visualising the digital twin using web services and
+  augmented reality,'' in \emph{2016 IEEE 14th International Conference on
+  Industrial Informatics (INDIN)}, 2016, pp. 522--527. [Online]. Available:
+  \url{https://doi.org/10.1109/INDIN.2016.7819217}
+\BIBentrySTDinterwordspacing
+
+\bibitem{zhuang2018digitalTwinAssembly}
+\BIBentryALTinterwordspacing
+C.~Zhuang, J.~Liu, and H.~Xiong, ``Digital twin-based smart production
+  management and control framework for the complex product assembly
+  shop-floor,'' \emph{The International Journal of Advanced Manufacturing
+  Technology}, vol.~96, no. 1--4, pp. 1149--1163, 2018. [Online]. Available:
+  \url{https://doi.org/10.1007/s00170-018-1617-6}
+\BIBentrySTDinterwordspacing
+
+\bibitem{damjanovic2019openSourceDigitalTwins}
+\BIBentryALTinterwordspacing
+V.~Damjanovic-Behrendt and W.~Behrendt, ``An open source approach to the design
+  and implementation of digital twins for smart manufacturing,''
+  \emph{International Journal of Computer Integrated Manufacturing}, vol.~32,
+  no. 4--5, pp. 366--384, 2019. [Online]. Available:
+  \url{https://doi.org/10.1080/0951192X.2019.1599436}
+\BIBentrySTDinterwordspacing
+
+\bibitem{kim2008wsnIrrigation}
+\BIBentryALTinterwordspacing
+Y.~Kim, R.~G. Evans, and W.~M. Iversen, ``Remote sensing and control of an
+  irrigation system using a distributed wireless sensor network,'' \emph{IEEE
+  Transactions on Instrumentation and Measurement}, vol.~57, no.~7, pp.
+  1379--1387, 2008. [Online]. Available:
+  \url{https://doi.org/10.1109/TIM.2008.917198}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gutierrez2014wsnGprsIrrigation}
+\BIBentryALTinterwordspacing
+J.~Gutierrez, J.~F. Villa-Medina, A.~Nieto-Garibay, and M.~A. Porta-Gandara,
+  ``Automated irrigation system using a wireless sensor network and gprs
+  module,'' \emph{IEEE Transactions on Instrumentation and Measurement},
+  vol.~63, no.~1, pp. 166--176, 2014. [Online]. Available:
+  \url{https://doi.org/10.1109/TIM.2013.2276487}
+\BIBentrySTDinterwordspacing
+
+\bibitem{kodali2017mqttirrigation}
+\BIBentryALTinterwordspacing
+R.~K. Kodali and B.~S. Sarjerao, ``A low cost smart irrigation system using
+  mqtt protocol,'' in \emph{2017 IEEE Region 10 Symposium (TENSYMP)}, 2017, pp.
+  1--5. [Online]. Available:
+  \url{https://doi.org/10.1109/TENCONSpring.2017.8070095}
+\BIBentrySTDinterwordspacing
+
+\bibitem{goap2018iotMLIrrigation}
+\BIBentryALTinterwordspacing
+A.~Goap, D.~Sharma, A.~K. Shukla, and C.~R. Krishna, ``An iot based smart
+  irrigation management system using machine learning and open source
+  technologies,'' \emph{Computers and Electronics in Agriculture}, vol. 155,
+  pp. 41--49, 2018. [Online]. Available:
+  \url{https://doi.org/10.1016/j.compag.2018.09.040}
+\BIBentrySTDinterwordspacing
+
+\bibitem{manocha2024iotdtirrigation}
+\BIBentryALTinterwordspacing
+A.~Manocha, S.~K. Sood, and M.~Bhatia, ``Iot-digital twin-inspired smart
+  irrigation approach for optimal water utilization,'' \emph{Sustainable
+  Computing: Informatics and Systems}, vol.~41, p. 100947, 2024. [Online].
+  Available: \url{https://doi.org/10.1016/j.suscom.2023.100947}
+\BIBentrySTDinterwordspacing
+
+\bibitem{bellvert2023sentinel}
+\BIBentryALTinterwordspacing
+J.~Bellvert, A.~Pelecha, M.~Pamies-Sans, J.~Virgili, M.~Torres, and
+  J.~Casadesus, ``Assimilation of sentinel-2 biophysical variables into a
+  digital twin for the automated irrigation scheduling of a vineyard,''
+  \emph{Water}, vol.~15, no.~14, p. 2506, 2023. [Online]. Available:
+  \url{https://doi.org/10.3390/w15142506}
+\BIBentrySTDinterwordspacing
+
+\bibitem{millan2025tomatodt}
+\BIBentryALTinterwordspacing
+S.~Millan, C.~Montesinos, J.~Casadesus, J.~M. Vadillo, and C.~Campillo, ``Use
+  of a digital twin for water efficient management in a processing tomato
+  commercial farm,'' \emph{Agronomy}, vol.~15, no.~9, p. 2132, 2025. [Online].
+  Available: \url{https://doi.org/10.3390/agronomy15092132}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tancredi2025mldt}
+\BIBentryALTinterwordspacing
+G.~P.~C. Tancredi, L.~Preite, and G.~Vignali, ``Digital twin enhanced with
+  machine learning algorithms for irrigation management using sensor data,''
+  \emph{Procedia Computer Science}, vol. 253, pp. 2419--2427, 2025. [Online].
+  Available: \url{https://doi.org/10.1016/j.procs.2025.01.302}
+\BIBentrySTDinterwordspacing
+
+\bibitem{qin2025irrigationdrainagedt}
+\BIBentryALTinterwordspacing
+M.~Qin, C.~Zhang, G.~Ma, Y.~Ma, X.~Feng, P.~Li, and K.~Feng, ``Digital
+  twin-enabled intelligent irrigation-drainage system for precision water-salt
+  management in saline agroecosystems,'' \emph{Agricultural Water Management},
+  vol. 322, p. 109957, 2025. [Online]. Available:
+  \url{https://doi.org/10.1016/j.agwat.2025.109957}
+\BIBentrySTDinterwordspacing
+
+\bibitem{elhachimi2025collectiveirrigation}
+\BIBentryALTinterwordspacing
+C.~El~Hachimi, S.~Belaqziz, S.~Khabba, H.~Karjoun, M.~H. Kharrou,
+  B.~Ait~Hssaine, S.~Er-Raki, A.~Daccache, A.~Chehbouni, and Q.~Weng, ``Towards
+  collective intelligence in agriculture: Deep reinforcement learning and
+  digital twins for efficient management of collective irrigation water
+  distribution systems,'' \emph{Energy Nexus}, vol.~20, p. 100599, 2025.
+  [Online]. Available: \url{https://doi.org/10.1016/j.nexus.2025.100599}
+\BIBentrySTDinterwordspacing
+
 \bibitem{subeesh2026agriculturaldt}
 A.~Subeesh and N.~Chauhan, ``Agricultural digital twin for smart farming: A
   review,'' \emph{Green Technologies and Sustainability}, 2026.
@@ -47,17 +258,8 @@ M.~Tsaousidis, T.~Kalampokas, E.~Vrochidou, and G.~A. Papakostas, ``Ai-enabled
 R.~Ahsen \emph{et~al.}, ``Harnessing digital twins for sustainable agricultural
   water management: A systematic review,'' \emph{Applied Sciences}, 2025.
 
-\bibitem{garcia2020iotirrigation}
-L.~García, L.~Parra, J.~M. Jimenez, J.~Lloret, and P.~Lorenz, ``Iot-based
-  smart irrigation systems: An overview on the recent trends on sensors and iot
-  systems for irrigation in precision agriculture,'' \emph{Sensors}, 2020.
-
-\bibitem{obaideen2022iotirrigation}
-K.~Obaideen \emph{et~al.}, ``An overview of smart irrigation systems using
-  iot,'' \emph{Energy Nexus}, 2022.
-
 \bibitem{delcoco2024mlirrigation}
-M.~Del-Coco, M.~Leo, and P.~Carcagnì, ``Machine learning for smart irrigation
+M.~Del-Coco, M.~Leo, and P.~Carcagni, ``Machine learning for smart irrigation
   in agriculture: How far along are we?'' \emph{Information}, 2024.
 
 \bibitem{morchid2026iotmlirrigation}
@@ -66,55 +268,17 @@ A.~Morchid, Z.~Said, and H.~Tairi, ``Innovative applications of internet of
   management: Benefits and challenges,'' \emph{Smart Agricultural Technology},
   2026.
 
-\bibitem{kodali2017mqttirrigation}
-R.~K. Kodali and B.~S. Sarjerao, ``A low cost smart irrigation system using
-  mqtt protocol,'' in \emph{IEEE Region 10 Symposium}, 2017.
-
 \bibitem{balaceanu2019libelium}
 C.~Balaceanu, G.~Suciu, and I.~Marcu, ``Libelium-based iot monitoring solution
   for precision agriculture,'' \emph{Journal of E-Technology}, 2019.
-
-\bibitem{millan2025tomatodt}
-S.~Millán, C.~Montesinos, J.~Casadesús, J.~M. Vadillo, and C.~Campillo, ``Use
-  of a digital twin for water efficient management in a processing tomato
-  commercial farm,'' \emph{Agronomy}, 2025.
-
-\bibitem{bellvert2023sentinel}
-J.~Bellvert \emph{et~al.}, ``Assimilation of sentinel-2 biophysical variables
-  into a digital twin for the automated irrigation scheduling of a vineyard,''
-  \emph{Water}, 2023.
-
-\bibitem{manocha2024iotdtirrigation}
-H.~Manocha, S.~K. Sood, and M.~Bhatia, ``Iot-digital twin-inspired smart
-  irrigation approach for optimal water utilization,'' \emph{Sustainable
-  Computing: Informatics and Systems}, 2024.
-
-\bibitem{tancredi2025mldt}
-F.~Tancredi, P.~Preite, and G.~Vignali, ``Digital twin enhanced with machine
-  learning algorithms for irrigation management using sensor data,'' in
-  \emph{Procedia Computer Science}, 2025.
-
-\bibitem{qin2025irrigationdrainagedt}
-Qin \emph{et~al.}, ``Digital twin-enabled intelligent irrigation-drainage
-  system for precision water-salt management in saline agroecosystems,''
-  \emph{Agricultural Water Management}, 2025.
 
 \bibitem{liu2025cottondt}
 Liu \emph{et~al.}, ``Digital twin technology for cotton canopy development: A
   water-stress perspective,'' \emph{Smart Agricultural Technology}, 2025.
 
-\bibitem{elhachimi2025collectiveirrigation}
-E.~Hachimi \emph{et~al.}, ``Towards collective intelligence in agriculture:
-  Deep reinforcement learning and digital twins for efficient management of
-  collective irrigation water distribution systems,'' \emph{Smart Agricultural
-  Technology}, 2025.
-
 \bibitem{montgomery2021linearregression}
 D.~C. Montgomery, E.~A. Peck, and G.~G. Vining, \emph{Introduction to Linear
   Regression Analysis}.\hskip 1em plus 0.5em minus 0.4em\relax Wiley, 2021.
-
-\bibitem{breiman2001randomforest}
-L.~Breiman, ``Random forests,'' \emph{Machine Learning}, 2001.
 
 \bibitem{fastapi2026docs}
 {FastAPI Documentation}, ``Fastapi framework and automatic openapi
@@ -132,5 +296,34 @@ L.~Breiman, ``Random forests,'' \emph{Machine Learning}, 2001.
 \bibitem{libelium2017smartagriculture}
 {Libelium}, ``Smart agriculture iot vertical kit and plug \& sense sensing
   platform,'' 2017.
+
+\bibitem{babar2024ioeagriculture}
+\BIBentryALTinterwordspacing
+A.~Z. Babar and O.~B. Akan, ``Sustainable and precision agriculture with the
+  internet of everything,'' 2024. [Online]. Available:
+  \url{https://arxiv.org/abs/2404.06341}
+\BIBentrySTDinterwordspacing
+
+\bibitem{risheh2020smartirrigationtransferlearning}
+\BIBentryALTinterwordspacing
+A.~Risheh, A.~Jalili, and E.~Nazerfard, ``Smart irrigation iot solution using
+  transfer learning for neural networks,'' 2020. [Online]. Available:
+  \url{https://arxiv.org/abs/2009.12747}
+\BIBentrySTDinterwordspacing
+
+\bibitem{karar2020iotneuralpump}
+\BIBentryALTinterwordspacing
+M.~E. Karar, M.~F. Al-Rasheed, A.~F. Al-Rasheed, and O.~Reyad, ``Iot and neural
+  network-based water pumping control system for smart irrigation,'' 2020.
+  [Online]. Available: \url{https://arxiv.org/abs/2005.04158}
+\BIBentrySTDinterwordspacing
+
+\bibitem{sharma2020digitaltwinsstate}
+\BIBentryALTinterwordspacing
+A.~Sharma, E.~Kosasih, J.~Zhang, A.~Brintrup, and A.~Calinescu, ``Digital
+  twins: State of the art theory and practice, challenges, and open research
+  questions,'' 2020. [Online]. Available:
+  \url{https://arxiv.org/abs/2011.02833}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

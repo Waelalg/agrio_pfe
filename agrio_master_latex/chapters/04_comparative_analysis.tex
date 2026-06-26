@@ -1,114 +1,115 @@
-﻿\part{Synthesis}
+\chapter{Smart Agriculture and Irrigation}
 
-\chapter{Comparative Analysis and Scientific Positioning}
+This chapter reviews concrete smart agriculture and irrigation systems that use sensors, communication networks, controllers, or machine learning to support irrigation decisions. These works are important because they establish the sensing and automation layer required before a complete irrigation digital twin can be built.
 
-\section{Comparison criteria}
+% Figure TODO (copyright unclear): redraw/adapt the distributed wireless sensor irrigation architecture from Kim et al. \cite{kim2008wsnIrrigation}; paper link: https://doi.org/10.1109/TIM.2008.917198
+% Suggested destination: figures/state_of_art/chapter4/wsn_irrigation_control_architecture.png
+% Figure TODO (copyright unclear): redraw/adapt the WSN and GPRS irrigation architecture from Gutierrez et al. \cite{gutierrez2014wsnGprsIrrigation}; paper link: https://doi.org/10.1109/TIM.2013.2276487
+% Suggested destination: figures/state_of_art/chapter4/wsn_gprs_irrigation_architecture.png
+% Figure TODO (copyright unclear): redraw/adapt the IoT and machine-learning smart irrigation workflow from Goap et al. \cite{goap2018iotMLIrrigation}; paper link: https://doi.org/10.1016/j.compag.2018.09.040
+% Suggested destination: figures/state_of_art/chapter4/iot_ml_irrigation_workflow.png
 
-To position Agrio scientifically, existing works are compared according to criteria that reflect Digital Twin maturity and smart irrigation functionality. The criteria include application domain, sensing layer, communication layer, data storage, machine learning, simulation, recommendation, user validation, actuation, deployment, and validation context. These criteria allow a fair comparison between research papers that may focus on different aspects of the problem.
+\section{Wireless Sensor Network Irrigation}
 
-The purpose of this comparison is not to claim that Agrio is superior to field-validated agricultural systems. Instead, it identifies what the project contributes as an integrated engineering prototype and where it remains limited compared with advanced research systems.
+\subsection[Remote Sensing and Control of an Irrigation System Using a Distributed Wireless Sensor Network]{Remote Sensing and Control of an Irrigation System Using a Distributed Wireless Sensor Network \cite{kim2008wsnIrrigation}}
 
-\begin{footnotesize}
-\setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
-\caption{Comparison criteria for Digital Twin irrigation systems}\\
+\subsubsection{Overview}
+
+Kim et al. propose a distributed wireless sensor network for remote sensing and control of an irrigation system. The work addresses the difficulty of monitoring field conditions and controlling irrigation equipment without continuous manual inspection. It is relevant because it connects field sensing with irrigation actuation, which is one of the basic requirements of smart irrigation.
+
+\subsubsection{Architecture / Methodology}
+
+The system is organized around distributed sensor nodes installed in the field, a communication network, and an irrigation control component. The sensor layer collects environmental and irrigation-related data from the field. The communication layer transfers the measurements to a control unit. The control logic uses the received data to support irrigation decisions and remote operation of the system.
+
+\subsubsection{Evaluation and Results}
+
+The paper evaluates the system as a practical wireless sensor network and control prototype for irrigation. It demonstrates the feasibility of using distributed sensing for remote irrigation monitoring and control. The verified metadata does not provide exact values for water saving, packet delivery, or crop yield improvement, so this review treats the validation as prototype-based and qualitative.
+
+\subsubsection{Limitations and Relevance to This Project}
+
+The main limitation is that the work is mainly an irrigation monitoring and control system, not a synchronized digital twin with a virtual model and predictive simulation. It is useful because it shows how field sensors and control equipment can be connected in an irrigation context. The remaining gap is to combine this sensing-control loop with virtual representation, prediction, and decision support.
+
+\subsection[Automated Irrigation System Using a Wireless Sensor Network and GPRS Module]{Automated Irrigation System Using a Wireless Sensor Network and GPRS Module \cite{gutierrez2014wsnGprsIrrigation}}
+
+\subsubsection{Overview}
+
+Gutierrez et al. present an automated irrigation system that combines a wireless sensor network with a GPRS communication module. The paper addresses the need for remote operation in agricultural fields where wired communication is difficult or expensive. Its relevance lies in the integration of field sensing, long-range communication, and automatic irrigation control.
+
+\subsubsection{Architecture / Methodology}
+
+The architecture includes field sensor nodes, a wireless sensor network, a GPRS module, and irrigation actuation. Field measurements are collected by the sensor nodes and transmitted through the network. The GPRS module provides remote connectivity, allowing the system to send data and receive control instructions over a wider area. The irrigation controller uses the sensed information to automate water application.
+
+\subsubsection{Evaluation and Results}
+
+The work is evaluated as an automated irrigation prototype. It validates that WSN and GPRS technologies can be used to support remote irrigation management. The verified metadata does not expose exact numerical results for water savings, communication reliability, or energy consumption. Therefore, the result is considered qualitative validation of the architecture.
+
+\subsubsection{Limitations and Relevance to This Project}
+
+The limitation is that the system focuses on automation and remote communication, but it does not include a full digital twin layer or advanced prediction. It remains relevant because it demonstrates a practical field-communication pattern for irrigation systems. The gap is to enrich this pattern with real-time virtual state, irrigation simulation, and intelligent recommendation.
+
+\section{Low-Cost IoT Irrigation}
+
+\subsection[A Low Cost Smart Irrigation System Using MQTT Protocol]{A Low Cost Smart Irrigation System Using MQTT Protocol \cite{kodali2017mqttirrigation}}
+
+\subsubsection{Overview}
+
+Kodali and Sarjerao propose a low-cost smart irrigation system using the MQTT protocol. The paper addresses the need for affordable irrigation automation based on lightweight IoT communication. It is relevant because MQTT is widely used in IoT systems where small devices need to publish sensor readings and receive commands.
+
+\subsubsection{Architecture / Methodology}
+
+The system uses low-cost IoT hardware, sensor readings, MQTT-based communication, and pump or valve control logic. MQTT provides a publish-subscribe communication model between the field device and the application layer. This makes the system suitable for sending soil or environmental measurements and receiving irrigation commands with low communication overhead.
+
+\subsubsection{Evaluation and Results}
+
+The paper validates the system as a low-cost prototype. It demonstrates that MQTT can support basic irrigation monitoring and control. The verified metadata does not provide detailed numeric measurements for latency, water saving, or field-scale performance, so the validation is treated as qualitative prototype validation.
+
+\subsubsection{Limitations and Relevance to This Project}
+
+The limitation is that the system is mainly an IoT control prototype. It does not include digital twin synchronization, water-balance simulation, or machine-learning decision support. Its relevance is high at the communication level because MQTT is appropriate for connecting field devices to a backend. The gap is to build a higher-level decision and virtual representation layer on top of the IoT communication.
+
+\section{Machine Learning for Irrigation Decision Support}
+
+\subsection[An IoT Based Smart Irrigation Management System Using Machine Learning and Open Source Technologies]{An IoT Based Smart Irrigation Management System Using Machine Learning and Open Source Technologies \cite{goap2018iotMLIrrigation}}
+
+\subsubsection{Overview}
+
+Goap et al. propose an IoT-based smart irrigation management system that uses machine learning and open-source technologies. The problem addressed is the improvement of irrigation decisions by combining sensed data with learning-based prediction. This work is relevant because it moves beyond rule-based irrigation and introduces data-driven decision support.
+
+\subsubsection{Architecture / Methodology}
+
+The system combines an IoT sensing layer, data processing, machine-learning models, and an irrigation management application. Sensor data and environmental information are used as inputs to the decision process. The machine-learning component supports the estimation of irrigation needs or the choice of irrigation action. Open-source technologies are used to make the system implementable and reproducible.
+
+\subsubsection{Evaluation and Results}
+
+The paper evaluates the proposed smart irrigation management system as an IoT and machine-learning implementation. It demonstrates that machine learning can be integrated with open-source IoT components for irrigation decision support. The verified metadata does not provide exact performance values for prediction accuracy, water saving, or yield improvement. Therefore, this review describes the result as implementation validation rather than a confirmed field-scale performance benchmark.
+
+\subsubsection{Limitations and Relevance to This Project}
+
+The limitation is that the paper focuses on smart irrigation decision support, not on a complete digital twin with continuous physical-virtual synchronization. It is useful because it shows how machine learning can be placed between sensor data and irrigation decisions. The remaining gap is to connect this decision layer to a virtual representation of the field and to a real-time monitoring and control workflow.
+
+\section{Discussion}
+
+The selected smart irrigation papers show that soil and environmental sensing, wireless communication, and automation are already practical in irrigation systems. Wireless sensor networks and GPRS make field monitoring possible over distributed areas. MQTT provides a lightweight IoT communication model. Machine learning adds the possibility of data-driven irrigation decisions. However, these systems usually remain at the level of monitoring, control, or decision support. They do not fully model a synchronized virtual copy of the irrigation system, and they rarely combine sensing, prediction, simulation, user decision support, and actuation into one complete digital twin.
+
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
+\caption{Comparison of selected smart irrigation papers}\\
 \toprule
-Criterion & Question evaluated \\
+Paper & Application & Sensors / data & Communication & Irrigation decision method & Validation & Main result & Limitation \\
 \midrule
 \endfirsthead
 \toprule
-Criterion & Question evaluated \\
+Paper & Application & Sensors / data & Communication & Irrigation decision method & Validation & Main result & Limitation \\
 \midrule
 \endhead
-Physical sensing & Does the system receive real sensor data? \\
-Communication & Which technology transmits data? \\
-Data management & Is data stored and structured? \\
-Virtual state & Is there a synchronized virtual representation? \\
-ML/AI & Is prediction or optimization used? \\
-Simulation & Are what-if or future scenarios simulated? \\
-Recommendation & Does the system generate decisions? \\
-Human validation & Can the user validate/override decisions? \\
-Actuation & Can the system control pump/valves? \\
-Deployment & Is there a reproducible implementation? \\
-Validation & Is it tested in lab, prototype, or real farm? \\
+Kim et al. \cite{kim2008wsnIrrigation} & Remote irrigation sensing and control & Distributed field measurements & Wireless sensor network & Control based on sensed field data & Prototype & Shows feasibility of remote sensing and control & No digital twin or predictive simulation \\
+Gutierrez et al. \cite{gutierrez2014wsnGprsIrrigation} & Automated irrigation & Field sensor-node data & WSN and GPRS & Automated controller using sensor data & Prototype & Demonstrates remote automated irrigation architecture & Limited virtual modeling and AI support \\
+Kodali and Sarjerao \cite{kodali2017mqttirrigation} & Low-cost smart irrigation & IoT sensor readings & MQTT & Lightweight publish-subscribe control logic & Prototype & Shows MQTT suitability for low-cost irrigation IoT & Basic control without digital twin layer \\
+Goap et al. \cite{goap2018iotMLIrrigation} & Smart irrigation management & IoT and environmental data & IoT network & Machine-learning decision support & Implementation & Integrates ML with open-source IoT irrigation & No full physical-virtual synchronization \\
 \bottomrule
 \end{longtable}
-\end{footnotesize}
+\endgroup
 
-\section{Comparative matrix}
-
-\begin{footnotesize}
-\setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
-\caption{Scientific comparison of selected works with Agrio}\\
-\toprule
-Study & Focus & Main components & DT maturity & Position relative to Agrio \\
-\midrule
-\endfirsthead
-\toprule
-Study & Focus & Main components & DT maturity & Position relative to Agrio \\
-\midrule
-\endhead
-García et al. [7] & IoT smart irrigation review & Sensors, nodes, WSN/IoT, actuators & No specific DT; broad review & Supports Agrio sensing and communication background \\
-Obaideen et al. [8] & IoT smart irrigation overview & Soil/weather monitoring, control, SDG link & No specific DT implementation & Supports sustainability and smart irrigation motivation \\
-Del-Coco et al. [9] & ML smart irrigation review & Physical, processing, dataset, decision layers & No specific prototype & Supports Agrio ML and layered architecture \\
-Kodali \& Sarjerao [11] & Low-cost MQTT irrigation & Soil moisture, ESP8266, MQTT, pump status & IoT control, no DT simulation & Similar MQTT/pump logic but simpler than Agrio \\
-Balaceanu et al. [12] & Libelium precision agriculture monitoring & Libelium station, temperature, soil humidity, pressure, radiation & Monitoring platform & Supports Agrio hardware choice \\
-Manocha et al. [15] & IoT-DT smart irrigation & IoT sensors, simulation, irrigation suggestions & Integrated DT framework & Close to Agrio; useful benchmark \\
-Tancredi et al. [16] & DT + ML irrigation & Sensor data, ML classification & DT enhanced with ML & Close ML comparison; Agrio adds full dashboard/scheduler/control \\
-Qin et al. [17] & DT irrigation-drainage & IoT, LSTM, water-salt management & Advanced irrigation DT & Agronomically stronger; Agrio is broader software prototype \\
-Millán et al. [13] & Tomato farm DT & Soil moisture, climate, simulation, daily scheduling & Commercial field DT & Field validation stronger than Agrio; future target \\
-Bellvert et al. [14] & Vineyard DT with Sentinel-2 & Remote sensing, fAPAR, SWB simulation, scheduling & Commercial vineyard DT & Shows future remote sensing integration \\
-Agrio & This thesis & Libelium sensors, XBee, Raspberry Pi, MQTT, FastAPI, PostgreSQL, RF ML, simulation, dashboard, WeMos pump & Human-supervised operational prototype DT & Integrative architecture: sensing-to-actuation pipeline tested in controlled prototype \\
-\bottomrule
-\end{longtable}
-\end{footnotesize}
-
-\section{Positioning of Agrio by Digital Twin maturity}
-
-Agrio can be positioned between a Digital Shadow and a fully autonomous Digital Twin. It has a real sensing layer and updates the virtual zone state using live MQTT data, which goes beyond an offline Digital Model. It also generates decisions and can control the pump through MQTT commands, which goes beyond a one-way Digital Shadow. However, because autonomous actuation is intentionally limited and the prototype is not yet validated in a real farm over a full growing season, the system should be described as a human-supervised operational Digital Twin prototype.
-
-This positioning is academically honest and defensible. It acknowledges that field-validated systems such as Irri\_DesK applied to commercial tomato or vineyard plots have stronger agronomic validation. At the same time, it highlights Agrio’s engineering completeness: backend architecture, database model, ML service, simulation interface, web/mobile dashboard, scheduling, and actuator feedback.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_04/Figure 4.1 — Positioning of Agrio between Digital Model, Digital Shadow, and operational Digital Twin.png}
-    \caption{Positioning of Agrio between Digital Model, Digital Shadow, and operational Digital Twin. Source: Authors.}
-    \label{fig:4-1-positioning-of-agrio-between-digital-model-digital-shadow-and-oper}
-\end{figure}
-
-\section{Novelty of the proposed project}
-
-\begin{footnotesize}
-\setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
-\caption{Novelty and contribution of Agrio}\\
-\toprule
-Contribution & Explanation \\
-\midrule
-\endfirsthead
-\toprule
-Contribution & Explanation \\
-\midrule
-\endhead
-End-to-end integration & Many works focus on one layer; Agrio connects field sensing, RF communication, gateway, MQTT, backend, database, ML, simulation, dashboard, scheduling, and pump control. \\
-Physical prototype & The system is not only conceptual; it uses a controlled prototype with Libelium kit, XBee, Raspberry Pi, WeMos, and water pump. \\
-Human-supervised Digital Twin & Recommendations are not blindly executed. The user can validate, schedule, or manually control the pump. \\
-What-if simulation & The platform compares no-irrigation, with-irrigation, and ML-selected paths before physical action. \\
-Deployment-oriented engineering & Docker Compose and separated services make the prototype reproducible and easier to demonstrate. \\
-Traceable database model & The schema stores measurements, states, history, predictions, simulations, recommendations, commands, events, and feedback. \\
-\bottomrule
-\end{longtable}
-\end{footnotesize}
-
-\section{Weaknesses and limitations identified from the comparison}
-
-The comparison also reveals weaknesses. Agrio is currently validated in a controlled prototype environment, not in a full commercial farm. The ML models rely on adapted datasets and project data, but not on multi-season field datasets. Agronomic calibration of crop coefficients, soil hydraulic parameters, and water balance models is still limited. The system does not yet include remote sensing, UAV imagery, salinity management, reinforcement learning, or optimization of multi-zone water distribution.
-
-Another limitation is security. A production irrigation platform would require robust authentication, authorization, encrypted device provisioning, secure MQTT credentials, audit logs, and protection against unauthorized pump commands. The current project prioritizes functional integration for academic validation, while production security remains future work.
-
-These limitations do not reduce the value of the prototype; rather, they define a realistic boundary. The thesis should present Agrio as a strong final-year engineering prototype and research-informed Digital Twin platform, not as a commercially validated agricultural product.
-
-\section{Conclusion}
-
-This chapter positioned Agrio among existing smart irrigation and Digital Twin systems. The contribution lies in integrating multiple layers into an operational prototype and demonstrating the Digital Twin loop from sensing to simulation and control. The comparison also clarified the limitations of the project, especially the need for real field validation, stronger agronomic calibration, and production-level security. The next part presents the requirements and architecture of the proposed system.
+The synthesis of gaps is clear. Smart irrigation systems already handle sensing, connectivity, and automation, but they often lack a persistent virtual model of the field state. They also tend to treat irrigation as a direct control problem rather than as a digital twin problem where the physical field, virtual representation, prediction layer, and decision workflow are synchronized.

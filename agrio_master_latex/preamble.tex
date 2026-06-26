@@ -5,10 +5,7 @@
 \setotherlanguage{french}
 \setotherlanguage{arabic}
 \setmainfont{Latin Modern Roman}
-% Arabic font fallback: install Amiri or Noto Naskh Arabic if this fallback does not render correctly.
-\IfFontExistsTF{Amiri}{\newfontfamily\arabicfont[Script=Arabic]{Amiri}}{%
-  \IfFontExistsTF{Noto Naskh Arabic}{\newfontfamily\arabicfont[Script=Arabic]{Noto Naskh Arabic}}{%
-    \newfontfamily\arabicfont[Script=Arabic]{Arial}}}
+\newfontfamily\arabicfont[Script=Arabic]{Arial}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{booktabs}

@@ -1,131 +1,202 @@
-﻿\part{Theoretical Background}
+\part{Background}
 
 \chapter{Precision Agriculture and Smart Irrigation}
 
+\newcommand{\selectedFigureBox}[3]{%
+\fbox{\begin{minipage}{0.86\textwidth}
+\centering
+\vspace{0.35cm}
+Selected figure: #1\\[0.15cm]
+Save the downloaded image as:\\
+\texttt{\detokenize{#2}}\\[0.15cm]
+Paper link:\\
+\url{#3}
+\vspace{0.35cm}
+\end{minipage}}}
+
 \section{Introduction}
 
-Precision agriculture is a management approach that uses data and technology to adapt agricultural practices to spatial and temporal variability. Instead of treating a field as a uniform entity, precision agriculture recognizes that soil properties, water availability, crop development, microclimate, pest pressure, and nutrient status can differ across zones and over time. This approach is especially important for irrigation, where uniform schedules may over-irrigate some areas and under-irrigate others.
+The background of this thesis begins with precision agriculture and smart irrigation because they define the practical domain in which sensing, communication, data analysis, and control are applied. The purpose of this chapter is not to present a specific implementation, but to introduce the scientific concepts that explain why irrigation can be improved through digital technologies. The chapter therefore focuses on general definitions, common system components, measured variables, communication choices, and challenges reported in the literature.
 
-Smart irrigation is the application of sensing, communication, computation, and control to irrigation management. It aims to apply water according to actual crop and soil needs. In the literature, smart irrigation systems are often described as combinations of sensors, wireless networks, cloud platforms, control units, data processing, and user interfaces. García et al. [7] review sensors, nodes, wireless technologies, and irrigation actuators used in IoT-based irrigation systems, while Obaideen et al. [8] emphasize the role of soil and weather monitoring in achieving water-use efficiency.
+Precision agriculture is commonly described as a data-driven management strategy. The International Society of Precision Agriculture defines it around the collection and analysis of temporal, spatial, and individual plant or animal data in order to support management decisions according to variability \cite{ispa2024precisiondefinition}. In irrigation, this idea means that water application should not be based only on fixed schedules. It should also consider soil moisture, crop water demand, weather conditions, irrigation method, field variability, and operational constraints.
 
-In this thesis, smart irrigation is understood as an operational system that can measure relevant variables, transmit them to a processing layer, infer the irrigation need, and support or execute irrigation decisions. The proposed Agrio platform follows this definition but extends it through a Digital Twin layer that keeps a virtual state of the irrigation zone and simulates future moisture evolution.
+Smart irrigation is one of the most important applications of precision agriculture. Garcia et al. \cite{garcia2020iotirrigation} review IoT-based irrigation systems and show that most systems combine sensors, wireless communication, processing nodes, user interfaces, and irrigation actuators. In this literature, the main objective is to use measurements and decision rules, or predictive models, to apply water more efficiently while reducing waste and avoiding plant stress.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_01/Figure 1.1 — Conceptual scope of precision agriculture and smart irrigation.png}
-    \caption{Conceptual scope of precision agriculture and smart irrigation. Source: Authors.}
-    \label{fig:1-1-conceptual-scope-of-precision-agriculture-and-smart-irrigation}
+    \IfFileExists{figures/chapter_01/pa_ioxs.png}{%
+    \includegraphics[width=0.75\textwidth]{figures/chapter_01/pa_ioxs.png}}{%
+    \selectedFigureBox{Babar and Akan, Figure 9, ``Integration of IoXs in Precision Agriculture''}{figures/chapter_01/pa_ioxs.png}{https://arxiv.org/abs/2404.06341}}
+    \caption{Integration of connected technologies in precision agriculture. Source: \url{https://arxiv.org/abs/2404.06341}.}
+    \label{fig:1-1-precision-agriculture-cycle-placeholder}
 \end{figure}
 
-\section{Water scarcity and irrigation management}
+\section{Definition of precision agriculture}
 
-Water scarcity is one of the main motivations behind intelligent irrigation research. Several reviewed papers remind that agriculture accounts for a large share of global freshwater withdrawals, often around 70\%. This fact is used in many irrigation and Digital Twin studies to justify the need for more efficient water management. The issue is not only environmental; it is also economic and social. Water scarcity can reduce yields, increase food prices, and make agricultural production more vulnerable to drought and climate variability.
+Precision agriculture is based on the observation that agricultural systems are not uniform. Soil texture, organic matter, salinity, water retention, crop stage, disease pressure, and microclimate may vary across a field and over time. A uniform management action can therefore be excessive in one zone and insufficient in another. Precision agriculture tries to reduce this mismatch by linking measurement, interpretation, and action.
 
-Irrigation scheduling is the process of deciding when and how much water should be applied. Classical scheduling may rely on fixed calendars, farmer experience, empirical observation of soil moisture, crop coefficients, or soil water balance methods. These methods can be effective when they are correctly calibrated, but they may become inaccurate when weather, soil, crop stage, or irrigation infrastructure changes. In real agricultural environments, local conditions can cause deviations between estimated and actual crop water consumption.
-
-In the context of this project, the water management problem is addressed at prototype scale. The objective is not to claim immediate large-scale water saving, but to design and validate a technical architecture capable of supporting precise irrigation decisions. This distinction is important academically: the prototype proves the feasibility of the Digital Twin workflow, while future field trials are required to quantify agronomic and economic water savings under real farm conditions.
-
-\section{From conventional irrigation to smart irrigation}
-
-Conventional irrigation methods include flood irrigation, furrow irrigation, sprinkler irrigation, drip irrigation, and manual watering. Each method has advantages and constraints depending on crop type, soil texture, topography, water availability, and farm infrastructure. Drip irrigation is often considered efficient because it delivers water close to the root zone, but even drip systems can waste water if scheduling is poorly adjusted.
-
-IoT-based smart irrigation introduces sensing and automation into this process. Soil moisture sensors can indicate whether the root zone contains sufficient water. Temperature and humidity sensors help estimate environmental demand. Rainfall sensors and weather forecasts help avoid unnecessary irrigation before or after rainfall. Wind and radiation information can support evapotranspiration estimation. Actuators such as pumps, valves, and relays execute irrigation actions.
-
-García et al. [7] show that many IoT irrigation systems use pumps or valves, soil moisture sensors, microcontrollers, and wireless communication. Obaideen et al. [8] explain that smart irrigation includes data acquisition, irrigation control, wireless communication, data processing, and fault detection. These components are also present in Agrio, but the project adds Digital Twin state management, machine learning prediction, scenario simulation, and user validation.
+From the definition used by ISPA \cite{ispa2024precisiondefinition}, three ideas are central. First, precision agriculture is a management strategy, not only a collection of sensors. Second, it depends on data that can describe temporal and spatial variability. Third, its purpose is to support decisions that improve resource efficiency, productivity, quality, profitability, and sustainability. In irrigation studies, the same logic is applied to water: the system should identify when, where, and how much water is needed.
 
 \begin{footnotesize}
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}@{}}
-\caption{Evolution from conventional irrigation to Digital Twin irrigation}\\
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}@{}}
+\caption{Core concepts in precision agriculture}\\
 \toprule
-Approach & Decision basis & Strength & Limitation \\
+Concept & Meaning in the literature & Irrigation implication \\
 \midrule
 \endfirsthead
 \toprule
-Approach & Decision basis & Strength & Limitation \\
+Concept & Meaning in the literature & Irrigation implication \\
 \midrule
 \endhead
-Manual irrigation & Farmer observation and experience & Simple and context-aware & Difficult to scale and may miss rapid changes \\
-Scheduled irrigation & Calendar and fixed duration & Easy to implement & Insensitive to actual soil moisture and weather \\
-Sensor-triggered irrigation & Thresholds on soil moisture or weather & Responsive to measured data & Usually limited to current state and simple rules \\
-ML-assisted irrigation & Historical and real-time features & Learns complex patterns & Requires data quality, model validation, and interpretability \\
-Digital Twin irrigation & Synchronized virtual state, prediction, simulation, feedback & Supports what-if analysis and decision traceability & Requires integration, calibration, and cyber-physical reliability \\
+Spatial variability & Differences between zones of the same field & Irrigation depth may differ by zone \\
+Temporal variability & Changes over hours, days, seasons, and crop stages & Irrigation timing should adapt to current conditions \\
+Decision support & Data are transformed into management recommendations & The system can recommend, schedule, or prioritize watering \\
+Resource efficiency & Inputs are applied according to estimated need & Water waste and energy use can be reduced \\
+Sustainability & Production goals are balanced with environmental constraints & Over-irrigation, leaching, and salinity risks are considered \\
 \bottomrule
 \end{longtable}
 \end{footnotesize}
 
-\section{Main variables in smart irrigation}
+\section{Irrigation management and water scarcity}
 
-The effectiveness of a smart irrigation system depends on the variables it monitors. Soil moisture is the central variable because it indicates water availability in the root zone. Soil temperature influences root activity and water uptake. Air temperature, humidity, wind speed, and light intensity influence evapotranspiration. Rainfall indicators determine whether natural precipitation can replace irrigation. Leaf wetness can support crop health monitoring and disease risk assessment.
+Irrigation management is the process of deciding when to irrigate, how much water to apply, and how to deliver it. Classical irrigation scheduling may rely on farmer experience, fixed calendars, crop coefficients, evapotranspiration estimation, soil water balance, or manual observation. These methods remain useful, but they can be limited when weather conditions change rapidly or when field variability is high.
 
-The Libelium Smart Agriculture kit used in this project supports a wide range of environmental and agricultural measurements. The MQTT payloads generated by the system include soil moisture, soil temperature, air temperature, humidity, pressure, leaf wetness, light intensity, rainfall current/hour/day, wind direction, wind speed, timestamp, and device identifier. This multi-variable sensing approach is important because irrigation decisions should not be based on soil moisture alone.
+Water scarcity gives smart irrigation its practical importance. Garcia et al. \cite{garcia2020iotirrigation} explain that agriculture is strongly affected by water availability and that research has increasingly focused on reducing water use in irrigation processes. Smart irrigation responds to this problem by combining measurements from the field with decision rules, models, or automation.
 
-However, more variables also imply more processing complexity. Sensor values may arrive in different formats, may contain missing values, or may require normalization. For example, soil moisture may be sent as a fraction and converted to percentage; light intensity may include suffixes that must be parsed; wind direction may be categorical and converted into degrees or cyclic features. These issues are handled by the backend parser and dataset adaptation pipeline.
+The main agronomic risk is not only water shortage. Under-irrigation can lead to plant water stress and yield reduction, while over-irrigation can waste water, increase pumping energy, move nutrients below the root zone, and contribute to salinity or drainage problems. A good irrigation decision must therefore balance crop demand, soil water storage, weather conditions, and system constraints.
+
+\section{Definition of smart irrigation}
+
+Smart irrigation can be defined as an irrigation approach that uses sensing, communication, data processing, and decision support to adjust irrigation according to measured or predicted needs. In IoT-based studies, the system usually contains field sensors, an embedded node or gateway, wireless communication, a database or cloud service, a decision layer, a user interface, and actuators such as pumps or valves \cite{garcia2020iotirrigation, obaideen2022iotirrigation}.
+
+The distinction between conventional irrigation and smart irrigation is the role of data. In conventional irrigation, decisions are often periodic or manually triggered. In smart irrigation, decisions are linked to variables such as soil moisture, temperature, humidity, rainfall, crop stage, and evapotranspiration. Some systems remain advisory, while others close the loop by controlling actuators automatically.
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{figures/chapter_01/si_arch.png}{%
+    \includegraphics[width=0.75\textwidth]{figures/chapter_01/si_arch.png}}{%
+    \selectedFigureBox{Risheh et al., Figure 10, smart irrigation IoT architecture}{figures/chapter_01/si_arch.png}{https://arxiv.org/abs/2009.12747}}
+    \caption{IoT-based smart irrigation architecture with endpoint, coordinator, and cloud server. Source: \url{https://arxiv.org/abs/2009.12747}.}
+    \label{fig:1-2-smart-irrigation-architecture-placeholder}
+\end{figure}
 
 \begin{footnotesize}
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
-\caption{Measured variables and their role in Agrio}\\
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
+\caption{Levels of irrigation decision support}\\
 \toprule
-Variable & Role in irrigation decision & Used in Agrio \\
+Level & Decision basis & Typical limitation \\
 \midrule
 \endfirsthead
 \toprule
-Variable & Role in irrigation decision & Used in Agrio \\
+Level & Decision basis & Typical limitation \\
 \midrule
 \endhead
-Soil moisture & Primary indicator of water availability & Yes \\
-Soil temperature & Influences root activity and soil water dynamics & Yes \\
-Air temperature & Supports evapotranspiration and stress estimation & Yes \\
-Humidity & Indicates atmospheric demand and evaporation conditions & Yes \\
-Rainfall & Avoids unnecessary irrigation and supports forecast decisions & Yes \\
-Wind speed/direction & Influences evapotranspiration and environmental interpretation & Yes \\
-Light intensity & Supports environmental context and crop-energy conditions & Yes \\
-Leaf wetness & Supports plant/environment monitoring & Yes \\
-Pressure & Additional weather/environment indicator & Yes \\
-Pump status & Closes the loop between decision and actuation & Yes \\
+Manual irrigation & Farmer observation and experience & Depends on availability and subjective assessment \\
+Scheduled irrigation & Calendar, fixed duration, or crop-stage rule & Does not react to short-term soil/weather changes \\
+Threshold irrigation & Soil moisture or weather threshold & Simple and interpretable, but may ignore forecasts \\
+Model-based irrigation & Soil water balance, evapotranspiration, or crop model & Requires calibration and reliable input data \\
+AI-assisted irrigation & Machine learning prediction or optimization & Needs validated datasets and explainable outputs \\
+Closed-loop control & Sensors and actuators connected through feedback & Requires safety, reliability, and fail-safe design \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{Measured variables in smart irrigation}
+
+The quality of a smart irrigation decision depends on the quality and relevance of the measured variables. Soil moisture is the most direct indicator because it describes water availability in the root zone. Garcia et al. \cite{garcia2020iotirrigation} report that soil monitoring is one of the dominant categories in IoT irrigation systems, and soil moisture is the most common soil variable. Weather variables are also important because they affect evapotranspiration and future water demand.
+
+Soil temperature, air temperature, relative humidity, rainfall, wind speed, solar radiation or light intensity, leaf wetness, pH, and electrical conductivity may also appear in the literature depending on the crop and objective. Not all systems need all variables. A low-cost system may use only soil moisture and temperature, while a research-grade system may include weather stations, remote sensing, and plant-based measurements.
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{figures/chapter_01/si_vars.png}{%
+    \includegraphics[width=0.60\textwidth]{figures/chapter_01/si_vars.png}}{%
+    \selectedFigureBox{Karar et al., Figure 1, MLP neural-network controller using temperature, humidity, and soil moisture}{figures/chapter_01/si_vars.png}{https://arxiv.org/abs/2005.04158}}
+    \caption{Measured variables and decision output in a smart irrigation controller. Source: \url{https://arxiv.org/abs/2005.04158}.}
+    \label{fig:1-3-monitored-variables-placeholder}
+\end{figure}
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\caption{Common variables used in smart irrigation literature}\\
+\toprule
+Variable group & Examples & Role in irrigation \\
+\midrule
+\endfirsthead
+\toprule
+Variable group & Examples & Role in irrigation \\
+\midrule
+\endhead
+Soil & Moisture, temperature, pH, electrical conductivity & Root-zone water status and soil condition \\
+Weather & Air temperature, humidity, rainfall, wind, radiation & Evapotranspiration and short-term water demand \\
+Water & Flow, level, salinity, turbidity & Availability and quality of irrigation water \\
+Plant & Leaf wetness, canopy temperature, plant height & Plant response and stress indication \\
+System state & Valve state, pump state, pressure, energy use & Execution monitoring and fault detection \\
 \bottomrule
 \end{longtable}
 \end{footnotesize}
 
 \section{Communication technologies in smart irrigation}
 
-Smart irrigation requires reliable communication between sensors, gateways, cloud services, and actuators. The literature reports many possible communication technologies: Wi-Fi, Bluetooth, Zigbee, XBee, LoRa, LoRaWAN, GSM/GPRS, NB-IoT, and cellular networks. The best choice depends on field size, power constraints, range, data rate, cost, and infrastructure availability.
+Communication links connect the physical field to the digital decision layer. The literature reports Wi-Fi, Bluetooth, ZigBee, XBee, LoRa, LoRaWAN, GSM/GPRS, NB-IoT, 4G/5G, and wired links. The choice depends on range, energy consumption, data rate, cost, reliability, infrastructure availability, and the size of the agricultural area.
 
-In Agrio, the field-side communication uses XBee radio-frequency communication. The XBee gateway receives the transmitted sensor data, and a Raspberry Pi processes the received frames. The gateway then publishes a standardized JSON payload to HiveMQ using MQTT. MQTT is well adapted to IoT communication because it follows a publish/subscribe model and supports decoupling between data producers and consumers. The backend subscribes to sensor topics, while the WeMos actuator subscribes to command topics and publishes status feedback.
+Garcia et al. \cite{garcia2020iotirrigation} show that Wi-Fi, GSM/GPRS, ZigBee, Bluetooth, LoRa, and MQTT-based solutions appear in IoT irrigation studies. Long-range technologies such as LoRa are useful for remote fields with low data rates, while Wi-Fi is easier for small farms or greenhouse environments with existing network coverage. MQTT is often used as an application-layer protocol because its publish/subscribe structure decouples sensors, services, dashboards, and actuators.
 
-This layered communication approach is important because it separates the field hardware protocol from the cloud/backend protocol. The backend does not need to interpret raw radio frames; it only consumes normalized MQTT payloads. This makes the architecture more modular and easier to extend to other sensor stations or communication technologies in the future.
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.39\textwidth}@{}}
+\caption{Communication technologies reported for IoT irrigation systems}\\
+\toprule
+Technology & Typical strength & Typical constraint \\
+\midrule
+\endfirsthead
+\toprule
+Technology & Typical strength & Typical constraint \\
+\midrule
+\endhead
+Wi-Fi & Low cost and easy integration & Shorter range and higher energy use \\
+ZigBee/XBee & Low power mesh networking & Limited range per hop and lower data rate \\
+LoRa/LoRaWAN & Long range and low energy & Low bandwidth and gateway planning \\
+GSM/GPRS/4G/5G & Wide-area connectivity & Subscription cost and coverage dependency \\
+Bluetooth & Simple short-range communication & Not suitable for large fields \\
+MQTT & Lightweight publish/subscribe messaging & Requires broker availability and topic design \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_01/Figure 1.2 — Generic communication chain for IoT-based smart irrigation.png}
-    \caption{Generic communication chain for IoT-based smart irrigation. Source: Authors.}
-    \label{fig:1-2-generic-communication-chain-for-iot-based-smart-irrigation}
+    \IfFileExists{figures/chapter_01/network_stack_diagram.png}{%
+    \includegraphics[width=0.60\textwidth]{figures/chapter_01/network_stack_diagram.png}}{%
+    \selectedFigureBox{Risheh et al., Figure 11, network stack diagram for ZigBee and MQTT-SN}{figures/chapter_01/network_stack_diagram.png}{https://arxiv.org/abs/2009.12747}}
+    \caption{Example communication stack for an IoT smart irrigation system. Source: \url{https://arxiv.org/abs/2009.12747}.}
+    \label{fig:1-4-communication-technologies-placeholder}
 \end{figure}
 
 \section{Actuators and irrigation control}
 
-Actuators transform digital decisions into physical irrigation actions. In irrigation systems, common actuators include pumps, solenoid valves, relays, fertigation injectors, and motorized valves. In a smart irrigation architecture, actuation must be carefully controlled because an incorrect command can waste water or damage the prototype. Therefore, the system must distinguish between recommendation, validation, scheduling, and physical execution.
+An irrigation decision becomes operational only when it is translated into a physical action. Common actuators include pumps, solenoid valves, relays, fertigation injectors, sprinklers, drip lines, and motorized valves. Actuation can be manual, semi-automatic, or fully automatic. In all cases, safety is important because wrong commands can waste water, flood the root zone, damage equipment, or create electrical risk.
 
-The Agrio prototype uses a WeMos device to control the pump through digital pins. In the current implementation, D5 is used for pump control and D3 is used for an auxiliary lamp. The backend publishes MQTT commands such as ON\_D5 and OFF\_D5 to the WeMos command topic. The WeMos publishes status messages indicating the state of D5 and D3. The dashboard reads the status through the backend and allows manual control or validated scheduled operation.
-
-The system intentionally separates simulation from actuation. Running a Digital Twin simulation does not start the pump. Simulation only predicts a virtual outcome. Physical actuation occurs through explicit manual command or scheduled execution after validation. This design choice improves safety and makes the prototype more acceptable for academic demonstration.
+Control logic may be rule-based, model-based, or AI-assisted. A rule-based controller can activate irrigation when soil moisture falls below a threshold. A model-based controller can estimate crop water requirement using evapotranspiration and water balance. An AI-assisted controller can learn patterns from historical data. The more autonomous the system becomes, the more important it is to include validation, fault detection, override mechanisms, and logging.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_01/Figure 1.3 — Pump control concept using WeMos, relay, and MQTT commandstatus topics.png}
-    \caption{Pump control concept using WeMos, relay, and MQTT command/status topics. Source: Authors.}
-    \label{fig:1-3-pump-control-concept-using-wemos-relay-and-mqtt-command-status-top}
+    \IfFileExists{figures/chapter_01/si_pump.png}{%
+    \includegraphics[width=0.60\textwidth]{figures/chapter_01/si_pump.png}}{%
+    \selectedFigureBox{Karar et al., Figure 3, IoT-based smart water irrigation system design}{figures/chapter_01/si_pump.png}{https://arxiv.org/abs/2005.04158}}
+    \caption{IoT-based smart irrigation system design including sensors, controller, and water pump. Source: \url{https://arxiv.org/abs/2005.04158}.}
+    \label{fig:1-5-actuation-placeholder}
 \end{figure}
 
 \section{Challenges of smart irrigation systems}
 
-The literature identifies several challenges that limit the adoption of smart irrigation: high sensor cost, sensor calibration, communication reliability, power management, data security, interoperability, model generalization, farmer acceptance, and limited long-term validation. The agricultural environment is also more variable than many industrial environments. Soil heterogeneity, crop growth, weather uncertainty, and biological responses make prediction and control difficult.
+The literature identifies several barriers to the adoption of smart irrigation. Technical challenges include sensor calibration, power autonomy, wireless reliability, missing data, interoperability, cybersecurity, and robustness under outdoor conditions. Agronomic challenges include soil heterogeneity, crop-specific water demand, root depth variation, evapotranspiration estimation, salinity, and the difficulty of validating decisions across seasons.
 
-Many existing systems demonstrate promising results in laboratory or small-scale settings but lack extended field testing. This limitation is also relevant for Agrio. The current prototype demonstrates the complete technical workflow in a controlled environment, but long-term agronomic validation in real farm conditions remains future work. A rigorous academic thesis should therefore present both the strengths and limitations of the project transparently.
-
-Another challenge is the gap between decision support and autonomous control. Fully automatic irrigation may be attractive, but it requires strong safety, calibration, and trust. Human-in-the-loop validation is a practical compromise for a final-year prototype: the system can recommend and simulate, while the user remains responsible for confirming or scheduling physical irrigation.
+Economic and social challenges are also important. Sensors and communication infrastructure may be costly for small farms. Farmers may reject systems that are difficult to maintain or that provide recommendations without clear explanation. Therefore, smart irrigation research must consider usability, trust, interpretability, maintenance, and cost, not only algorithmic performance.
 
 \section{Conclusion}
 
-This chapter presented the context of precision agriculture and smart irrigation. It showed that irrigation optimization requires sensing, communication, data processing, decision support, and actuator control. The chapter also introduced the importance of soil moisture, weather variables, wireless communication, and safe pump control. These concepts prepare the transition toward Digital Twin technology, which is presented in the next chapter as the conceptual foundation of Agrio.
+This chapter presented the domain background of precision agriculture and smart irrigation. Precision agriculture was introduced as a management strategy based on variability and decision support. Smart irrigation was then described as the application of sensing, communication, data processing, and control to water management. The chapter also summarized key variables, communication technologies, actuators, and challenges. These concepts prepare the next chapter, which introduces Digital Twins, IoT, and artificial intelligence as enabling technologies for data-driven agricultural systems.
