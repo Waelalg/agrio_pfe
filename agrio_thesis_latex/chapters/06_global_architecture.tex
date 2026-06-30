@@ -1,136 +1,135 @@
-﻿\chapter{Global Architecture of the Proposed Digital Twin}
+\chapter{Global Architecture of the Proposed Digital Twin}
+\label{chap:global_architecture}
 
 \section{Introduction}
 
-This chapter presents the global architecture of the Agrio Digital Twin smart irrigation platform. The architecture is designed as a cyber-physical loop: sense, transmit, store, synchronize, predict, simulate, recommend, validate, actuate, and record feedback. Each layer has a clear role and communicates with other layers through defined interfaces.
+This chapter presents the global architecture of the Agrio Digital Twin smart irrigation platform. The architecture is designed as a cyber-physical loop: sense, transmit, store, synchronize, predict, simulate, recommend, validate, actuate, and record feedback. The chapter is organized into a small number of layers so that the physical prototype, communication, backend intelligence, deployment, and discussion remain readable.
 
 \section{Architectural overview}
 
-The architecture connects Libelium Smart Agriculture sensors, XBee radio-frequency communication, Raspberry Pi gateway processing, HiveMQ/MQTT messaging, FastAPI backend services, PostgreSQL storage, a Random Forest ML service, a Digital Twin engine, recommendation and scheduler services, a Next.js dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. This organization ensures that the physical prototype and its virtual representation remain connected.
+The architecture connects Libelium Smart Agriculture sensors, XBee radio-frequency communication, Raspberry Pi gateway processing, MQTT messaging, FastAPI backend services, PostgreSQL storage, a separated Random Forest ML service, Digital Twin state and simulation services, recommendation and scheduler services, a Next.js dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. Figure~\ref{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite} gives the global view of this cyber-physical loop.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_06/Figure 6.1 — Global overview of the Agrio Digital Twin smart irrigation architecture.png}
-    \caption{Global overview of the Agrio Digital Twin smart irrigation architecture. Source: Authors.}
+    \includegraphics[width=0.9\textwidth]{figures/chapter_06/figure_6_1_global_architecture_clean.png}
+    \caption{Global overview of the Agrio Digital Twin smart irrigation architecture.}
     \label{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite}
 \end{figure}
 
-\section{Physical prototype layer}
+The global view should be read as a functional map rather than as a deployment diagram. Physical sensing creates field observations. The gateway prepares these observations for communication. The backend stores and processes the data. The Digital Twin maintains a synchronized virtual state. The ML and simulation layers support decision-making. The user validates or schedules actions. The actuator executes pump commands and sends feedback so the digital layer can reflect the physical result.
 
-The physical layer is a controlled experimental environment with plants, irrigation lines, sensing equipment, and a water pump. It reproduces the essential elements of smart irrigation at laboratory scale. It is not a commercial farm, but it provides a realistic environment for validating data acquisition, communication, virtual state update, simulation, and actuation.
+\section{Physical prototype and field layer}
 
-\section{Sensing layer}
+The physical prototype and field layer groups the elements that are located near the plants or directly connected to irrigation equipment. It includes the controlled prototype environment, plants, irrigation line, water reservoir or supply, pump, relay wiring, Libelium Smart Agriculture sensing equipment, XBee radio communication, Raspberry Pi gateway, WeMos actuator, and pump feedback. This section intentionally avoids exact MQTT topic names; those details are concentrated in the MQTT communication layer.
 
-The sensing layer uses the Libelium Smart Agriculture kit. Measurements include soil moisture, soil temperature, air temperature, humidity, pressure, rainfall, wind speed, wind direction, leaf wetness, and light intensity. These variables are published as structured JSON payloads after gateway processing.
+The Libelium Smart Agriculture equipment collects soil and environmental measurements such as soil moisture, soil temperature, air temperature, relative humidity, rainfall, wind speed, wind direction, pressure, light intensity, or leaf wetness when the corresponding sensor is available. These measurements describe the current irrigation context and are needed for the Digital Twin state update.
 
-\section{Radio-frequency and gateway layer}
+XBee radio communication transfers sensing data from the field side to the Raspberry Pi gateway. The gateway acts as the edge bridge between field acquisition and the software platform. It receives data from the sensing equipment, prepares or standardizes the payload, and forwards it through the messaging infrastructure. This separation is useful because the sensing equipment, gateway, backend, and dashboard do not need to be physically colocated.
 
-XBee radio-frequency communication transfers field data to the gateway. The Raspberry Pi receives the data through the XBee gateway, decodes or decrypts the payload when required, prepares a standardized JSON message, and publishes it to HiveMQ using MQTT. This layer transforms physical measurements into cloud-consumable IoT messages.
+The WeMos actuator closes the physical-control side of the loop. It controls the relay connected to the pump and reports actuator state after commands. The pump and irrigation line represent prototype-scale actuation, not a commercial irrigation network. Feedback from the actuator is important because the system must know whether a requested physical action was reflected by the device.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_06/Figure 6.2 — Physical and communication architecture of the controlled smart irrigation prototype.png}
-    \caption{Physical and communication architecture of the controlled smart irrigation prototype. Source: Authors.}
+    \includegraphics[width=0.9\textwidth]{figures/chapter_06/figure_6_2_physical_communication_architecture_clean.png}
+    \caption{Physical and communication architecture of the controlled smart irrigation prototype.}
     \label{fig:6-2-physical-and-communication-architecture-of-the-controlled-smart-ir}
 \end{figure}
 
 \section{MQTT communication layer}
 
-MQTT organizes communication around topics. The sensors/data topic is used for gateway-to-backend sensor payloads. The smart\_irrigation/wemos1/status topic is used for WeMos-to-backend status feedback. The smart\_irrigation/wemos1/cmd topic is used for backend-to-WeMos commands. This bidirectional messaging supports both physical-to-digital synchronization and digital-to-physical control.
+The MQTT communication layer exchanges asynchronous messages between the physical prototype and the software platform. MQTT follows a publish/subscribe model: producers publish messages to topics, the broker routes these messages, and subscribers consume the topics they need. This decouples the Raspberry Pi gateway, backend services, WeMos actuator, and dashboard-related services.
+
+In Agrio, MQTT supports three main flows. The first flow is sensor data acquisition from the gateway to the backend. The second flow is actuator command publication from the backend to the WeMos actuator. The third flow is actuator feedback from the WeMos actuator back to the backend and dashboard. Figure~\ref{fig:mqtt_communication_architecture} presents this communication view.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/chapter_06/Figure 6.3 — MQTT topic architecture for sensor ingestion, actuator commands, and WeMos status feedback.png}
-    \caption{MQTT topic architecture for sensor ingestion, actuator commands, and WeMos status feedback. Source: Authors.}
-    \label{fig:6-3-mqtt-topic-architecture-for-sensor-ingestion-actuator-commands-and}
+    \includegraphics[width=0.95\textwidth]{figures/chapter_06/figure_6_3_mqtt_topics_clean.png}
+    \caption{MQTT communication architecture for sensor ingestion, actuator commands, and WeMos status feedback.}
+    \label{fig:mqtt_communication_architecture}
 \end{figure}
 
-\section{Backend layer}
+\begin{table}[H]
+\centering
+\caption{Main MQTT topics used in the Agrio prototype.}
+\label{tab:mqtt_topics}
+\begin{tabular}{p{0.32\textwidth}p{0.22\textwidth}p{0.34\textwidth}}
+\hline
+\textbf{Topic} & \textbf{Direction} & \textbf{Role} \\
+\hline
+\texttt{sensors/data} & Gateway $\rightarrow$ Backend & Carries JSON sensor and weather measurements from the physical prototype. \\
+\texttt{smart\_irrigation/}\newline\texttt{wemos1/status} & WeMos $\rightarrow$ Backend & Reports actuator state, relay state, pump status, and command feedback. \\
+\texttt{smart\_irrigation/}\newline\texttt{wemos1/cmd} & Backend $\rightarrow$ WeMos & Carries commands such as \texttt{ON\_D5}, \texttt{OFF\_D5}, \texttt{ON\_D3}, and \texttt{OFF\_D3}. \\
+\hline
+\end{tabular}
+\end{table}
 
-The FastAPI backend is the central orchestrator. It exposes REST endpoints, subscribes to MQTT topics, parses and persists incoming data, updates the Digital Twin state, calls ML inference, generates recommendations, manages forecasts, schedules irrigation events, and publishes actuator commands.
+Table~\ref{tab:mqtt_topics} is the only place in this chapter where exact topic names and command values are listed. Payload structures and additional command examples are described later in the backend and IoT implementation chapter.
+
+\section{Backend, data, Digital Twin, and intelligence layers}
+
+The backend, data, Digital Twin, and intelligence layers form the software core of the platform. The FastAPI backend exposes REST endpoints to the web dashboard and mobile application, receives MQTT-originated data, validates and normalizes payloads, maps devices to zones, persists records, updates the Digital Twin state, calls the ML service, runs simulation, generates recommendations, handles validation, manages schedules, and publishes actuator commands when an action is required.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_06/Figure 6.4 — Internal backend architecture of the FastAPI-based Digital Twin platform.png}
-    \caption{Internal backend architecture of the FastAPI-based Digital Twin platform. Source: Authors.}
-    \label{fig:6-4-internal-backend-architecture-of-the-fastapi-based-digital-twin-pl}
+    \includegraphics[width=0.95\textwidth]{figures/chapter_06/figure_6_4_backend_architecture_clean.png}
+    \caption{Internal backend architecture of the FastAPI-based Digital Twin platform.}
+    \label{fig:backend_architecture}
 \end{figure}
 
-\section{Database layer}
+The data layer is based on PostgreSQL. It stores agricultural entities, sensor readings, weather records, forecasts, device health logs, Digital Twin states, state history, prediction results, simulation scenarios and outputs, recommendations, irrigation events, control commands, and execution feedback. This persistence model supports traceability from measurement to decision and from decision to physical feedback.
 
-PostgreSQL stores the agricultural structure, sensor readings, weather records, forecasts, Digital Twin states, predictions, simulations, recommendations, alerts, irrigation events, control commands, and execution feedback. The schema is not limited to raw data; it supports the complete Digital Twin lifecycle.
+The Digital Twin layer maintains the virtual representation of the monitored irrigation zone. It updates the current state from recent sensor readings, weather records, previous state values, actuator feedback, and prediction outputs. State history is preserved so the system can analyze evolution rather than only the latest measurement.
 
-\section{Digital Twin layer}
-
-The Digital Twin layer builds the virtual state of each management zone. It includes current moisture, soil temperature, water balance, stress level, irrigation need, recommended action, confidence, synchronization timestamp, and pump state. It also stores history and generates future projections.
+The ML service is separated from the backend. It loads Random Forest models and returns irrigation need, suggested hour, confidence values, and a recommended action. The backend stores the result and can use fallback logic when inference is unavailable. The simulation and recommendation services then combine the Digital Twin state, ML output, forecast context, and rules to support an interpretable decision. Human validation remains part of the workflow before supervised physical execution.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_06/Figure 6.5 — Digital Twin processing architecture from live sensor data to simulation and recommendation.png}
-    \caption{Digital Twin processing architecture from live sensor data to simulation and recommendation. Source: Authors.}
-    \label{fig:6-5-digital-twin-processing-architecture-from-live-sensor-data-to-simu}
+    \includegraphics[width=0.95\textwidth]{figures/chapter_06/figure_6_5_digital_twin_processing_clean.png}
+    \caption{Digital Twin processing workflow from live measurements to prediction, simulation, and supervised irrigation action.}
+    \label{fig:digital_twin_processing_workflow}
 \end{figure}
 
-\section{Machine learning layer}
-
-The ML service is separated from the backend and exposes prediction endpoints. It loads trained Random Forest models and returns irrigation need, suggested hour, confidence values, and recommended action. Separation improves maintainability and allows future model replacement.
-
-\section{Recommendation and validation layer}
-
-The recommendation engine transforms predictions and twin states into user-oriented decisions. Recommendations can be pending, validated, or converted into scheduled irrigation events. Human validation is intentionally preserved to improve safety and trust.
-
-\section{Actuator and feedback layer}
-
-The WeMos actuator receives commands such as ON\_D5 and OFF\_D5. It switches pump state and publishes status feedback. This closes the operational loop between digital decisions and physical irrigation.
+Figure~\ref{fig:digital_twin_processing_workflow} explains the runtime logic of the intelligent layer. Live data are ingested and stored. The current zone state is updated. The backend prepares a feature payload for the ML service. Prediction results are stored. Simulation compares possible actions. The recommendation layer creates a decision that can be validated, scheduled, or kept for monitoring. When the user validates an action or a schedule becomes due, the backend uses the device-control workflow to publish the actuator command and record feedback.
 
 \section{Deployment architecture}
 
-Docker Compose defines the runtime environment, including PostgreSQL, backend, ML service, frontend, scheduler, ngrok, and optional workers. This makes the platform reproducible for demonstration and testing.
+The deployment architecture is defined with Docker Compose in order to run the prototype as a reproducible multi-service platform. The objective is not to claim production-grade cloud deployment, but to coordinate the services required for demonstration and technical validation: backend API, PostgreSQL database, ML service, frontend, scheduler, MQTT broker, and optional ngrok access for prototype/mobile testing.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_06/Figure 6.6 — Docker Compose deployment architecture of the Agrio platform.png}
-    \caption{Docker Compose deployment architecture of the Agrio platform. Source: Authors.}
-    \label{fig:6-6-docker-compose-deployment-architecture-of-the-agrio-platform}
+    \includegraphics[width=0.98\textwidth,height=0.78\textheight,keepaspectratio]{figures/chapter_06/figure_5_6_deployment_architecture_corrected.png}
+    \caption{Docker Compose deployment architecture of the Agrio platform.}
+    \label{fig:docker_compose_deployment_architecture}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_06/Figure 6.7 — Detailed technical architecture of the implemented Digital Twin smart irrigation platform.png}
-    \caption{Detailed technical architecture of the implemented Digital Twin smart irrigation platform. Source: Authors.}
-    \label{fig:6-7-detailed-technical-architecture-of-the-implemented-digital-twin-sm}
-\end{figure}
+\begin{table}[H]
+\centering
+\caption{Main Docker Compose service port mappings.}
+\label{tab:docker_compose_ports}
+\small
+\begin{tabular}{p{0.25\textwidth}p{0.17\textwidth}p{0.17\textwidth}p{0.29\textwidth}}
+\hline
+\textbf{Service} & \textbf{Host port} & \textbf{Container port} & \textbf{Role} \\
+\hline
+\texttt{frontend} & \texttt{3000} & \texttt{3000} & Next.js web dashboard. \\
+\texttt{backend} & \texttt{8000} & \texttt{8000} & FastAPI backend API. \\
+\texttt{ml-service} & \texttt{8001} & \texttt{8001} & Random Forest inference service. \\
+\texttt{postgres} & \texttt{5432} & \texttt{5432} & PostgreSQL database. \\
+\texttt{mosquitto} & \texttt{1883} & \texttt{1883} & MQTT broker. \\
+\texttt{ngrok} & \texttt{4040} & \texttt{4040} & Local inspection interface used during prototype testing. \\
+\texttt{irrigation-scheduler} & \texttt{not exposed} & \texttt{not exposed} & Internal service that checks and executes scheduled irrigation events. \\
+\hline
+\end{tabular}
+\end{table}
+
+Runtime configuration is externalized through environment variables and configuration files. Typical parameters include the PostgreSQL connection URL, MQTT broker address, ML service URL, CORS origins, and application settings. Sensitive values such as passwords, tokens, and secret keys are not shown in clear text in the thesis. Persistent data are managed through Docker volumes when needed, especially for PostgreSQL.
 
 \section{Discussion}
 
-The architecture is modular and extensible. It supports real-time ingestion, virtual synchronization, ML prediction, simulation, user validation, and actuator control. Its main limitations are controlled-environment validation, limited security hardening, and the absence of multi-season field data.
+The architecture is modular and extensible. The physical layer is separated from the MQTT layer, the backend is separated from the ML service, and persistence is centralized in PostgreSQL. This organization supports the Digital Twin loop without presenting unsupported services as implemented. The main limitations are controlled-environment validation, limited security hardening, and the absence of multi-season field data.
+
+The figures in this chapter are intentionally focused. Figure~\ref{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite} shows the global loop. Figure~\ref{fig:6-2-physical-and-communication-architecture-of-the-controlled-smart-ir} focuses on the physical and field layer. Figure~\ref{fig:mqtt_communication_architecture} explains messaging. Figure~\ref{fig:backend_architecture} shows backend responsibilities. Figure~\ref{fig:digital_twin_processing_workflow} explains the intelligent processing pipeline. Figure~\ref{fig:docker_compose_deployment_architecture} shows service deployment. The appendix does not repeat these views, which keeps the final document shorter and avoids duplicate diagrams.
 
 \section{Conclusion}
 
-This chapter showed how the proposed architecture implements the Digital Twin concept in the context of smart irrigation. The following chapter details backend, database, and IoT ingestion implementation.
-
-\begin{footnotesize}
-\setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
-\caption{Architecture layers and implementation choices}\\
-\toprule
-Layer & Implementation in Agrio & Role \\
-\midrule
-\endfirsthead
-\toprule
-Layer & Implementation in Agrio & Role \\
-\midrule
-\endhead
-Physical & Controlled prototype, plants, pump, irrigation line & Real environment to monitor and control \\
-Sensing & Libelium Smart Agriculture kit & Collects soil, weather, and environmental variables \\
-RF/Gateway & XBee + Raspberry Pi & Receives, decodes, and forwards data \\
-Messaging & HiveMQ/MQTT & Publishes sensor data and device commands/status \\
-Backend & FastAPI & Orchestrates ingestion, APIs, pipeline, decisions \\
-Database & PostgreSQL & Stores complete Digital Twin lifecycle data \\
-ML & Random Forest service & Predicts irrigation need and suggested hour \\
-Digital Twin & Zone states, history, simulation & Represents and projects virtual zone behavior \\
-Interface & Next.js + Flutter & Monitoring, simulation, forecast, schedules, commands \\
-Actuation & WeMos + pump & Executes validated irrigation commands \\
-\bottomrule
-\end{longtable}
-\end{footnotesize}
+This chapter presented the proposed Digital Twin architecture through compact layers: architectural overview, physical prototype and field layer, MQTT communication layer, backend/data/Digital Twin/intelligence layers, and deployment architecture. The architecture forms a traceable cyber-physical irrigation loop rather than an isolated dashboard or standalone prediction model. The following chapter details how this architecture is implemented in the backend, database, and IoT ingestion pipeline.

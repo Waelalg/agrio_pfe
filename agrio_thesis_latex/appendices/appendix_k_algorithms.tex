@@ -1,8 +1,8 @@
 \chapter{Detailed Algorithms and Pseudocode}
 
-This appendix provides implementation-independent pseudocode for the main workflows. These algorithms can be used in Chapter 7 and Chapter 8 if the supervisor prefers a more formal presentation.
+This appendix provides implementation-independent pseudocode for the main workflows. These algorithms support the backend, database, IoT ingestion, Digital Twin, and machine-learning implementation chapters if the supervisor prefers a more formal presentation.
 
-\section{Algorithm K.1 - MQTT sensor ingestion}
+\section{MQTT sensor ingestion algorithm}
 
 \begin{enumerate}
 
@@ -30,7 +30,7 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \end{enumerate}
 
-\section{Algorithm K.2 - Real-time Digital Twin update}
+\section{Real-time Digital Twin update algorithm}
 
 \begin{enumerate}
 
@@ -58,7 +58,7 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \end{enumerate}
 
-\section{Algorithm K.3 - What-if simulation}
+\section{What-if simulation algorithm}
 
 \begin{enumerate}
 
@@ -80,7 +80,7 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \end{enumerate}
 
-\section{Algorithm K.4 - Recommendation validation}
+\section{Recommendation validation algorithm}
 
 \begin{enumerate}
 
@@ -90,7 +90,7 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \item Backend updates recommendation status to validated.
 
-\item Backend creates control command and execution feedback placeholder if applicable.
+\item Backend creates the associated control command and prepares execution feedback tracking when applicable.
 
 \item Backend creates irrigation event for scheduled execution.
 
@@ -98,7 +98,7 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \end{enumerate}
 
-\section{Algorithm K.5 - Scheduled irrigation execution}
+\section{Scheduled irrigation execution algorithm}
 
 \begin{enumerate}
 
@@ -118,6 +118,6 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \end{enumerate}
 
-\section{K.6 Formula notes for simple moisture projection}
+\section{Formula notes for simple moisture projection}
 
 The current simulation can be described qualitatively rather than as a final agronomic model. A simple projection combines current moisture, evaporation loss, irrigation gain, and safety bounds. In a future agronomic implementation, this should be replaced or calibrated using a soil water balance model including evapotranspiration, rainfall, infiltration, drainage, field capacity, wilting point, rooting depth, and crop coefficients.

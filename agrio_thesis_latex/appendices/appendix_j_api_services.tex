@@ -14,7 +14,7 @@ API group & Responsibility \\
 API group & Responsibility \\
 \midrule
 \endhead
-Users/Farms/Plots/Crops/Soil profiles & CRUD endpoints for master data management. \\
+Master data & CRUD endpoints for users, farms, plots, crops, and soil profiles. \\
 Zones & Returns zone list, latest state, history, and selected zone details. \\
 Sensors & Registers sensors, maps devices to sensor types, and exposes sensor readings. \\
 Weather & Stores and retrieves weather records and forecast data. \\
@@ -31,7 +31,7 @@ System/status/debug & Supports testing, health checks, and implementation verifi
 \end{longtable}
 \end{footnotesize}
 
-\section{J.1 Internal services}
+\section{Internal services}
 
 \begin{footnotesize}
 \setlength{\tabcolsep}{2pt}
@@ -60,11 +60,11 @@ Irrigation scheduler & Executes scheduled irrigation events at the planned time.
 \end{longtable}
 \end{footnotesize}
 
-\section{J.2 API evidence to collect}
+\section{API evidence}
 
 \begin{itemize}
 
-\item FastAPI /docs screenshot showing API groups and routes.
+\item Backend health or status response showing that the API service is reachable.
 
 \item GET /api/v1/dashboard/overview or equivalent response showing dashboard aggregation.
 

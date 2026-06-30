@@ -30,7 +30,7 @@ All DOCX figure placeholders were converted into LaTeX `figure` environments wit
 
 ## Bibliography
 
-The original numbered bibliography was converted into `references.bib`, and `main.tex` prints all entries with `\nocite{*}`. In-text references such as `[1]` were preserved because automatic citation-key replacement can corrupt meaning when several bracketed numbers occur in prose. Replace them manually with `\cite{...}` when the final source mapping is reviewed.
+The early chapters now use explicit `\cite{...}` commands and `main.tex` prints only cited entries. Review, overview, systematic-review, bibliometric-review, and thesis sources should not be used as main sources for the background or related-work chapters unless the supervisor explicitly approves them for limited context.
 
 ## Fonts
 
