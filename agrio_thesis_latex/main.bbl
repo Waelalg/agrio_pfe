@@ -21,116 +21,55 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{subeesh2026agriculturaldt}
-A.~Subeesh and N.~Chauhan, ``Agricultural digital twin for smart farming: A
-  review,'' \emph{Green Technologies and Sustainability}, 2026.
+\bibitem{tancredi2025irrigationdt}
+F.~Tancredi, P.~Preite, and G.~Vignali, ``Digital twin enhanced with machine
+  learning algorithms for irrigation management using sensor data,'' in
+  \emph{Procedia Computer Science}, 2025.
 
-\bibitem{zhang2025agriculturedtreview}
-R.~Zhang, H.~Zhu, Q.~Chang, and Q.~Mao, ``A comprehensive review of digital
-  twins technology in agriculture,'' \emph{Agriculture}, 2025.
-
-\bibitem{gund2025bibliometricdt}
-R.~Gund, C.~M. Badgujar, S.~Samiappan, and S.~Jagadamma, ``Application of
-  digital twin technology in smart agriculture: A bibliometric review,''
-  \emph{Agriculture}, 2025.
-
-\bibitem{awais2025precisiondt}
-M.~Awais, X.~Wang, S.~Hussain, F.~Aziz, and M.~Q. Mahmood, ``Advancing
-  precision agriculture through digital twins and smart farming technologies: A
-  review,'' \emph{AgriEngineering}, 2025.
-
-\bibitem{tsaousidis2026aidt}
-M.~Tsaousidis, T.~Kalampokas, E.~Vrochidou, and G.~A. Papakostas, ``Ai-enabled
-  digital twins in agriculture,'' \emph{AI}, 2026.
-
-\bibitem{ahsen2025waterdt}
-R.~Ahsen \emph{et~al.}, ``Harnessing digital twins for sustainable agricultural
-  water management: A systematic review,'' \emph{Applied Sciences}, 2025.
-
-\bibitem{garcia2020iotirrigation}
-L.~García, L.~Parra, J.~M. Jimenez, J.~Lloret, and P.~Lorenz, ``Iot-based
-  smart irrigation systems: An overview on the recent trends on sensors and iot
-  systems for irrigation in precision agriculture,'' \emph{Sensors}, 2020.
-
-\bibitem{obaideen2022iotirrigation}
-K.~Obaideen \emph{et~al.}, ``An overview of smart irrigation systems using
-  iot,'' \emph{Energy Nexus}, 2022.
-
-\bibitem{delcoco2024mlirrigation}
-M.~Del-Coco, M.~Leo, and P.~Carcagnì, ``Machine learning for smart irrigation
-  in agriculture: How far along are we?'' \emph{Information}, 2024.
-
-\bibitem{morchid2026iotmlirrigation}
-A.~Morchid, Z.~Said, and H.~Tairi, ``Innovative applications of internet of
-  things and machine learning in sustainable agricultural irrigation
-  management: Benefits and challenges,'' \emph{Smart Agricultural Technology},
-  2026.
+\bibitem{bellvert2023vineyarddt}
+J.~Bellvert, A.~Pelecha, M.~Pamies-Sans, J.~Virgili, M.~Torres, and
+  J.~Casadesus, ``Assimilation of sentinel-2 biophysical variables into a
+  digital twin for the automated irrigation scheduling of a vineyard,''
+  \emph{Water}, 2023.
 
 \bibitem{kodali2017mqttirrigation}
 R.~K. Kodali and B.~S. Sarjerao, ``A low cost smart irrigation system using
-  mqtt protocol,'' in \emph{IEEE Region 10 Symposium}, 2017.
+  mqtt protocol,'' in \emph{IEEE Region 10 Symposium (TENSYMP)}, 2017.
 
 \bibitem{balaceanu2019libelium}
 C.~Balaceanu, G.~Suciu, and I.~Marcu, ``Libelium-based iot monitoring solution
   for precision agriculture,'' \emph{Journal of E-Technology}, 2019.
 
 \bibitem{millan2025tomatodt}
-S.~Millán, C.~Montesinos, J.~Casadesús, J.~M. Vadillo, and C.~Campillo, ``Use
+S.~Millan, C.~Montesinos, J.~Casadesus, J.~M. Vadillo, and C.~Campillo, ``Use
   of a digital twin for water efficient management in a processing tomato
   commercial farm,'' \emph{Agronomy}, 2025.
 
-\bibitem{bellvert2023sentinel}
-J.~Bellvert \emph{et~al.}, ``Assimilation of sentinel-2 biophysical variables
-  into a digital twin for the automated irrigation scheduling of a vineyard,''
-  \emph{Water}, 2023.
+\bibitem{elhachimi2025collectiveirrigationdt}
+C.~El~Hachimi, S.~Belaqziz, S.~Khabba, and H.~Karjoun, ``Towards collective
+  intelligence in agriculture: Deep reinforcement learning and digital twins
+  for efficient management of collective irrigation water distribution
+  systems,'' \emph{Energy Nexus}, 2025.
 
-\bibitem{manocha2024iotdtirrigation}
-H.~Manocha, S.~K. Sood, and M.~Bhatia, ``Iot-digital twin-inspired smart
-  irrigation approach for optimal water utilization,'' \emph{Sustainable
-  Computing: Informatics and Systems}, 2024.
-
-\bibitem{tancredi2025mldt}
-F.~Tancredi, P.~Preite, and G.~Vignali, ``Digital twin enhanced with machine
-  learning algorithms for irrigation management using sensor data,'' in
-  \emph{Procedia Computer Science}, 2025.
-
-\bibitem{qin2025irrigationdrainagedt}
-Qin \emph{et~al.}, ``Digital twin-enabled intelligent irrigation-drainage
-  system for precision water-salt management in saline agroecosystems,''
-  \emph{Agricultural Water Management}, 2025.
+\bibitem{kallenberg2025interoperabledt}
+M.~Kallenberg, H.~Baja, M.~Ilic, A.~Tomcic, M.~Tosic, and I.~Athanasiadis,
+  ``Interoperable agricultural digital twins with reinforcement learning
+  intelligence,'' \emph{Smart Agricultural Technology}, 2025.
 
 \bibitem{liu2025cottondt}
-Liu \emph{et~al.}, ``Digital twin technology for cotton canopy development: A
-  water-stress perspective,'' \emph{Smart Agricultural Technology}, 2025.
+H.~Liu, C.~Jiang, A.~Bao, A.~Gulakhmadov, and F.~Shaimuradov, ``Digital twin
+  technology for cotton canopy development: A water-stress perspective,''
+  \emph{Smart Agricultural Technology}, 2025.
 
-\bibitem{elhachimi2025collectiveirrigation}
-E.~Hachimi \emph{et~al.}, ``Towards collective intelligence in agriculture:
-  Deep reinforcement learning and digital twins for efficient management of
-  collective irrigation water distribution systems,'' \emph{Smart Agricultural
+\bibitem{eddaoudi2024predictiveirrigation}
+R.~Ed-Daoudi, A.~Alaoui, B.~Ettaki, and J.~Zerouaoui, ``Optimizing sustainable
+  cultivation through smart irrigation,'' \emph{International Journal of
+  Engineering and Applied Sciences}, 2024.
+
+\bibitem{gupta2025iotirrigation}
+S.~Gupta, S.~Chowdhury, R.~Govindaraj, K.~T.~T. Amesho, S.~Shangdiar,
+  T.~Kadhila, and S.~Iikela, ``Smart agriculture using iot for automated
+  irrigation, water and energy efficiency,'' \emph{Smart Agricultural
   Technology}, 2025.
-
-\bibitem{montgomery2021linearregression}
-D.~C. Montgomery, E.~A. Peck, and G.~G. Vining, \emph{Introduction to Linear
-  Regression Analysis}.\hskip 1em plus 0.5em minus 0.4em\relax Wiley, 2021.
-
-\bibitem{breiman2001randomforest}
-L.~Breiman, ``Random forests,'' \emph{Machine Learning}, 2001.
-
-\bibitem{fastapi2026docs}
-{FastAPI Documentation}, ``Fastapi framework and automatic openapi
-  documentation,'' 2026.
-
-\bibitem{docker2026compose}
-{Docker Documentation}, ``Docker compose overview,'' 2026.
-
-\bibitem{hivemq2026mqtt}
-{HiveMQ}, ``Mqtt essentials and publish/subscribe messaging,'' 2026.
-
-\bibitem{openmeteo2026api}
-{Open-Meteo Documentation}, ``Weather forecast api,'' 2026.
-
-\bibitem{libelium2017smartagriculture}
-{Libelium}, ``Smart agriculture iot vertical kit and plug \& sense sensing
-  platform,'' 2017.
 
 \end{thebibliography}

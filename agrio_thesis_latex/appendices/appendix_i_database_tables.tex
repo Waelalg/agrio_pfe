@@ -1,6 +1,6 @@
 \chapter{Detailed Database Table Descriptions}
 
-This appendix describes the role of the main PostgreSQL tables used by the Agrio platform. The final ERD should be inserted in Chapter 7 and the complete ERD in Appendix A. The descriptions below are useful for defending the database design during the engineering discussion.
+This appendix describes the role of the main PostgreSQL tables used by the Agrio platform. The focused ERD views are inserted in Chapter~\ref{chap:backend_database_iot}, and the complete class diagram is kept in Appendix~\ref{app:full_class_diagram}. The descriptions below are useful for defending the database design during the engineering discussion.
 
 \begin{footnotesize}
 \setlength{\tabcolsep}{2pt}
@@ -45,10 +45,10 @@ execution\_feedback & Stores feedback after pump execution, including status and
 \end{longtable}
 \end{footnotesize}
 
-\section{I.1 Why this database supports a Digital Twin}
+\section{Why this database supports a Digital Twin}
 
 A simple IoT dashboard could store only sensors and readings. Agrio stores much more: virtual states, history, predictions, simulations, recommendations, schedules, commands, and feedback. This structure is a database-level proof that the project was designed as a Digital Twin platform rather than a simple monitoring tool.
 
-The strongest tables for defending the Digital Twin nature of the project are digital\_twins, zone\_states, zone\_state\_history, prediction\_results, twin\_predictions, simulation\_scenarios, simulation\_results, recommendations, control\_commands, irrigation\_events, and execution\_feedback. Together, these tables connect physical measurement to virtual representation and operational action.
+The strongest tables for defending the Digital Twin nature of the project are the Digital Twin tables, state-history tables, prediction tables, simulation tables, recommendation tables, control-command tables, irrigation-event tables, and execution-feedback tables. Together, these tables connect physical measurement to virtual representation and operational action.
 
 In the defense, the students can explain the database as a chain: sensor\_readings and weather\_records represent the physical data; zone\_states represent the synchronized virtual state; prediction\_results and simulation\_results represent intelligence and scenario analysis; recommendations and irrigation\_events represent decisions; control\_commands and execution\_feedback represent the link back to the physical actuator.

@@ -1,131 +1,40 @@
 \chapter{Figure Placement Checklist}
 
-Figure 0.1 - Global view of the thesis methodology from literature review to prototype validation. Source: Authors. Placement: Introduction. [Insert final figure here]
+This appendix records the figure-status decisions applied during the structural validation pass. The official generated list of figures remains the main reference for all inserted figures. The thesis text uses finalized figure captions and source notes.
 
-Figure 1.1 - Conceptual scope of precision agriculture and smart irrigation. Source: Authors. Placement: Chapter 1. [Insert final figure here]
+\section{Chapter 7 figure numbering}
 
-Figure 1.2 - Generic communication chain for IoT-based smart irrigation. Source: Authors. Placement: Chapter 1. [Insert final figure here]
+The former continued Figure 7.1 payload sequence was split into three independent figures so that the list of figures remains clear:
 
-Figure 1.3 - Pump control concept using WeMos, relay, and MQTT command/status topics. Source: Authors. Placement: Chapter 1. [Insert final figure here]
+\begin{itemize}
+    \item Figure 7.1: sensor-ingestion payload.
+    \item Figure 7.2: WeMos status feedback payload.
+    \item Figure 7.3: actuator command payload and command values.
+\end{itemize}
 
-Figure 2.1 - Digital Model, Digital Shadow, and Digital Twin maturity levels. Source: Authors. Placement: Chapter 2. [Insert final figure here]
+The remaining Chapter 7 visuals now follow these payload figures:
 
-Figure 2.2 - Layered architecture of an agricultural Digital Twin. Source: Authors. Placement: Chapter 2. [Insert final figure here]
+\begin{itemize}
+    \item Figure 7.4: ERD of the agricultural structure tables.
+    \item Figure 7.5: ERD of the sensor, weather, and forecasting tables.
+    \item Figure 7.6: ERD of the Digital Twin, prediction, and simulation tables.
+    \item Figure 7.7: ERD of the recommendation, scheduling, command, and feedback tables.
+    \item Figure 7.8: runtime sequence of MQTT ingestion, ML prediction, dashboard polling, and actuator command.
+    \item Figure 7.9: live MQTT payloads received through HiveMQ.
+\end{itemize}
 
-Figure 3.1 - Literature review methodology and thematic classification. Source: Authors. Placement: Chapter 3. [Insert final figure here]
+\section{Chapter 11 validation evidence}
 
-Figure 3.2 - Example of agricultural Digital Twin overview from literature [insert or redraw based on Subeesh and Chauhan, Fig. 1]. Source: Adapted/redrawn from [1]. Placement: Chapter 3. [Insert final figure here]
+Chapter 11 keeps only validation figures that are currently available:
 
-Figure 3.3 - Generic smart irrigation system architecture from ML literature [insert/redraw based on Del-Coco et al., Fig. 1]. Source: Adapted/redrawn from [9]. Placement: Chapter 3. [Insert final figure here]
+\begin{itemize}
+    \item Figure 11.1: MQTT sensor message evidence.
+    \item Figure 11.2: PostgreSQL persistence evidence.
+    \item Figure 11.3: dashboard synchronization evidence.
+\end{itemize}
 
-Figure 4.1 - Positioning of Agrio between Digital Model, Digital Shadow, and operational Digital Twin. Source: Authors. Placement: Chapter 4. [Insert final figure here]
+The ML prediction, Digital Twin simulation, recommendation, scheduling, and actuator-control scenarios are validated through the implementation evidence already inserted in Chapters 7, 8, and 9. Additional physical actuator screenshots can be added later if a separate visual proof of pump ON/OFF execution is required.
 
-Figure 5.1 - Use-case diagram of the proposed Digital Twin smart irrigation system. Source: Authors. Placement: Chapter 5. [Insert final figure here]
+\section{Research-paper figure policy}
 
-Figure 5.2 - Activity diagram of sensor ingestion, Digital Twin update, AI decision-making, and pump control. Source: Authors. Placement: Chapter 5. [Insert final figure here]
-
-Figure 5.3 - Agricultural domain class diagram representing farms, plots, zones, soil profiles, crops, and irrigation networks. Source: Authors. Placement: Chapter 5. [Insert final figure here]
-
-Figure 5.4 - Sensor, weather, and forecasting data model used by the smart irrigation platform. Source: Authors. Placement: Chapter 5. [Insert final figure here]
-
-Figure 5.5 - Digital Twin, prediction, and simulation data model. Source: Authors. Placement: Chapter 5. [Insert final figure here]
-
-Figure 5.6 - Decision, recommendation, scheduling, command, and feedback data model. Source: Authors. Placement: Chapter 5. [Insert final figure here]
-
-Figure 6.1 - Global overview of the Agrio Digital Twin smart irrigation architecture. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 6.2 - Physical and communication architecture of the controlled smart irrigation prototype. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 6.3 - MQTT topic architecture for sensor ingestion, actuator commands, and WeMos status feedback. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 6.4 - Internal backend architecture of the FastAPI-based Digital Twin platform. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 6.5 - Digital Twin processing architecture from live sensor data to simulation and recommendation. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 6.6 - Docker Compose deployment architecture of the Agrio platform. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 6.7 - Detailed technical architecture of the implemented Digital Twin smart irrigation platform. Source: Authors. Placement: Chapter 6. [Insert final figure here]
-
-Figure 7.6 - Example MQTT payloads used for sensor ingestion, WeMos status feedback, and actuator commands. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.5a - ERD of the agricultural structure tables. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.5b - ERD of the sensor, weather, and forecasting tables. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.5c - ERD of the Digital Twin, prediction, and simulation tables. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.5d - ERD of the recommendation, scheduling, command, and feedback tables. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.1 - Runtime sequence of MQTT data ingestion, ML prediction, dashboard polling, and WeMos actuator command. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.2 - Live MQTT payloads received through HiveMQ for sensor data and WeMos status. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.3 - FastAPI OpenAPI documentation exposing the REST endpoints of the backend. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 7.4 - PostgreSQL stored sensor readings persisted from MQTT-originated measurements. Source: Authors. Placement: Chapter 7. [Insert final figure here]
-
-Figure 8.2 - Dataset adaptation and feature engineering workflow used before model training. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.1 - Machine learning pipeline from dataset adaptation to Random Forest inference. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.3 - ML service health endpoint showing model loading status. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.4 - ML prediction response for irrigation need and suggested irrigation hour. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.5 - Digital Twin state update flow from sensor readings to synchronized zone state. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.6 - What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.7a - Feature importance of the Random Forest need\_irrigation model. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.7b - Feature importance of the Random Forest suggested\_hour model. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.8a - Confusion matrix of the need\_irrigation Random Forest model. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 8.8b - Confusion matrix of the suggested\_hour Random Forest model. Source: Authors. Placement: Chapter 8. [Insert final figure here]
-
-Figure 9.1 - Agrio operations dashboard showing MQTT connection, active zone coverage, moisture snapshot, sensor health, and Digital Twin status. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.2 - Zone selection panel for inspecting the Digital Twin state, recommendations, commands, and historical data. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.3 - Current field status and AI recommendation preview for the monitored irrigation zone. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.4 - Pump and actuator control interface with WeMos status and weather station summary. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.5 - Forecast workspace used to generate weather-aware irrigation planning decisions. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.6 - Digital Twin simulation workspace for running what-if irrigation scenarios. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.7 - Moisture projection chart comparing no-irrigation, with-irrigation, and ML-selected trajectories. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.8 - Irrigation schedules page for planning and managing pump execution events. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.9 - Validated decisions interface for tracking approved irrigation recommendations. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 9.10 - Mobile application screens providing access to monitoring and irrigation decision functions. Source: Authors. Placement: Chapter 9. [Insert final figure here]
-
-Figure 10.1 - Docker Compose service organization of the deployed Agrio platform. Source: Authors. Placement: Chapter 10. [Insert final figure here]
-
-Figure 10.2 - Running Docker containers of the deployed Digital Twin smart irrigation platform. Source: Authors. Placement: Chapter 10. [Insert final figure here]
-
-Figure 10.3 - Deployment communication flow between frontend, backend, database, ML service, MQTT broker, and external APIs. Source: Authors. Placement: Chapter 10. [Insert final figure here]
-
-Figure 10.4 - Ngrok tunnel used to expose local services for mobile access during prototype testing. Source: Authors. Placement: Chapter 10. [Insert final figure here]
-
-Figure 11.1 - Sensor MQTT message received on the sensors/data topic. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.2 - Database persistence proof showing stored sensor readings from MQTT-originated data. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.3 - Dashboard update reflecting the latest stored sensor and Digital Twin data. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.4 - ML prediction result showing irrigation need, suggested hour, confidence, and action. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.5 - Digital Twin simulation result comparing projected moisture and recommended action. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.6 - Pump ON command sent to the WeMos actuator through MQTT. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.7 - WeMos status feedback after pump activation. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.8 - Pump OFF command sent to the WeMos actuator through MQTT. Source: Authors. Placement: Chapter 11. [Insert final figure here]
-
-Figure 11.9 - Execution feedback or irrigation event status recorded after pump command execution. Source: Authors. Placement: Chapter 11. [Insert final figure here]
+Review, overview, systematic review, bibliometric review, and survey papers are not used as figure sources in the main technical chapters. Research-paper figures inserted in Part I are documented separately in \texttt{figures/research\_papers/}\linebreak[1]\texttt{FIGURE\_SOURCES.md}.

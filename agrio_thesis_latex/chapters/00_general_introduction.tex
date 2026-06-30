@@ -1,53 +1,42 @@
 \chapter*{General Introduction}
 \addcontentsline{toc}{chapter}{General Introduction}
 
-\section*{Context and Problem Statement}
+\section*{Context}
 
-Agriculture is one of the foundations of food security, economic development, and social stability. However, it is also one of the sectors most exposed to climate variability, water scarcity, soil degradation, and increasing production pressure. In many regions, irrigation remains a central factor determining crop quality and yield. When irrigation is applied too late, plants may suffer water stress and productivity may decrease. When irrigation is applied too early or in excessive quantities, water is wasted, soil nutrients may leach, and the cost of operation increases. The challenge is therefore not simply to irrigate, but to irrigate at the right time, with the right quantity, and according to the actual state of the soil, crop, and environment.
+Water availability is one of the main constraints on contemporary agriculture. Population growth, climate variability, irregular rainfall, soil degradation, and competition between domestic, industrial, and agricultural uses increase pressure on freshwater resources. Irrigation remains essential for stabilizing crop production, especially in regions where rainfall is insufficient or badly distributed during the growing season. At the same time, poorly controlled irrigation can waste water, increase pumping cost, leach nutrients, and expose plants either to water stress or excess moisture.
 
-Traditional irrigation practices are often based on fixed schedules, manual field observation, or the farmer's experience. Precision agriculture responds to this issue by relying on sensors, communication systems, data processing, and intelligent decision support. Smart irrigation is one of the most important applications of precision agriculture because it directly addresses water-use efficiency and sustainability.
+The irrigation problem is therefore not limited to supplying water. It requires deciding when water should be applied, how much should be applied, and how the decision should react to soil, plant, weather, and equipment conditions. Traditional irrigation practices often rely on fixed calendars, visual inspection, or operator experience. These approaches are useful in many practical contexts, but they can be insufficient when field conditions change rapidly or when water resources must be managed with higher precision.
 
-The emergence of the Internet of Things (IoT), wireless sensor networks, low-cost microcontrollers, cloud services, and artificial intelligence has transformed agricultural monitoring. Sensors can measure soil moisture, soil temperature, air temperature, relative humidity, rainfall, wind speed, wind direction, pressure, leaf wetness, and light intensity. Communication systems can transmit these measurements to a gateway or cloud platform. Machine learning models can process data and predict whether irrigation is required. Dashboards can visualize the current state of a plot and allow the farmer to control an actuator remotely. However, many smart irrigation projects remain limited to monitoring, threshold-based control, or isolated prediction models.
+\section*{Scientific Motivation}
 
-Digital Twin technology offers a more integrated engineering approach. A Digital Twin is not only a dashboard or a static simulation. It is a virtual representation of a physical system, continuously updated using real data, able to simulate future behavior, support decision-making, and potentially influence the physical system through feedback or actuation.
+Smart irrigation is a major application of precision agriculture because it connects agronomic decision-making with sensing, communication, data processing, and automation. Original prototype studies show that even low-cost systems can combine soil moisture sensing, microcontrollers, MQTT communication, and pump status monitoring to support irrigation control \cite{kodali2017mqttirrigation}. Other experimental works demonstrate that agricultural monitoring platforms can use field sensors to follow temperature, soil humidity, atmospheric pressure, solar radiation, and related variables needed by farmers to reason about irrigation \cite{balaceanu2019libelium}.
 
-This Engineering Diploma thesis focuses on the design, implementation, deployment, and validation of Agrio, a Digital Twin-based intelligent irrigation platform for precision agriculture. The scientific background and state of the art are kept as a foundation, while the main engineering contribution is the construction of an end-to-end cyber-physical prototype.
+Machine learning and Digital Twin approaches extend this logic. Sensor data can be processed to classify irrigation status, forecast water needs, simulate alternative actions, or generate recommendations. Digital Twin studies in vineyards and commercial tomato farms show how sensor data, climate information, remote sensing, and simulation models can support irrigation scheduling under real agricultural conditions \cite{bellvert2023vineyarddt,millan2025tomatodt}. Reinforcement learning and interoperable Digital Twin architectures also indicate that future irrigation systems may combine simulation, optimization, and standardized data integration \cite{elhachimi2025collectiveirrigationdt,kallenberg2025interoperabledt}.
+
+\section*{Research Problem}
+
+Despite these advances, many irrigation systems remain partial. Some focus mainly on sensing and remote monitoring. Others implement automatic threshold control without predictive reasoning. Some machine-learning studies evaluate algorithms without integrating them into a complete operational workflow. Conversely, field-validated Digital Twin systems may depend on specialized infrastructure or agronomic calibration that is difficult to reproduce in a student engineering context.
+
+The research problem addressed in this thesis is the following: how can an intelligent irrigation approach be studied, designed, implemented, and validated by combining the concepts of smart irrigation, IoT sensing, machine learning, Digital Twins, decision support, and supervised automation?
 
 \section*{Objectives}
 
-The central engineering question of this thesis is: how can a Digital Twin architecture be designed and deployed to improve decision support and operational control in an intelligent irrigation system? This question is divided into secondary questions: what implementation choices are necessary to connect the physical and virtual irrigation system? How can sensor acquisition, MQTT messaging, backend processing, database persistence, machine learning inference, simulation, user interfaces, scheduling, and pump control be integrated in one coherent platform? How can the prototype be validated technically in a controlled experimental environment?
+The general objective of this Engineering Diploma thesis is to study and develop an intelligent irrigation approach informed by original research on smart irrigation and agricultural Digital Twins. This objective is divided into the following sub-objectives:
 
-The objectives of the Engineering Diploma thesis are: to design a complete architecture for an intelligent irrigation Digital Twin; to implement IoT data ingestion using MQTT; to store agricultural measurements and system states in a structured database; to integrate machine learning for irrigation prediction; to simulate moisture evolution under alternative scenarios; to generate irrigation recommendations; to support human validation and scheduling; to control a physical water pump through a WeMos device; and to deploy and validate the platform as a working prototype.
+\begin{itemize}
+    \item analyze the scientific background of precision agriculture, smart irrigation, IoT communication, machine learning, and Digital Twins;
+    \item compare original research prototypes and case studies related to irrigation monitoring, prediction, simulation, scheduling, and optimization;
+    \item identify the functional and technical requirements of an intelligent irrigation contribution;
+    \item design and implement the proposed contribution in the dedicated design and implementation chapters;
+    \item validate the implemented workflow technically and discuss its limitations with respect to field-validated research systems.
+\end{itemize}
 
-The main contribution is technical. The project implements an end-to-end prototype connecting Libelium sensors, XBee RF, Raspberry Pi, MQTT, FastAPI, PostgreSQL, Random Forest inference, Digital Twin simulation, web/mobile interfaces, and pump control. The project therefore demonstrates a practical path from research concepts to an operational cyber-physical prototype.
+The developed contribution is intentionally introduced only at a high level in this introduction. Its architecture, implementation choices, interfaces, and validation evidence are presented later in the thesis, after the theoretical and state-of-the-art chapters.
 
-\section*{Thesis Outline}
+\section*{Methodology}
 
-The thesis is organized according to the Engineering Diploma structure. The front matter contains the acknowledgements, abstracts, and lists. The introduction presents the context, problem statement, objectives, and outline. The background and state-of-the-art chapters introduce precision agriculture, smart irrigation, Digital Twins, IoT, artificial intelligence, related works, and scientific positioning. The contribution part presents requirements, conception, design, architecture, implementation, Digital Twin and AI pipeline, user interfaces, deployment, validation, and discussion. The thesis ends with a general conclusion and future perspectives.
+The thesis follows a progressive methodology. First, the background chapters establish the main concepts needed to understand intelligent irrigation: soil and weather variables, sensing, communication, decision support, machine learning, and Digital Twin functions. Second, the related-work study focuses on original research papers, case studies, prototypes, and experimental systems rather than review papers. Third, the comparison identifies what existing systems cover and where practical integration gaps remain. Fourth, the design and implementation chapters present the proposed contribution. Finally, the validation chapter evaluates the technical behavior of the implemented workflow and defines the remaining agronomic and operational limitations.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/cover/Figure 0.1 — Global view of the thesis methodology from literature review to prototype validation.png}
-    \caption{Global view of the thesis methodology from literature review to prototype validation. Source: Authors.}
-    \label{fig:0-1-global-view-of-the-thesis-methodology-from-literature-review-to-pr}
-\end{figure}
+\section*{Thesis Organization}
 
-\begin{footnotesize}
-\setlength{\tabcolsep}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
-\caption{Summary of Engineering Diploma objectives and contributions}\\
-\toprule
-Dimension & Objective & Contribution \\
-\midrule
-\endfirsthead
-\toprule
-Dimension & Objective & Contribution \\
-\midrule
-\endhead
-Architecture & Design an end-to-end Digital Twin irrigation architecture & Layered system connecting sensing, MQTT, backend, database, ML, simulation, dashboard, and pump \\
-Implementation & Build the Agrio prototype & FastAPI, PostgreSQL, HiveMQ/MQTT, Random Forest service, Next.js dashboard, Flutter app, WeMos control \\
-Deployment & Run the platform as an integrated system & Docker Compose deployment and service organization \\
-Validation & Demonstrate the technical workflow & Evidence through MQTT payloads, database readings, dashboard updates, simulation outputs, and actuator status \\
-\bottomrule
-\end{longtable}
-\end{footnotesize}
+The thesis is organized as follows. The front matter contains acknowledgements, abstracts, and lists. The General Introduction presents the context, problem, motivation, objectives, methodology, and organization. Chapter 1 introduces the theoretical background of precision agriculture, smart irrigation, IoT, MQTT, machine learning, and Digital Twins. Chapter 2 reviews original research works on IoT-based irrigation, predictive irrigation, agricultural Digital Twins, and reinforcement-learning-based optimization. Chapter 3 merges the scientific positioning and comparative analysis of selected original papers. The following chapters present requirements, architecture, implementation, Digital Twin and machine-learning components, interfaces, deployment, validation, and conclusion.
