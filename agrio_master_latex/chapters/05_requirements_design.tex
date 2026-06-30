@@ -2,13 +2,6 @@
 
 This chapter reviews concrete digital twin applications in agriculture and irrigation. The selected papers are the closest previous works to a smart irrigation digital twin system because they combine agricultural sensing, virtual representation, simulation, machine learning, irrigation scheduling, or water distribution management.
 
-% Figure TODO (open-access MDPI, reusable under CC BY): insert or redraw the digital twin and irrigation DSS framework from Bellvert et al. \cite{bellvert2023sentinel}; paper link: https://doi.org/10.3390/w15142506
-% Suggested destination: figures/state_of_art/chapter5/vineyard_digital_twin_dss_framework.png
-% Figure TODO (copyright unclear): redraw/adapt the IoT-digital twin smart irrigation architecture from Manocha et al. \cite{manocha2024iotdtirrigation}; paper link: https://doi.org/10.1016/j.suscom.2023.100947
-% Suggested destination: figures/state_of_art/chapter5/iot_digital_twin_irrigation_architecture.png
-% Figure TODO (copyright unclear): redraw/adapt the water-salt irrigation-drainage digital twin framework from Qin et al. \cite{qin2025irrigationdrainagedt}; paper link: https://doi.org/10.1016/j.agwat.2025.109957
-% Suggested destination: figures/state_of_art/chapter5/water_salt_irrigation_drainage_dt.png
-
 \section{Digital Twins for Irrigation Scheduling}
 
 \subsection[IoT-Digital Twin-Inspired Smart Irrigation Approach for Optimal Water Utilization]{IoT-Digital Twin-Inspired Smart Irrigation Approach for Optimal Water Utilization \cite{manocha2024iotdtirrigation}}
@@ -19,7 +12,18 @@ Manocha et al. propose an IoT-digital twin-inspired approach for smart irrigatio
 
 \subsubsection{Architecture / Methodology}
 
-The proposed approach uses IoT data as the input layer for a digital twin-inspired irrigation system. The physical layer corresponds to the monitored agricultural environment and irrigation equipment. The virtual layer represents the state of the irrigation system and supports water-use decisions. The decision mechanism is designed to estimate irrigation needs and improve water utilization.
+The proposed approach starts from the physical irrigation environment. Sensors collect information from the field and provide the data needed to understand current irrigation conditions. This physical layer is essential because the digital twin cannot remain meaningful if it is not updated from real observations.
+
+The IoT layer transfers the collected measurements to the digital side of the system. In this step, sensor values become structured inputs for the virtual representation. The digital twin-inspired layer then uses these inputs to represent the state of the irrigation context and to reason about water needs.
+
+The decision mechanism is oriented toward optimal water utilization. Instead of only displaying measurements, the system uses the virtual representation to support irrigation decisions. The methodology therefore follows a full chain: physical sensing, IoT communication, virtual state representation, and water-use decision support.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/chapter_05/Chapitre 5.1.1.jpg}
+    \caption{IoT-digital twin-inspired smart irrigation architecture, adapted from \cite{manocha2024iotdtirrigation}. Source: \url{https://doi.org/10.1016/j.suscom.2023.100947}.}
+    \label{fig:soa_manocha_iot_dt_irrigation}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 
@@ -37,7 +41,13 @@ Bellvert et al. develop a digital twin for automated vineyard irrigation schedul
 
 \subsubsection{Architecture / Methodology}
 
-The work extends an irrigation decision-support system with digital twin and IoT functions. The system imports soil and plant sensor data, meteorological information, and remote-sensing data. Sentinel-2 fractional absorbed photosynthetically active radiation is assimilated into the digital twin. The system simulates soil-water balance components and sends daily irrigation prescriptions to the irrigation controller.
+The work extends an irrigation decision-support system with digital twin and IoT functions. The physical vineyard is monitored through soil and plant sensors. Meteorological information is also integrated because irrigation demand depends strongly on weather conditions.
+
+A key methodological contribution is the assimilation of Sentinel-2 biophysical variables. The authors use satellite-derived fractional absorbed photosynthetically active radiation to update the digital representation of vineyard development. This allows the virtual system to account for spatial variability that cannot be captured by a few local sensors alone.
+
+The simulation layer models soil-water balance components. The digital twin combines sensor data, meteorological data, and remote-sensing information to estimate water status and irrigation needs. The system then sends daily irrigation prescriptions to the irrigation controller, which makes the approach close to an operational irrigation digital twin.
+
+This paper is methodologically strong because it shows synchronization from several data sources, simulation of the agronomic state, and connection to irrigation prescriptions. It is one of the clearest examples of a digital twin used for automated precision irrigation.
 
 \subsubsection{Evaluation and Results}
 
@@ -55,7 +65,13 @@ Millan et al. present a digital twin for water-efficient management in a process
 
 \subsubsection{Architecture / Methodology}
 
-The system links the physical commercial farm with a virtual representation used for water-management decisions. The physical side includes field conditions and irrigation management data. The virtual side supports daily or periodic reasoning about crop water needs and irrigation scheduling. The method is oriented toward efficient irrigation management in a commercial crop context.
+The methodology links a physical commercial tomato farm with a digital representation used for water-management decisions. The physical side corresponds to the crop, soil, climate, and irrigation infrastructure. Data from the farm are used to describe the current state of the production system.
+
+The virtual side is used to reason about crop water needs and irrigation scheduling. In this type of system, the digital twin must represent the farm state at a level that is useful for daily water management. This means that the model should connect crop status, soil water availability, and irrigation decisions.
+
+The commercial-farm context is important. Many digital twin systems are validated only as prototypes, but this paper focuses on a real production environment. The methodology therefore emphasizes practical water management, not only theoretical modeling.
+
+For this thesis, the paper shows the importance of moving from laboratory monitoring to field-oriented irrigation management. A practical smart irrigation digital twin should be able to receive farm data, update the virtual state, and support decisions that can be used in real irrigation operations.
 
 \subsubsection{Evaluation and Results}
 
@@ -75,7 +91,13 @@ Tancredi et al. propose a digital twin enhanced with machine-learning algorithms
 
 \subsubsection{Architecture / Methodology}
 
-The system uses sensor data as the input to a digital twin environment. Machine-learning algorithms are used to support irrigation management decisions. The virtual representation allows the system to organize field state information and use it as a basis for predictive or classification tasks related to irrigation control.
+The system uses sensor data as the input to a digital twin environment. The first methodological step is therefore data acquisition from the agricultural context. These measurements describe the current state of the irrigation environment and provide the basis for later prediction.
+
+The digital twin layer organizes the sensor information into a virtual representation. This representation gives structure to the data and allows the system to reason about irrigation state rather than treating each measurement separately. The virtual layer is therefore the bridge between raw sensing and decision support.
+
+Machine-learning algorithms are then applied to the sensor-based digital twin data. Their role is to support irrigation management decisions, such as identifying whether irrigation is needed or estimating the suitable action. This makes the methodology different from threshold-based automation because the decision can be learned from data patterns.
+
+The workflow can be summarized as sensor acquisition, digital twin state organization, machine-learning analysis, and irrigation management decision. This is directly relevant to a smart irrigation digital twin because it shows how AI can be embedded into the decision layer.
 
 \subsubsection{Evaluation and Results}
 
@@ -93,7 +115,20 @@ Qin et al. propose a digital twin-enabled intelligent irrigation-drainage system
 
 \subsubsection{Architecture / Methodology}
 
-The proposed system links an irrigation-drainage physical environment with a digital twin that supports precision water-salt management. The architecture includes data acquisition from the agroecosystem, a virtual representation of the water-salt state, and an intelligent decision layer for irrigation and drainage. The system is designed to support management decisions under saline conditions.
+The proposed system links an irrigation-drainage physical environment with a digital twin for water-salt management. The physical side includes the saline agroecosystem, where irrigation and drainage decisions affect both water availability and salt movement. This makes the problem more complex than ordinary irrigation scheduling.
+
+The data acquisition layer collects information from the agroecosystem. These data are used to represent the current water-salt state in the virtual layer. The digital twin therefore acts as a structured model of both irrigation conditions and salinity-related constraints.
+
+The intelligent decision layer uses the virtual water-salt state to support irrigation and drainage decisions. The objective is not only to apply enough water, but also to manage salinity risks. This creates a more advanced decision problem because irrigation can improve water availability while also influencing salt transport.
+
+The methodology is relevant because it shows how agricultural digital twins can include environmental state variables beyond soil moisture. For a practical first system, the main lesson is that the architecture should be extensible so additional agronomic variables can later be integrated.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.52\textwidth]{figures/chapter_05/Chapitre 5.2.2.jpg}
+    \caption{Digital twin-enabled irrigation-drainage framework for precision water-salt management, adapted from \cite{qin2025irrigationdrainagedt}. Source: \url{https://doi.org/10.1016/j.agwat.2025.109957}.}
+    \label{fig:soa_qin_water_salt_dt}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 
@@ -113,7 +148,13 @@ El Hachimi et al. study digital twins and deep reinforcement learning for the ma
 
 \subsubsection{Architecture / Methodology}
 
-The proposed work combines a digital twin representation of the collective irrigation distribution system with a deep reinforcement-learning decision layer. The physical system corresponds to irrigation distribution infrastructure and water-demand conditions. The virtual layer supports simulation or state representation, while the reinforcement-learning component learns management policies for efficient water distribution.
+The methodology combines a digital twin representation of a collective irrigation distribution system with a deep reinforcement-learning decision layer. The physical system is not a single plot or greenhouse. It is a shared water-distribution infrastructure where several demands and constraints must be coordinated.
+
+The virtual layer represents the state of the irrigation distribution system. This state can include water availability, delivery constraints, and demand conditions. By modeling the collective system, the digital twin provides an environment where management strategies can be evaluated.
+
+The reinforcement-learning component learns policies for efficient water distribution. Instead of applying fixed rules, the learning agent explores decisions and improves its policy according to performance objectives. This makes the methodology suitable for complex systems where the best action depends on the state of several connected components.
+
+For this thesis, the paper is useful because it shows the future direction of irrigation digital twins: moving from local decision support to coordinated water management. However, such systems require more data and infrastructure than a single smart irrigation prototype.
 
 \subsubsection{Evaluation and Results}
 

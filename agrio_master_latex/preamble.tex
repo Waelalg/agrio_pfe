@@ -43,3 +43,18 @@
   columns=fullflexible,
   showstringspaces=false
 }
+
+\newcommand{\paperfigureplaceholder}[4]{%
+\begin{figure}[H]
+    \centering
+    \fbox{%
+    \begin{minipage}[c][4.2cm][c]{0.78\textwidth}
+        \centering
+        \small\textbf{Figure to insert or redraw}\\[0.4em]
+        #1\\[0.4em]
+        \footnotesize Source paper: \url{#2}
+    \end{minipage}}
+    \caption{#3. Source: \url{#2}.}
+    \label{#4}
+\end{figure}
+}

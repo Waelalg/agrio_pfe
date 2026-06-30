@@ -2,13 +2,6 @@
 
 This chapter reviews concrete smart agriculture and irrigation systems that use sensors, communication networks, controllers, or machine learning to support irrigation decisions. These works are important because they establish the sensing and automation layer required before a complete irrigation digital twin can be built.
 
-% Figure TODO (copyright unclear): redraw/adapt the distributed wireless sensor irrigation architecture from Kim et al. \cite{kim2008wsnIrrigation}; paper link: https://doi.org/10.1109/TIM.2008.917198
-% Suggested destination: figures/state_of_art/chapter4/wsn_irrigation_control_architecture.png
-% Figure TODO (copyright unclear): redraw/adapt the WSN and GPRS irrigation architecture from Gutierrez et al. \cite{gutierrez2014wsnGprsIrrigation}; paper link: https://doi.org/10.1109/TIM.2013.2276487
-% Suggested destination: figures/state_of_art/chapter4/wsn_gprs_irrigation_architecture.png
-% Figure TODO (copyright unclear): redraw/adapt the IoT and machine-learning smart irrigation workflow from Goap et al. \cite{goap2018iotMLIrrigation}; paper link: https://doi.org/10.1016/j.compag.2018.09.040
-% Suggested destination: figures/state_of_art/chapter4/iot_ml_irrigation_workflow.png
-
 \section{Wireless Sensor Network Irrigation}
 
 \subsection[Remote Sensing and Control of an Irrigation System Using a Distributed Wireless Sensor Network]{Remote Sensing and Control of an Irrigation System Using a Distributed Wireless Sensor Network \cite{kim2008wsnIrrigation}}
@@ -19,7 +12,18 @@ Kim et al. propose a distributed wireless sensor network for remote sensing and 
 
 \subsubsection{Architecture / Methodology}
 
-The system is organized around distributed sensor nodes installed in the field, a communication network, and an irrigation control component. The sensor layer collects environmental and irrigation-related data from the field. The communication layer transfers the measurements to a control unit. The control logic uses the received data to support irrigation decisions and remote operation of the system.
+The system is organized around distributed sensor nodes installed in the field. These nodes are responsible for collecting local measurements that describe the irrigation environment. The purpose is to reduce the need for manual inspection and to provide the controller with field information at different locations.
+
+The communication layer connects the distributed nodes to the irrigation control unit. This layer is important because field sensors are useful only if their measurements can be transmitted reliably to the place where irrigation decisions are made. The paper therefore treats wireless communication as a central part of the irrigation architecture.
+
+The control component uses the received data to support remote irrigation operation. In this type of system, the methodological chain is simple but important: collect field data, transmit the data, interpret the measurements, and control the irrigation equipment. This chain is a foundation for later digital twin systems, where the same data would also update a virtual field state.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/chapter_04/chapitre 4.1.1.png}
+    \caption{Distributed wireless sensor network for remote irrigation sensing and control, adapted from \cite{kim2008wsnIrrigation}. Source: \url{https://doi.org/10.1109/TIM.2008.917198}.}
+    \label{fig:soa_kim_wsn_irrigation}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 
@@ -37,7 +41,18 @@ Gutierrez et al. present an automated irrigation system that combines a wireless
 
 \subsubsection{Architecture / Methodology}
 
-The architecture includes field sensor nodes, a wireless sensor network, a GPRS module, and irrigation actuation. Field measurements are collected by the sensor nodes and transmitted through the network. The GPRS module provides remote connectivity, allowing the system to send data and receive control instructions over a wider area. The irrigation controller uses the sensed information to automate water application.
+The architecture begins with field sensor nodes that collect measurements from the agricultural environment. These nodes form a wireless sensor network, which allows the system to cover a field without wired infrastructure. This is important for agricultural deployment because farms are often spatially distributed and difficult to cable.
+
+The GPRS module extends the communication range. Instead of keeping the system limited to local communication, GPRS allows data to be sent to remote users or services. This makes the irrigation system more suitable for remote supervision and control.
+
+The irrigation actuation layer closes the loop. Measurements collected in the field are transmitted through the network, processed by the control unit, and used to activate or deactivate irrigation. The methodology therefore combines sensing, communication, decision, and actuation in one automated irrigation workflow.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/chapter_04/chapitre 4.1.2.png}
+    \caption{Automated irrigation architecture using WSN and GPRS communication, adapted from \cite{gutierrez2014wsnGprsIrrigation}. Source: \url{https://doi.org/10.1109/TIM.2013.2276487}.}
+    \label{fig:soa_gutierrez_wsn_gprs}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 
@@ -57,7 +72,18 @@ Kodali and Sarjerao propose a low-cost smart irrigation system using the MQTT pr
 
 \subsubsection{Architecture / Methodology}
 
-The system uses low-cost IoT hardware, sensor readings, MQTT-based communication, and pump or valve control logic. MQTT provides a publish-subscribe communication model between the field device and the application layer. This makes the system suitable for sending soil or environmental measurements and receiving irrigation commands with low communication overhead.
+The methodology is based on a low-cost IoT architecture. A field device collects irrigation-related measurements and communicates them to the application layer. The goal is to make the system affordable while still supporting automatic irrigation decisions.
+
+MQTT is the central communication protocol. It uses a publish-subscribe model, where field devices publish sensor readings and application components subscribe to the topics they need. The same model can also be used to send control commands back to the device. This is useful in irrigation because sensor messages are usually small and frequent.
+
+The control logic connects communication with actuation. Once the application receives the sensor data, it can decide whether the pump or valve should be activated. The paper therefore demonstrates how a lightweight messaging protocol can support a complete sensing-to-control irrigation loop.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/chapter_04/chapitre 4.2.1.png}
+    \caption{Low-cost MQTT-based smart irrigation architecture, adapted from \cite{kodali2017mqttirrigation}. Source: \url{https://doi.org/10.1109/TENCONSpring.2017.8070095}.}
+    \label{fig:soa_kodali_mqtt_irrigation}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 
@@ -77,7 +103,20 @@ Goap et al. propose an IoT-based smart irrigation management system that uses ma
 
 \subsubsection{Architecture / Methodology}
 
-The system combines an IoT sensing layer, data processing, machine-learning models, and an irrigation management application. Sensor data and environmental information are used as inputs to the decision process. The machine-learning component supports the estimation of irrigation needs or the choice of irrigation action. Open-source technologies are used to make the system implementable and reproducible.
+The methodology combines IoT sensing with machine-learning decision support. The IoT layer collects data from the agricultural environment. These data may include soil and environmental variables that influence crop water needs. The data are then sent to a processing layer where they can be cleaned, organized, and prepared for decision-making.
+
+The machine-learning layer is the main difference between this work and simpler rule-based irrigation systems. Instead of relying only on fixed thresholds, the system uses learned relationships between input variables and irrigation decisions. This allows the decision process to consider several variables together.
+
+The application layer presents or applies the irrigation decision. In this workflow, the system moves from sensing to data processing, then to prediction or classification, and finally to irrigation management. The use of open-source technologies makes the architecture easier to reproduce and adapt.
+
+For a digital twin project, this methodology is important because machine learning can become part of the virtual decision layer. However, a digital twin still needs a synchronized virtual representation in addition to prediction.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/chapter_04/chapitre 4.3.1.jpg}
+    \caption{IoT and machine-learning workflow for smart irrigation management, adapted from \cite{goap2018iotMLIrrigation}. Source: \url{https://doi.org/10.1016/j.compag.2018.09.040}.}
+    \label{fig:soa_goap_iot_ml_irrigation}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 

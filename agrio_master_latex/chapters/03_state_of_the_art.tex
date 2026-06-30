@@ -4,13 +4,6 @@
 
 This part reviews concrete previous works that are close to the technological foundations of a smart irrigation digital twin system. It begins with industrial digital twins, because Industry 4.0 provides many mature examples of synchronization between a physical asset and a virtual model. It then moves to smart agriculture and irrigation systems, before focusing on digital twins applied to agriculture and water management. The selected works are implementation, prototype, simulation, or case-study papers. Review and survey papers are not used as main state-of-the-art papers in this part.
 
-% Figure TODO (copyright unclear): redraw/adapt the CPPS digital twin architecture from Uhlemann et al. \cite{uhlemann2017digitalTwinCPPS}; paper link: https://doi.org/10.1016/j.procir.2016.11.152
-% Suggested destination: figures/state_of_art/chapter3/industry_cpps_digital_twin.png
-% Figure TODO (copyright unclear): redraw/adapt the web-services and augmented-reality visualization workflow from Schroeder et al. \cite{schroeder2016visualisingDigitalTwin}; paper link: https://doi.org/10.1109/INDIN.2016.7819217
-% Suggested destination: figures/state_of_art/chapter3/industry_ar_visualization_workflow.png
-% Figure TODO (copyright unclear): redraw/adapt the assembly shop-floor digital twin framework from Zhuang et al. \cite{zhuang2018digitalTwinAssembly}; paper link: https://doi.org/10.1007/s00170-018-1617-6
-% Suggested destination: figures/state_of_art/chapter3/industry_assembly_shopfloor_framework.png
-
 \section{Cyber-Physical Production Systems}
 
 \subsection[The Digital Twin: Realizing the Cyber-Physical Production System for Industry 4.0]{The Digital Twin: Realizing the Cyber-Physical Production System for Industry 4.0 \cite{uhlemann2017digitalTwinCPPS}}
@@ -21,7 +14,11 @@ Uhlemann et al. address the problem of connecting a physical production system w
 
 \subsubsection{Architecture / Methodology}
 
-The proposed work connects physical production resources with a virtual model through data acquisition from the shop floor. The physical layer provides real-time or near-real-time information about the production system. The virtual layer receives these data and represents the state of the cyber-physical production system. This structure shows the basic digital twin logic: sensing, communication, virtual state update, and decision-oriented use of the virtual model.
+The methodology is organized around the link between a physical production system and its virtual counterpart. The physical side contains the machines, production resources, and shop-floor events. The digital side receives data from these resources and uses them to keep an updated representation of the production state.
+
+The important point in this paper is the data flow. Measurements and events are not treated as isolated monitoring values. They are used to update the virtual model so that the model reflects what is happening in the production system. This is the difference between a simple dashboard and a digital twin: the virtual representation must be continuously informed by the physical process.
+
+The paper also shows that the digital twin has a decision-oriented role. Once the virtual model is synchronized with the physical system, it can be used to understand production behavior, detect deviations, and support operational decisions. For this thesis, the same logic can be translated to irrigation: field sensors feed a virtual state, and the virtual state supports water-management decisions.
 
 \subsubsection{Evaluation and Results}
 
@@ -41,7 +38,11 @@ Schroeder et al. study how a digital twin can be visualized and accessed by user
 
 \subsubsection{Architecture / Methodology}
 
-The methodology combines a physical industrial asset, a digital representation, web-service communication, and an augmented-reality visualization layer. The web services expose data from the digital twin, while the augmented-reality component provides a more intuitive way to inspect the virtual representation. This architecture separates data acquisition, digital representation, service access, and visualization.
+The methodology separates the digital twin system into several clear layers. The first layer is the physical industrial asset, which produces operational data. The second layer is the digital representation, where the state of the asset is modeled and made available to external services. The third layer is the web-service interface, which exposes the digital twin data in a structured way.
+
+The final layer is the augmented-reality visualization. Instead of showing only numerical values, the system allows the user to inspect information through a visual interface connected to the asset. This makes the digital twin easier to understand for an operator, especially when the physical object and its digital information must be interpreted together.
+
+This paper is useful because it treats visualization as part of the digital twin methodology. A virtual model is not sufficient if users cannot interpret it. In a smart irrigation system, the same principle applies: soil moisture values, irrigation state, and recommendations must be displayed in a way that helps the user understand the field situation.
 
 \subsubsection{Evaluation and Results}
 
@@ -61,7 +62,13 @@ Zhuang et al. propose a digital twin framework for smart production management a
 
 \subsubsection{Architecture / Methodology}
 
-The paper identifies four core techniques: real-time acquisition, organization, and management of physical shop-floor data; construction of an assembly shop-floor digital twin; digital-twin and big-data-driven prediction; and digital-twin-based production management and control services. The authors describe an implementation process in a satellite assembly shop-floor scenario. The architecture therefore includes sensing, data organization, virtual modeling, predictive analysis, and service-oriented control.
+The paper identifies four main methodological blocks. The first block is the real-time acquisition, organization, and management of physical shop-floor data. This block is responsible for collecting data from the assembly environment and preparing it so that it can be used by the digital twin.
+
+The second block is the construction of the assembly shop-floor digital twin. This virtual representation models the resources, state, and behavior of the assembly process. It is not only a static model of the factory layout; it is designed to reflect the current production situation.
+
+The third block is prediction based on the digital twin and big-data methods. The digital twin provides structured production-state information, while the prediction layer uses this information to anticipate production behavior. The fourth block is the management and control service layer, which transforms analysis results into operational support for the shop floor.
+
+The implementation scenario is a satellite assembly shop floor. This example shows how a digital twin can support a complex process where many resources, operations, and constraints must be coordinated. For irrigation, the equivalent methodological chain is sensor acquisition, field-state modeling, water-need prediction, and irrigation decision support.
 
 \subsubsection{Evaluation and Results}
 
@@ -81,7 +88,20 @@ Damjanovic-Behrendt and Behrendt propose an open-source approach for designing a
 
 \subsubsection{Architecture / Methodology}
 
-The work presents an implementation-oriented digital twin approach for smart manufacturing. It uses open-source design principles to connect physical manufacturing resources with digital representations and software services. The methodology emphasizes interoperability and practical integration between industrial data sources, the digital twin layer, and decision-support functions.
+The methodology is implementation-oriented. The authors focus on how a digital twin can be built with open-source components rather than only describing a conceptual architecture. This makes the paper useful for projects that need a practical and reproducible system design.
+
+The physical manufacturing resources provide the operational data. These data are connected to digital representations through software services. The digital twin layer then organizes the information so that it can be accessed by applications that support monitoring, analysis, and decision-making.
+
+The paper also emphasizes interoperability. In smart manufacturing, different machines, protocols, and software services must communicate. The open-source approach is therefore not only a cost decision; it is a way to make the system easier to integrate, extend, and reproduce.
+
+For a smart irrigation digital twin, this methodology suggests that the architecture should be modular. Sensors, backend services, database components, prediction modules, and user interfaces should communicate through clear interfaces so that the system can evolve without being rebuilt from zero.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/chapter_03/chapter 3.4.jpg}
+    \caption{Open-source digital twin implementation approach for smart manufacturing, adapted from \cite{damjanovic2019openSourceDigitalTwins}. Source: \url{https://doi.org/10.1080/0951192X.2019.1599436}.}
+    \label{fig:soa_damjanovic_open_source_dt}
+\end{figure}
 
 \subsubsection{Evaluation and Results}
 

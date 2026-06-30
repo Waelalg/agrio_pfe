@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.6.5)  26 JUN 2026 12:22
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.6.5)  28 JUN 2026 19:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -966,16 +966,15 @@ File: figures/logo-esi-sba.png Graphic file (type bmp)
 <figures/logo-esi-sba.png>
  [1
 
-] [2] [1
+] [1
 
 
 ] [2
 
 ] [3
 
-]
-[4]
-Underfull \hbox (badness 1968) in paragraph at lines 68--69
+] [4]
+Underfull \hbox (badness 1968) in paragraph at lines 133--134
 []\TU/LatinModernRoman(0)/m/n/12 numériques en agriculture et leur positionneme
 nt par rapport aux systèmes[]
  []
@@ -992,20 +991,26 @@ nt par rapport aux systèmes[]
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [11] (main.lof)
+ [11] (main.lof
+Underfull \hbox (badness 2990) in paragraph at lines 18--18
+ [][]\TU/LatinModernRoman(0)/m/n/12 [[]]. Source: []$[][][][][] [] [] [] [][][]
+ [] [][][] [] [][] [] [][][][] [] [][][][][][][][][][][][] [] [][][][] []$[][][
+] 
+ []
+
+[12
+
+])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [12
-
-] (main.lot)
+ [13] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [13
+ [14
 
-])
-(chapters/00_general_introduction.tex [1
+]) (chapters/00_general_introduction.tex [1
 
 
 
@@ -1014,8 +1019,8 @@ File: figures/cover/Figure 0.1 — Global view of the thesis methodology from li
 erature review to prototype validation.png Graphic file (type bmp)
 <figures/cover/Figure 0.1 — Global view of the thesis methodology from literatu
 re review to prototype validation.png>
- [3])
-(chapters/01_precision_agriculture.tex [4] [5
+
+[3]) (chapters/01_precision_agriculture.tex [4] [5
 
 ]
 Chapter 1.
@@ -1061,105 +1066,126 @@ File: figures/chapter_02/transformer.png Graphic file (type bmp)
 Chapter 3.
 [25
 
-] [26] [27] [28]
-Overfull \hbox (0.94731pt too wide) in alignment at lines 101--106
+] [26] [27] [28] [29]
+File: figures/chapter_03/chapter 3.4.jpg Graphic file (type bmp)
+<figures/chapter_03/chapter 3.4.jpg>
+ [30]
+Overfull \hbox (0.94731pt too wide) in alignment at lines 121--126
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (0.94731pt too wide) in alignment at lines 106--110
+Overfull \hbox (0.94731pt too wide) in alignment at lines 126--130
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (10.63374pt too wide) in paragraph at lines 114--114
+Overfull \hbox (10.63374pt too wide) in paragraph at lines 134--134
 [][]|\TU/LatinModernRoman(0)/m/n/8 Implementation[] 
  []
 
 
-Overfull \hbox (0.94731pt too wide) in alignment at lines 110--116
+Overfull \hbox (0.94731pt too wide) in alignment at lines 130--136
  [] [] [] [] [] [] [] [] 
  []
 
-[29]) (chapters/04_comparative_analysis.tex [30]
+) (chapters/04_comparative_analysis.tex [31]
 Chapter 4.
-[31
+[32
 
-] [32] [33] [34]
-Overfull \hbox (6.52286pt too wide) in paragraph at lines 100--100
+]
+File: figures/chapter_04/chapitre 4.1.1.png Graphic file (type bmp)
+<figures/chapter_04/chapitre 4.1.1.png>
+ [33]
+File: figures/chapter_04/chapitre 4.1.2.png Graphic file (type bmp)
+<figures/chapter_04/chapitre 4.1.2.png>
+ [34] [35]
+File: figures/chapter_04/chapitre 4.2.1.png Graphic file (type bmp)
+<figures/chapter_04/chapitre 4.2.1.png>
+ [36]
+File: figures/chapter_04/chapitre 4.3.1.jpg Graphic file (type bmp)
+<figures/chapter_04/chapitre 4.3.1.jpg>
+ [37] [38]
+Overfull \hbox (6.52286pt too wide) in paragraph at lines 139--139
 [][]|\TU/LatinModernRoman(0)/m/n/8 Communication|[] 
  []
 
 
-Overfull \hbox (9.63577pt too wide) in alignment at lines 97--102
+Overfull \hbox (9.63577pt too wide) in alignment at lines 136--141
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (6.52286pt too wide) in paragraph at lines 104--104
+Overfull \hbox (6.52286pt too wide) in paragraph at lines 143--143
 [][]|\TU/LatinModernRoman(0)/m/n/8 Communication|[] 
  []
 
 
-Overfull \hbox (9.63577pt too wide) in alignment at lines 102--106
+Overfull \hbox (9.63577pt too wide) in alignment at lines 141--145
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (10.63374pt too wide) in paragraph at lines 110--110
+Overfull \hbox (10.63374pt too wide) in paragraph at lines 149--149
 [][]|\TU/LatinModernRoman(0)/m/n/8 Implementation|[] 
  []
 
 
-Overfull \hbox (9.63577pt too wide) in alignment at lines 106--112
+Overfull \hbox (9.63577pt too wide) in alignment at lines 145--151
  [] [] [] [] [] [] [] [] 
  []
 
-) (chapters/05_requirements_design.tex [35] [36]
+) (chapters/05_requirements_design.tex [39]
 Chapter 5.
-[37
+[40
 
-] [38] [39] [40] [41] [42]
-Overfull \hbox (5.29153pt too wide) in alignment at lines 133--138
+]
+File: figures/chapter_05/Chapitre 5.1.1.jpg Graphic file (type bmp)
+<figures/chapter_05/Chapitre 5.1.1.jpg>
+ [41] [42] [43] [44] [45]
+File: figures/chapter_05/Chapitre 5.2.2.jpg Graphic file (type bmp)
+<figures/chapter_05/Chapitre 5.2.2.jpg>
+ [46] [47] [48]
+Overfull \hbox (5.29153pt too wide) in alignment at lines 174--179
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (5.29153pt too wide) in alignment at lines 138--142
+Overfull \hbox (5.29153pt too wide) in alignment at lines 179--183
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (3.33087pt too wide) in paragraph at lines 147--147
+Overfull \hbox (3.33087pt too wide) in paragraph at lines 188--188
 [][]|\TU/LatinModernRoman(0)/m/n/8 Agroecosystem[] 
  []
 
 
-Overfull \hbox (5.29153pt too wide) in alignment at lines 142--150
+Overfull \hbox (5.29153pt too wide) in alignment at lines 183--191
  [] [] [] [] [] [] [] [] 
  []
 
-[43]) (chapters/12_general_conclusion.tex [44] [45]) [46
+[49]) (chapters/12_general_conclusion.tex [50]) [51
 
-] (main.bbl [47
+] (main.bbl [52
 
 
-]
-[48] [49] [50]) [51] (main.aux)
+] [53]
+[54] [55]) [56] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B0F185EDD3185284E80C761722B50915;18626.
+(rerunfilecheck)             Checksum: 24FA235198800A18359B1CC82DC1DC68;18626.
  ) 
 Here is how much of TeX's memory you used:
- 20988 strings out of 402807
- 433805 string characters out of 5445136
+ 21073 strings out of 402807
+ 437023 string characters out of 5445136
  1195083 words of memory out of 5000000
- 49531 multiletter control sequences out of 15000+600000
- 633167 words of font info for 97 fonts, out of 8000000 for 9000
+ 49605 multiletter control sequences out of 15000+600000
+ 633175 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,10n,96p,1206b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,11n,96p,1206b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (66 pages).
+Output written on main.pdf (71 pages).

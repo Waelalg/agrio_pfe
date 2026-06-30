@@ -11,5 +11,12 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Multilayer neural networks and backpropagation. Source: \url {https://www.nature.com/articles/nature14539}.}}{20}{figure.caption.15}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces The Transformer model architecture. Source: \url {https://arxiv.org/abs/1706.03762}.}}{21}{figure.caption.16}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Open-source digital twin implementation approach for smart manufacturing, adapted from \cite {damjanovic2019openSourceDigitalTwins}. Source: \url {https://doi.org/10.1080/0951192X.2019.1599436}.}}{30}{figure.caption.31}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Distributed wireless sensor network for remote irrigation sensing and control, adapted from \cite {kim2008wsnIrrigation}. Source: \url {https://doi.org/10.1109/TIM.2008.917198}.}}{33}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Automated irrigation architecture using WSN and GPRS communication, adapted from \cite {gutierrez2014wsnGprsIrrigation}. Source: \url {https://doi.org/10.1109/TIM.2013.2276487}.}}{34}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Low-cost MQTT-based smart irrigation architecture, adapted from \cite {kodali2017mqttirrigation}. Source: \url {https://doi.org/10.1109/TENCONSpring.2017.8070095}.}}{36}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces IoT and machine-learning workflow for smart irrigation management, adapted from \cite {goap2018iotMLIrrigation}. Source: \url {https://doi.org/10.1016/j.compag.2018.09.040}.}}{38}{figure.caption.51}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces IoT-digital twin-inspired smart irrigation architecture, adapted from \cite {manocha2024iotdtirrigation}. Source: \url {https://doi.org/10.1016/j.suscom.2023.100947}.}}{41}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital twin-enabled irrigation-drainage framework for precision water-salt management, adapted from \cite {qin2025irrigationdrainagedt}. Source: \url {https://doi.org/10.1016/j.agwat.2025.109957}.}}{46}{figure.caption.73}%
