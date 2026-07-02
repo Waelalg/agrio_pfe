@@ -98,6 +98,34 @@ This appendix provides implementation-independent pseudocode for the main workfl
 
 \end{enumerate}
 
+\section{MAS decision algorithm}
+
+\begin{enumerate}
+
+\item Receive MAS request containing device context, location, plant type, farmer note, optional zone, target moisture range, and irrigation duration.
+
+\item Normalize context and apply default values when optional fields are missing.
+
+\item Collect Digital Twin field state, including current sensors, pump status, timestamp, target moisture range, and data quality.
+
+\item Call the ML Prediction Agent to obtain irrigation need, recommended action, suggested hour, confidence, and features used.
+
+\item Collect weather context and summarize rainfall, wind, temperature, and expected irrigation impact.
+
+\item Analyze the agronomic note using crop type, farmer observation text, and soil moisture evidence.
+
+\item Run deterministic water-balance estimation to compare future moisture with and without irrigation.
+
+\item Apply deterministic safety rules to block or redirect unsafe direct irrigation.
+
+\item Fuse evidence in the Coordinator using the priority Safety, Water Balance, ML Prediction, Weather, then Agronomy.
+
+\item Generate a farmer-friendly explanation from the final decision and evidence bundle.
+
+\item Return response with decision, explanation, confidence, risk level, suggested hour, recommended duration, evidence, and warnings.
+
+\end{enumerate}
+
 \section{Scheduled irrigation execution algorithm}
 
 \begin{enumerate}

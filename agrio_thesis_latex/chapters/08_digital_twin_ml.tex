@@ -2,7 +2,7 @@
 
 \section{Introduction}
 
-This chapter presents the Digital Twin and machine learning layer of Agrio. It explains how timestamped sensor and environmental records are prepared for Random Forest training, how the exported models are used by the ML service, how prediction outputs update the Digital Twin state, and how simulation and recommendation functions support irrigation decisions.
+This chapter presents the Digital Twin and machine learning layer of Agrio. It explains how timestamped sensor and environmental records are prepared for Random Forest training, how the exported models are used by the ML service, how prediction outputs update the Digital Twin state, how simulation and recommendation functions support irrigation decisions, and how the MAS service adds explainable decision support.
 
 \section{Virtual zone state}
 
@@ -136,9 +136,59 @@ Recommendation generation is evaluated immediately after simulation because the 
 
 Human validation remains part of the workflow. A recommendation can remain pending, be accepted, be rejected, or be converted into a scheduled irrigation event. This is important because the current implementation is a supervised prototype. The simulation and recommendation layers support decision-making, but they do not replace operator responsibility or long-term agronomic validation.
 
+\section{Multi-Agent decision-support service}
+
+The Multi-Agent System (MAS) service adds an explainable decision-support layer on top of the Digital Twin and ML workflow. It is implemented as a separate FastAPI service and exposes the decision endpoint \texttt{/mas/decision}. Its role is to receive a field context, collect or normalize several evidence blocks, apply deterministic safety logic, and return a final irrigation decision that can be inspected by the user. The MAS is not a computer-vision system. The optional \texttt{image\_path} field is accepted only for backward compatibility, while plant observations are entered as farmer text notes such as ``soil looks dry'' or ``leaves are droopy''.
+
+The request accepted by the MAS contains the required fields \texttt{device\_id}, \texttt{location}, \texttt{plant\_type}, and \texttt{farmer\_note}. It can also include an optional \texttt{zone\_id}, \texttt{target\_moisture\_min}, \texttt{target\_moisture\_max}, and \texttt{irrigation\_duration\_minutes}. These fields allow the MAS to link the decision to a device or zone, interpret the crop context, include farmer observations, and evaluate the decision against target moisture limits.
+
+The MAS response contains \texttt{decision}, \texttt{explanation}, \texttt{confidence}, \texttt{risk\_level}, \texttt{suggested\_hour}, \texttt{recommended\_duration\_minutes}, \texttt{evidence}, and \texttt{warnings}. The possible decisions are \texttt{KEEP\_OFF}, \texttt{START\_IRRIGATION}, and \texttt{SCHEDULE\_IRRIGATION}. The evidence object is structured into six main blocks: Digital Twin, ML prediction, weather, agronomy, water balance, and safety. This structure keeps the final decision auditable because each specialized agent contributes a visible part of the reasoning.
+
+\begin{footnotesize}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}@{}}
+\caption{MAS agents and responsibilities}
+\label{tab:mas_agents}\\
+\toprule
+Agent & Role & Input & Output \\
+\midrule
+\endfirsthead
+\toprule
+Agent & Role & Input & Output \\
+\midrule
+\endhead
+Context Builder & Validates and normalizes the request context. & API request fields, optional targets, duration. & Normalized shared state and warnings. \\
+Digital Twin Agent & Collects current field state and data quality. & \texttt{device\_id}, \texttt{zone\_id}, target moisture range. & Sensor values, pump status, timestamp, target range, data quality. \\
+ML Prediction Agent & Calls the ML service and normalizes its response. & Digital Twin features and crop context. & Irrigation need, recommended action, suggested hour, confidence, feature list. \\
+Weather Forecast Agent & Summarizes weather impact for irrigation. & Location. & Temperature, humidity, rainfall probability, rainfall amount, wind speed, impact summary. \\
+Agronomy Agent & Interprets crop type and farmer text note. & Plant type, farmer note, soil moisture, target minimum. & Crop water sensitivity, stress level, recommendation, reason. \\
+Water Balance Agent & Estimates future moisture deterministically. & Current moisture, weather, light, rainfall, duration, targets. & Predicted moisture with and without irrigation, deficit, duration, risk. \\
+Safety Rule Agent & Applies deterministic control rules before coordination. & Digital Twin state, weather, water-balance context. & Allowed actions, blocked actions, warnings, safety suggestion, risk. \\
+Coordinator Agent & Fuses evidence into one final decision. & All evidence blocks. & Decision, confidence, risk level, suggested hour, recommended duration, technical reason. \\
+Explanation Agent & Produces a farmer-friendly explanation. & Final state and evidence bundle. & Short explanation of the decision and the main reasons. \\
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+The Safety Rule Agent is deterministic and has priority over direct irrigation because it is closest to control authority. It blocks or redirects direct pump start when rain is expected, soil moisture is already above the target range, wind is strong, very hot midday conditions are present, critical sensor data are missing, or the pump state is faulty or unknown. This deterministic behavior makes safety decisions repeatable and easier to audit.
+
+The Water Balance Agent is also deterministic. It estimates future soil moisture by combining evaporation loss, wind loss, solar loss, rainfall relief, and irrigation gain. If soil moisture is missing, it returns a degraded result instead of producing a false precise value. The recommended duration is estimated from the moisture deficit and bounded to remain suitable for prototype decision support.
+
+The Coordinator Agent fuses evidence using the priority \textbf{Safety > Water Balance > ML Prediction > Weather > Agronomy}. Safety can force \texttt{KEEP\_OFF} or redirect direct irrigation to \texttt{SCHEDULE\_IRRIGATION}. When safety does not block irrigation, the coordinator checks whether the water-balance risk and ML or agronomic evidence support irrigation. The MAS can therefore return a direct start, a scheduled action, or a safe keep-off decision. If the ML service or weather provider fails, the MAS continues with deterministic fallback evidence and warnings instead of failing the whole decision request.
+
+This service should be interpreted as an engineering decision-support layer. It improves modularity, explainability, and safe evidence fusion, but it does not prove long-term agronomic optimization. Field validation across crops, seasons, and real irrigation networks remains future work.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_08/mas_architecture_simple.png}
+    \caption{Multi-Agent System architecture for explainable smart irrigation decision support.}
+    \label{fig:mas_architecture}
+\end{figure}
+
 \section{Explainability and evaluation artifacts}
 
-Agrio improves explainability through dashboard text, confidence values, comparison charts, and scenario explanations. This is important because farmers and jury members must understand why the system recommends or rejects irrigation. The feature-importance and confusion-matrix figures below document the exported Random Forest models and support interpretation of the dataset-level results.
+Agrio improves explainability through dashboard text, MAS explanations, confidence values, comparison charts, evidence blocks, warnings, and scenario explanations. This is important because farmers and jury members must understand why the system recommends or rejects irrigation. The feature-importance and confusion-matrix figures below document the exported Random Forest models and support interpretation of the dataset-level results.
 
 \begin{figure}[H]
     \centering
@@ -170,8 +220,8 @@ Agrio improves explainability through dashboard text, confidence values, compari
 
 \section{Limitations}
 
-The ML layer is limited by the dataset used, the controlled prototype context, and the absence of long-term multi-crop field validation. Model results must therefore be interpreted cautiously. Future work should include retraining using real field data, comparing alternative models, and validating irrigation recommendations under real agronomic conditions.
+The ML and MAS layers are limited by the dataset used, the controlled prototype context, and the absence of long-term multi-crop field validation. Model results and multi-agent decisions must therefore be interpreted cautiously. Future work should include retraining using real field data, comparing alternative models, validating irrigation recommendations under real agronomic conditions, and testing MAS explanations with farmers.
 
 \section{Conclusion}
 
-This chapter described the intelligent layer of Agrio. It explained how the dataset is adapted for Random Forest training, how exported model artifacts are loaded by the ML service, how runtime prediction is connected to the Digital Twin state, and how simulation and recommendation functions transform measurements into irrigation support. The chapter also clarified the limits of the current validation: the ML results demonstrate reproducible dataset-level inference, while long-term agronomic validity still requires real field experiments.
+This chapter described the intelligent layer of Agrio. It explained how the dataset is adapted for Random Forest training, how exported model artifacts are loaded by the ML service, how runtime prediction is connected to the Digital Twin state, how simulation and recommendation functions transform measurements into irrigation support, and how the MAS service adds explainable safety-aware decision fusion. The chapter also clarified the limits of the current validation: the ML results and MAS scenarios demonstrate reproducible engineering behavior, while long-term agronomic validity still requires real field experiments.

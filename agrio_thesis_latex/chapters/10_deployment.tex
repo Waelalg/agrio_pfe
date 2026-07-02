@@ -4,11 +4,11 @@
 
 \section{Introduction}
 
-Deployment is a critical engineering part of the project. Agrio is composed of several services that must run together: database, backend, ML service, frontend, scheduler, MQTT configuration, and mobile access support. Docker Compose is used to coordinate the documented prototype services.
+Deployment is a critical engineering part of the project. Agrio is composed of several services that must run together: database, backend, ML service, MAS service, frontend, scheduler, MQTT configuration, and mobile access support. Docker Compose is used to coordinate the documented prototype services.
 
 \section{Docker Compose stack}
 
-The Docker Compose stack includes PostgreSQL, the ML service, FastAPI backend, frontend, irrigation scheduler, ngrok for prototype mobile access, and Mosquitto MQTT. Each documented service has a clear responsibility and communicates through internal network links and environment variables. The exposed ports used during validation are consistent with Table~\ref{tab:docker_compose_ports}: frontend \texttt{3000}, backend \texttt{8000}, ML service \texttt{8001}, PostgreSQL \texttt{5432}, Mosquitto MQTT \texttt{1883}, optional MQTT WebSocket \texttt{9001}, and ngrok inspection \texttt{4040}.
+The Docker Compose stack includes PostgreSQL, the ML service, the MAS service, FastAPI backend, frontend, irrigation scheduler, ngrok for prototype mobile access, and Mosquitto MQTT. Each documented service has a clear responsibility and communicates through internal network links and environment variables. The exposed ports used during validation are consistent with Table~\ref{tab:docker_compose_ports}: frontend \texttt{3000}, backend \texttt{8000}, ML service \texttt{8001}, MAS service \texttt{8002}, PostgreSQL \texttt{5432}, Mosquitto MQTT \texttt{1883}, optional MQTT WebSocket \texttt{9001}, and ngrok inspection \texttt{4040}.
 
 \begin{figure}[H]
     \centering
@@ -30,7 +30,7 @@ The running container evidence confirms that the prototype services are executed
 
 Figure~\ref{fig:deployment_communication_flow} summarizes the runtime communication paths of the deployed Agrio prototype. The objective of this figure is not to repeat all Docker Compose configuration details, but to show how the main services exchange data during operation. Detailed port values, service roles, and operational evidence are documented separately in Table~\ref{tab:docker_compose_ports} and Table~\ref{tab:deployment_services_roles}.
 
-The communication flow can be divided into four groups. First, users access the web dashboard or mobile interface, which communicates with the FastAPI backend through REST requests. Second, the backend reads and writes persistent data in PostgreSQL. Third, the backend sends feature payloads to the ML service over HTTP and receives prediction responses. Fourth, sensor telemetry, actuator commands, and WeMos status feedback are exchanged through MQTT topics.
+The communication flow can be divided into five groups. First, users access the web dashboard or mobile interface, which communicates with the FastAPI backend through REST requests. Second, the backend reads and writes persistent data in PostgreSQL. Third, the backend sends feature payloads to the ML service over HTTP and receives prediction responses. Fourth, the frontend or backend can send an explainable decision request to the MAS service through \texttt{/mas/decision}; the MAS can use ML prediction evidence and combines it with Digital Twin, weather, agronomy, water-balance, and safety evidence. Fifth, sensor telemetry, actuator commands, and WeMos status feedback are exchanged through MQTT topics.
 
 \begin{figure}[H]
     \centering
@@ -39,6 +39,8 @@ The communication flow can be divided into four groups. First, users access the 
     \label{fig:deployment_communication_flow}
 \end{figure}
 
+\noindent\textbf{Update note:} this communication-flow figure should later be recaptured or redrawn to include the \texttt{mas-service} on port \texttt{8002}.
+
 The frontend service exposes the user-facing dashboard on port \texttt{3000}. It does not access the database or the MQTT broker directly. Instead, it retrieves monitoring data, Digital Twin states, predictions, recommendations, schedules, and actuator status through the backend API.
 
 The backend service is the central orchestration point of the deployment. It exposes the FastAPI API on port \texttt{8000}, communicates with PostgreSQL through SQL queries, calls the ML service for inference, requests weather data from the external weather API, and publishes or consumes MQTT messages depending on the workflow.
@@ -46,6 +48,8 @@ The backend service is the central orchestration point of the deployment. It exp
 The PostgreSQL service runs on port \texttt{5432} during local prototype validation. It stores the agricultural structure, sensor readings, weather records, Digital Twin states, prediction results, simulation outputs, recommendations, irrigation events, control commands, and execution feedback.
 
 The ML service runs on port \texttt{8001}. It receives HTTP prediction requests from the backend and returns irrigation outputs such as \texttt{need\_irrigation}, \texttt{suggested\_hour}, confidence values, and recommended action. The ML service does not directly control the pump. Physical commands remain under backend and scheduler control.
+
+The MAS service runs on port \texttt{8002}. It exposes \texttt{/health} for service checks and \texttt{/mas/decision} for explainable irrigation decisions. In the documented Docker Compose stack, it depends on the ML service. Depending on the final integration path, it can be called by the frontend for direct decision inspection or by the backend as part of the recommendation workflow. The MAS service does not publish actuator commands; it returns a decision, explanation, confidence, risk level, recommended duration, evidence, and warnings.
 
 The MQTT broker receives telemetry from sensors and actuator status messages from the WeMos controller. It also carries actuator commands published by the backend when the user validates a decision, manually triggers control, or when a scheduled irrigation event is executed. This separates asynchronous field communication from synchronous REST API communication.
 
@@ -66,6 +70,7 @@ User access & User device $\rightarrow$ frontend & Access dashboard and mobile v
 REST API & Frontend/mobile $\rightarrow$ backend & Retrieve monitoring, prediction, simulation, schedule, and control data. \\
 Database access & Backend $\leftrightarrow$ PostgreSQL & Persist and query Digital Twin lifecycle data. \\
 ML inference & Backend $\leftrightarrow$ ML service & Send feature payloads and receive prediction outputs. \\
+MAS decision & Frontend/backend $\leftrightarrow$ MAS service & Send field context and receive explainable irrigation decision, evidence, and warnings. \\
 Weather request & Backend $\leftrightarrow$ Open-Meteo API & Retrieve weather and forecast information. \\
 Sensor telemetry & Sensors/gateway $\rightarrow$ MQTT broker $\rightarrow$ backend & Transmit field measurements. \\
 Actuator command & Backend/scheduler $\rightarrow$ MQTT broker $\rightarrow$ WeMos & Send pump or relay commands. \\
@@ -77,9 +82,9 @@ Ngrok tunnel & External/mobile client $\rightarrow$ ngrok $\rightarrow$ local se
 
 \section{Service responsibilities}
 
-The deployed prototype is divided into services with explicit responsibilities. PostgreSQL stores the \texttt{smart\_irrigation} schema and supports traceability from measurement to decision and feedback. The ML service loads Random Forest artifacts and exposes inference endpoints on port \texttt{8001}. The backend exposes the FastAPI API, orchestrates MQTT ingestion, calls the ML service, persists results, and publishes actuator commands. The frontend exposes the web dashboard on port \texttt{3000}. The scheduler runs as an internal worker and is not exposed as a public port. MQTT configuration connects backend ingestion and actuator workflows to the selected broker.
+The deployed prototype is divided into services with explicit responsibilities. PostgreSQL stores the \texttt{smart\_irrigation} schema and supports traceability from measurement to decision and feedback. The ML service loads Random Forest artifacts and exposes inference endpoints on port \texttt{8001}. The MAS service exposes explainable irrigation decision support on port \texttt{8002}. The backend exposes the FastAPI API, orchestrates MQTT ingestion, calls the ML service, can call or coordinate MAS decisions depending on the integration path, persists results, and publishes actuator commands. The frontend exposes the web dashboard on port \texttt{3000}. The scheduler runs as an internal worker and is not exposed as a public port. MQTT configuration connects backend ingestion and actuator workflows to the selected broker.
 
-This organization keeps service boundaries clear. The frontend does not access PostgreSQL or MQTT directly. The ML service does not publish actuator commands. Physical commands remain under the backend and scheduler workflow, which publishes the documented WeMos commands through MQTT and records feedback.
+This organization keeps service boundaries clear. The frontend does not access PostgreSQL or MQTT directly. The ML service and MAS service do not publish actuator commands. Physical commands remain under the backend and scheduler workflow, which publishes the documented WeMos commands through MQTT and records feedback.
 
 \begin{footnotesize}
 \setlength{\tabcolsep}{2pt}
@@ -96,6 +101,7 @@ Service & Role & Evidence to include \\
 \endhead
 postgres & Stores smart\_irrigation schema & Docker container and database screenshot \\
 ml-service & Loads Random Forest models and predicts irrigation outputs & /health, /metadata, /predict screenshots \\
+mas-service & Runs explainable multi-agent decision support on port 8002 & /health and /mas/decision response showing decision evidence \\
 backend & API, MQTT ingestion, twin update, recommendations, commands & Health response, API response, and logs \\
 frontend & Web dashboard and user workspaces & Dashboard screenshots \\
 irrigation-scheduler & Internal worker that executes scheduled pump events & Scheduler logs or event status \\
@@ -122,4 +128,4 @@ The deployment is suitable for prototype demonstration but not yet for productio
 
 \section{Conclusion}
 
-This chapter showed that Agrio is deployed as a reproducible multi-service prototype rather than as a single script or static dashboard. The deployment separates persistence, API orchestration, ML inference, frontend access, scheduling, MQTT communication, and mobile testing support. This separation makes the validation workflow easier to reproduce while also making clear that production deployment would still require stronger security, monitoring, backups, and operational hardening.
+This chapter showed that Agrio is deployed as a reproducible multi-service prototype rather than as a single script or static dashboard. The deployment separates persistence, API orchestration, ML inference, MAS decision support, frontend access, scheduling, MQTT communication, and mobile testing support. This separation makes the validation workflow easier to reproduce while also making clear that production deployment would still require stronger security, monitoring, backups, and operational hardening.

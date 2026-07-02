@@ -3,11 +3,11 @@
 
 \section{Introduction}
 
-The user interface is the operational face of the Digital Twin. It transforms sensor data, ML outputs, simulation results, recommendations, schedules, and actuator status into understandable information. Agrio includes a Next.js web dashboard and a Flutter mobile application.
+The user interface is the operational face of the Digital Twin. It transforms sensor data, ML outputs, MAS decisions, simulation results, recommendations, schedules, and actuator status into understandable information. Agrio includes a Next.js web dashboard and a Flutter mobile application.
 
 \section{Frontend architecture}
 
-The frontend is organized into pages for dashboard, forecast, Digital Twin simulation, schedules, validated decisions, and zone details. It communicates with the backend through REST APIs using a configured API base URL and periodically refreshes dashboard data.
+The frontend is organized into pages for dashboard, forecast, Digital Twin simulation, schedules, validated decisions, zone details, and the MAS decision panel. It communicates with the backend and decision services through REST APIs using a configured API base URL and periodically refreshes dashboard data.
 
 \section{Operations dashboard}
 
@@ -19,6 +19,8 @@ The operations dashboard shows MQTT connection, active zone coverage, moisture s
     \caption{Agrio operations dashboard showing MQTT connection, active zone coverage, moisture snapshot, sensor health, and Digital Twin status.}
     \label{fig:9-1-agrio-operations-dashboard-showing-mqtt-connection-active-zone-cov}
 \end{figure}
+
+\noindent\textbf{Update note:} this dashboard screenshot should later be recaptured after MAS integration to show the MAS decision status or entry point.
 
 \section{Zone monitoring}
 
@@ -41,6 +43,8 @@ The recommendation preview presents the current decision, confidence, suggested 
     \caption{Current field status and AI recommendation preview for the monitored irrigation zone.}
     \label{fig:9-3-current-field-status-and-ai-recommendation-preview-for-the-monitor}
 \end{figure}
+
+\noindent\textbf{Update note:} this AI recommendation preview should later be recaptured if the MAS final decision, risk level, evidence cards, or warnings are displayed in this panel.
 
 \section{Pump and actuator control}
 
@@ -106,17 +110,109 @@ The validated decisions page records approved recommendations and decision histo
     \label{fig:9-9-validated-decisions-interface-for-tracking-approved-irrigation-rec}
 \end{figure}
 
-\section{Mobile application}
+\noindent\textbf{Update note:} this validated-decisions screenshot should later be recaptured if MAS decisions or evidence summaries become part of the validated decision record.
 
-The Flutter mobile application gives access to monitoring and selected decision functions from a phone. It is especially important because irrigation systems are often managed outside the desktop environment.
+\section{MAS decision interface}
+
+The MAS decision interface is planned as the frontend point where the operator can request and inspect the explainable multi-agent irrigation decision. The page or panel should explain what the MAS is, show the input fields sent to the service, and make clear that the service supports decision-making rather than replacing human validation. The expected inputs include device identifier, location, plant type, optional zone, target moisture range, irrigation duration, and a farmer note describing visible plant or soil observations.
+
+The response view should display the final decision, confidence, risk level, suggested hour, recommended duration, farmer-friendly explanation, evidence cards, and warnings. The evidence cards should separate Digital Twin state, ML prediction, weather context, agronomy, water balance, and safety rules so that the user can understand why the MAS returns \texttt{KEEP\_OFF}, \texttt{START\_IRRIGATION}, or \texttt{SCHEDULE\_IRRIGATION}. The interface must not present the MAS as a computer-vision system, because the implemented workflow relies on structured field context and farmer text notes.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_09/Figure 9.10 — Mobile application screens providing access to monitoring and irrigation decision functions.jpg}
-    \caption{Mobile application screens providing access to monitoring and irrigation decision functions.}
-    \label{fig:9-10-mobile-application-screens-providing-access-to-monitoring-and-irr}
+    \includegraphics[width=0.9\textwidth,height=0.75\textheight,keepaspectratio]{figures/chapter_09/Figure 9.18 mas-frontend.png}
+    \caption{The MAS decision interface showing input fields, final irrigation decision, confidence, risk level, explanation, and evidence cards.}
+    \label{fig:mas_decision_interface_placeholder}
 \end{figure}
+
+\section{Mobile application}
+
+The Flutter mobile application provides a portable access point to the Agrio Digital Twin platform. It allows the user to monitor the irrigation zone, inspect sensor and Digital Twin information, follow recommendations, and access decision-support functions from a smartphone. This is important because irrigation decisions are often made outside a desktop environment.
+
+\subsection{Mobile access and navigation}
+
+The mobile access screen connects the smartphone interface to the deployed backend service. It contains the server address, user credentials, and the entry button used to open the mobile workspace. This screen supports the Digital Twin workflow by allowing the operator to reach the monitoring and decision-support services from the field during prototype testing.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.10.jpg}
+    \caption{Mobile access screen used to connect to the Agrio workspace.}
+    \label{fig:mobile_access_login}
+\end{figure}
+
+The main mobile dashboard gives a compact overview of the monitored plot. It shows the connected MQTT status, the selected field zone, average moisture, zones requiring attention, and sensor health information. This view links the user to the Digital Twin state by presenting the most important operational indicators before a decision is taken.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.11.jpg}
+    \caption{Mobile dashboard overview presenting the monitored irrigation zone and system status.}
+    \label{fig:mobile_dashboard_overview}
+\end{figure}
+
+\subsection{Monitoring and Digital Twin state}
+
+The detailed overview continues the dashboard with weather, pump-controller, and field-zone information. It displays temperature, humidity, rain, controller connectivity, pump and lamp state, soil moisture, soil temperature, water balance, dose, and duration. These values are used by the Digital Twin to represent the current state of the irrigation zone and to prepare the recommendation and scheduling workflow.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.12.jpg}
+    \caption{Mobile monitoring screen showing weather, controller status, and field-zone measurements.}
+    \label{fig:mobile_zone_monitoring}
+\end{figure}
+
+The zone recommendation screen presents the decision-support output for the selected zone. It shows that irrigation is needed, gives the suggested irrigation hour, displays the model confidence, and provides the sensor values used by the decision layer. The moisture-history chart helps the user understand the recent evolution of soil moisture before accepting or postponing an irrigation action.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.13.jpg}
+    \caption{Mobile recommendation screen displaying irrigation need, suggested timing, and moisture history.}
+    \label{fig:mobile_irrigation_recommendation}
+\end{figure}
+
+\subsection{Recommendation and decision support}
+
+The validation view combines previously planned irrigation events with the latest simulation result. It explains the virtual irrigation dose, projected soil-moisture response, risk level, current environmental values, and expected moisture without irrigation. This screen supports human-in-the-loop decision making because the user can validate the recommendation or start the pump only after inspecting the simulated consequence.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.14.jpg}
+    \caption{Mobile decision-support screen presenting planned irrigation, simulation output, and validation controls.}
+    \label{fig:mobile_validation_simulation}
+\end{figure}
+
+\subsection{Irrigation control and scheduling}
+
+The irrigation schedule screen lists planned watering actions for the selected zone. It shows the irrigation mode, execution time, duration, water dose, execution status, and delete action. This screen supports schedule management by allowing the operator to inspect irrigation events after recommendations have been generated or validated.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.15.jpg}
+    \caption{Mobile irrigation schedule screen showing planned and executed watering actions.}
+    \label{fig:mobile_irrigation_schedule}
+\end{figure}
+
+The weather-planning screen generates a weather-aware irrigation forecast for a selected zone and location. It summarizes the number of irrigation days, monitoring days, no-irrigation days, and the estimated water deficit. This view connects external weather information with the Digital Twin decision workflow by supporting planning before irrigation schedules are created.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.16.jpg}
+    \caption{Mobile weather-planning screen used to generate an irrigation forecast and water-deficit summary.}
+    \label{fig:mobile_weather_planning}
+\end{figure}
+
+The pump-control screen provides supervised actuator commands for the field controller. It shows the Wemos controller state, pump state, lamp state, connection status, and last command, then exposes manual buttons for switching the pump and lamp. This interface is linked to the Digital Twin workflow as the final control point where a validated decision can be translated into an actuator command during prototype testing.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.33\textwidth]{figures/chapter_09/Figure 9.17.jpg}
+    \caption{Mobile actuator-control screen allowing supervised pump and lamp commands during prototype testing.}
+    \label{fig:mobile_pump_control}
+\end{figure}
+
+Overall, the mobile application extends the Digital Twin workflow beyond the web dashboard by giving the operator portable access to monitoring, decision support, scheduling, and supervised irrigation control. However, the mobile application remains a prototype interface. A production deployment would require stronger authentication, HTTPS configuration, role-based access control, and usability testing with farmers.
+
+
 
 \section{Conclusion}
 
-The interface layer makes the Digital Twin usable by translating backend records, ML outputs, simulations, recommendations, schedules, and actuator status into operational screens. The web dashboard and mobile application support monitoring, forecasting, scenario exploration, validated decisions, schedule management, and manual pump control. This layer is therefore not only a display component; it is the human-in-the-loop point where the user can inspect the Digital Twin state and decide whether an irrigation action should be executed.
+The interface layer makes the Digital Twin usable by translating backend records, ML outputs, MAS decisions, simulations, recommendations, schedules, and actuator status into operational screens. The web dashboard and mobile application support monitoring, forecasting, scenario exploration, explainable decisions, validated decisions, schedule management, and manual pump control. This layer is therefore not only a display component; it is the human-in-the-loop point where the user can inspect the Digital Twin state and decide whether an irrigation action should be executed.

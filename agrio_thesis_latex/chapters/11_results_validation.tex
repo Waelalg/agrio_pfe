@@ -3,17 +3,17 @@
 
 \section{Introduction}
 
-Validation in this thesis focuses on the technical correctness of the implemented prototype workflow. The objective is to verify that information can move from MQTT-originated measurements to PostgreSQL persistence, Digital Twin synchronization, machine-learning prediction, dashboard display, simulation, recommendation, and supervised actuator control.
+Validation in this thesis focuses on the technical correctness of the implemented prototype workflow. The objective is to verify that information can move from MQTT-originated measurements to PostgreSQL persistence, Digital Twin synchronization, machine-learning prediction, MAS decision support, dashboard display, simulation, recommendation, and supervised actuator control.
 
 The validation is not presented as an agronomic field trial. The prototype was tested in a controlled experimental context, so the results demonstrate engineering feasibility and end-to-end integration. Claims about seasonal water savings, crop yield, or long-term irrigation performance require future field experiments.
 
 \section{Validation protocol}
 
-The validation protocol follows scenario-based testing. Each scenario checks one part of the Digital Twin loop: sensor acquisition, database persistence, dashboard synchronization, ML inference, simulation, recommendation, scheduling, and actuator feedback. A scenario is considered captured when a screenshot or inserted figure is available in this chapter. Other scenarios are documented through implementation evidence in the backend, Digital Twin, interface, and deployment chapters.
+The validation protocol follows scenario-based testing. Each scenario checks one part of the Digital Twin loop: sensor acquisition, database persistence, dashboard synchronization, ML inference, simulation, recommendation, MAS explainable decision support, scheduling, and actuator feedback. A scenario is considered captured when a screenshot or inserted figure is available in this chapter. Other scenarios are documented through implementation evidence in the backend, Digital Twin, interface, MAS test suite, and deployment chapters.
 
 \section{Test environment}
 
-The prototype environment includes the Libelium sensing setup, XBee/Raspberry Pi gateway flow, MQTT communication, FastAPI backend, PostgreSQL database, separated Random Forest ML service, Next.js dashboard, Flutter mobile access, WeMos actuator, and controlled pump command workflow. Docker Compose is used to coordinate the documented runtime services during local deployment.
+The prototype environment includes the Libelium sensing setup, XBee/Raspberry Pi gateway flow, MQTT communication, FastAPI backend, PostgreSQL database, separated Random Forest ML service, MAS service, Next.js dashboard, Flutter mobile access, WeMos actuator, and controlled pump command workflow. Docker Compose is used to coordinate the documented runtime services during local deployment.
 
 \section{Scenario 1: MQTT sensor acquisition}
 
@@ -78,6 +78,14 @@ The actuator scenario validates the digital-to-physical part of the loop. Comman
 
 The current thesis evidence supports the command and feedback design through payload, backend, and interface documentation. A longer physical-actuator campaign with repeated ON/OFF cycles, timing measurements, and dedicated status screenshots remains future validation work.
 
+\section{Scenario 8: MAS explainable irrigation decision}
+
+The MAS scenario validates the explainable decision-support service at service level. The endpoint \texttt{/mas/decision} receives a field context and returns a structured response containing decision, explanation, confidence, risk level, suggested hour, recommended duration, evidence, and warnings. This scenario is documented through implementation and automated tests rather than a final frontend screenshot.
+
+The MAS tests verify three representative decision cases. In the first case, dry soil with no expected rain returns \texttt{START\_IRRIGATION} and a positive recommended duration. In the second case, dry soil with high rain probability and rainfall returns \texttt{KEEP\_OFF}, with warnings explaining that rain blocks direct irrigation. In the third case, dry soil with high wind returns \texttt{SCHEDULE\_IRRIGATION}; the safety evidence blocks \texttt{START\_IRRIGATION} while preserving the suggested hour from the ML prediction. These tests confirm that the MAS combines Digital Twin state, ML prediction, weather, water balance, agronomic note, and deterministic safety rules into a safe service-level decision.
+
+This validation does not claim full agronomic field validation. It shows that the MAS service can execute the intended engineering behavior and produce inspectable evidence under controlled test conditions.
+
 \section{End-to-end validation summary}
 
 \begin{footnotesize}
@@ -100,30 +108,31 @@ T4 & ML prediction & Runtime response contains irrigation need, suggested hour, 
 T5 & Digital Twin simulation & Scenario output and moisture projection are generated. & Figures~\ref{fig:8-6-what-if-simulation-logic-comparing-no-irrigation-with-irrigation-a}, \ref{fig:9-6-digital-twin-simulation-workspace-for-running-what-if-irrigation-s}, and \ref{fig:9-7-moisture-projection-chart-comparing-no-irrigation-with-irrigation-} & Documented in Chapters 7 and 8 \\
 T6 & Recommendation workflow & Recommendation can be inspected and validated by the user. & Figures~\ref{fig:9-3-current-field-status-and-ai-recommendation-preview-for-the-monitor} and \ref{fig:9-9-validated-decisions-interface-for-tracking-approved-irrigation-rec} & Demonstrated through interface evidence \\
 T7 & Pump command and feedback & Command is sent to the actuator topic and status feedback is received. & Figures~\ref{fig:mqtt_payload_actuator_command} and \ref{fig:mqtt_payload_wemos_status} & Documented through Chapter~\ref{chap:backend_database_iot} payload and control workflow \\
-T8 & Scheduled irrigation & Scheduled event can be represented and executed through the scheduler workflow. & Figure~\ref{fig:9-8-irrigation-schedules-page-for-planning-and-managing-pump-execution} & Demonstrated through schedule interface and backend workflow \\
-T9 & Forecast support & Forecast workspace generates weather-aware planning information. & Figure~\ref{fig:9-5-forecast-workspace-used-to-generate-weather-aware-irrigation-plann} & Demonstrated through forecast workspace \\
+T8 & MAS explainable decision & Service returns safe decision, explanation, evidence, risk, confidence, and warnings. & \texttt{test\_mas.py} service-level tests and Chapter~7 MAS section & Implemented and tested at service level \\
+T9 & Scheduled irrigation & Scheduled event can be represented and executed through the scheduler workflow. & Figure~\ref{fig:9-8-irrigation-schedules-page-for-planning-and-managing-pump-execution} & Demonstrated through schedule interface and backend workflow \\
+T10 & Forecast support & Forecast workspace generates weather-aware planning information. & Figure~\ref{fig:9-5-forecast-workspace-used-to-generate-weather-aware-irrigation-plann} & Demonstrated through forecast workspace \\
 \bottomrule
 \end{longtable}
 \end{footnotesize}
 
 \section{Discussion of results}
 
-The results demonstrate that the prototype implements the main technical loop required by a Digital Twin-based smart irrigation platform. Measurements can be acquired through MQTT, persisted in PostgreSQL, reflected in dashboard views, processed by the intelligent layer, and connected to decision and control workflows.
+The results demonstrate that the prototype implements the main technical loop required by a Digital Twin-based smart irrigation platform. Measurements can be acquired through MQTT, persisted in PostgreSQL, reflected in dashboard views, processed by the intelligent layer, evaluated through MAS decision support, and connected to decision and control workflows.
 
-The strongest captured evidence is the path from MQTT to database and dashboard. The ML, simulation, recommendation, scheduling, and actuator-control workflows are implemented and documented through the backend, Digital Twin, interface, and deployment chapters. Future validation should extend the physical-actuator evidence with repeated ON/OFF cycles, timing measurements, and longer controlled-environment runs.
+The strongest captured evidence is the path from MQTT to database and dashboard. The ML, MAS, simulation, recommendation, scheduling, and actuator-control workflows are implemented and documented through the backend, Digital Twin, interface, deployment, and service-level test evidence. Future validation should extend the physical-actuator evidence with repeated ON/OFF cycles, timing measurements, farmer interaction with MAS explanations, and longer controlled-environment runs.
 
 \section{Comparison with literature}
 
-Compared with low-cost MQTT irrigation prototypes, Agrio adds structured persistence, Digital Twin state, ML inference, simulation, and user validation. Compared with ML-only irrigation systems, Agrio connects prediction outputs to dashboard workflows, recommendations, scheduling, and actuator commands. Compared with field-validated Digital Twin irrigation studies, Agrio remains less mature agronomically because it has not yet been validated across seasons, plots, or crop cycles.
+Compared with low-cost MQTT irrigation prototypes, Agrio adds structured persistence, Digital Twin state, ML inference, MAS explainable evidence fusion, simulation, and user validation. Compared with ML-only irrigation systems, Agrio connects prediction outputs to dashboard workflows, recommendations, scheduling, and actuator commands. Compared with field-validated Digital Twin irrigation studies, Agrio remains less mature agronomically because it has not yet been validated across seasons, plots, or crop cycles.
 
 \section{Limitations}
 
-The main limitations are the controlled prototype scale, limited long-term data, absence of seasonal field validation, dataset adaptation constraints, need for sensor calibration, and limited production hardening. The prototype also lacks satellite or UAV data assimilation and does not yet include advanced optimization methods such as reinforcement learning.
+The main limitations are the controlled prototype scale, limited long-term data, absence of seasonal field validation, dataset adaptation constraints, need for sensor calibration, and limited production hardening. The MAS improves explainability and safety-aware service behavior, but its agronomic recommendations still require validation with farmers and real field conditions. The prototype also lacks satellite or UAV data assimilation and does not yet include advanced optimization methods such as reinforcement learning.
 
 \section{Future work}
 
-Future work should include field deployment on multiple zones, crop-specific calibration, longer data collection, model retraining from real farm data, weather and evapotranspiration refinement, satellite or UAV integration, stronger cybersecurity, emergency stop mechanisms, reinforcement learning optimization, and farmer usability studies.
+Future work should include field deployment on multiple zones, crop-specific calibration, longer data collection, model retraining from real farm data, weather and evapotranspiration refinement, MAS interface screenshots and farmer explanation testing, satellite or UAV integration, stronger cybersecurity, emergency stop mechanisms, reinforcement learning optimization, and farmer usability studies.
 
 \section{Conclusion}
 
-This chapter validated the implemented prototype as an end-to-end technical proof of concept. The available evidence confirms MQTT acquisition, database persistence, and dashboard synchronization, while the implementation chapters document the connected ML, simulation, recommendation, scheduling, and actuator-control workflows. The system is therefore a functional engineering prototype for Digital Twin-based smart irrigation, but field-scale agronomic validation remains future work.
+This chapter validated the implemented prototype as an end-to-end technical proof of concept. The available evidence confirms MQTT acquisition, database persistence, and dashboard synchronization, while the implementation chapters document the connected ML, MAS, simulation, recommendation, scheduling, and actuator-control workflows. The system is therefore a functional engineering prototype for Digital Twin-based smart irrigation, but field-scale agronomic validation remains future work.

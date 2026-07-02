@@ -20,6 +20,7 @@ Sensors & Registers sensors, maps devices to sensor types, and exposes sensor re
 Weather & Stores and retrieves weather records and forecast data. \\
 Digital Twins & Returns twin state, synchronization status, and current virtual representation. \\
 Predictions & Stores and exposes ML prediction results. \\
+MAS decision & Exposes \texttt{/mas/decision} for explainable irrigation decision support with evidence, warnings, and farmer-friendly explanation. \\
 Simulations & Runs what-if scenarios and returns simulated moisture projections. \\
 Recommendations & Generates, lists, validates, or updates irrigation recommendations. \\
 Schedules/Irrigation events & Creates and manages planned irrigation events. \\
@@ -52,6 +53,7 @@ Realtime pipeline & Coordinates sensor health, state update, ML prediction, hist
 Digital Twin service & Builds and retrieves current virtual zone states. \\
 Simulator & Computes what-if moisture projections. \\
 ML service client & Sends feature payloads to the Random Forest inference service. \\
+MAS service & Runs the multi-agent decision workflow and returns final decision, confidence, risk level, evidence, explanation, and warnings. \\
 Recommendation engine & Transforms prediction/twin state into recommendations. \\
 Forecast service & Calls weather forecast APIs and generates irrigation outlooks. \\
 Device control service & Publishes MQTT commands to WeMos. \\
@@ -71,6 +73,8 @@ Irrigation scheduler & Executes scheduled irrigation events at the planned time.
 \item GET /api/v1/zones/\{id\}/twin-state or equivalent showing virtual zone state.
 
 \item POST simulation endpoint response showing projected moisture and recommendation.
+
+\item POST /mas/decision response showing decision, explanation, confidence, risk level, evidence, and warnings.
 
 \item POST device command endpoint response after ON\_D5/OFF\_D5 command.
 

@@ -1,53 +1,69 @@
 \pagenumbering{roman}
 
 \begin{titlepage}
-\centering
+\singlespacing
 \thispagestyle{empty}
-\vspace*{0.15cm}
-{\normalsize People's Democratic Republic of Algeria\par}
-{\normalsize Ministry of Higher Education and Scientific Research\par}
-\vspace{0.15cm}
-{\normalsize Higher School of Computer Science 8 Mai 1945 Sidi Bel Abbes\par}
-\vspace{0.35cm}
-\includegraphics[width=0.16\textwidth]{figures/logo-esi-sba.png}
-\vspace{0.35cm}
+\centering
+\vspace*{0.05cm}
 
-{\Large \textbf{THESIS}\par}
-\vspace{0.15cm}
-{\normalsize To obtain the diploma of Engineering\par}
-\vspace{0.2cm}
-{\normalsize Field: Computer Science\par}
-{\normalsize Specialties: Computer Systems Engineering (CIS) and Artificial Intelligence and Data Science (AIDS)\par}
-\vspace{0.35cm}
+{\large \textbf{People's Democratic Republic of Algeria}\par}
+\vspace{0.12cm}
+{\large \textbf{Ministry of Higher Education and Scientific Research}\par}
+\vspace{0.22cm}
+{\Large \textbf{Higher School of Computer Science}\par}
+{\Large \textbf{8 May 1945 - Sidi Bel Abbes}\par}
 
-{\normalsize \textbf{Theme}\par}
-\vspace{0.1cm}
-\rule{0.88\textwidth}{0.6pt}\par
-\vspace{0.18cm}
-{\Large \textbf{Design and Deployment of a Digital Twin for the Optimization of an Intelligent Irrigation System in Precision Agriculture}\par}
-\vspace{0.18cm}
-\rule{0.88\textwidth}{0.6pt}\par
 \vspace{0.35cm}
+\includegraphics[width=0.18\textwidth]{figures/logo-esi-sba.png}
 
-\begin{minipage}{0.9\textwidth}
-\small
-\textbf{Presented by:}\par
-\hspace{0.6cm}LEBAILI Mohamed Ouail\par
-\hspace{0.6cm}SENHADJI Mohamed Said\par
+\vspace{0.45cm}
+{\huge \textbf{FINAL YEAR THESIS}\par}
+\vspace{0.25cm}
+{\large For the award of the State Engineer Diploma\par}
 \vspace{0.18cm}
-\textbf{Submission date:} To be completed\par
+{\large Field: \textbf{Computer Science}\par}
 \vspace{0.18cm}
-\textbf{In front of jury composed by:}\par
-\begin{tabular}{@{}ll@{}}
-President: & To be completed \\
-Examiner: & To be completed \\
-Supervisor: & MALKI Mimoum \\
-Supervisor: & MALKI Abdelhamid \\
+{\large Specialties: \textbf{Ingénierie des Systèmes Informatiques \& Intelligence Artificielle et Science de Données}\par}
+
+\vspace{0.45cm}
+{\huge Theme\par}
+\vspace{0.22cm}
+\rule{0.88\textwidth}{0.4pt}
+\vspace{0.18cm}
+
+\begin{minipage}{0.88\textwidth}
+\centering
+{\large \textbf{Design and Deployment of a Digital Twin for the Optimization of an Intelligent Irrigation System in Precision Agriculture}\par}
+\end{minipage}
+
+\vspace{0.18cm}
+\rule{0.88\textwidth}{0.4pt}
+
+\vspace{0.25cm}
+{\large Presented by:\par}
+\vspace{0.12cm}
+\begin{tabular}{l}
+\textbullet\quad Mr. Lebaili Mohamed Ouail\\
+\textbullet\quad Mr. Senhadji Mohamed Said
+\end{tabular}
+
+\vspace{0.3cm}
+\begin{minipage}{0.92\textwidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.6\textwidth}>{\raggedright\arraybackslash}p{0.6\textwidth}@{}}
+\textbf{Defended on: 07/07/2026} & \\
+\textbf{Before the jury composed of:} & \\
+- Dr. BENCHERIF Khayra & Présidente\\
+- Dr. BEZZAOUCHA Fatima Souad & Examinatrice\\
+- Pr. MALKI Mimoun & Encadreur\\
+- Dr. MALKI Abdelhamid & Co-Encadreur \\
+- Dr. MALKI Abdelhamid & Représentant de l’incubateur
 \end{tabular}
 \end{minipage}
-\vfill
-{\normalsize \textbf{Academic Year: 2025/2026}\par}
+
+    \vfill
+{\large \textit{Academic Year: 2025 / 2026}\par}
 \end{titlepage}
+\onehalfspacing
 \iffalse
 
 \begin{titlepage}
@@ -105,20 +121,20 @@ This thesis also benefited from recent research on Digital Twins, smart irrigati
 
 Agriculture is increasingly affected by water scarcity, climate variability, soil degradation, and the growing demand for food production. Irrigation management is one of the most critical factors in this context, because traditional irrigation practices are often based on fixed schedules, manual observation, or empirical experience. Such approaches can lead to water waste, plant stress, and reduced productivity. In response, this thesis presents the design and deployment of Agrio, a Digital Twin-based intelligent irrigation platform for precision agriculture.
 
-The proposed system integrates a physical smart farming prototype, Libelium Smart Agriculture sensing equipment, XBee radio-frequency communication, a Raspberry Pi gateway, HiveMQ/MQTT messaging, a FastAPI backend, a PostgreSQL database, a Random Forest-based machine learning service, a Digital Twin state and simulation layer, a Next.js web dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. The platform receives real sensor data from a controlled prototype environment, normalizes and stores the measurements, updates the virtual state of the irrigation zone, predicts irrigation need, simulates future moisture evolution, generates recommendations, supports human validation, schedules irrigation actions, and controls the physical pump through MQTT commands.
+The proposed system integrates a physical smart farming prototype, Libelium Smart Agriculture sensing equipment, XBee radio-frequency communication, a Raspberry Pi gateway, HiveMQ/MQTT messaging, a FastAPI backend, a PostgreSQL database, a Random Forest-based machine learning service, a Digital Twin state and simulation layer, an explainable Multi-Agent System (MAS) decision-support service, a Next.js web dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. The platform receives real sensor data from a controlled prototype environment, normalizes and stores the measurements, updates the virtual state of the irrigation zone, predicts irrigation need, simulates future moisture evolution, combines Digital Twin, ML, weather, agronomic-note, water-balance, and safety evidence, generates recommendations, supports human validation, schedules irrigation actions, and controls the physical pump through MQTT commands.
 
-The scientific contribution of this work is the study of Digital Twins in agriculture, with a focus on their maturity levels, enabling technologies, irrigation applications, and limitations. The engineering contribution is the implementation of an end-to-end cyber-physical prototype that connects sensing, communication, backend processing, artificial intelligence, simulation, user interfaces, deployment, and actuation. The results show that the system goes beyond a classical IoT monitoring dashboard by providing synchronization, prediction, what-if simulation, recommendation, scheduling, and physical control. The current implementation remains a prototype tested in a controlled environment, and future work should extend it to long-term field validation, stronger agronomic calibration, cybersecurity, and advanced optimization techniques.
+The scientific contribution of this work is the study of Digital Twins in agriculture, with a focus on their maturity levels, enabling technologies, irrigation applications, and limitations. The engineering contribution is the implementation of an end-to-end cyber-physical prototype that connects sensing, communication, backend processing, artificial intelligence, simulation, an explainable MAS decision layer, user interfaces, deployment, and actuation. The MAS is not a computer-vision system; plant observations are provided as farmer text notes and combined with structured sensor, weather, ML, water-balance, and safety evidence. The results show that the system goes beyond a classical IoT monitoring dashboard by providing synchronization, prediction, what-if simulation, explainable recommendation, scheduling, and physical control. The current implementation remains a prototype tested in a controlled environment, and future work should extend it to long-term field validation, stronger agronomic calibration, cybersecurity, and advanced optimization techniques.
 
-Keywords: Digital Twin, precision agriculture, smart irrigation, IoT, MQTT, XBee, Raspberry Pi, FastAPI, PostgreSQL, machine learning, Random Forest, water management, WeMos, smart farming.
+Keywords: Digital Twin, precision agriculture, smart irrigation, Multi-Agent System, explainable decision support, IoT, MQTT, XBee, Raspberry Pi, FastAPI, PostgreSQL, machine learning, Random Forest, water management, WeMos, smart farming.
 
 \chapter*{Résumé}
 \addcontentsline{toc}{chapter}{Résumé}
 
 L’agriculture moderne fait face à des défis importants liés à la rareté de l’eau, aux variations climatiques et à la nécessité d’optimiser la production agricole. Dans ce contexte, l’irrigation intelligente constitue une application centrale de l’agriculture de précision. Ce mémoire présente la conception et le déploiement d’Agrio, une plateforme d’irrigation intelligente basée sur le concept de jumeau numérique. Le système proposé combine un prototype physique, un kit Libelium Smart Agriculture, une communication radiofréquence XBee, une passerelle Raspberry Pi, la messagerie MQTT/HiveMQ, un backend FastAPI, une base de données PostgreSQL, un service d’apprentissage automatique basé sur Random Forest, une couche de simulation du jumeau numérique, un tableau de bord web, une application mobile Flutter, un actionneur WeMos et une pompe d’eau.
 
-La contribution scientifique porte sur l’étude de l’état de l’art des jumeaux numériques en agriculture et leur positionnement par rapport aux systèmes d’irrigation intelligents existants. La contribution d’ingénierie réside dans la mise en œuvre d’une chaîne complète reliant les capteurs, la communication IoT, le traitement backend, la prédiction, la simulation, la recommandation, la validation humaine et le contrôle physique de l’irrigation. Les résultats montrent que le système dépasse la simple visualisation IoT en intégrant la synchronisation, la prédiction, la simulation et l’action.
+La contribution scientifique porte sur l’étude de l’état de l’art des jumeaux numériques en agriculture et leur positionnement par rapport aux systèmes d’irrigation intelligents existants. La contribution d’ingénierie réside dans la mise en œuvre d’une chaîne complète reliant les capteurs, la communication IoT, le traitement backend, la prédiction, la simulation, un système multi-agent explicable, la recommandation, la validation humaine et le contrôle physique de l’irrigation. Le MAS ne repose pas sur une caméra; les observations sur les plantes sont saisies sous forme de notes textuelles du fermier. Les résultats montrent que le système dépasse la simple visualisation IoT en intégrant la synchronisation, la prédiction, la simulation, l’explication de la décision et l’action supervisée.
 
-Mots-clés : jumeau numérique, agriculture de précision, irrigation intelligente, IoT, MQTT, apprentissage automatique, FastAPI, PostgreSQL.
+Mots-clés : jumeau numérique, agriculture de précision, irrigation intelligente, système multi-agent, aide à la décision explicable, IoT, MQTT, apprentissage automatique, FastAPI, PostgreSQL.
 
 \chapter*{\texorpdfstring{\textarabic{ملخص}}{Arabic summary}}
 \addcontentsline{toc}{chapter}{\texorpdfstring{\textarabic{ملخص}}{Arabic summary}}
@@ -129,6 +145,10 @@ Mots-clés : jumeau numérique, agriculture de précision, irrigation intelligen
 
 \begin{Arabic}
 تتمثل المساهمة العلمية في دراسة حالة الفن للتوائم الرقمية في الزراعة ومقارنة الأعمال الحالية، بينما تتمثل المساهمة الهندسية في بناء سلسلة كاملة من جمع البيانات إلى التنبؤ والمحاكاة والتوصية والتحكم الفعلي في المضخة. يبين العمل أن النظام لا يقتصر على مراقبة البيانات، بل يوفر تمثيلاً رقمياً متزامناً ودعماً ذكياً لاتخاذ القرار.
+\end{Arabic}
+
+\begin{Arabic}
+كما يضيف النظام طبقة نظام متعدد الوكلاء \textenglish{MAS} لدعم القرار بشكل قابل للتفسير. تجمع هذه الطبقة بين حالة التوأم الرقمي، تنبؤات التعلم الآلي، الطقس، ملاحظات الفلاح النصية، توازن الماء، وقواعد السلامة قبل اقتراح القرار. لا يستعمل هذا الجزء كاميرا أو رؤية حاسوبية، بل يعتمد على ملاحظات نصية مثل جفاف التربة أو تدلي الأوراق.
 \end{Arabic}
 
 \chapter*{List of Abbreviations}
@@ -162,6 +182,7 @@ FMIS & Farm Management Information System \\
 IoT & Internet of Things \\
 JSON & JavaScript Object Notation \\
 ML & Machine Learning \\
+MAS & Multi-Agent System \\
 MQTT & Message Queuing Telemetry Transport \\
 REST & Representational State Transfer \\
 RF & Radio Frequency \\

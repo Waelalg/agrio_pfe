@@ -3,11 +3,11 @@
 
 \section{Introduction}
 
-This chapter presents the global architecture of the Agrio Digital Twin smart irrigation platform. The architecture is designed as a cyber-physical loop: sense, transmit, store, synchronize, predict, simulate, recommend, validate, actuate, and record feedback. The chapter is organized into a small number of layers so that the physical prototype, communication, backend intelligence, deployment, and discussion remain readable.
+This chapter presents the global architecture of the Agrio Digital Twin smart irrigation platform. The architecture is designed as a cyber-physical loop: sense, transmit, store, synchronize, predict, simulate, request explainable MAS decision support, recommend, validate, actuate, and record feedback. The chapter is organized into a small number of layers so that the physical prototype, communication, backend intelligence, deployment, and discussion remain readable.
 
 \section{Architectural overview}
 
-The architecture connects Libelium Smart Agriculture sensors, XBee radio-frequency communication, Raspberry Pi gateway processing, MQTT messaging, FastAPI backend services, PostgreSQL storage, a separated Random Forest ML service, Digital Twin state and simulation services, recommendation and scheduler services, a Next.js dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. Figure~\ref{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite} gives the global view of this cyber-physical loop.
+The architecture connects Libelium Smart Agriculture sensors, XBee radio-frequency communication, Raspberry Pi gateway processing, MQTT messaging, FastAPI backend services, PostgreSQL storage, a separated Random Forest ML service, Digital Twin state and simulation services, an explainable MAS decision-support service, recommendation and scheduler services, a Next.js dashboard, a Flutter mobile application, a WeMos actuator, and a water pump. Figure~\ref{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite} gives the global view of this cyber-physical loop.
 
 \begin{figure}[H]
     \centering
@@ -16,7 +16,9 @@ The architecture connects Libelium Smart Agriculture sensors, XBee radio-frequen
     \label{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite}
 \end{figure}
 
-The global view should be read as a functional map rather than as a deployment diagram. Physical sensing creates field observations. The gateway prepares these observations for communication. The backend stores and processes the data. The Digital Twin maintains a synchronized virtual state. The ML and simulation layers support decision-making. The user validates or schedules actions. The actuator executes pump commands and sends feedback so the digital layer can reflect the physical result.
+\noindent\textbf{Update note:} the global architecture figure should later be updated to show the MAS service as a separate explainable decision-support service.
+
+The global view should be read as a functional map rather than as a deployment diagram. Physical sensing creates field observations. The gateway prepares these observations for communication. The backend stores and processes the data. The Digital Twin maintains a synchronized virtual state. The ML, simulation, and MAS layers support decision-making. The user validates or schedules actions. The actuator executes pump commands and sends feedback so the digital layer can reflect the physical result.
 
 \section{Physical prototype and field layer}
 
@@ -76,11 +78,37 @@ The backend, data, Digital Twin, and intelligence layers form the software core 
     \label{fig:backend_architecture}
 \end{figure}
 
+\noindent\textbf{Update note:} the backend architecture figure should later be updated to show the \texttt{mas-service} API and the path from context preparation to MAS decision output.
+
 The data layer is based on PostgreSQL. It stores agricultural entities, sensor readings, weather records, forecasts, device health logs, Digital Twin states, state history, prediction results, simulation scenarios and outputs, recommendations, irrigation events, control commands, and execution feedback. This persistence model supports traceability from measurement to decision and from decision to physical feedback.
 
 The Digital Twin layer maintains the virtual representation of the monitored irrigation zone. It updates the current state from recent sensor readings, weather records, previous state values, actuator feedback, and prediction outputs. State history is preserved so the system can analyze evolution rather than only the latest measurement.
 
-The ML service is separated from the backend. It loads Random Forest models and returns irrigation need, suggested hour, confidence values, and a recommended action. The backend stores the result and can use fallback logic when inference is unavailable. The simulation and recommendation services then combine the Digital Twin state, ML output, forecast context, and rules to support an interpretable decision. Human validation remains part of the workflow before supervised physical execution.
+The ML service is separated from the backend. It loads Random Forest models and returns irrigation need, suggested hour, confidence values, and a recommended action. The backend stores the result and can use fallback logic when inference is unavailable. The MAS service is also separated. It receives field context and returns a safe irrigation decision by combining Digital Twin state, ML prediction, weather context, agronomic text notes, deterministic water-balance estimation, and deterministic safety rules. The simulation, MAS, and recommendation services then support an interpretable decision. Human validation remains part of the workflow before supervised physical execution.
+
+\subsection{MAS decision-support service}
+
+The MAS service is an explainable irrigation decision-support layer. It does not operate as a computer-vision service and does not require camera hardware. The optional \texttt{image\_path} field exists only for backward compatibility; plant observations are entered as farmer text notes such as ``soil looks dry'' or ``leaves are droopy''.
+
+The service follows a modular agent sequence. The Context Builder normalizes the request. The Digital Twin Agent collects field state and data quality. The ML Prediction Agent calls the ML service and degrades safely if inference is unavailable. The Weather Forecast Agent summarizes rainfall, wind, and temperature impact. The Agronomy Agent interprets crop type, farmer note, and moisture evidence. The Water Balance Agent estimates future moisture using deterministic losses and irrigation gain. The Safety Rule Agent blocks unsafe direct irrigation when rain, high moisture, wind, missing critical data, or pump faults are detected. The Coordinator Agent fuses evidence using the priority Safety, Water Balance, ML Prediction, Weather, then Agronomy. The Explanation Agent returns a farmer-friendly explanation.
+
+\begin{figure}[H]
+    \centering
+    \fbox{%
+    \begin{minipage}{0.88\textwidth}
+        \centering
+        \vspace{0.4cm}
+        \textbf{MAS architecture placeholder}\\[0.25cm]
+        Context Builder $\rightarrow$ Digital Twin Agent $\rightarrow$ ML Prediction Agent $\rightarrow$ Weather Forecast Agent\\[0.1cm]
+        $\rightarrow$ Agronomy Agent $\rightarrow$ Water Balance Agent $\rightarrow$ Safety Rule Agent\\[0.1cm]
+        $\rightarrow$ Coordinator Agent $\rightarrow$ Explanation Agent\\[0.25cm]
+        Inputs: field context, target moisture, duration, and farmer note.\\
+        Outputs: decision, explanation, confidence, risk level, duration, evidence, and warnings.
+        \vspace{0.4cm}
+    \end{minipage}}
+    \caption{Compile-safe placeholder for the MAS decision-support architecture.}
+    \label{fig:mas_architecture_placeholder}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -89,11 +117,13 @@ The ML service is separated from the backend. It loads Random Forest models and 
     \label{fig:digital_twin_processing_workflow}
 \end{figure}
 
-Figure~\ref{fig:digital_twin_processing_workflow} explains the runtime logic of the intelligent layer. Live data are ingested and stored. The current zone state is updated. The backend prepares a feature payload for the ML service. Prediction results are stored. Simulation compares possible actions. The recommendation layer creates a decision that can be validated, scheduled, or kept for monitoring. When the user validates an action or a schedule becomes due, the backend uses the device-control workflow to publish the actuator command and record feedback.
+\noindent\textbf{Update note:} the Digital Twin processing workflow should later be updated to include the MAS decision flow between context generation and final recommendation.
+
+Figure~\ref{fig:digital_twin_processing_workflow} explains the runtime logic of the intelligent layer. Live data are ingested and stored. The current zone state is updated. The backend prepares a feature payload for the ML service. Prediction results are stored. Simulation compares possible actions. The MAS service can receive the same decision context and return a safe, explainable decision with evidence and warnings. The recommendation layer creates a decision that can be validated, scheduled, or kept for monitoring. When the user validates an action or a schedule becomes due, the backend uses the device-control workflow to publish the actuator command and record feedback.
 
 \section{Deployment architecture}
 
-The deployment architecture is defined with Docker Compose in order to run the prototype as a reproducible multi-service platform. The objective is not to claim production-grade cloud deployment, but to coordinate the services required for demonstration and technical validation: backend API, PostgreSQL database, ML service, frontend, scheduler, MQTT broker, and optional ngrok access for prototype/mobile testing.
+The deployment architecture is defined with Docker Compose in order to run the prototype as a reproducible multi-service platform. The objective is not to claim production-grade cloud deployment, but to coordinate the services required for demonstration and technical validation: backend API, PostgreSQL database, ML service, MAS service, frontend, scheduler, MQTT broker, and optional ngrok access for prototype/mobile testing.
 
 \begin{figure}[H]
     \centering
@@ -101,6 +131,8 @@ The deployment architecture is defined with Docker Compose in order to run the p
     \caption{Docker Compose deployment architecture of the Agrio platform.}
     \label{fig:docker_compose_deployment_architecture}
 \end{figure}
+
+\noindent\textbf{Update note:} the deployment architecture should later be updated to include \texttt{mas-service} exposed on port \texttt{8002}.
 
 \begin{table}[H]
 \centering
@@ -114,6 +146,7 @@ The deployment architecture is defined with Docker Compose in order to run the p
 \texttt{frontend} & \texttt{3000} & \texttt{3000} & Next.js web dashboard. \\
 \texttt{backend} & \texttt{8000} & \texttt{8000} & FastAPI backend API. \\
 \texttt{ml-service} & \texttt{8001} & \texttt{8001} & Random Forest inference service. \\
+\texttt{mas-service} & \texttt{8002} & \texttt{8002} & Explainable multi-agent irrigation decision service. \\
 \texttt{postgres} & \texttt{5432} & \texttt{5432} & PostgreSQL database. \\
 \texttt{mosquitto} & \texttt{1883} & \texttt{1883} & MQTT broker. \\
 \texttt{ngrok} & \texttt{4040} & \texttt{4040} & Local inspection interface used during prototype testing. \\
@@ -126,10 +159,10 @@ Runtime configuration is externalized through environment variables and configur
 
 \section{Discussion}
 
-The architecture is modular and extensible. The physical layer is separated from the MQTT layer, the backend is separated from the ML service, and persistence is centralized in PostgreSQL. This organization supports the Digital Twin loop without presenting unsupported services as implemented. The main limitations are controlled-environment validation, limited security hardening, and the absence of multi-season field data.
+The architecture is modular and extensible. The physical layer is separated from the MQTT layer, the backend is separated from the ML and MAS services, and persistence is centralized in PostgreSQL. This organization supports the Digital Twin loop while keeping prediction, explainable decision support, and physical actuation separated. The main limitations are controlled-environment validation, limited security hardening, and the absence of multi-season field data.
 
-The figures in this chapter are intentionally focused. Figure~\ref{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite} shows the global loop. Figure~\ref{fig:6-2-physical-and-communication-architecture-of-the-controlled-smart-ir} focuses on the physical and field layer. Figure~\ref{fig:mqtt_communication_architecture} explains messaging. Figure~\ref{fig:backend_architecture} shows backend responsibilities. Figure~\ref{fig:digital_twin_processing_workflow} explains the intelligent processing pipeline. Figure~\ref{fig:docker_compose_deployment_architecture} shows service deployment. The appendix does not repeat these views, which keeps the final document shorter and avoids duplicate diagrams.
+The figures in this chapter are intentionally focused. Figure~\ref{fig:6-1-global-overview-of-the-agrio-digital-twin-smart-irrigation-archite} shows the global loop. Figure~\ref{fig:6-2-physical-and-communication-architecture-of-the-controlled-smart-ir} focuses on the physical and field layer. Figure~\ref{fig:mqtt_communication_architecture} explains messaging. Figure~\ref{fig:backend_architecture} shows backend responsibilities. Figure~\ref{fig:mas_architecture_placeholder} records the current MAS architecture placeholder. Figure~\ref{fig:digital_twin_processing_workflow} explains the intelligent processing pipeline. Figure~\ref{fig:docker_compose_deployment_architecture} shows service deployment. The appendix does not repeat these views, which keeps the final document shorter and avoids duplicate diagrams.
 
 \section{Conclusion}
 
-This chapter presented the proposed Digital Twin architecture through compact layers: architectural overview, physical prototype and field layer, MQTT communication layer, backend/data/Digital Twin/intelligence layers, and deployment architecture. The architecture forms a traceable cyber-physical irrigation loop rather than an isolated dashboard or standalone prediction model. The following chapter details how this architecture is implemented in the backend, database, and IoT ingestion pipeline.
+This chapter presented the proposed Digital Twin architecture through compact layers: architectural overview, physical prototype and field layer, MQTT communication layer, backend/data/Digital Twin/intelligence layers, MAS decision support, and deployment architecture. The architecture forms a traceable cyber-physical irrigation loop rather than an isolated dashboard or standalone prediction model. The following chapter details how this architecture is implemented in the backend, database, and IoT ingestion pipeline.

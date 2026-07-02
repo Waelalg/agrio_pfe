@@ -1,74 +1,84 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Machine-learning-enhanced Digital Twin framework for irrigation management. Reproduced unchanged from Tancredi et al.~\cite {tancredi2025irrigationdt}.}}{8}{figure.caption.16}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Seasonal-plan parameters used for automated vineyard irrigation scheduling. Reproduced from Bellvert et al.~\cite {bellvert2023vineyarddt}.}}{9}{figure.caption.17}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Seasonal-plan parameters used for automated vineyard irrigation scheduling. Reproduced from Bellvert et al.~\cite {bellvert2023vineyarddt}.}}{8}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT-based smart irrigation architecture proposed by Kodali and Sarjerao. Reproduced from Kodali and Sarjerao~\cite {kodali2017mqttirrigation}.}}{12}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Libelium-based precision-agriculture monitoring architecture proposed by Balaceanu et al. Reproduced from Balaceanu et al.~\cite {balaceanu2019libelium}.}}{13}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin workflow for water-efficient irrigation management in a processing tomato farm. Reproduced from Millan et al.~\cite {millan2025tomatodt}.}}{14}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Deep reinforcement-learning agent interactions with the R3 Digital Twin. Reproduced from El Hachimi et al.~\cite {elhachimi2025collectiveirrigationdt}.}}{15}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Interoperable agricultural Digital Twin concept connecting calibrated models, reinforcement-learning agents, physical twins, and a context broker. Reproduced from Kallenberg et al.~\cite {kallenberg2025interoperabledt}.}}{16}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Coupled cotton morphogenesis and biomass models under water constraints. Reproduced unchanged from Liu et al.~\cite {liu2025cottondt}.}}{17}{figure.caption.23}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Use-case diagram of the proposed Digital Twin smart irrigation system.}}{32}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Activity diagram of sensor ingestion, Digital Twin update, AI decision-making, and pump control.}}{34}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Sequence diagram of sensor ingestion, Digital Twin update, ML prediction, dashboard polling, and WeMos actuator command.}}{35}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Agricultural domain class diagram representing farms, plots, zones, soil profiles, crops, and irrigation networks.}}{36}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Sensor, weather, and forecasting data model used by the smart irrigation platform.}}{37}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin, prediction, and simulation data model.}}{38}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Decision, recommendation, scheduling, command, and feedback data model.}}{39}{figure.caption.30}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Global overview of the Agrio Digital Twin smart irrigation architecture.}}{41}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Physical and communication architecture of the controlled smart irrigation prototype.}}{42}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT communication architecture for sensor ingestion, actuator commands, and WeMos status feedback.}}{43}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Internal backend architecture of the FastAPI-based Digital Twin platform.}}{44}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin processing workflow from live measurements to prediction, simulation, and supervised irrigation action.}}{45}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Docker Compose deployment architecture of the Agrio platform.}}{46}{figure.caption.37}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT and REST payloads used in the Agrio platform: sensor ingestion payload.}}{50}{figure.caption.39}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT and REST payloads used in the Agrio platform: WeMos status feedback payload.}}{51}{figure.caption.40}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT and REST payloads used in the Agrio platform: actuator command payload and command values.}}{52}{figure.caption.41}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the agricultural structure tables.}}{55}{figure.caption.43}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the sensor, weather, and forecasting tables.}}{55}{figure.caption.44}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the Digital Twin, prediction, and simulation tables.}}{56}{figure.caption.45}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the recommendation, scheduling, command, and feedback tables.}}{56}{figure.caption.46}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces \xpg@aux {}{english}\ignorespaces Live MQTT payloads received through HiveMQ for sensor data and WeMos status.}}{57}{figure.caption.47}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Dataset adaptation and feature engineering workflow used before Random Forest training.}}{60}{figure.caption.48}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Random Forest training and runtime inference pipeline used by the ML service.}}{62}{figure.caption.50}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces ML service health endpoint showing model loading status.}}{63}{figure.caption.51}%
-\contentsline {figure}{\numberline {7.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces ML prediction response for irrigation need and suggested irrigation hour.}}{64}{figure.caption.52}%
-\contentsline {figure}{\numberline {7.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin state update flow from sensor readings to synchronized zone state.}}{65}{figure.caption.53}%
-\contentsline {figure}{\numberline {7.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths.}}{65}{figure.caption.54}%
-\contentsline {figure}{\numberline {7.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Feature importance of the Random Forest need\_irrigation model.}}{66}{figure.caption.55}%
-\contentsline {figure}{\numberline {7.8}{\ignorespaces \xpg@aux {}{english}\ignorespaces Feature importance of the Random Forest suggested\_hour model.}}{67}{figure.caption.56}%
-\contentsline {figure}{\numberline {7.9}{\ignorespaces \xpg@aux {}{english}\ignorespaces Confusion matrix of the need\_irrigation Random Forest model.}}{67}{figure.caption.57}%
-\contentsline {figure}{\numberline {7.10}{\ignorespaces \xpg@aux {}{english}\ignorespaces Confusion matrix of the suggested\_hour Random Forest model.}}{68}{figure.caption.58}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Agrio operations dashboard showing MQTT connection, active zone coverage, moisture snapshot, sensor health, and Digital Twin status.}}{70}{figure.caption.59}%
-\contentsline {figure}{\numberline {8.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Zone selection panel for inspecting the Digital Twin state, recommendations, commands, and historical data.}}{70}{figure.caption.60}%
-\contentsline {figure}{\numberline {8.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Current field status and AI recommendation preview for the monitored irrigation zone.}}{71}{figure.caption.61}%
-\contentsline {figure}{\numberline {8.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Pump and actuator control interface with WeMos status and weather station summary.}}{71}{figure.caption.62}%
-\contentsline {figure}{\numberline {8.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Forecast workspace used to generate weather-aware irrigation planning decisions.}}{72}{figure.caption.63}%
-\contentsline {figure}{\numberline {8.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin simulation workspace for running what-if irrigation scenarios.}}{73}{figure.caption.64}%
-\contentsline {figure}{\numberline {8.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Moisture projection chart comparing no-irrigation, with-irrigation, and ML-selected trajectories.}}{74}{figure.caption.65}%
-\contentsline {figure}{\numberline {8.8}{\ignorespaces \xpg@aux {}{english}\ignorespaces Irrigation schedules page for planning and managing pump execution events.}}{75}{figure.caption.66}%
-\contentsline {figure}{\numberline {8.9}{\ignorespaces \xpg@aux {}{english}\ignorespaces Validated decisions interface for tracking approved irrigation recommendations.}}{75}{figure.caption.67}%
-\contentsline {figure}{\numberline {8.10}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile application screens providing access to monitoring and irrigation decision functions.}}{76}{figure.caption.68}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Docker Compose service organization of the deployed Agrio platform.}}{80}{figure.caption.69}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Running Docker containers of the deployed Digital Twin smart irrigation platform.}}{80}{figure.caption.70}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Simplified deployment communication flow between frontend, backend, database, ML service, MQTT broker, scheduler, external API, and field devices.}}{81}{figure.caption.71}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Ngrok tunnel used to expose local services for mobile access during prototype testing.}}{84}{figure.caption.73}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Sensor MQTT message received on the sensors/data topic.}}{86}{figure.caption.74}%
-\contentsline {figure}{\numberline {10.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Database persistence proof showing stored sensor readings from MQTT-originated data.}}{87}{figure.caption.75}%
-\contentsline {figure}{\numberline {10.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Dashboard update reflecting the latest stored sensor and Digital Twin data.}}{87}{figure.caption.76}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Complete class diagram of the implemented Digital Twin smart irrigation platform.}}{97}{figure.caption.79}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT-based smart irrigation architecture proposed by Kodali and Sarjerao. Reproduced from Kodali and Sarjerao~\cite {kodali2017mqttirrigation}.}}{11}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Libelium-based precision-agriculture monitoring architecture proposed by Balaceanu et al. Reproduced from Balaceanu et al.~\cite {balaceanu2019libelium}.}}{12}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin workflow for water-efficient irrigation management in a processing tomato farm. Reproduced from Millan et al.~\cite {millan2025tomatodt}.}}{13}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Deep reinforcement-learning agent interactions with the R3 Digital Twin. Reproduced from El Hachimi et al.~\cite {elhachimi2025collectiveirrigationdt}.}}{14}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Interoperable agricultural Digital Twin concept connecting calibrated models, reinforcement-learning agents, physical twins, and a context broker. Reproduced from Kallenberg et al.~\cite {kallenberg2025interoperabledt}.}}{15}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Coupled cotton morphogenesis and biomass models under water constraints. Reproduced unchanged from Liu et al.~\cite {liu2025cottondt}.}}{16}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Complete database ERD of the \texttt {smart\_irrigation} schema.}}{100}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Use-case diagram of the proposed Digital Twin smart irrigation system.}}{30}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Activity diagram of sensor ingestion, Digital Twin update, AI decision-making, and pump control.}}{32}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Sequence diagram of sensor ingestion, Digital Twin update, ML prediction, dashboard polling, and WeMos actuator command.}}{33}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Agricultural domain class diagram representing farms, plots, zones, soil profiles, crops, and irrigation networks.}}{34}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Sensor, weather, and forecasting data model used by the smart irrigation platform.}}{34}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin, prediction, and simulation data model.}}{35}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Decision, recommendation, scheduling, command, and feedback data model.}}{36}{figure.caption.30}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Global overview of the Agrio Digital Twin smart irrigation architecture.}}{38}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Physical and communication architecture of the controlled smart irrigation prototype.}}{39}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT communication architecture for sensor ingestion, actuator commands, and WeMos status feedback.}}{40}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Internal backend architecture of the FastAPI-based Digital Twin platform.}}{41}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Compile-safe placeholder for the MAS decision-support architecture.}}{42}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin processing workflow from live measurements to prediction, simulation, and supervised irrigation action.}}{43}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Docker Compose deployment architecture of the Agrio platform.}}{44}{figure.caption.38}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT and REST payloads used in the Agrio platform: sensor ingestion payload.}}{48}{figure.caption.40}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT and REST payloads used in the Agrio platform: WeMos status feedback payload.}}{49}{figure.caption.41}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces MQTT and REST payloads used in the Agrio platform: actuator command payload and command values.}}{49}{figure.caption.42}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the agricultural structure tables.}}{52}{figure.caption.44}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the sensor, weather, and forecasting tables.}}{53}{figure.caption.45}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the Digital Twin, prediction, and simulation tables.}}{53}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces ERD of the recommendation, scheduling, command, and feedback tables.}}{54}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces \xpg@aux {}{english}\ignorespaces Live MQTT payloads received through HiveMQ for sensor data and WeMos status.}}{54}{figure.caption.48}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Dataset adaptation and feature engineering workflow used before Random Forest training.}}{57}{figure.caption.49}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Random Forest training and runtime inference pipeline used by the ML service.}}{59}{figure.caption.51}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces ML service health endpoint showing model loading status.}}{60}{figure.caption.52}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces ML prediction response for irrigation need and suggested irrigation hour.}}{60}{figure.caption.53}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin state update flow from sensor readings to synchronized zone state.}}{61}{figure.caption.54}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces What-if simulation logic comparing no-irrigation, with-irrigation, and ML-selected paths.}}{61}{figure.caption.55}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Multi-Agent System architecture for explainable smart irrigation decision support.}}{64}{figure.caption.56}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces \xpg@aux {}{english}\ignorespaces Feature importance of the Random Forest need\_irrigation model.}}{65}{figure.caption.57}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces \xpg@aux {}{english}\ignorespaces Feature importance of the Random Forest suggested\_hour model.}}{65}{figure.caption.58}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces \xpg@aux {}{english}\ignorespaces Confusion matrix of the need\_irrigation Random Forest model.}}{66}{figure.caption.59}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces \xpg@aux {}{english}\ignorespaces Confusion matrix of the suggested\_hour Random Forest model.}}{66}{figure.caption.60}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Agrio operations dashboard showing MQTT connection, active zone coverage, moisture snapshot, sensor health, and Digital Twin status.}}{69}{figure.caption.61}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Zone selection panel for inspecting the Digital Twin state, recommendations, commands, and historical data.}}{69}{figure.caption.62}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Current field status and AI recommendation preview for the monitored irrigation zone.}}{70}{figure.caption.63}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Pump and actuator control interface with WeMos status and weather station summary.}}{70}{figure.caption.64}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces Forecast workspace used to generate weather-aware irrigation planning decisions.}}{71}{figure.caption.65}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Digital Twin simulation workspace for running what-if irrigation scenarios.}}{72}{figure.caption.66}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Moisture projection chart comparing no-irrigation, with-irrigation, and ML-selected trajectories.}}{72}{figure.caption.67}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces \xpg@aux {}{english}\ignorespaces Irrigation schedules page for planning and managing pump execution events.}}{73}{figure.caption.68}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces \xpg@aux {}{english}\ignorespaces Validated decisions interface for tracking approved irrigation recommendations.}}{73}{figure.caption.69}%
+\contentsline {figure}{\numberline {8.10}{\ignorespaces \xpg@aux {}{english}\ignorespaces The MAS decision interface showing input fields, final irrigation decision, confidence, risk level, explanation, and evidence cards.}}{74}{figure.caption.70}%
+\contentsline {figure}{\numberline {8.11}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile access screen used to connect to the Agrio workspace.}}{75}{figure.caption.71}%
+\contentsline {figure}{\numberline {8.12}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile dashboard overview presenting the monitored irrigation zone and system status.}}{76}{figure.caption.72}%
+\contentsline {figure}{\numberline {8.13}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile monitoring screen showing weather, controller status, and field-zone measurements.}}{77}{figure.caption.73}%
+\contentsline {figure}{\numberline {8.14}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile recommendation screen displaying irrigation need, suggested timing, and moisture history.}}{78}{figure.caption.74}%
+\contentsline {figure}{\numberline {8.15}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile decision-support screen presenting planned irrigation, simulation output, and validation controls.}}{79}{figure.caption.75}%
+\contentsline {figure}{\numberline {8.16}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile irrigation schedule screen showing planned and executed watering actions.}}{80}{figure.caption.76}%
+\contentsline {figure}{\numberline {8.17}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile weather-planning screen used to generate an irrigation forecast and water-deficit summary.}}{81}{figure.caption.77}%
+\contentsline {figure}{\numberline {8.18}{\ignorespaces \xpg@aux {}{english}\ignorespaces Mobile actuator-control screen allowing supervised pump and lamp commands during prototype testing.}}{82}{figure.caption.78}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Docker Compose service organization of the deployed Agrio platform.}}{85}{figure.caption.79}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Running Docker containers of the deployed Digital Twin smart irrigation platform.}}{85}{figure.caption.80}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Simplified deployment communication flow between frontend, backend, database, ML service, MQTT broker, scheduler, external API, and field devices.}}{86}{figure.caption.81}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Ngrok tunnel used to expose local services for mobile access during prototype testing.}}{89}{figure.caption.83}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Sensor MQTT message received on the sensors/data topic.}}{91}{figure.caption.84}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Database persistence proof showing stored sensor readings from MQTT-originated data.}}{91}{figure.caption.85}%
+\contentsline {figure}{\numberline {10.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Dashboard update reflecting the latest stored sensor and Digital Twin data.}}{92}{figure.caption.86}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Complete class diagram of the implemented Digital Twin smart irrigation platform.}}{100}{figure.caption.89}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Complete database ERD of the \texttt {smart\_irrigation} schema.}}{103}{figure.caption.90}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
